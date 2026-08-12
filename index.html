@@ -3,17 +3,332 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tutorat IFSI France</title>
+
+    <title>CESIREVISE</title>
+
+    <!-- Police League Spartan -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bleu-cesir: #77A5AA;
+            --noir: #111111;
+            --blanc: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--blanc);
+            color: var(--noir);
+            font-family: "League Spartan", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* -------------------------
+           INTRODUCTION
+        ------------------------- */
+
+        .intro {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 60px 25px;
+            position: relative;
+        }
+
+        .logo {
+            width: min(360px, 75vw);
+            height: auto;
+            margin-bottom: 45px;
+        }
+
+        .presentation {
+            max-width: 750px;
+            font-size: 20px;
+            line-height: 1.6;
+            font-weight: 400;
+        }
+
+        /* -------------------------
+           NAVIGATION
+        ------------------------- */
+
+        .navigation {
+            position: relative;
+            min-height: 1000px;
+            width: 100%;
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 40px 150px;
+        }
+
+        /* Le grand serpentin */
+
+        .serpentin {
+            position: absolute;
+            inset: 100px 70px 100px 70px;
+            width: calc(100% - 140px);
+            height: calc(100% - 200px);
+            pointer-events: none;
+        }
+
+        .serpentin path {
+            fill: none;
+            stroke: var(--bleu-cesir);
+            stroke-width: 4;
+            stroke-linecap: round;
+        }
+
+        /* -------------------------
+           BULLES
+        ------------------------- */
+
+        .bulle {
+            position: absolute;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            width: 210px;
+            height: 130px;
+
+            border-radius: 50%;
+            background: var(--bleu-cesir);
+            color: var(--blanc);
+
+            text-decoration: none;
+            text-align: center;
+
+            font-size: 25px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+
+            transition: transform 0.25s ease,
+                        background 0.25s ease;
+        }
+
+        .bulle:hover {
+            transform: scale(1.06);
+            background: var(--noir);
+        }
+
+        .fiches {
+            top: 80px;
+            left: 3%;
+        }
+
+        .conferences {
+            top: 220px;
+            right: 3%;
+        }
+
+        .specialites {
+            top: 420px;
+            right: 5%;
+        }
+
+        .rejoindre {
+            top: 610px;
+            left: 8%;
+        }
+
+        .contact {
+            top: 820px;
+            right: 8%;
+        }
+
+        /* -------------------------
+           PETITES FORMES
+        ------------------------- */
+
+        .petite-bulle {
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            background: var(--noir);
+        }
+
+        .petite-bulle.one {
+            top: 160px;
+            left: 35%;
+        }
+
+        .petite-bulle.two {
+            top: 370px;
+            left: 15%;
+        }
+
+        .petite-bulle.three {
+            top: 550px;
+            right: 25%;
+        }
+
+        .petite-bulle.four {
+            top: 750px;
+            left: 35%;
+        }
+
+        /* -------------------------
+           MOBILE / TABLETTE
+        ------------------------- */
+
+        @media (max-width: 700px) {
+
+            .intro {
+                min-height: auto;
+                padding-top: 80px;
+                padding-bottom: 80px;
+            }
+
+            .logo {
+                width: min(300px, 80vw);
+                margin-bottom: 35px;
+            }
+
+            .presentation {
+                font-size: 18px;
+            }
+
+            .navigation {
+                min-height: 1200px;
+                padding: 50px 20px 100px;
+            }
+
+            .serpentin {
+                inset: 80px 25px 80px 25px;
+                width: calc(100% - 50px);
+            }
+
+            .bulle {
+                width: 165px;
+                height: 105px;
+                font-size: 21px;
+            }
+
+            .fiches {
+                left: 0;
+            }
+
+            .conferences {
+                right: 0;
+                top: 230px;
+            }
+
+            .specialites {
+                right: 0;
+                top: 450px;
+            }
+
+            .rejoindre {
+                left: 0;
+                top: 670px;
+            }
+
+            .contact {
+                right: 0;
+                top: 900px;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <h1>Tutorat IFSI France</h1>
 
-    <p>La plateforme de révision des étudiants infirmiers.</p>
+    <!-- INTRODUCTION -->
 
-    <button>📚 Cours</button>
-    <button>🧠 Quiz</button>
-    <button>📝 Annales</button>
-    <button>📊 Ma progression</button>
+    <section class="intro">
+
+        <img
+            src="logo-cesirevise.png"
+            alt="Logo CESIREVISE"
+            class="logo"
+        >
+
+        <p class="presentation">
+            Cesirevise est une branche du BDE de l’IFSI de Pontchaillou
+            à Rennes, nommé CESIR.
+            <br><br>
+            Il permet aux étudiant·e·s infirmier·e·s de se retrouver
+            dans nos différentes manières de réviser, de s’orienter
+            ou de s’identifier en tant qu’élève et futur·e infirmier·e.
+        </p>
+
+    </section>
+
+
+    <!-- NAVIGATION -->
+
+    <section class="navigation">
+
+        <!-- Serpentin -->
+
+        <svg
+            class="serpentin"
+            viewBox="0 0 1000 900"
+            preserveAspectRatio="none"
+            aria-hidden="true"
+        >
+
+            <path d="
+                M 120 80
+                C 350 80, 650 80, 850 180
+                C 950 230, 950 330, 820 390
+                C 650 470, 350 430, 150 550
+                C 40 620, 80 720, 250 760
+                C 450 810, 700 720, 850 840
+            "/>
+
+        </svg>
+
+
+        <!-- Petites bulles décoratives -->
+
+        <span class="petite-bulle one"></span>
+        <span class="petite-bulle two"></span>
+        <span class="petite-bulle three"></span>
+        <span class="petite-bulle four"></span>
+
+
+        <!-- Grandes bulles -->
+
+        <a href="#" class="bulle fiches">
+            FICHES
+        </a>
+
+        <a href="#" class="bulle conferences">
+            CONFÉRENCES
+        </a>
+
+        <a href="#" class="bulle specialites">
+            FORUM DES<br>
+            SPÉCIALITÉS
+        </a>
+
+        <a href="#" class="bulle rejoindre">
+            NOUS<br>
+            REJOINDRE
+        </a>
+
+        <a href="#" class="bulle contact">
+            NOUS<br>
+            CONTACTER
+        </a>
+
+    </section>
+
 </body>
 </html>
