@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Fiches — CESIREVISE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --bleu-cesir: #77A5AA;
+            --bleu-clair: #EAF3F4;
+            --noir: #111111;
+            --blanc: #FFFFFF;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            margin: 0;
+            background: var(--blanc);
+            color: var(--noir);
+            font-family: "League Spartan", sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* -------------------------
+           EN-TÊTE
+        ------------------------- */
+
+        header {
+            padding: 35px 25px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            width: min(250px, 65vw);
+            height: auto;
+        }
+
+        /* -------------------------
+           TITRE
+        ------------------------- */
+
+        .titre {
+            text-align: center;
+            padding: 45px 25px 30px;
+        }
+
+        .titre h1 {
+            margin: 0;
+            color: var(--bleu-cesir);
+            font-size: clamp(42px, 8vw, 70px);
+            font-weight: 700;
+        }
+
+        .titre p {
+            max-width: 650px;
+            margin: 20px auto 0;
+            font-size: 20px;
+            line-height: 1.5;
+        }
+
+        /* -------------------------
+           CATÉGORIES
+        ------------------------- */
+
+        .categories {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 40px 25px 100px;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 35px;
+        }
+
+        .categorie {
+            min-height: 180px;
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            background: var(--bleu-clair);
+            border: 3px solid var(--bleu-cesir);
+            border-radius: 35px;
+
+            text-decoration: none;
+            color: var(--noir);
+
+            transition:
+                transform 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .categorie:hover {
+            transform: translateY(-7px);
+            background: var(--blanc);
+            box-shadow: 0 12px 30px rgba(119, 165, 170, 0.25);
+        }
+
+        .categorie h2 {
+            margin: 0 0 10px;
+            color: var(--bleu-cesir);
+            font-size: 28px;
+        }
+
+        .categorie p {
+            margin: 0;
+            font-size: 17px;
+            line-height: 1.4;
+        }
+
+        /* -------------------------
+           RETOUR
+        ------------------------- */
+
+        .retour {
+            display: block;
+            width: fit-content;
+            margin: 0 auto 70px;
+
+            padding: 15px 30px;
+
+            border-radius: 30px;
+            background: var(--noir);
+            color: var(--blanc);
+
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 600;
+
+            transition: transform 0.25s ease;
+        }
+
+        .retour:hover {
+            transform: scale(1.05);
+        }
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 700px) {
+
+            .categories {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .categorie {
+                min-height: 160px;
+            }
+
+            .titre p {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <img
+            src="logo-cesirevise.png"
+            alt="Logo CESIREVISE"
+            class="logo"
+        >
+    </header>
+
+    <main>
+
+        <section class="titre">
+
+            <h1>FICHES</h1>
+
+            <p>
+                Retrouve ici les fiches de révision créées pour
+                accompagner les étudiant·e·s infirmier·ère·s
+                dans leurs révisions.
+            </p>
+
+        </section>
+
+        <section class="categories">
+
+            <a href="#" class="categorie">
+                <h2>UE 1</h2>
+                <p>Sciences humaines, sociales et droit</p>
+            </a>
+
+            <a href="#" class="categorie">
+                <h2>UE 2</h2>
+                <p>Sciences biologiques et médicales</p>
+            </a>
+
+            <a href="#" class="categorie">
+                <h2>UE 3</h2>
+                <p>Sciences et techniques infirmières, fondements et méthodes</p>
+            </a>
+
+            <a href="#" class="categorie">
+                <h2>UE 4</h2>
+                <p>Sciences et techniques infirmières, interventions</p>
+            </a>
+
+            <a href="#" class="categorie">
+                <h2>UE 5</h2>
+                <p>Intégration des savoirs et posture professionnelle infirmière</p>
+            </a>
+
+            <a href="#" class="categorie">
+                <h2>UE 6</h2>
+                <p>Méthodes de travail et technologies de l'information</p>
+            </a>
+
+        </section>
+
+        <a href="index.html" class="retour">
+            ← Retour à l'accueil
+        </a>
+
+    </main>
+
+</body>
+</html>
