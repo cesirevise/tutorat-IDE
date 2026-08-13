@@ -9,208 +9,115 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <style>
 
         :root {
             --bleu: #77A5AA;
-            --fond: #F5FAFA;
             --blanc: #FFFFFF;
             --noir: #111111;
         }
-
 
         * {
             box-sizing: border-box;
         }
 
-
         html,
         body {
             margin: 0;
             width: 100%;
-            min-height: 100%;
-
-            background: var(--fond);
-
-            color: var(--noir);
-
+            height: 100%;
+            overflow: hidden;
             font-family: "League Spartan", sans-serif;
-
-            overflow-x: hidden;
+            background: #111;
         }
 
+        /* =========================================
+           CARROUSEL
+        ========================================= */
 
-        /* ==========================================
-           PAGE
-        ========================================== */
-
-        .forum {
-
-            min-height: 100vh;
-
-            padding: 55px 30px 80px;
+        .carrousel {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+            touch-action: pan-y;
         }
 
+        .slides {
+            display: flex;
+            width: 100%;
+            height: 100%;
 
-        /* ==========================================
-           TITRE
-        ========================================== */
-
-        .titre {
-
-            text-align: center;
-
-            margin-bottom: 50px;
+            transition:
+                transform 0.55s cubic-bezier(0.77, 0, 0.18, 1);
         }
 
-
-        .titre h1 {
-
-            margin: 0;
-
-            color: var(--bleu);
-
-            font-family: "League Spartan", sans-serif;
-
-            font-size: clamp(38px, 6vw, 65px);
-
-            font-weight: 800;
-
-            letter-spacing: -1px;
-        }
-
-
-        .titre p {
-
-            max-width: 650px;
-
-            margin: 18px auto 0;
-
-            font-size: 18px;
-
-            line-height: 1.45;
-
-            font-weight: 500;
-        }
-
-
-        /* ==========================================
-           GRILLE
-        ========================================== */
-
-        .specialites {
-
-            max-width: 1150px;
-
-            margin: 0 auto;
-
-            display: grid;
-
-            grid-template-columns:
-                repeat(2, 1fr);
-
-            gap: 28px;
-        }
-
-
-        /* ==========================================
-           CARTE MÉTIER
-        ========================================== */
-
-        .metier {
-
+        .slide {
             position: relative;
 
-            min-height: 310px;
+            flex: 0 0 100%;
+            width: 100vw;
+            height: 100vh;
 
             overflow: hidden;
 
-            border-radius: 32px;
-
-            text-decoration: none;
-
-            color: var(--blanc);
-
-            box-shadow:
-                0 18px 35px rgba(0,0,0,0.14);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
-
-
-        .metier:hover {
-
-            transform: scale(1.025);
-
-            box-shadow:
-                0 25px 45px rgba(0,0,0,0.20);
-        }
-
-
-        /* ==========================================
-           IMAGE DE FOND
-        ========================================== */
-
-        .metier-photo {
-
-            position: absolute;
-
-            inset: 0;
-
             background-size: cover;
-
             background-position: center;
-
-            transition:
-                transform 0.5s ease;
         }
 
+        /* =========================================
+           ASSOMBRISSEMENT DES PHOTOS
+        ========================================= */
 
-        .metier:hover .metier-photo {
-
-            transform: scale(1.04);
-        }
-
-
-        /* ==========================================
-           VOILE SUR LA PHOTO
-        ========================================== */
-
-        .metier-photo::after {
-
+        .slide::after {
             content: "";
 
             position: absolute;
-
             inset: 0;
 
             background:
                 linear-gradient(
                     to bottom,
-                    rgba(0,0,0,0.15),
-                    rgba(0,0,0,0.55)
+                    rgba(0,0,0,0.12) 0%,
+                    rgba(0,0,0,0.18) 45%,
+                    rgba(0,0,0,0.62) 100%
                 );
+
+            pointer-events: none;
         }
 
+        /* =========================================
+           CONTENU DU SLIDE
+        ========================================= */
 
-        /* ==========================================
-           NOM DU MÉTIER
-        ========================================== */
-
-        .metier-nom {
-
+        .contenu-slide {
             position: absolute;
 
-            left: 30px;
-
-            bottom: 25px;
-
             z-index: 2;
+
+            left: 0;
+            right: 0;
+            bottom: 105px;
+
+            display: flex;
+            justify-content: center;
+
+            padding: 20px;
+        }
+
+        /* =========================================
+           BOUTON DU MÉTIER
+        ========================================= */
+
+        .bouton-metier {
+
+            border: 2px solid rgba(255,255,255,0.9);
+
+            background: rgba(255,255,255,0.08);
+
+            backdrop-filter: blur(5px);
 
             color: white;
 
@@ -218,73 +125,229 @@
                 "League Spartan",
                 sans-serif;
 
-            font-size: 38px;
+            font-size: clamp(30px, 5vw, 55px);
 
             font-weight: 800;
 
-            line-height: 1;
+            letter-spacing: 0.5px;
+
+            padding: 14px 35px 17px;
+
+            border-radius: 18px;
+
+            cursor: pointer;
 
             text-shadow:
-                0 3px 10px rgba(0,0,0,0.45);
+                0 3px 10px rgba(0,0,0,0.5);
+
+            box-shadow:
+                0 8px 25px rgba(0,0,0,0.18);
+
+            transition:
+                background 0.25s ease,
+                transform 0.25s ease;
         }
 
+        .bouton-metier:hover {
+            background: rgba(255,255,255,0.18);
+            transform: scale(1.04);
+        }
 
-        /* ==========================================
+        .bouton-metier:active {
+            transform: scale(0.97);
+        }
+
+        /* =========================================
+           PETITS POINTS
+        ========================================= */
+
+        .points {
+
+            position: absolute;
+
+            z-index: 5;
+
+            bottom: 30px;
+
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 9px;
+        }
+
+        .point {
+
+            width: 8px;
+            height: 8px;
+
+            border-radius: 50%;
+
+            border: none;
+
+            padding: 0;
+
+            background: rgba(255,255,255,0.45);
+
+            cursor: pointer;
+
+            transition:
+                width 0.25s ease,
+                background 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .point.actif {
+
+            width: 24px;
+
+            border-radius: 10px;
+
+            background: white;
+
+            transform: scale(1.05);
+        }
+
+        /* =========================================
+           FICHE QUI MONTE
+        ========================================= */
+
+        .fiche {
+
+            position: fixed;
+
+            z-index: 20;
+
+            inset: 0;
+
+            background: #F5FAFA;
+
+            transform: translateY(100%);
+
+            transition:
+                transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
+
+            overflow-y: auto;
+
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .fiche.ouverte {
+
+            transform: translateY(0);
+        }
+
+        .fiche-contenu {
+
+            min-height: 100vh;
+
+            padding:
+                45px
+                max(25px, 7vw)
+                70px;
+
+            max-width: 1000px;
+
+            margin: auto;
+        }
+
+        .fermer {
+
+            position: fixed;
+
+            z-index: 30;
+
+            top: 22px;
+            right: 25px;
+
+            width: 45px;
+            height: 45px;
+
+            border: none;
+
+            border-radius: 50%;
+
+            background: var(--bleu);
+
+            color: white;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 8px 20px rgba(0,0,0,0.15);
+        }
+
+        .fiche h2 {
+
+            margin: 0 55px 35px 0;
+
+            color: var(--bleu);
+
+            font-size: clamp(42px, 7vw, 72px);
+
+            font-weight: 800;
+
+            line-height: 0.95;
+        }
+
+        .fiche h3 {
+
+            color: var(--bleu);
+
+            font-size: 27px;
+
+            margin-top: 35px;
+            margin-bottom: 10px;
+        }
+
+        .fiche p {
+
+            font-size: 19px;
+
+            line-height: 1.55;
+
+            margin: 0 0 15px;
+        }
+
+        /* =========================================
            MOBILE
-        ========================================== */
+        ========================================= */
 
         @media (max-width: 700px) {
 
-            .forum {
+            .contenu-slide {
+                bottom: 90px;
+            }
+
+            .bouton-metier {
+
+                font-size: 30px;
 
                 padding:
-                    35px 15px 55px;
+                    12px 27px
+                    15px;
             }
 
-
-            .titre {
-
-                margin-bottom: 35px;
+            .points {
+                bottom: 25px;
             }
 
-
-            .titre h1 {
-
-                font-size: 38px;
+            .fiche-contenu {
+                padding:
+                    35px 22px 60px;
             }
 
-
-            .titre p {
-
-                font-size: 17px;
+            .fiche p {
+                font-size: 18px;
             }
-
-
-            .specialites {
-
-                grid-template-columns: 1fr;
-
-                gap: 20px;
-            }
-
-
-            .metier {
-
-                min-height: 240px;
-
-                border-radius: 27px;
-            }
-
-
-            .metier-nom {
-
-                left: 23px;
-
-                bottom: 21px;
-
-                font-size: 31px;
-            }
-
         }
 
     </style>
@@ -294,130 +357,523 @@
 <body>
 
 
-    <main class="forum">
+<div class="carrousel">
+
+    <div class="slides" id="slides">
 
 
-        <!-- TITRE -->
+        <!-- IADE -->
 
-        <section class="titre">
+        <section
+            class="slide"
+            style="background-image: url('photo-iade.jpg');"
+            data-metier="IADE">
 
-            <h1>
-                FORUM DES SPÉCIALITÉS
-            </h1>
+            <div class="contenu-slide">
 
-            <p>
-                Découvre les différents métiers et spécialisations
-                accessibles après tes études infirmières.
-            </p>
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(0)">
 
-        </section>
-
-
-        <!-- MÉTIERS -->
-
-        <section class="specialites">
-
-
-            <!-- IADE -->
-
-            <a href="iade.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-iade.jpg');">
-                </div>
-
-                <div class="metier-nom">
                     IADE
-                </div>
 
-            </a>
+                </button>
 
-
-            <!-- IBODE -->
-
-            <a href="ibode.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-ibode.jpg');">
-                </div>
-
-                <div class="metier-nom">
-                    IBODE
-                </div>
-
-            </a>
-
-
-            <!-- STOMATHÉRAPEUTE -->
-
-            <a href="stomatherapeute.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-stomatherapeute.jpg');">
-                </div>
-
-                <div class="metier-nom">
-                    STOMATHÉRAPEUTE
-                </div>
-
-            </a>
-
-
-            <!-- IPA -->
-
-            <a href="ipa.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-ipa.jpg');">
-                </div>
-
-                <div class="metier-nom">
-                    IPA
-                </div>
-
-            </a>
-
-
-            <!-- PERFUSIONNISTE -->
-
-            <a href="perfusionniste.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-perfusionniste.jpg');">
-                </div>
-
-                <div class="metier-nom">
-                    PERFUSIONNISTE
-                </div>
-
-            </a>
-
-
-            <!-- IPDE -->
-
-            <a href="ipde.html" class="metier">
-
-                <div
-                    class="metier-photo"
-                    style="background-image: url('photo-ipde.jpg');">
-                </div>
-
-                <div class="metier-nom">
-                    IPDE
-                </div>
-
-            </a>
-
+            </div>
 
         </section>
 
 
-    </main>
+        <!-- IBODE -->
+
+        <section
+            class="slide"
+            style="background-image: url('photo-ibode.jpg');"
+            data-metier="IBODE">
+
+            <div class="contenu-slide">
+
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(1)">
+
+                    IBODE
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- STOMATHÉRAPEUTE -->
+
+        <section
+            class="slide"
+            style="background-image: url('photo-stomatherapeute.jpg');"
+            data-metier="STOMATHÉRAPEUTE">
+
+            <div class="contenu-slide">
+
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(2)">
+
+                    STOMATHÉRAPEUTE
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- IPA -->
+
+        <section
+            class="slide"
+            style="background-image: url('photo-ipa.jpg');"
+            data-metier="IPA">
+
+            <div class="contenu-slide">
+
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(3)">
+
+                    IPA
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERFUSIONNISTE -->
+
+        <section
+            class="slide"
+            style="background-image: url('photo-perfusionniste.jpg');"
+            data-metier="PERFUSIONNISTE">
+
+            <div class="contenu-slide">
+
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(4)">
+
+                    PERFUSIONNISTE
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- IPDE -->
+
+        <section
+            class="slide"
+            style="background-image: url('photo-ipde.jpg');"
+            data-metier="IPDE">
+
+            <div class="contenu-slide">
+
+                <button
+                    class="bouton-metier"
+                    onclick="ouvrirFiche(5)">
+
+                    IPDE
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+    </div>
+
+
+    <!-- POINTS -->
+
+    <div class="points">
+
+        <button class="point" onclick="allerA(0)"></button>
+        <button class="point" onclick="allerA(1)"></button>
+        <button class="point" onclick="allerA(2)"></button>
+        <button class="point" onclick="allerA(3)"></button>
+        <button class="point" onclick="allerA(4)"></button>
+        <button class="point" onclick="allerA(5)"></button>
+
+    </div>
+
+
+</div>
+
+
+<!-- ==========================================
+     FICHE
+========================================== -->
+
+<div class="fiche" id="fiche">
+
+    <button
+        class="fermer"
+        onclick="fermerFiche()">
+
+        ×
+
+    </button>
+
+
+    <div class="fiche-contenu">
+
+        <h2 id="ficheTitre">
+            IADE
+        </h2>
+
+
+        <h3>
+            Découvrir le métier
+        </h3>
+
+        <p>
+            La fiche détaillée de ce métier sera ajoutée ici.
+        </p>
+
+
+        <h3>
+            Formation
+        </h3>
+
+        <p>
+            Les informations sur la formation seront ajoutées ici.
+        </p>
+
+
+        <h3>
+            Missions
+        </h3>
+
+        <p>
+            Les principales missions seront ajoutées ici.
+        </p>
+
+
+    </div>
+
+</div>
+
+
+<script>
+
+    /* =========================================
+       DONNÉES
+    ========================================= */
+
+    const metiers = [
+        "IADE",
+        "IBODE",
+        "STOMATHÉRAPEUTE",
+        "IPA",
+        "PERFUSIONNISTE",
+        "IPDE"
+    ];
+
+
+    let indexActuel =
+        Math.floor(
+            Math.random() * metiers.length
+        );
+
+
+    /* =========================================
+       ÉLÉMENTS
+    ========================================= */
+
+    const slides =
+        document.getElementById("slides");
+
+    const points =
+        document.querySelectorAll(".point");
+
+    const fiche =
+        document.getElementById("fiche");
+
+    const ficheTitre =
+        document.getElementById("ficheTitre");
+
+
+    /* =========================================
+       AFFICHER LE SLIDE
+    ========================================= */
+
+    function afficherSlide() {
+
+        slides.style.transform =
+            `translateX(-${indexActuel * 100}%)`;
+
+        points.forEach(
+            (point, index) => {
+
+                point.classList.toggle(
+                    "actif",
+                    index === indexActuel
+                );
+
+            }
+        );
+    }
+
+
+    /* =========================================
+       ALLER À UN SLIDE
+    ========================================= */
+
+    function allerA(index) {
+
+        indexActuel = index;
+
+        afficherSlide();
+    }
+
+
+    /* =========================================
+       SLIDE SUIVANT
+    ========================================= */
+
+    function suivant() {
+
+        indexActuel++;
+
+        if (indexActuel >= metiers.length) {
+            indexActuel = 0;
+        }
+
+        afficherSlide();
+    }
+
+
+    /* =========================================
+       SLIDE PRÉCÉDENT
+    ========================================= */
+
+    function precedent() {
+
+        indexActuel--;
+
+        if (indexActuel < 0) {
+            indexActuel = metiers.length - 1;
+        }
+
+        afficherSlide();
+    }
+
+
+    /* =========================================
+       OUVRIR LA FICHE
+    ========================================= */
+
+    function ouvrirFiche(index) {
+
+        ficheTitre.textContent =
+            metiers[index];
+
+        fiche.classList.add("ouverte");
+    }
+
+
+    /* =========================================
+       FERMER LA FICHE
+    ========================================= */
+
+    function fermerFiche() {
+
+        fiche.classList.remove("ouverte");
+    }
+
+
+    /* =========================================
+       SWIPE HORIZONTAL
+    ========================================= */
+
+    let debutX = 0;
+    let debutY = 0;
+
+    let finX = 0;
+    let finY = 0;
+
+
+    document.addEventListener(
+        "touchstart",
+        function(e) {
+
+            if (fiche.classList.contains("ouverte")) {
+                return;
+            }
+
+            debutX =
+                e.touches[0].clientX;
+
+            debutY =
+                e.touches[0].clientY;
+
+        },
+        { passive: true }
+    );
+
+
+    document.addEventListener(
+        "touchend",
+        function(e) {
+
+            if (fiche.classList.contains("ouverte")) {
+                return;
+            }
+
+            finX =
+                e.changedTouches[0].clientX;
+
+            finY =
+                e.changedTouches[0].clientY;
+
+            const distanceX =
+                finX - debutX;
+
+            const distanceY =
+                finY - debutY;
+
+
+            /* On ne déclenche
+               que si le mouvement
+               est principalement horizontal */
+
+            if (
+                Math.abs(distanceX) > 60 &&
+                Math.abs(distanceX) > Math.abs(distanceY)
+            ) {
+
+                if (distanceX < 0) {
+                    suivant();
+                } else {
+                    precedent();
+                }
+
+            }
+
+        },
+        { passive: true }
+    );
+
+
+    /* =========================================
+       SOURIS : GLISSER
+    ========================================= */
+
+    let sourisX = 0;
+    let sourisEnCours = false;
+
+
+    document.addEventListener(
+        "mousedown",
+        function(e) {
+
+            if (fiche.classList.contains("ouverte")) {
+                return;
+            }
+
+            sourisX = e.clientX;
+
+            sourisEnCours = true;
+
+        }
+    );
+
+
+    document.addEventListener(
+        "mouseup",
+        function(e) {
+
+            if (!sourisEnCours) {
+                return;
+            }
+
+            sourisEnCours = false;
+
+
+            if (fiche.classList.contains("ouverte")) {
+                return;
+            }
+
+            const distance =
+                e.clientX - sourisX;
+
+
+            if (Math.abs(distance) > 70) {
+
+                if (distance < 0) {
+                    suivant();
+                } else {
+                    precedent();
+                }
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       CLAVIER
+    ========================================= */
+
+    document.addEventListener(
+        "keydown",
+        function(e) {
+
+            if (fiche.classList.contains("ouverte")) {
+
+                if (
+                    e.key === "Escape" ||
+                    e.key === "ArrowDown"
+                ) {
+
+                    fermerFiche();
+
+                }
+
+                return;
+            }
+
+
+            if (e.key === "ArrowRight") {
+                suivant();
+            }
+
+            if (e.key === "ArrowLeft") {
+                precedent();
+            }
+
+            if (e.key === "ArrowUp") {
+
+                ouvrirFiche(indexActuel);
+
+            }
+
+        }
+    );
+
+
+    /* =========================================
+       INITIALISATION
+    ========================================= */
+
+    afficherSlide();
+
+</script>
 
 
 </body>
