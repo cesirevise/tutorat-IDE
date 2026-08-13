@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Forum des spécialités · CESIREVISE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        :root {
+            --bleu: #77A5AA;
+            --fond: #F5FAFA;
+            --blanc: #FFFFFF;
+            --noir: #111111;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html,
+        body {
+            margin: 0;
+            width: 100%;
+            min-height: 100%;
+
+            background: var(--fond);
+
+            color: var(--noir);
+
+            font-family: "League Spartan", sans-serif;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ==========================================
+           PAGE
+        ========================================== */
+
+        .forum {
+
+            min-height: 100vh;
+
+            padding: 55px 30px 80px;
+        }
+
+
+        /* ==========================================
+           TITRE
+        ========================================== */
+
+        .titre {
+
+            text-align: center;
+
+            margin-bottom: 50px;
+        }
+
+
+        .titre h1 {
+
+            margin: 0;
+
+            color: var(--bleu);
+
+            font-family: "League Spartan", sans-serif;
+
+            font-size: clamp(38px, 6vw, 65px);
+
+            font-weight: 800;
+
+            letter-spacing: -1px;
+        }
+
+
+        .titre p {
+
+            max-width: 650px;
+
+            margin: 18px auto 0;
+
+            font-size: 18px;
+
+            line-height: 1.45;
+
+            font-weight: 500;
+        }
+
+
+        /* ==========================================
+           GRILLE
+        ========================================== */
+
+        .specialites {
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 28px;
+        }
+
+
+        /* ==========================================
+           CARTE MÉTIER
+        ========================================== */
+
+        .metier {
+
+            position: relative;
+
+            min-height: 310px;
+
+            overflow: hidden;
+
+            border-radius: 32px;
+
+            text-decoration: none;
+
+            color: var(--blanc);
+
+            box-shadow:
+                0 18px 35px rgba(0,0,0,0.14);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+
+        .metier:hover {
+
+            transform: scale(1.025);
+
+            box-shadow:
+                0 25px 45px rgba(0,0,0,0.20);
+        }
+
+
+        /* ==========================================
+           IMAGE DE FOND
+        ========================================== */
+
+        .metier-photo {
+
+            position: absolute;
+
+            inset: 0;
+
+            background-size: cover;
+
+            background-position: center;
+
+            transition:
+                transform 0.5s ease;
+        }
+
+
+        .metier:hover .metier-photo {
+
+            transform: scale(1.04);
+        }
+
+
+        /* ==========================================
+           VOILE SUR LA PHOTO
+        ========================================== */
+
+        .metier-photo::after {
+
+            content: "";
+
+            position: absolute;
+
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0,0,0,0.15),
+                    rgba(0,0,0,0.55)
+                );
+        }
+
+
+        /* ==========================================
+           NOM DU MÉTIER
+        ========================================== */
+
+        .metier-nom {
+
+            position: absolute;
+
+            left: 30px;
+
+            bottom: 25px;
+
+            z-index: 2;
+
+            color: white;
+
+            font-family:
+                "League Spartan",
+                sans-serif;
+
+            font-size: 38px;
+
+            font-weight: 800;
+
+            line-height: 1;
+
+            text-shadow:
+                0 3px 10px rgba(0,0,0,0.45);
+        }
+
+
+        /* ==========================================
+           MOBILE
+        ========================================== */
+
+        @media (max-width: 700px) {
+
+            .forum {
+
+                padding:
+                    35px 15px 55px;
+            }
+
+
+            .titre {
+
+                margin-bottom: 35px;
+            }
+
+
+            .titre h1 {
+
+                font-size: 38px;
+            }
+
+
+            .titre p {
+
+                font-size: 17px;
+            }
+
+
+            .specialites {
+
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+
+            .metier {
+
+                min-height: 240px;
+
+                border-radius: 27px;
+            }
+
+
+            .metier-nom {
+
+                left: 23px;
+
+                bottom: 21px;
+
+                font-size: 31px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <main class="forum">
+
+
+        <!-- TITRE -->
+
+        <section class="titre">
+
+            <h1>
+                FORUM DES SPÉCIALITÉS
+            </h1>
+
+            <p>
+                Découvre les différents métiers et spécialisations
+                accessibles après tes études infirmières.
+            </p>
+
+        </section>
+
+
+        <!-- MÉTIERS -->
+
+        <section class="specialites">
+
+
+            <!-- IADE -->
+
+            <a href="iade.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-iade.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    IADE
+                </div>
+
+            </a>
+
+
+            <!-- IBODE -->
+
+            <a href="ibode.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-ibode.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    IBODE
+                </div>
+
+            </a>
+
+
+            <!-- STOMATHÉRAPEUTE -->
+
+            <a href="stomatherapeute.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-stomatherapeute.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    STOMATHÉRAPEUTE
+                </div>
+
+            </a>
+
+
+            <!-- IPA -->
+
+            <a href="ipa.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-ipa.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    IPA
+                </div>
+
+            </a>
+
+
+            <!-- PERFUSIONNISTE -->
+
+            <a href="perfusionniste.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-perfusionniste.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    PERFUSIONNISTE
+                </div>
+
+            </a>
+
+
+            <!-- IPDE -->
+
+            <a href="ipde.html" class="metier">
+
+                <div
+                    class="metier-photo"
+                    style="background-image: url('photo-ipde.jpg');">
+                </div>
+
+                <div class="metier-nom">
+                    IPDE
+                </div>
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+</body>
+</html>
