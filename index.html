@@ -6,251 +6,719 @@
 
     <title>CESIREVISE</title>
 
-    <!-- Police League Spartan -->
+    <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 
     <style>
+
         :root {
-            --bleu-cesir: #77A5AA;
+            --bleu: #77A5AA;
+            --bleu-clair: #EAF4F5;
+            --bleu-pale: #F5FAFA;
             --noir: #111111;
             --blanc: #FFFFFF;
         }
+
 
         * {
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
+
             margin: 0;
+
             background: var(--blanc);
+
             color: var(--noir);
+
             font-family: "League Spartan", sans-serif;
+
             overflow-x: hidden;
         }
 
-        /* -------------------------
-           INTRODUCTION
-        ------------------------- */
 
-        .intro {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 60px 25px;
-            position: relative;
-        }
+        /* =====================================================
+           DÉCORATION GÉNÉRALE
+        ===================================================== */
 
-        .logo {
-            width: min(360px, 75vw);
-            height: auto;
-            margin-bottom: 45px;
-        }
+        .decorations {
 
-        .presentation {
-            max-width: 750px;
-            font-size: 20px;
-            line-height: 1.6;
-            font-weight: 400;
-        }
+            position: absolute;
 
-        /* -------------------------
-           NAVIGATION
-        ------------------------- */
+            inset: 0;
 
-        .navigation {
-            position: relative;
-            min-height: 1000px;
             width: 100%;
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 80px 40px 150px;
-        }
 
-        /* Le grand serpentin */
+            height: 100%;
 
-        .serpentin {
-            position: absolute;
-            inset: 100px 70px 100px 70px;
-            width: calc(100% - 140px);
-            height: calc(100% - 200px);
             pointer-events: none;
+
+            overflow: hidden;
+
+            z-index: 0;
         }
 
-        .serpentin path {
-            fill: none;
-            stroke: var(--bleu-cesir);
-            stroke-width: 4;
-            stroke-linecap: round;
-        }
 
-        /* -------------------------
-           BULLES
-        ------------------------- */
+        /* Grande courbe décorative */
 
-        .bulle {
+        .courbe {
+
             position: absolute;
-            display: flex;
-            align-items: center;
-            justify-content: center;
 
-            width: 210px;
-            height: 130px;
+            width: 900px;
+
+            height: 900px;
+
+            border: 2px solid rgba(119, 165, 170, 0.18);
 
             border-radius: 50%;
-            background: var(--bleu-cesir);
-            color: var(--blanc);
 
-            text-decoration: none;
-            text-align: center;
+            left: -520px;
 
-            font-size: 25px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
+            top: 350px;
 
-            transition: transform 0.25s ease,
-                        background 0.25s ease;
+            transform: rotate(-20deg);
         }
 
-        .bulle:hover {
-            transform: scale(1.06);
-            background: var(--noir);
+
+        .courbe::after {
+
+            content: "";
+
+            position: absolute;
+
+            width: 850px;
+
+            height: 850px;
+
+            border: 2px solid rgba(119, 165, 170, 0.10);
+
+            border-radius: 50%;
+
+            left: 45px;
+
+            top: 45px;
         }
 
-        .fiches {
-            top: 80px;
-            left: 3%;
+
+        /* Grande forme douce à droite */
+
+        .forme {
+
+            position: absolute;
+
+            width: 500px;
+
+            height: 500px;
+
+            right: -280px;
+
+            top: 250px;
+
+            border-radius: 50%;
+
+            background: var(--bleu-clair);
+
+            opacity: 0.7;
         }
 
-        .conferences {
-            top: 220px;
-            right: 3%;
+
+        /* Ligne courbée */
+
+        .ligne {
+
+            position: absolute;
+
+            width: 650px;
+
+            height: 180px;
+
+            border-top: 3px solid rgba(119, 165, 170, 0.20);
+
+            border-radius: 50%;
+
+            right: -130px;
+
+            top: 780px;
+
+            transform: rotate(-8deg);
         }
 
-        .specialites {
-            top: 420px;
-            right: 5%;
+
+        /* =====================================================
+           PETITS POINTS DÉCORATIFS
+        ===================================================== */
+
+        .point {
+
+            position: absolute;
+
+            width: 12px;
+
+            height: 12px;
+
+            border-radius: 50%;
+
+            background: var(--bleu);
+
+            opacity: 0.45;
         }
 
-        .rejoindre {
-            top: 610px;
+
+        .point.p1 {
+            top: 170px;
             left: 8%;
         }
 
-        .contact {
-            top: 820px;
+
+        .point.p2 {
+            top: 310px;
+            right: 10%;
+            width: 18px;
+            height: 18px;
+        }
+
+
+        .point.p3 {
+            top: 620px;
+            left: 7%;
+            width: 9px;
+            height: 9px;
+        }
+
+
+        .point.p4 {
+            top: 890px;
             right: 8%;
+            width: 14px;
+            height: 14px;
         }
 
-        /* -------------------------
-           PETITES FORMES
-        ------------------------- */
 
-        .petite-bulle {
+        .point.p5 {
+            top: 1080px;
+            left: 18%;
+            width: 8px;
+            height: 8px;
+        }
+
+
+        /* =====================================================
+           INTRODUCTION
+        ===================================================== */
+
+        .intro {
+
+            min-height: 100vh;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            padding: 70px 25px 100px;
+
+            position: relative;
+
+            z-index: 1;
+        }
+
+
+        /* petit texte supérieur */
+
+        .petit-titre {
+
+            margin-bottom: 20px;
+
+            color: var(--bleu);
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            letter-spacing: 3px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* LOGO */
+
+        .logo {
+
+            width: min(380px, 78vw);
+
+            height: auto;
+
+            margin-bottom: 35px;
+
+            filter:
+                drop-shadow(
+                    0 15px 25px
+                    rgba(119, 165, 170, 0.18)
+                );
+        }
+
+
+        /* Présentation */
+
+        .presentation {
+
+            max-width: 720px;
+
+            margin: 0;
+
+            padding: 25px 30px;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            border-radius: 35px;
+
+            font-size: 20px;
+
+            line-height: 1.6;
+
+            box-shadow:
+                0 15px 40px
+                rgba(0, 0, 0, 0.05);
+        }
+
+
+        /* =====================================================
+           PETIT INDICATEUR VERS LA NAVIGATION
+        ===================================================== */
+
+        .scroll {
+
+            margin-top: 50px;
+
+            display: flex;
+
+            flex-direction: column;
+
+            align-items: center;
+
+            gap: 8px;
+
+            color: var(--bleu);
+
+            font-size: 15px;
+
+            font-weight: 600;
+
+            letter-spacing: 1px;
+        }
+
+
+        .scroll::after {
+
+            content: "";
+
+            width: 2px;
+
+            height: 45px;
+
+            background: var(--bleu);
+
+            opacity: 0.45;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .navigation {
+
+            position: relative;
+
+            min-height: 1050px;
+
+            width: 100%;
+
+            max-width: 1100px;
+
+            margin: 0 auto;
+
+            padding: 100px 40px 150px;
+
+            z-index: 2;
+        }
+
+
+        /* =====================================================
+           SERPENTIN
+        ===================================================== */
+
+        .serpentin {
+
             position: absolute;
-            width: 25px;
-            height: 25px;
+
+            inset: 90px 70px 100px 70px;
+
+            width: calc(100% - 140px);
+
+            height: calc(100% - 190px);
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        .serpentin path {
+
+            fill: none;
+
+            stroke: var(--bleu);
+
+            stroke-width: 3;
+
+            stroke-linecap: round;
+
+            opacity: 0.35;
+        }
+
+
+        /* =====================================================
+           BULLES
+        ===================================================== */
+
+        .bulle {
+
+            position: absolute;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            width: 250px;
+
+            height: 155px;
+
             border-radius: 50%;
+
+            background: var(--bleu);
+
+            color: var(--blanc);
+
+            text-decoration: none;
+
+            text-align: center;
+
+            font-size: 28px;
+
+            font-weight: 700;
+
+            letter-spacing: 0.5px;
+
+            box-shadow:
+                0 18px 35px rgba(0, 0, 0, 0.14),
+                inset 0 -8px 0 rgba(0, 0, 0, 0.06);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+
+            z-index: 3;
+        }
+
+
+        .bulle:hover {
+
+            transform: scale(1.07) rotate(-2deg);
+
             background: var(--noir);
+
+            box-shadow:
+                0 25px 45px rgba(0, 0, 0, 0.20);
         }
 
-        .petite-bulle.one {
-            top: 160px;
-            left: 35%;
+
+        .fiches {
+            top: 65px;
+            left: 2%;
         }
 
-        .petite-bulle.two {
-            top: 370px;
-            left: 15%;
+
+        .conferences {
+            top: 220px;
+            right: 2%;
         }
 
-        .petite-bulle.three {
-            top: 550px;
-            right: 25%;
+
+        .specialites {
+            top: 430px;
+            right: 4%;
         }
 
-        .petite-bulle.four {
-            top: 750px;
-            left: 35%;
+
+        .rejoindre {
+            top: 640px;
+            left: 7%;
         }
 
-        /* -------------------------
-           MOBILE / TABLETTE
-        ------------------------- */
+
+        .contact {
+            top: 850px;
+            right: 7%;
+        }
+
+
+        /* =====================================================
+           PETITS ÉLÉMENTS SUR LE SERPENTIN
+        ===================================================== */
+
+        .mini-point {
+
+            position: absolute;
+
+            width: 18px;
+
+            height: 18px;
+
+            border-radius: 50%;
+
+            background: var(--bleu);
+
+            opacity: 0.55;
+
+            z-index: 2;
+        }
+
+
+        .mini-point.one {
+            top: 185px;
+            left: 42%;
+        }
+
+
+        .mini-point.two {
+            top: 360px;
+            left: 18%;
+            width: 11px;
+            height: 11px;
+        }
+
+
+        .mini-point.three {
+            top: 560px;
+            right: 27%;
+            width: 14px;
+            height: 14px;
+        }
+
+
+        .mini-point.four {
+            top: 765px;
+            left: 39%;
+            width: 9px;
+            height: 9px;
+        }
+
+
+        /* =====================================================
+           BAS DE PAGE
+        ===================================================== */
+
+        .fin {
+
+            text-align: center;
+
+            padding: 50px 25px 90px;
+
+            position: relative;
+
+            z-index: 2;
+        }
+
+
+        .fin p {
+
+            margin: 0;
+
+            color: var(--bleu);
+
+            font-size: 17px;
+
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
 
         @media (max-width: 700px) {
 
             .intro {
+
                 min-height: auto;
-                padding-top: 80px;
+
+                padding-top: 65px;
+
                 padding-bottom: 80px;
             }
 
-            .logo {
-                width: min(300px, 80vw);
-                margin-bottom: 35px;
+
+            .petit-titre {
+
+                font-size: 15px;
+
+                letter-spacing: 2px;
             }
+
+
+            .logo {
+
+                width: min(310px, 80vw);
+            }
+
 
             .presentation {
+
                 font-size: 18px;
+
+                padding: 22px;
             }
+
 
             .navigation {
+
                 min-height: 1200px;
-                padding: 50px 20px 100px;
+
+                padding: 70px 15px 100px;
             }
+
 
             .serpentin {
-                inset: 80px 25px 80px 25px;
-                width: calc(100% - 50px);
+
+                inset: 75px 20px 80px 20px;
+
+                width: calc(100% - 40px);
             }
 
+
             .bulle {
-                width: 165px;
-                height: 105px;
+
+                width: 185px;
+
+                height: 120px;
+
                 font-size: 21px;
             }
 
+
             .fiches {
-                left: 0;
+                left: -2%;
             }
+
 
             .conferences {
-                right: 0;
-                top: 230px;
+                right: -2%;
+                top: 245px;
             }
+
 
             .specialites {
-                right: 0;
-                top: 450px;
+                right: -2%;
+                top: 470px;
             }
+
 
             .rejoindre {
-                left: 0;
-                top: 670px;
+                left: -2%;
+                top: 700px;
             }
 
+
             .contact {
-                right: 0;
-                top: 900px;
+                right: -2%;
+                top: 930px;
+            }
+
+
+            .courbe {
+
+                width: 600px;
+
+                height: 600px;
+
+                left: -420px;
+
+                top: 600px;
+            }
+
+
+            .forme {
+
+                width: 350px;
+
+                height: 350px;
+
+                right: -220px;
+
+                top: 450px;
             }
         }
+
     </style>
 </head>
 
+
 <body>
 
-    <!-- INTRODUCTION -->
+
+    <!-- =====================================================
+         DÉCORATIONS
+    ===================================================== -->
+
+    <div class="decorations">
+
+        <span class="courbe"></span>
+
+        <span class="forme"></span>
+
+        <span class="ligne"></span>
+
+        <span class="point p1"></span>
+        <span class="point p2"></span>
+        <span class="point p3"></span>
+        <span class="point p4"></span>
+        <span class="point p5"></span>
+
+    </div>
+
+
+    <!-- =====================================================
+         INTRODUCTION
+    ===================================================== -->
 
     <section class="intro">
+
+        <div class="petit-titre">
+            IFSI · PONTCHAILLOU · RENNES
+        </div>
+
 
         <img
             src="logo-cesirevise.png"
@@ -258,23 +726,36 @@
             class="logo"
         >
 
+
         <p class="presentation">
-            Cesirevise est une branche du BDE de l’IFSI de Pontchaillou
-            à Rennes, nommé CESIR.
+
+            Cesirevise est une branche du BDE de l’IFSI
+            de Pontchaillou à Rennes, nommé CESIR.
+
             <br><br>
-            Il permet aux étudiant·e·s infirmier·e·s de se retrouver
-            dans nos différentes manières de réviser, de s’orienter
-            ou de s’identifier en tant qu’élève et futur·e infirmier·e.
+
+            Un espace pensé par et pour les étudiant·e·s
+            infirmier·ère·s pour réviser, s’orienter,
+            partager et avancer ensemble.
+
         </p>
+
+
+        <div class="scroll">
+            DÉCOUVRIR
+        </div>
 
     </section>
 
 
-    <!-- NAVIGATION -->
+    <!-- =====================================================
+         NAVIGATION
+    ===================================================== -->
 
     <section class="navigation">
 
-        <!-- Serpentin -->
+
+        <!-- GRAND SERPENTIN -->
 
         <svg
             class="serpentin"
@@ -295,40 +776,59 @@
         </svg>
 
 
-        <!-- Petites bulles décoratives -->
+        <!-- PETITS POINTS -->
 
-        <span class="petite-bulle one"></span>
-        <span class="petite-bulle two"></span>
-        <span class="petite-bulle three"></span>
-        <span class="petite-bulle four"></span>
+        <span class="mini-point one"></span>
+        <span class="mini-point two"></span>
+        <span class="mini-point three"></span>
+        <span class="mini-point four"></span>
 
 
-        <!-- Grandes bulles -->
+        <!-- BULLES -->
 
         <a href="fiches.html" class="bulle fiches">
             FICHES
         </a>
 
+
         <a href="#" class="bulle conferences">
             CONFÉRENCES
         </a>
+
 
         <a href="#" class="bulle specialites">
             FORUM DES<br>
             SPÉCIALITÉS
         </a>
 
+
         <a href="#" class="bulle rejoindre">
             NOUS<br>
             REJOINDRE
         </a>
+
 
         <a href="#" class="bulle contact">
             NOUS<br>
             CONTACTER
         </a>
 
+
     </section>
+
+
+    <!-- =====================================================
+         FIN
+    ===================================================== -->
+
+    <footer class="fin">
+
+        <p>
+            CESIREVISE · CESIR · IFSI PONTCHAILLOU
+        </p>
+
+    </footer>
+
 
 </body>
 </html>
