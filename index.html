@@ -18,7 +18,7 @@
         :root {
             --bleu: #77A5AA;
             --bleu-clair: #EAF4F5;
-            --bleu-pale: #F5FAFA;
+            --bleu-tres-clair: #F5FAFA;
             --noir: #111111;
             --blanc: #FFFFFF;
         }
@@ -35,10 +35,9 @@
 
 
         body {
-
             margin: 0;
 
-            background: var(--blanc);
+            background: var(--bleu-tres-clair);
 
             color: var(--noir);
 
@@ -49,7 +48,101 @@
 
 
         /* =====================================================
-           DÉCORATION GÉNÉRALE
+           BANDEAU DU HAUT
+        ===================================================== */
+
+        .bandeau {
+
+            width: 100%;
+
+            min-height: 105px;
+
+            background: var(--bleu);
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            gap: 28px;
+
+            padding: 18px 30px;
+
+            position: relative;
+
+            z-index: 10;
+
+            box-shadow:
+                0 8px 25px rgba(119, 165, 170, 0.20);
+        }
+
+
+        .bandeau::before {
+
+            content: "";
+
+            position: absolute;
+
+            bottom: -18px;
+
+            left: 0;
+
+            width: 100%;
+
+            height: 35px;
+
+            background: var(--bleu);
+
+            border-radius:
+                0 0 50% 50%;
+        }
+
+
+        .bandeau img {
+
+            width: 115px;
+
+            height: auto;
+
+            filter:
+                brightness(0)
+                invert(1);
+        }
+
+
+        .bandeau span {
+
+            color: var(--blanc);
+
+            font-size: 16px;
+
+            font-weight: 700;
+
+            letter-spacing: 2.5px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* =====================================================
+           PAGE PRINCIPALE
+        ===================================================== */
+
+        .page {
+
+            position: relative;
+
+            max-width: 1150px;
+
+            margin: 0 auto;
+
+            padding: 65px 30px 70px;
+        }
+
+
+        /* =====================================================
+           DÉCORATIONS
         ===================================================== */
 
         .decorations {
@@ -58,285 +151,171 @@
 
             inset: 0;
 
-            width: 100%;
-
-            height: 100%;
+            overflow: hidden;
 
             pointer-events: none;
-
-            overflow: hidden;
 
             z-index: 0;
         }
 
 
-        /* Grande courbe décorative */
+        /* grand cercle complet */
 
-        .courbe {
+        .cercle-gauche {
 
             position: absolute;
 
-            width: 900px;
+            width: 420px;
 
-            height: 900px;
+            height: 420px;
 
-            border: 2px solid rgba(119, 165, 170, 0.18);
+            border: 2px solid rgba(119, 165, 170, 0.17);
 
             border-radius: 50%;
 
-            left: -520px;
+            left: -310px;
 
-            top: 350px;
-
-            transform: rotate(-20deg);
+            top: 270px;
         }
 
 
-        .courbe::after {
+        .cercle-gauche::after {
 
             content: "";
 
             position: absolute;
 
-            width: 850px;
+            width: 280px;
 
-            height: 850px;
+            height: 280px;
 
-            border: 2px solid rgba(119, 165, 170, 0.10);
+            border: 2px solid rgba(119, 165, 170, 0.12);
 
             border-radius: 50%;
 
-            left: 45px;
+            left: 70px;
 
-            top: 45px;
+            top: 70px;
         }
 
 
-        /* Grande forme douce à droite */
+        /* cercle droit */
 
-        .forme {
+        .cercle-droit {
 
             position: absolute;
 
-            width: 500px;
+            width: 330px;
 
-            height: 500px;
+            height: 330px;
 
-            right: -280px;
-
-            top: 250px;
+            border: 2px solid rgba(119, 165, 170, 0.15);
 
             border-radius: 50%;
 
-            background: var(--bleu-clair);
+            right: -240px;
 
-            opacity: 0.7;
+            top: 540px;
         }
 
 
-        /* Ligne courbée */
+        /* petite pastille */
 
-        .ligne {
-
-            position: absolute;
-
-            width: 650px;
-
-            height: 180px;
-
-            border-top: 3px solid rgba(119, 165, 170, 0.20);
-
-            border-radius: 50%;
-
-            right: -130px;
-
-            top: 780px;
-
-            transform: rotate(-8deg);
-        }
-
-
-        /* =====================================================
-           PETITS POINTS DÉCORATIFS
-        ===================================================== */
-
-        .point {
+        .pastille {
 
             position: absolute;
 
-            width: 12px;
+            width: 18px;
 
-            height: 12px;
-
-            border-radius: 50%;
+            height: 18px;
 
             background: var(--bleu);
+
+            border-radius: 50%;
 
             opacity: 0.45;
         }
 
 
-        .point.p1 {
-            top: 170px;
-            left: 8%;
-        }
-
-
-        .point.p2 {
-            top: 310px;
-            right: 10%;
-            width: 18px;
-            height: 18px;
-        }
-
-
-        .point.p3 {
-            top: 620px;
+        .pastille.one {
             left: 7%;
-            width: 9px;
-            height: 9px;
+            top: 190px;
         }
 
 
-        .point.p4 {
-            top: 890px;
-            right: 8%;
-            width: 14px;
-            height: 14px;
+        .pastille.two {
+            right: 9%;
+            top: 430px;
+
+            width: 12px;
+            height: 12px;
         }
 
 
-        .point.p5 {
-            top: 1080px;
-            left: 18%;
-            width: 8px;
-            height: 8px;
+        .pastille.three {
+            left: 10%;
+            bottom: 180px;
+
+            width: 10px;
+            height: 10px;
         }
 
 
         /* =====================================================
-           INTRODUCTION
+           INTRO
         ===================================================== */
 
         .intro {
 
-            min-height: 100vh;
+            position: relative;
 
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            justify-content: center;
+            z-index: 2;
 
             text-align: center;
 
-            padding: 70px 25px 100px;
-
-            position: relative;
-
-            z-index: 1;
+            padding: 35px 15px 45px;
         }
 
 
-        /* petit texte supérieur */
-
-        .petit-titre {
-
-            margin-bottom: 20px;
-
-            color: var(--bleu);
-
-            font-size: 18px;
-
-            font-weight: 700;
-
-            letter-spacing: 3px;
-
-            text-transform: uppercase;
-        }
-
-
-        /* LOGO */
-
-        .logo {
-
-            width: min(380px, 78vw);
-
-            height: auto;
-
-            margin-bottom: 35px;
-
-            filter:
-                drop-shadow(
-                    0 15px 25px
-                    rgba(119, 165, 170, 0.18)
-                );
-        }
-
-
-        /* Présentation */
-
-        .presentation {
-
-            max-width: 720px;
+        .intro h1 {
 
             margin: 0;
 
-            padding: 25px 30px;
-
-            background: rgba(255, 255, 255, 0.78);
-
-            border-radius: 35px;
-
-            font-size: 20px;
-
-            line-height: 1.6;
-
-            box-shadow:
-                0 15px 40px
-                rgba(0, 0, 0, 0.05);
-        }
-
-
-        /* =====================================================
-           PETIT INDICATEUR VERS LA NAVIGATION
-        ===================================================== */
-
-        .scroll {
-
-            margin-top: 50px;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            gap: 8px;
+            font-family: "Baloo 2", cursive;
 
             color: var(--bleu);
 
-            font-size: 15px;
+            font-size: clamp(55px, 8vw, 90px);
 
-            font-weight: 600;
+            line-height: 0.95;
 
-            letter-spacing: 1px;
+            letter-spacing: -2px;
+
+            transform: rotate(-2deg);
+
+            text-shadow:
+                4px 5px 0 rgba(119, 165, 170, 0.10);
         }
 
 
-        .scroll::after {
+        .intro p {
 
-            content: "";
+            max-width: 650px;
 
-            width: 2px;
+            margin: 20px auto 0;
 
-            height: 45px;
+            padding: 18px 25px;
 
-            background: var(--bleu);
+            background: rgba(255,255,255,0.82);
 
-            opacity: 0.45;
+            border-radius: 28px;
+
+            font-size: 18px;
+
+            line-height: 1.45;
+
+            box-shadow:
+                0 12px 30px rgba(0,0,0,0.05);
         }
 
 
@@ -348,51 +327,55 @@
 
             position: relative;
 
-            min-height: 1050px;
-
-            width: 100%;
-
-            max-width: 1100px;
-
-            margin: 0 auto;
-
-            padding: 100px 40px 150px;
-
             z-index: 2;
+
+            min-height: 760px;
+
+            margin-top: 5px;
         }
 
 
         /* =====================================================
-           SERPENTIN
+           VRAIES COURBES
         ===================================================== */
 
-        .serpentin {
+        .decor-line {
 
             position: absolute;
 
-            inset: 90px 70px 100px 70px;
+            border: 2px solid rgba(119,165,170,0.20);
 
-            width: calc(100% - 140px);
-
-            height: calc(100% - 190px);
+            border-radius: 50%;
 
             pointer-events: none;
-
-            z-index: 0;
         }
 
 
-        .serpentin path {
+        .decor-line.one {
 
-            fill: none;
+            width: 360px;
 
-            stroke: var(--bleu);
+            height: 180px;
 
-            stroke-width: 3;
+            top: 55px;
 
-            stroke-linecap: round;
+            left: 23%;
 
-            opacity: 0.35;
+            transform: rotate(8deg);
+        }
+
+
+        .decor-line.two {
+
+            width: 300px;
+
+            height: 150px;
+
+            top: 375px;
+
+            right: 18%;
+
+            transform: rotate(-12deg);
         }
 
 
@@ -410,91 +393,141 @@
 
             justify-content: center;
 
-            width: 250px;
+            text-align: center;
 
-            height: 155px;
+            width: 285px;
 
-            border-radius: 50%;
+            height: 190px;
 
-            background: var(--bleu);
+            padding: 30px;
 
             color: var(--blanc);
 
             text-decoration: none;
 
-            text-align: center;
+            font-size: 31px;
 
-            font-size: 28px;
+            line-height: 1.05;
 
             font-weight: 700;
 
-            letter-spacing: 0.5px;
+            z-index: 5;
 
             box-shadow:
-                0 18px 35px rgba(0, 0, 0, 0.14),
-                inset 0 -8px 0 rgba(0, 0, 0, 0.06);
+                0 20px 35px rgba(0,0,0,0.14),
+                inset 0 -10px 0 rgba(0,0,0,0.06);
 
             transition:
                 transform 0.3s ease,
-                box-shadow 0.3s ease,
-                background 0.3s ease;
+                box-shadow 0.3s ease;
+        }
 
-            z-index: 3;
+
+        /* formes volontairement légèrement différentes */
+
+        .fiches {
+
+            top: 15px;
+
+            left: 3%;
+
+            background: var(--bleu);
+
+            border-radius:
+                48% 52% 45% 55% /
+                55% 45% 55% 45%;
+
+            transform: rotate(-3deg);
+        }
+
+
+        .conferences {
+
+            top: 135px;
+
+            right: 2%;
+
+            background: var(--bleu);
+
+            border-radius:
+                52% 48% 55% 45% /
+                45% 55% 45% 55%;
+
+            transform: rotate(3deg);
+        }
+
+
+        .specialites {
+
+            top: 325px;
+
+            right: 7%;
+
+            background: var(--bleu);
+
+            border-radius:
+                45% 55% 50% 50% /
+                55% 45% 50% 50%;
+
+            transform: rotate(-2deg);
+        }
+
+
+        .rejoindre {
+
+            top: 440px;
+
+            left: 5%;
+
+            background: var(--bleu);
+
+            border-radius:
+                55% 45% 48% 52% /
+                48% 52% 45% 55%;
+
+            transform: rotate(3deg);
+        }
+
+
+        .contact {
+
+            top: 600px;
+
+            right: 8%;
+
+            background: var(--bleu);
+
+            border-radius:
+                50% 50% 45% 55% /
+                45% 55% 55% 45%;
+
+            transform: rotate(-3deg);
         }
 
 
         .bulle:hover {
 
-            transform: scale(1.07) rotate(-2deg);
-
-            background: var(--noir);
+            transform:
+                scale(1.08)
+                rotate(0deg);
 
             box-shadow:
-                0 25px 45px rgba(0, 0, 0, 0.20);
-        }
-
-
-        .fiches {
-            top: 65px;
-            left: 2%;
-        }
-
-
-        .conferences {
-            top: 220px;
-            right: 2%;
-        }
-
-
-        .specialites {
-            top: 430px;
-            right: 4%;
-        }
-
-
-        .rejoindre {
-            top: 640px;
-            left: 7%;
-        }
-
-
-        .contact {
-            top: 850px;
-            right: 7%;
+                0 28px 50px rgba(0,0,0,0.20),
+                inset 0 -10px 0 rgba(0,0,0,0.07);
         }
 
 
         /* =====================================================
-           PETITS ÉLÉMENTS SUR LE SERPENTIN
+           PETITS POINTS SUR LA COMPOSITION
         ===================================================== */
 
-        .mini-point {
+        .mini {
 
             position: absolute;
 
-            width: 18px;
+            width: 13px;
 
-            height: 18px;
+            height: 13px;
 
             border-radius: 50%;
 
@@ -502,65 +535,71 @@
 
             opacity: 0.55;
 
-            z-index: 2;
+            z-index: 4;
         }
 
 
-        .mini-point.one {
-            top: 185px;
-            left: 42%;
-        }
+        .mini.a {
 
+            top: 160px;
 
-        .mini-point.two {
-            top: 360px;
-            left: 18%;
-            width: 11px;
-            height: 11px;
-        }
-
-
-        .mini-point.three {
-            top: 560px;
-            right: 27%;
-            width: 14px;
-            height: 14px;
-        }
-
-
-        .mini-point.four {
-            top: 765px;
             left: 39%;
+        }
+
+
+        .mini.b {
+
+            top: 315px;
+
+            left: 24%;
+
             width: 9px;
+
             height: 9px;
         }
 
 
-        /* =====================================================
-           BAS DE PAGE
-        ===================================================== */
+        .mini.c {
 
-        .fin {
+            top: 500px;
 
-            text-align: center;
+            right: 32%;
 
-            padding: 50px 25px 90px;
+            width: 16px;
 
-            position: relative;
-
-            z-index: 2;
+            height: 16px;
         }
 
 
-        .fin p {
+        .mini.d {
 
-            margin: 0;
+            top: 650px;
+
+            left: 42%;
+
+            width: 8px;
+
+            height: 8px;
+        }
+
+
+        /* =====================================================
+           BAS
+        ===================================================== */
+
+        footer {
+
+            text-align: center;
+
+            padding: 20px 20px 50px;
 
             color: var(--bleu);
 
-            font-size: 17px;
+            font-size: 15px;
 
             font-weight: 600;
+
+            letter-spacing: 1px;
         }
 
 
@@ -570,115 +609,155 @@
 
         @media (max-width: 700px) {
 
+            .bandeau {
+
+                min-height: 90px;
+
+                gap: 14px;
+
+                padding: 15px;
+            }
+
+
+            .bandeau img {
+
+                width: 85px;
+            }
+
+
+            .bandeau span {
+
+                font-size: 11px;
+
+                letter-spacing: 1.4px;
+            }
+
+
+            .page {
+
+                padding: 45px 15px 40px;
+            }
+
+
             .intro {
 
-                min-height: auto;
-
-                padding-top: 65px;
-
-                padding-bottom: 80px;
+                padding-bottom: 25px;
             }
 
 
-            .petit-titre {
+            .intro h1 {
 
-                font-size: 15px;
-
-                letter-spacing: 2px;
+                font-size: 58px;
             }
 
 
-            .logo {
+            .intro p {
 
-                width: min(310px, 80vw);
-            }
+                font-size: 17px;
 
-
-            .presentation {
-
-                font-size: 18px;
-
-                padding: 22px;
+                padding: 16px 20px;
             }
 
 
             .navigation {
 
-                min-height: 1200px;
-
-                padding: 70px 15px 100px;
-            }
-
-
-            .serpentin {
-
-                inset: 75px 20px 80px 20px;
-
-                width: calc(100% - 40px);
+                min-height: 820px;
             }
 
 
             .bulle {
 
-                width: 185px;
+                width: 195px;
 
-                height: 120px;
+                height: 140px;
 
-                font-size: 21px;
+                font-size: 22px;
+
+                padding: 20px;
             }
 
 
             .fiches {
-                left: -2%;
+
+                left: -5%;
+
+                top: 5px;
             }
 
 
             .conferences {
-                right: -2%;
-                top: 245px;
+
+                right: -5%;
+
+                top: 125px;
             }
 
 
             .specialites {
-                right: -2%;
-                top: 470px;
+
+                right: -5%;
+
+                top: 295px;
             }
 
 
             .rejoindre {
-                left: -2%;
-                top: 700px;
+
+                left: -5%;
+
+                top: 420px;
             }
 
 
             .contact {
-                right: -2%;
-                top: 930px;
+
+                right: -5%;
+
+                top: 590px;
             }
 
 
-            .courbe {
+            .decor-line.one {
 
-                width: 600px;
+                width: 240px;
 
-                height: 600px;
+                height: 120px;
 
-                left: -420px;
-
-                top: 600px;
+                left: 20%;
             }
 
 
-            .forme {
+            .decor-line.two {
 
-                width: 350px;
+                width: 220px;
 
-                height: 350px;
+                height: 110px;
 
-                right: -220px;
+                right: 12%;
 
-                top: 450px;
+                top: 430px;
             }
+
+
+            .cercle-gauche {
+
+                width: 300px;
+
+                height: 300px;
+
+                left: -240px;
+            }
+
+
+            .cercle-droit {
+
+                width: 250px;
+
+                height: 250px;
+
+                right: -200px;
+            }
+
         }
 
     </style>
@@ -689,143 +768,133 @@
 
 
     <!-- =====================================================
-         DÉCORATIONS
+         BANDEAU
     ===================================================== -->
 
-    <div class="decorations">
-
-        <span class="courbe"></span>
-
-        <span class="forme"></span>
-
-        <span class="ligne"></span>
-
-        <span class="point p1"></span>
-        <span class="point p2"></span>
-        <span class="point p3"></span>
-        <span class="point p4"></span>
-        <span class="point p5"></span>
-
-    </div>
-
-
-    <!-- =====================================================
-         INTRODUCTION
-    ===================================================== -->
-
-    <section class="intro">
-
-        <div class="petit-titre">
-            IFSI · PONTCHAILLOU · RENNES
-        </div>
-
+    <header class="bandeau">
 
         <img
             src="logo-cesirevise.png"
             alt="Logo CESIREVISE"
-            class="logo"
         >
 
+        <span>
+            IFSI · PONTCHAILLOU · RENNES
+        </span>
 
-        <p class="presentation">
-
-            Cesirevise est une branche du BDE de l’IFSI
-            de Pontchaillou à Rennes, nommé CESIR.
-
-            <br><br>
-
-            Un espace pensé par et pour les étudiant·e·s
-            infirmier·ère·s pour réviser, s’orienter,
-            partager et avancer ensemble.
-
-        </p>
+    </header>
 
 
-        <div class="scroll">
-            DÉCOUVRIR
+    <!-- =====================================================
+         PAGE
+    ===================================================== -->
+
+    <main class="page">
+
+
+        <!-- Décor -->
+
+        <div class="decorations">
+
+            <span class="cercle-gauche"></span>
+
+            <span class="cercle-droit"></span>
+
+            <span class="pastille one"></span>
+            <span class="pastille two"></span>
+            <span class="pastille three"></span>
+
         </div>
 
-    </section>
+
+        <!-- =================================================
+             INTRODUCTION
+        ================================================= -->
+
+        <section class="intro">
+
+            <h1>
+                CESIREVISE
+            </h1>
+
+            <p>
+
+                Un espace pensé par et pour les
+                étudiant·e·s infirmier·ère·s de Pontchaillou.
+
+                <br>
+
+                Réviser · s’orienter · partager · avancer
+
+            </p>
+
+        </section>
 
 
-    <!-- =====================================================
-         NAVIGATION
-    ===================================================== -->
+        <!-- =================================================
+             NAVIGATION
+        ================================================= -->
 
-    <section class="navigation">
-
-
-        <!-- GRAND SERPENTIN -->
-
-        <svg
-            class="serpentin"
-            viewBox="0 0 1000 900"
-            preserveAspectRatio="none"
-            aria-hidden="true"
-        >
-
-            <path d="
-                M 120 80
-                C 350 80, 650 80, 850 180
-                C 950 230, 950 330, 820 390
-                C 650 470, 350 430, 150 550
-                C 40 620, 80 720, 250 760
-                C 450 810, 700 720, 850 840
-            "/>
-
-        </svg>
+        <section class="navigation">
 
 
-        <!-- PETITS POINTS -->
+            <!-- vraies formes -->
 
-        <span class="mini-point one"></span>
-        <span class="mini-point two"></span>
-        <span class="mini-point three"></span>
-        <span class="mini-point four"></span>
+            <span class="decor-line one"></span>
 
-
-        <!-- BULLES -->
-
-        <a href="fiches.html" class="bulle fiches">
-            FICHES
-        </a>
+            <span class="decor-line two"></span>
 
 
-        <a href="#" class="bulle conferences">
-            CONFÉRENCES
-        </a>
+            <!-- petits points -->
+
+            <span class="mini a"></span>
+
+            <span class="mini b"></span>
+
+            <span class="mini c"></span>
+
+            <span class="mini d"></span>
 
 
-        <a href="#" class="bulle specialites">
-            FORUM DES<br>
-            SPÉCIALITÉS
-        </a>
+            <!-- bulles -->
+
+            <a href="fiches.html" class="bulle fiches">
+                FICHES
+            </a>
 
 
-        <a href="#" class="bulle rejoindre">
-            NOUS<br>
-            REJOINDRE
-        </a>
+            <a href="#" class="bulle conferences">
+                CONFÉRENCES
+            </a>
 
 
-        <a href="#" class="bulle contact">
-            NOUS<br>
-            CONTACTER
-        </a>
+            <a href="#" class="bulle specialites">
+                FORUM DES<br>
+                SPÉCIALITÉS
+            </a>
 
 
-    </section>
+            <a href="#" class="bulle rejoindre">
+                NOUS<br>
+                REJOINDRE
+            </a>
 
 
-    <!-- =====================================================
-         FIN
-    ===================================================== -->
+            <a href="#" class="bulle contact">
+                NOUS<br>
+                CONTACTER
+            </a>
 
-    <footer class="fin">
 
-        <p>
-            CESIREVISE · CESIR · IFSI PONTCHAILLOU
-        </p>
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        CESIREVISE · CESIR · IFSI PONTCHAILLOU
 
     </footer>
 
