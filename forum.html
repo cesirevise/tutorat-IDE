@@ -330,6 +330,38 @@
             max-width: 900px;
             height: auto;
         }
+        .bouton-retour-forum {
+    display: block;
+    margin: 35px auto 10px;
+    padding: 13px 25px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: var(--bleu);
+    color: white;
+
+    font-family: "League Spartan", sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+
+    transition:
+        transform 0.2s ease,
+        background 0.2s ease;
+}
+
+.bouton-retour-forum:hover {
+    transform: translateY(-2px);
+    background: #66969B;
+}
+
+.bouton-retour-forum:active {
+    transform: scale(0.97);
+}
         
         /* =========================================
            MOBILE
@@ -720,8 +752,14 @@ function ouvrirFiche(index) {
     }
 
     html += `
-        </div>
-    `;
+    </div>
+
+    <button
+        class="bouton-retour-forum"
+        onclick="fermerFiche()">
+        Retour au forum →
+    </button>
+`;
 
     contenuFiche.innerHTML = html;
 
