@@ -677,23 +677,53 @@
 
 function ouvrirFiche(index) {
 
-    if (index === 5) {
+    const contenuFiche =
+        document.getElementById("contenuFiche");
 
-        contenuFiche.innerHTML = `
-            <div class="pages-ipde">
+    const nomsFichiers = [
+        "iade",
+        "ibode",
+        "stomatherapeute",
+        "ipa",
+        "perfusionniste",
+        "ipde"
+    ];
 
-                <img src="./fiche-1-ipde.jpg" alt="Fiche IPDE - page 1">
-                <img src="./fiche-2-ipde.jpg" alt="Fiche IPDE - page 2">
-                <img src="./fiche-3-ipde.jpg" alt="Fiche IPDE - page 3">
-                <img src="./fiche-4-ipde.jpg" alt="Fiche IPDE - page 4">
-                <img src="./fiche-5-ipde.jpg" alt="Fiche IPDE - page 5">
-                <img src="./fiche-6-ipde.jpg" alt="Fiche IPDE - page 6">
-                <img src="./fiche-7-ipde.jpg" alt="Fiche IPDE - page 7">
+    const nombrePages = [
+        10,
+        8,
+        6,
+        7,
+        6,
+        7
+    ];
 
-            </div>
+    const nom =
+        nomsFichiers[index];
+
+    const pages =
+        nombrePages[index];
+
+    let html = `
+        <div class="pages-ipde">
+    `;
+
+    for (let i = 1; i <= pages; i++) {
+
+        html += `
+            <img
+                src="./fiche-${i}-${nom}.jpg"
+                alt="Fiche ${metiers[index]} - page ${i}"
+            >
         `;
 
     }
+
+    html += `
+        </div>
+    `;
+
+    contenuFiche.innerHTML = html;
 
     fiche.classList.add("ouverte");
 }
