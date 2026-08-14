@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Contact - CESI Révise</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #fff;
+            color: #222;
+            min-height: 100vh;
+        }
+
+        /* TITRE */
+        .titre {
+            text-align: center;
+            padding: 50px 20px 30px;
+        }
+
+        .titre h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .titre p {
+            font-size: 17px;
+            color: #777;
+        }
+
+        /* RÉSEAUX SOCIAUX */
+        .reseaux {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding: 40px 20px;
+        }
+
+        .reseau {
+            width: 170px;
+            min-height: 180px;
+            text-decoration: none;
+            color: #222;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: 20px;
+            padding: 25px 15px;
+
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .reseau:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        /* LOGOS RÉSEAUX */
+        .logo {
+            width: 65px;
+            height: 65px;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
+        .reseau span {
+            font-size: 17px;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        /* MAIL */
+        .mail {
+            margin-top: 20px;
+            text-align: center;
+            padding: 30px 20px;
+        }
+
+        .mail a {
+            color: #222;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .mail a:hover {
+            text-decoration: underline;
+        }
+
+        /* TROMBINOSCOPE */
+        .trombinoscope {
+            margin-top: 60px;
+            padding: 50px 20px 70px;
+            text-align: center;
+            background-color: #f8f8f8;
+        }
+
+        .trombinoscope h2 {
+            font-size: 30px;
+            margin-bottom: 35px;
+        }
+
+        .signatures {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 35px;
+            flex-wrap: wrap;
+            max-width: 1000px;
+            margin: auto;
+        }
+
+        .signature {
+            width: 220px;
+            min-height: 150px;
+            background-color: white;
+            border-radius: 18px;
+            padding: 20px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .signature img {
+            max-width: 180px;
+            max-height: 90px;
+            object-fit: contain;
+            margin-bottom: 15px;
+        }
+
+        .signature p {
+            font-size: 16px;
+            font-weight: 600;
+        }/* VICE-PRÉSIDENT */
+
+      .vice-president {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.fonction {
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+}
+
+.signature-esteban {
+    width: 270px;
+    min-height: 190px;
+    transform: scale(1.05);
+}
+
+.signature-esteban img {
+    max-width: 220px;
+    max-height: 110px;
+}
+
+/* TITRE DES AUTRES MEMBRES */
+.trombinoscope h3 {
+    font-size: 22px;
+    margin-bottom: 25px;
+}
+
+/* AUTRES SIGNATURES */
+.signatures {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 25px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- TITRE -->
+    <section class="titre">
+        <h1>Contact</h1>
+        <p>Retrouvez-nous sur nos réseaux sociaux</p>
+    </section>
+
+
+    <!-- RÉSEAUX -->
+    <section class="reseaux">
+
+        <!-- INSTAGRAM -->
+        <a
+            href="https://www.instagram.com/cesirevise/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reseau"
+        >
+            <img
+                src="instagram.png"
+                alt="Instagram"
+                class="logo"
+            >
+
+            <span>@cesirevise</span>
+        </a>
+
+
+        <!-- TIKTOK -->
+        <a
+            href="https://www.tiktok.com/@cesirevise"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="reseau"
+        >
+            <img
+                src="tiktok.png"
+                alt="TikTok"
+                class="logo"
+            >
+
+            <span>@cesirevise</span>
+        </a>
+
+
+        <!-- MAIL -->
+        <a
+            href="mailto:tutorat.cesirevise@gmail.com"
+            class="reseau"
+        >
+            <img
+                src="mail.png"
+                alt="Email"
+                class="logo"
+            >
+
+            <span>tutorat.cesirevise@gmail.com</span>
+        </a>
+
+    </section>
+
+
+    <!-- MAIL -->
+    <div class="mail">
+        <p>
+            Une question ? Écrivez-nous directement à
+            <a href="mailto:tutorat.cesirevise@gmail.com">
+                tutorat.cesirevise@gmail.com
+            </a>
+        </p>
+    </div>
+
+
+ <!-- TROMBINOSCOPE / SIGNATURES -->
+<section class="trombinoscope">
+
+    <h2>Notre équipe</h2>
+
+    <!-- VICE-PRÉSIDENT -->
+    <div class="vice-president">
+
+        <p class="fonction">VICE-PRÉSIDENT</p>
+
+        <div class="signature signature-esteban">
+            <img
+                src="signature-esteban.png"
+                alt="Signature - Esteban"
+            >
+
+            <p>Esteban</p>
+        </div>
+
+    </div>
+
+
+    <!-- AUTRES MEMBRES -->
+    <h3>Notre équipe</h3>
+
+    <div class="signatures">
+
+        <div class="signature">
+            <img
+                src="signature-maiwen.png"
+                alt="Signature - Maïwen"
+            >
+            <p>Maïwen</p>
+        </div>
+
+        <div class="signature">
+            <img
+                src="signature-anastasia.png"
+                alt="Signature - Anastasia"
+            >
+            <p>Anastasia</p>
+        </div>
+
+        <div class="signature">
+            <img
+                src="signature-nael.png"
+                alt="Signature - Naël"
+            >
+            <p>Naël</p>
+        </div>
+
+        <div class="signature">
+            <img
+                src="signature-celian.png"
+                alt="Signature - Célian"
+            >
+            <p>Célian</p>
+        </div>
+
+        <div class="signature">
+            <img
+                src="signature-tehina.png"
+                alt="Signature - Tehina"
+            >
+            <p>Tehina</p>
+        </div>
+
+    </div>
+
+</section>
+</body>
+</html>
