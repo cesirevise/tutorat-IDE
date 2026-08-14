@@ -601,8 +601,8 @@
     const fiche =
         document.getElementById("fiche");
 
-    const ficheTitre =
-        document.getElementById("ficheTitre");
+    const contenuTitre =
+        document.getElementById("contenuTitre");
 
 
     /* =========================================
@@ -675,26 +675,20 @@
        OUVRIR LA FICHE
     ========================================= */
 
-    function ouvrirFiche(index) {
-
-    ficheTitre.textContent =
-        metiers[index];
-
-    const contenu =
-        document.getElementById("contenuFiche");
+function ouvrirFiche(index) {
 
     if (index === 5) {
 
-        contenu.innerHTML = `
+        contenuFiche.innerHTML = `
             <div class="pages-ipde">
 
-                <img src="./fiche-1-ipde.jpg" alt="IPDE - page 1">
-                <img src="./fiche-2-ipde.jpg" alt="IPDE - page 2">
-                <img src="./fiche-3-ipde.jpg" alt="IPDE - page 3">
-                <img src="./fiche-4-ipde.jpg" alt="IPDE - page 4">
-                <img src="./fiche-5-ipde.jpg" alt="IPDE - page 5">
-                <img src="./fiche-6-ipde.jpg" alt="IPDE - page 6">
-                <img src="./fiche-7-ipde.jpg" alt="IPDE - page 7">
+                <img src="./fiche-1-ipde.jpg" alt="Fiche IPDE - page 1">
+                <img src="./fiche-2-ipde.jpg" alt="Fiche IPDE - page 2">
+                <img src="./fiche-3-ipde.jpg" alt="Fiche IPDE - page 3">
+                <img src="./fiche-4-ipde.jpg" alt="Fiche IPDE - page 4">
+                <img src="./fiche-5-ipde.jpg" alt="Fiche IPDE - page 5">
+                <img src="./fiche-6-ipde.jpg" alt="Fiche IPDE - page 6">
+                <img src="./fiche-7-ipde.jpg" alt="Fiche IPDE - page 7">
 
             </div>
         `;
