@@ -584,24 +584,13 @@
 
 
 <div class="fiche-contenu" id="contenuFiche">
+</div>
 
-    <div class="pages-ipde">
-
-        <img src="./fiche-1-ipde.jpg" alt="Fiche IPDE - page 1">
-
-        <img src="./fiche-2-ipde.jpg" alt="Fiche IPDE - page 2">
-
-        <img src="./fiche-3-ipde.jpg" alt="Fiche IPDE - page 3">
-
-        <img src="./fiche-4-ipde.jpg" alt="Fiche IPDE - page 4">
-
-        <img src="./fiche-5-ipde.jpg" alt="Fiche IPDE - page 5">
-
-        <img src="./fiche-6-ipde.jpg" alt="Fiche IPDE - page 6">
-
-        <img src="./fiche-7-ipde.jpg" alt="Fiche IPDE - page 7">
-
-    </div>
+<button
+    class="bouton-retour-forum"
+    onclick="fermerFiche()">
+    Retour au forum →
+</button>
 
 </div>
 
@@ -759,15 +748,7 @@ function ouvrirFiche(index) {
 
     }
 
-    html += `
-    </div>
-
-    <button
-        class="bouton-retour-forum"
-        onclick="fermerFiche()">
-        Retour au forum →
-    </button>
-`;
+    html += `</div>`;
 
     contenuFiche.innerHTML = html;
 
