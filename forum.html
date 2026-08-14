@@ -333,43 +333,36 @@
         
         .bouton-retour-forum {
     position: fixed;
+    z-index: 100;
 
-    z-index: 50;
-
-    bottom: 20px;
+    bottom: 25px;
     left: 50%;
-
     transform: translateX(-50%);
 
-    padding: 11px 22px;
+    padding: 12px 24px;
 
     border: none;
     border-radius: 14px;
 
-    background: var(--bleu);
+    background: #77A5AA;
     color: white;
 
     font-family: "League Spartan", sans-serif;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
 
     cursor: pointer;
 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.18);
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
 }
 
 .bouton-retour-forum:hover {
     background: #66969B;
-    transform: translateX(-50%) translateY(-2px);
 }
 
 .bouton-retour-forum:active {
     transform: translateX(-50%) scale(0.97);
-}
+} 
         
         /* =========================================
            MOBILE
@@ -748,7 +741,15 @@ function ouvrirFiche(index) {
 
     }
 
-    html += `</div>`;
+    html += `
+    </div>
+
+    <button
+        class="bouton-retour-forum"
+        onclick="fermerFiche()">
+        Retour au forum →
+    </button>
+`;
 
     contenuFiche.innerHTML = html;
 
