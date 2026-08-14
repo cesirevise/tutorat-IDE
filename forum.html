@@ -68,7 +68,7 @@
         }
 
         /* =========================================
-           ASSOMBRISSEMENT DES PHOTOS
+           ASSOMBRISSEMENT
         ========================================= */
 
         .slide::after {
@@ -108,7 +108,7 @@
         }
 
         /* =========================================
-           BOUTON DU MÉTIER
+           BOUTON MÉTIER
         ========================================= */
 
         .bouton-metier {
@@ -213,44 +213,65 @@
         }
 
         /* =========================================
-           FICHE QUI MONTE
+           FICHE
         ========================================= */
 
-       .fiche {
-    position: fixed;
-    z-index: 20;
-    inset: 0;
+        .fiche {
 
-    background: #F5FAFA;
+            position: fixed;
 
-    transform: translateY(100%);
-    transition: transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
+            z-index: 20;
 
-    overflow: hidden;
-}
+            inset: 0;
 
-.fiche.ouverte {
-    transform: translateY(0);
-}
+            background: #F5FAFA;
 
-.fiche-contenu {
-    width: 100%;
-    height: 100%;
+            transform: translateY(100%);
 
-    padding: 45px max(25px, 7vw) 100px;
+            transition:
+                transform 0.65s cubic-bezier(0.77, 0, 0.18, 1);
 
-    max-width: 1000px;
-    margin: auto;
+            overflow: hidden;
+        }
 
-    overflow-y: auto;
-    -webkit-overflow-scrolling: touch;
-}
+        .fiche.ouverte {
+            transform: translateY(0);
+        }
+
+        /* =========================================
+           CONTENU SCROLLABLE DE LA FICHE
+        ========================================= */
+
+        .fiche-contenu {
+
+            width: 100%;
+            height: 100%;
+
+            padding:
+                45px
+                max(25px, 7vw)
+                110px;
+
+            max-width: 1000px;
+
+            margin: auto;
+
+            overflow-y: auto;
+
+            -webkit-overflow-scrolling: touch;
+
+            overscroll-behavior: contain;
+        }
+
+        /* =========================================
+           BOUTON X
+        ========================================= */
 
         .fermer {
 
             position: fixed;
 
-            z-index: 30;
+            z-index: 200;
 
             top: 22px;
             right: 25px;
@@ -275,6 +296,10 @@
             box-shadow:
                 0 8px 20px rgba(0,0,0,0.15);
         }
+
+        /* =========================================
+           TITRES / TEXTE
+        ========================================= */
 
         .fiche h2 {
 
@@ -307,54 +332,100 @@
 
             margin: 0 0 15px;
         }
+
+        /* =========================================
+           PAGES DES FICHES
+        ========================================= */
+
         .pages-ipde {
+
             width: 100%;
+
             display: flex;
+
             flex-direction: column;
+
             align-items: center;
+
             gap: 18px;
         }
 
         .pages-ipde img {
+
             display: block;
+
             width: 100%;
+
             max-width: 900px;
+
             height: auto;
         }
-        
+
+        /* =========================================
+           BOUTON RETOUR
+           
+           FIXED = IL FLOTTE AU-DESSUS
+           DES PAGES ET NE DÉFILE PAS
+        ========================================= */
+
         .bouton-retour-forum {
-    position: absolute;
-    z-index: 100;
 
-    bottom: 25px;
-    left: 50%;
-    transform: translateX(-50%);
+            position: fixed;
 
-    padding: 12px 24px;
+            z-index: 300;
 
-    border: none;
-    border-radius: 14px;
+            bottom: 25px;
 
-    background: #77A5AA;
-    color: white;
+            left: 50%;
 
-    font-family: "League Spartan", sans-serif;
-    font-size: 18px;
-    font-weight: 700;
+            transform: translateX(-50%);
 
-    cursor: pointer;
+            padding: 12px 24px;
 
-    box-shadow: 0 6px 18px rgba(0,0,0,0.22);
-}
+            border: none;
 
-.bouton-retour-forum:hover {
-    background: #66969B;
-}
+            border-radius: 14px;
 
-.bouton-retour-forum:active {
-    transform: translateX(-50%) scale(0.97);
-} 
-        
+            background: #77A5AA;
+
+            color: white;
+
+            font-family:
+                "League Spartan",
+                sans-serif;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            box-shadow:
+                0 6px 18px rgba(0,0,0,0.22);
+
+            white-space: nowrap;
+
+            transition:
+                background 0.2s ease,
+                transform 0.2s ease;
+        }
+
+        .bouton-retour-forum:hover {
+
+            background: #66969B;
+
+            transform:
+                translateX(-50%)
+                translateY(-2px);
+        }
+
+        .bouton-retour-forum:active {
+
+            transform:
+                translateX(-50%)
+                scale(0.97);
+        }
+
         /* =========================================
            MOBILE
         ========================================= */
@@ -379,12 +450,25 @@
             }
 
             .fiche-contenu {
+
                 padding:
-                    35px 22px 60px;
+                    35px
+                    22px
+                    110px;
             }
 
             .fiche p {
                 font-size: 18px;
+            }
+
+            .bouton-retour-forum {
+
+                bottom: 18px;
+
+                font-size: 16px;
+
+                padding:
+                    11px 20px;
             }
         }
 
@@ -394,6 +478,10 @@
 
 <body>
 
+
+<!-- =========================================
+     CARROUSEL
+========================================= -->
 
 <div class="carrousel">
 
@@ -535,28 +623,56 @@
     </div>
 
 
-    <!-- POINTS -->
+    <!-- =========================================
+         POINTS
+    ========================================= -->
 
     <div class="points">
 
-        <button class="point" onclick="allerA(0)"></button>
-        <button class="point" onclick="allerA(1)"></button>
-        <button class="point" onclick="allerA(2)"></button>
-        <button class="point" onclick="allerA(3)"></button>
-        <button class="point" onclick="allerA(4)"></button>
-        <button class="point" onclick="allerA(5)"></button>
+        <button
+            class="point"
+            onclick="allerA(0)">
+        </button>
+
+        <button
+            class="point"
+            onclick="allerA(1)">
+        </button>
+
+        <button
+            class="point"
+            onclick="allerA(2)">
+        </button>
+
+        <button
+            class="point"
+            onclick="allerA(3)">
+        </button>
+
+        <button
+            class="point"
+            onclick="allerA(4)">
+        </button>
+
+        <button
+            class="point"
+            onclick="allerA(5)">
+        </button>
 
     </div>
-
 
 </div>
 
 
-<!-- ==========================================
-     FICHE
-========================================== -->
+<!-- =========================================
+     FICHE QUI MONTE
+========================================= -->
 
-<div class="fiche" id="fiche">
+<div
+    class="fiche"
+    id="fiche">
+
+    <!-- BOUTON X -->
 
     <button
         class="fermer"
@@ -567,14 +683,24 @@
     </button>
 
 
-<div class="fiche-contenu" id="contenuFiche">
-</div>
+    <!-- CONTENU QUI DÉFILE -->
 
-<button
-    class="bouton-retour-forum"
-    onclick="fermerFiche()">
-    Retour au forum →
-</button>
+    <div
+        class="fiche-contenu"
+        id="contenuFiche">
+
+    </div>
+
+
+    <!-- BOUTON QUI FLOTTE -->
+
+    <button
+        class="bouton-retour-forum"
+        onclick="fermerFiche()">
+
+        Retour au forum →
+
+    </button>
 
 </div>
 
@@ -594,6 +720,30 @@
         "IPDE"
     ];
 
+
+    const nomsFichiers = [
+        "iade",
+        "ibode",
+        "stomatherapeute",
+        "ipa",
+        "perfusionniste",
+        "ipde"
+    ];
+
+
+    const nombrePages = [
+        10,
+        8,
+        6,
+        7,
+        6,
+        7
+    ];
+
+
+    /* =========================================
+       SLIDE ACTUEL
+    ========================================= */
 
     let indexActuel =
         Math.floor(
@@ -626,6 +776,7 @@
 
         slides.style.transform =
             `translateX(-${indexActuel * 100}%)`;
+
 
         points.forEach(
             (point, index) => {
@@ -660,7 +811,11 @@
 
         indexActuel++;
 
-        if (indexActuel >= metiers.length) {
+        if (
+            indexActuel >=
+            metiers.length
+        ) {
+
             indexActuel = 0;
         }
 
@@ -677,7 +832,9 @@
         indexActuel--;
 
         if (indexActuel < 0) {
-            indexActuel = metiers.length - 1;
+
+            indexActuel =
+                metiers.length - 1;
         }
 
         afficherSlide();
@@ -688,53 +845,63 @@
        OUVRIR LA FICHE
     ========================================= */
 
-function ouvrirFiche(index) {
+    function ouvrirFiche(index) {
 
-    const contenuFiche =
-        document.getElementById("contenuFiche");
+        const nom =
+            nomsFichiers[index];
 
-    const nomsFichiers = [
-        "iade",
-        "ibode",
-        "stomatherapeute",
-        "ipa",
-        "perfusionniste",
-        "ipde"
-    ];
+        const pages =
+            nombrePages[index];
 
-    const nombrePages = [
-        10,
-        8,
-        6,
-        7,
-        6,
-        7
-    ];
 
-    const nom =
-        nomsFichiers[index];
-
-    const pages =
-        nombrePages[index];
-
-    let html = `
-        <div class="pages-ipde">
-    `;
-
-    for (let i = 1; i <= pages; i++) {
-
-        html += `
-            <img
-                src="./fiche-${i}-${nom}.jpg"
-                alt="Fiche ${metiers[index]} - page ${i}"
-            >
+        let html = `
+            <div class="pages-ipde">
         `;
 
+
+        for (
+            let i = 1;
+            i <= pages;
+            i++
+        ) {
+
+            html += `
+                <img
+                    src="./fiche-${i}-${nom}.jpg"
+                    alt="Fiche ${metiers[index]} - page ${i}"
+                >
+            `;
+
+        }
+
+
+        html += `
+            </div>
+        `;
+
+
+        contenuFiche.innerHTML =
+            html;
+
+
+        /*
+           IMPORTANT :
+           chaque nouvelle fiche
+           commence tout en haut
+        */
+
+        contenuFiche.scrollTop = 0;
+
+
+        /*
+           On ouvre la fiche
+        */
+
+        fiche.classList.add(
+            "ouverte"
+        );
     }
 
-    html += `
-    </div>
-`;
 
     /* =========================================
        FERMER LA FICHE
@@ -742,28 +909,39 @@ function ouvrirFiche(index) {
 
     function fermerFiche() {
 
-        fiche.classList.remove("ouverte");
+        fiche.classList.remove(
+            "ouverte"
+        );
     }
 
 
     /* =========================================
-       SWIPE HORIZONTAL
+       SWIPE HORIZONTAL MOBILE
     ========================================= */
 
     let debutX = 0;
     let debutY = 0;
-
-    let finX = 0;
-    let finY = 0;
 
 
     document.addEventListener(
         "touchstart",
         function(e) {
 
-            if (fiche.classList.contains("ouverte")) {
+            /*
+               Si une fiche est ouverte,
+               on laisse le doigt servir
+               au défilement vertical.
+            */
+
+            if (
+                fiche.classList.contains(
+                    "ouverte"
+                )
+            ) {
+
                 return;
             }
+
 
             debutX =
                 e.touches[0].clientX;
@@ -772,7 +950,9 @@ function ouvrirFiche(index) {
                 e.touches[0].clientY;
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -780,15 +960,22 @@ function ouvrirFiche(index) {
         "touchend",
         function(e) {
 
-            if (fiche.classList.contains("ouverte")) {
+            if (
+                fiche.classList.contains(
+                    "ouverte"
+                )
+            ) {
+
                 return;
             }
 
-            finX =
+
+            const finX =
                 e.changedTouches[0].clientX;
 
-            finY =
+            const finY =
                 e.changedTouches[0].clientY;
+
 
             const distanceX =
                 finX - debutX;
@@ -797,25 +984,33 @@ function ouvrirFiche(index) {
                 finY - debutY;
 
 
-            /* On ne déclenche
-               que si le mouvement
-               est principalement horizontal */
+            /*
+               On déclenche uniquement
+               pour un vrai mouvement horizontal.
+            */
 
             if (
                 Math.abs(distanceX) > 60 &&
-                Math.abs(distanceX) > Math.abs(distanceY)
+                Math.abs(distanceX) >
+                Math.abs(distanceY)
             ) {
 
-                if (distanceX < 0) {
+                if (
+                    distanceX < 0
+                ) {
+
                     suivant();
+
                 } else {
+
                     precedent();
                 }
-
             }
 
         },
-        { passive: true }
+        {
+            passive: true
+        }
     );
 
 
@@ -824,6 +1019,7 @@ function ouvrirFiche(index) {
     ========================================= */
 
     let sourisX = 0;
+
     let sourisEnCours = false;
 
 
@@ -831,14 +1027,20 @@ function ouvrirFiche(index) {
         "mousedown",
         function(e) {
 
-            if (fiche.classList.contains("ouverte")) {
+            if (
+                fiche.classList.contains(
+                    "ouverte"
+                )
+            ) {
+
                 return;
             }
 
-            sourisX = e.clientX;
+
+            sourisX =
+                e.clientX;
 
             sourisEnCours = true;
-
         }
     );
 
@@ -847,29 +1049,46 @@ function ouvrirFiche(index) {
         "mouseup",
         function(e) {
 
-            if (!sourisEnCours) {
+            if (
+                !sourisEnCours
+            ) {
+
                 return;
             }
 
-            sourisEnCours = false;
+
+            sourisEnCours =
+                false;
 
 
-            if (fiche.classList.contains("ouverte")) {
+            if (
+                fiche.classList.contains(
+                    "ouverte"
+                )
+            ) {
+
                 return;
             }
+
 
             const distance =
                 e.clientX - sourisX;
 
 
-            if (Math.abs(distance) > 70) {
+            if (
+                Math.abs(distance) > 70
+            ) {
 
-                if (distance < 0) {
+                if (
+                    distance < 0
+                ) {
+
                     suivant();
+
                 } else {
+
                     precedent();
                 }
-
             }
 
         }
@@ -884,33 +1103,54 @@ function ouvrirFiche(index) {
         "keydown",
         function(e) {
 
-            if (fiche.classList.contains("ouverte")) {
+            /*
+               FICHE OUVERTE
+            */
+
+            if (
+                fiche.classList.contains(
+                    "ouverte"
+                )
+            ) {
 
                 if (
-                    e.key === "Escape" ||
-                    e.key === "ArrowDown"
+                    e.key === "Escape"
                 ) {
 
                     fermerFiche();
-
                 }
 
                 return;
             }
 
 
-            if (e.key === "ArrowRight") {
+            /*
+               FORUM
+            */
+
+            if (
+                e.key === "ArrowRight"
+            ) {
+
                 suivant();
             }
 
-            if (e.key === "ArrowLeft") {
+
+            if (
+                e.key === "ArrowLeft"
+            ) {
+
                 precedent();
             }
 
-            if (e.key === "ArrowUp") {
 
-                ouvrirFiche(indexActuel);
+            if (
+                e.key === "ArrowUp"
+            ) {
 
+                ouvrirFiche(
+                    indexActuel
+                );
             }
 
         }
