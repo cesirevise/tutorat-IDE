@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pharmaco — CESIREVISE</title>
+
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+            --rouge: #EB5555;
+            --rouge-pale: #FFF0F0;
+            --rouge-clair: #F8B5B5;
+            --noir: #111111;
+            --blanc: #FFFFFF;
+        }
+
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+
+        body {
+            margin: 0;
+
+            background:
+                radial-gradient(
+                    circle at 8% 18%,
+                    rgba(235, 85, 85, 0.16),
+                    transparent 27%
+                ),
+                radial-gradient(
+                    circle at 92% 70%,
+                    rgba(235, 85, 85, 0.12),
+                    transparent 30%
+                ),
+                var(--rouge-pale);
+
+            color: var(--noir);
+
+            font-family: "League Spartan", sans-serif;
+
+            overflow-x: hidden;
+
+            position: relative;
+        }
+
+
+        /* -------------------------
+           GRAND LOGO EN FOND
+        ------------------------- */
+
+        body::before {
+
+            content: "";
+
+            position: fixed;
+
+            width: 1150px;
+            height: 1150px;
+
+            left: 50%;
+            top: 50%;
+
+            transform: translate(-50%, -50%);
+
+            background-image: url("logo-cesirevise.png");
+
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+
+            opacity: 0.055;
+
+            pointer-events: none;
+
+            z-index: 0;
+        }
+
+
+        /* -------------------------
+           CONTENU
+        ------------------------- */
+
+        .page {
+
+            position: relative;
+
+            z-index: 1;
+
+            width: min(1150px, 92%);
+
+            margin: 0 auto;
+
+            padding: 60px 0 100px;
+        }
+
+
+        /* -------------------------
+           RETOUR
+        ------------------------- */
+
+        .retour {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            padding: 12px 22px;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.78);
+
+            color: var(--noir);
+
+            text-decoration: none;
+
+            font-weight: 600;
+
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.08);
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+
+        .retour:hover {
+
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+
+
+        /* -------------------------
+           TITRE
+        ------------------------- */
+
+        .titre {
+
+            text-align: center;
+
+            padding: 55px 15px 60px;
+
+            position: relative;
+        }
+
+
+        .titre h1 {
+
+            margin: 0;
+
+            font-family: "Baloo 2", cursive;
+
+            font-size: clamp(70px, 10vw, 115px);
+
+            line-height: 0.9;
+
+            color: var(--rouge);
+
+            letter-spacing: -2px;
+
+            transform: rotate(-2deg);
+
+            text-shadow:
+                3px 3px 0 rgba(255, 255, 255, 0.9),
+                7px 8px 0 rgba(235, 85, 85, 0.12);
+        }
+
+
+        .titre p {
+
+            margin: 22px auto 0;
+
+            max-width: 650px;
+
+            font-size: 20px;
+
+            line-height: 1.5;
+
+            opacity: 0.85;
+        }
+
+
+        /* -------------------------
+           LISTE DES FICHES
+        ------------------------- */
+
+        .fiches {
+
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 28px;
+
+            padding: 10px 0;
+        }
+
+
+        /* -------------------------
+           CARTES
+        ------------------------- */
+
+        .pdf {
+
+            min-height: 125px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 25px;
+
+            border-radius: 30px;
+
+            background: rgba(255, 255, 255, 0.90);
+
+            border: 3px solid rgba(235, 85, 85, 0.42);
+
+            color: var(--rouge);
+
+            text-decoration: none;
+
+            font-size: 25px;
+
+            font-weight: 700;
+
+            text-align: center;
+
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.10),
+                8px 8px 0 rgba(235, 85, 85, 0.12);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+        }
+
+
+        .pdf:hover {
+
+            transform:
+                translateY(-7px)
+                rotate(-1deg);
+
+            background: var(--blanc);
+
+            box-shadow:
+                0 20px 35px rgba(0, 0, 0, 0.15),
+                10px 10px 0 rgba(235, 85, 85, 0.18);
+        }
+
+
+        .pdf:nth-child(3n) {
+
+            border-radius: 38px 26px 34px 28px;
+        }
+
+
+        .pdf:nth-child(3n + 1) {
+
+            border-radius: 26px 38px 28px 34px;
+        }
+
+
+        .pdf:nth-child(4n) {
+
+            transform: rotate(0.8deg);
+        }
+
+
+        .pdf:nth-child(4n):hover {
+
+            transform:
+                translateY(-7px)
+                rotate(1.5deg);
+        }
+
+
+        /* -------------------------
+           DÉCORATIONS PHARMACO
+        ------------------------- */
+
+        .pharma-deco {
+
+            position: fixed;
+
+            pointer-events: none;
+
+            z-index: 0;
+
+            color: var(--rouge);
+
+            opacity: 0.48;
+        }
+
+
+        /* Molécule */
+
+        .molecule {
+
+            width: 120px;
+            height: 120px;
+
+            top: 17%;
+            left: 2%;
+
+            animation: float 5s ease-in-out infinite;
+        }
+
+
+        .molecule circle {
+
+            fill: var(--rouge);
+
+        }
+
+
+        .molecule line {
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+            stroke-linecap: round;
+        }
+
+
+        /* Bécher */
+
+        .becher {
+
+            width: 95px;
+            height: 110px;
+
+            right: 3%;
+            top: 28%;
+
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+
+        .becher path {
+
+            fill: rgba(235, 85, 85, 0.10);
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+            stroke-linejoin: round;
+        }
+
+
+        .becher line {
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+            stroke-linecap: round;
+        }
+
+
+        /* Gélule */
+
+        .gelule {
+
+            width: 100px;
+            height: 65px;
+
+            left: 1%;
+            bottom: 25%;
+
+            transform: rotate(-25deg);
+
+            animation: float 7s ease-in-out infinite;
+        }
+
+
+        .gelule rect {
+
+            fill: rgba(235, 85, 85, 0.12);
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+        }
+
+
+        .gelule line {
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+        }
+
+
+        /* Fiole */
+
+        .fiole {
+
+            width: 80px;
+            height: 110px;
+
+            right: 4%;
+            bottom: 12%;
+
+            animation: float 5.5s ease-in-out infinite;
+        }
+
+
+        .fiole path {
+
+            fill: rgba(235, 85, 85, 0.10);
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+            stroke-linejoin: round;
+        }
+
+
+        .fiole line {
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+
+            stroke-linecap: round;
+        }
+
+
+        /* Petite pilule */
+
+        .pilule {
+
+            width: 65px;
+            height: 45px;
+
+            right: 14%;
+            top: 14%;
+
+            transform: rotate(25deg);
+
+            animation: float 4.5s ease-in-out infinite;
+        }
+
+
+        .pilule ellipse {
+
+            fill: rgba(235, 85, 85, 0.12);
+
+            stroke: var(--rouge);
+
+            stroke-width: 4;
+        }
+
+
+        .pilule line {
+
+            stroke: var(--rouge);
+
+            stroke-width: 3;
+        }
+
+
+        /* -------------------------
+           ANIMATION
+        ------------------------- */
+
+        @keyframes float {
+
+            0%,
+            100% {
+
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+
+                transform: translateY(-10px) rotate(3deg);
+            }
+        }
+
+
+        .gelule {
+
+            animation:
+                floatGelule 6s ease-in-out infinite;
+        }
+
+
+        @keyframes floatGelule {
+
+            0%,
+            100% {
+
+                transform: translateY(0) rotate(-25deg);
+            }
+
+            50% {
+
+                transform: translateY(-12px) rotate(-20deg);
+            }
+        }
+
+
+        .pilule {
+
+            animation:
+                floatPilule 5s ease-in-out infinite;
+        }
+
+
+        @keyframes floatPilule {
+
+            0%,
+            100% {
+
+                transform: translateY(0) rotate(25deg);
+            }
+
+            50% {
+
+                transform: translateY(-9px) rotate(30deg);
+            }
+        }
+
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 700px) {
+
+            .page {
+
+                width: 94%;
+
+                padding-top: 30px;
+            }
+
+
+            .titre {
+
+                padding: 45px 5px 45px;
+            }
+
+
+            .titre h1 {
+
+                font-size: 70px;
+            }
+
+
+            .titre p {
+
+                font-size: 18px;
+            }
+
+
+            .fiches {
+
+                grid-template-columns: repeat(2, 1fr);
+
+                gap: 16px;
+            }
+
+
+            .pdf {
+
+                min-height: 115px;
+
+                padding: 18px 10px;
+
+                font-size: 20px;
+
+                border-radius: 24px;
+            }
+
+
+            body::before {
+
+                width: 700px;
+                height: 700px;
+
+                opacity: 0.045;
+            }
+
+
+            /* Décorations plus discrètes sur mobile */
+
+            .molecule {
+
+                width: 75px;
+                height: 75px;
+
+                left: -15px;
+            }
+
+
+            .becher {
+
+                width: 65px;
+                height: 75px;
+
+                right: -10px;
+            }
+
+
+            .gelule {
+
+                width: 70px;
+                height: 45px;
+
+                left: -10px;
+            }
+
+
+            .fiole {
+
+                width: 55px;
+                height: 75px;
+
+                right: -5px;
+            }
+
+
+            .pilule {
+
+                width: 50px;
+                height: 35px;
+
+                right: 5%;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- =========================
+         DÉCORATIONS PHARMACO
+    ========================== -->
+
+
+    <!-- Molécule -->
+
+    <svg class="pharma-deco molecule"
+         viewBox="0 0 120 120">
+
+        <line x1="30" y1="65" x2="60" y2="35"></line>
+        <line x1="60" y1="35" x2="92" y2="58"></line>
+        <line x1="60" y1="35" x2="58" y2="82"></line>
+        <line x1="58" y1="82" x2="92" y2="58"></line>
+
+        <circle cx="30" cy="65" r="10"></circle>
+        <circle cx="60" cy="35" r="10"></circle>
+        <circle cx="92" cy="58" r="10"></circle>
+        <circle cx="58" cy="82" r="10"></circle>
+
+    </svg>
+
+
+    <!-- Bécher -->
+
+    <svg class="pharma-deco becher"
+         viewBox="0 0 95 110">
+
+        <path d="
+            M22 15
+            L73 15
+            L68 30
+            L63 91
+            Q60 99 47 99
+            Q34 99 31 91
+            L26 30
+            Z
+        "></path>
+
+        <line x1="29" y1="55" x2="67" y2="55"></line>
+
+        <path d="
+            M30 62
+            Q47 55 65 62
+            L63 88
+            Q60 96 47 96
+            Q34 96 32 88
+            Z
+        "></path>
+
+    </svg>
+
+
+    <!-- Gélule -->
+
+    <svg class="pharma-deco gelule"
+         viewBox="0 0 100 65">
+
+        <rect x="8"
+              y="16"
+              width="84"
+              height="33"
+              rx="16.5">
+        </rect>
+
+        <line x1="50" y1="17" x2="50" y2="48"></line>
+
+    </svg>
+
+
+    <!-- Fiole -->
+
+    <svg class="pharma-deco fiole"
+         viewBox="0 0 80 110">
+
+        <path d="
+            M28 10
+            L52 10
+            L52 25
+            L64 39
+            L67 87
+            Q65 99 40 101
+            Q15 99 13 87
+            L16 39
+            L28 25
+            Z
+        "></path>
+
+        <line x1="20" y1="53" x2="61" y2="53"></line>
+
+        <line x1="28" y1="10" x2="52" y2="10"></line>
+
+    </svg>
+
+
+    <!-- Petite pilule -->
+
+    <svg class="pharma-deco pilule"
+         viewBox="0 0 65 45">
+
+        <ellipse cx="32.5"
+                 cy="22.5"
+                 rx="28"
+                 ry="16">
+        </ellipse>
+
+        <line x1="32.5"
+              y1="7"
+              x2="32.5"
+              y2="38">
+        </line>
+
+    </svg>
+
+
+    <main class="page">
+
+
+        <!-- RETOUR -->
+
+        <a href="fiches.html" class="retour">
+            ← Retour aux fiches
+        </a>
+
+
+        <!-- TITRE -->
+
+        <section class="titre">
+
+            <h1>PHARMACO</h1>
+
+            <p>
+                Tes fiches pour comprendre les médicaments,
+                leurs mécanismes d'action, leurs indications et leurs effets.
+            </p>
+
+        </section>
+
+
+        <!-- =========================
+             FICHES
+        ========================== -->
+
+        <section class="fiches">
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+            <a href="#" class="pdf">
+                INSÉRER PDF
+            </a>
+
+
+        </section>
+
+    </main>
+
+</body>
+</html>
