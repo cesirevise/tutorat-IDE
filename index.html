@@ -6,322 +6,470 @@
 
     <title>CESI Révise – Tutorat IFSI Pontchaillou Rennes</title>
 
-    <meta name="google-site-verification" content="googleb31f89011bd47473.html">   
+    <meta name="google-site-verification" content="googleb31f89011bd47473.html">
 
-<meta name="description" content="CESI Révise : espace de tutorat et de révision pour les étudiants infirmiers de l'IFSI Pontchaillou à Rennes. Fiches, ressources, forum et informations.">
+    <meta name="description" content="CESI Révise : espace de tutorat et de révision pour les étudiants infirmiers de l'IFSI Pontchaillou à Rennes. Fiches, ressources, forum et informations.">
 
-<meta name="robots" content="index, follow">
+    <meta name="robots" content="index, follow">
 
-    <!-- Polices -->
+    <!-- POLICES -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 
     <style>
 
+        /* =====================================================
+           VARIABLES
+        ===================================================== */
+
         :root {
             --bleu: #77A5AA;
-            --bleu-clair: #EAF4F5;
-            --bleu-tres-clair: #F5FAFA;
+            --bleu-clair: #EAF3F4;
+            --fond: #FAFCFC;
             --noir: #111111;
             --blanc: #FFFFFF;
         }
 
 
+        /* =====================================================
+           BASE
+        ===================================================== */
+
         * {
             box-sizing: border-box;
         }
-
 
         html {
             scroll-behavior: smooth;
         }
 
-
         body {
             margin: 0;
-
-            background: var(--bleu-tres-clair);
-
+            background: var(--fond);
             color: var(--noir);
-
             font-family: "League Spartan", sans-serif;
-
             overflow-x: hidden;
+        }
+
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
 
         /* =====================================================
-           BANDEAU DU HAUT
+           DÉCOR GLOBAL
         ===================================================== */
 
-        .bandeau {
-
-            width: 100%;
-
-            min-height: 105px;
-
-            background: var(--bleu);
-
-            display: flex;
-
-            align-items: center;
-
-            justify-content: center;
-
-            gap: 28px;
-
-            padding: 18px 30px;
-
-            position: relative;
-
-            z-index: 10;
-
-            box-shadow:
-                0 8px 25px rgba(119, 165, 170, 0.20);
+        .decor {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            overflow: hidden;
+            z-index: 0;
         }
 
 
-        .bandeau::before {
+        /* =====================================================
+           FORMES ORGANIQUES
+        ===================================================== */
 
-            content: "";
-
+        .forme {
             position: absolute;
+            background: var(--bleu-clair);
+            z-index: 0;
+        }
 
-            bottom: -18px;
 
-            left: 0;
-
-            width: 100%;
-
-            height: 35px;
-
-            background: var(--bleu);
+        .forme-haut-gauche {
+            width: 310px;
+            height: 180px;
+            left: -115px;
+            top: 105px;
 
             border-radius:
-                0 0 50% 50%;
+                62% 38% 53% 47% /
+                48% 58% 42% 52%;
+
+            transform: rotate(-18deg);
         }
 
 
-        .bandeau img {
+        .forme-haut-droite {
+            width: 270px;
+            height: 220px;
+            right: -105px;
+            top: 45px;
 
-            width: 115px;
+            border-radius:
+                40% 60% 55% 45% /
+                58% 42% 58% 42%;
 
+            transform: rotate(22deg);
+        }
+
+
+        .forme-bas-gauche {
+            width: 350px;
+            height: 240px;
+            left: -175px;
+            bottom: 80px;
+
+            border-radius:
+                55% 45% 38% 62% /
+                45% 55% 45% 55%;
+
+            transform: rotate(15deg);
+        }
+
+
+        .forme-bas-droite {
+            width: 300px;
+            height: 210px;
+            right: -140px;
+            bottom: 15px;
+
+            border-radius:
+                48% 52% 63% 37% /
+                55% 45% 55% 45%;
+
+            transform: rotate(-15deg);
+        }
+
+
+        /* =====================================================
+           VAGUES DANS LES COINS
+        ===================================================== */
+
+        .vague {
+            position: absolute;
+            width: 240px;
+            height: 115px;
+            border: 3px solid var(--bleu);
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            border-radius: 55% 45% 50% 50%;
+        }
+
+
+        .vague.fine {
+            border-width: 1.5px;
+        }
+
+
+        .vague-haut-gauche {
+            left: -105px;
+            top: 150px;
+            transform: rotate(-28deg);
+        }
+
+
+        .vague-haut-gauche-2 {
+            left: -80px;
+            top: 180px;
+            transform: rotate(-28deg);
+        }
+
+
+        .vague-haut-droite {
+            right: -95px;
+            top: 135px;
+            transform: rotate(150deg);
+        }
+
+
+        .vague-bas-gauche {
+            left: -115px;
+            bottom: 150px;
+            transform: rotate(12deg);
+        }
+
+
+        .vague-bas-droite {
+            right: -100px;
+            bottom: 115px;
+            transform: rotate(170deg);
+        }
+
+
+        /* =====================================================
+           COURBES NOIRES
+        ===================================================== */
+
+        .courbe {
+            position: absolute;
+            border: 3px solid var(--noir);
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            opacity: 0.9;
+        }
+
+
+        .courbe.one {
+            width: 230px;
+            height: 125px;
+            left: -70px;
+            top: 315px;
+            transform: rotate(28deg);
+        }
+
+
+        .courbe.two {
+            width: 180px;
+            height: 95px;
+            right: -65px;
+            top: 420px;
+            transform: rotate(-25deg);
+        }
+
+
+        .courbe.three {
+            width: 260px;
+            height: 120px;
+            right: -120px;
+            bottom: 285px;
+            transform: rotate(155deg);
+        }
+
+
+        /* =====================================================
+           AMAS DE POINTS
+        ===================================================== */
+
+        .points {
+            position: absolute;
+            width: 75px;
+            height: 65px;
+        }
+
+
+        .points span {
+            position: absolute;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: var(--bleu);
+        }
+
+
+        .points span:nth-child(1) {
+            left: 5px;
+            top: 8px;
+        }
+
+        .points span:nth-child(2) {
+            left: 22px;
+            top: 3px;
+        }
+
+        .points span:nth-child(3) {
+            left: 39px;
+            top: 11px;
+        }
+
+        .points span:nth-child(4) {
+            left: 56px;
+            top: 5px;
+        }
+
+        .points span:nth-child(5) {
+            left: 13px;
+            top: 25px;
+        }
+
+        .points span:nth-child(6) {
+            left: 31px;
+            top: 31px;
+        }
+
+        .points span:nth-child(7) {
+            left: 49px;
+            top: 27px;
+        }
+
+        .points span:nth-child(8) {
+            left: 67px;
+            top: 34px;
+        }
+
+        .points span:nth-child(9) {
+            left: 5px;
+            top: 46px;
+        }
+
+        .points span:nth-child(10) {
+            left: 23px;
+            top: 52px;
+        }
+
+        .points span:nth-child(11) {
+            left: 43px;
+            top: 47px;
+        }
+
+        .points span:nth-child(12) {
+            left: 60px;
+            top: 55px;
+        }
+
+
+        .points.petit span {
+            width: 5px;
+            height: 5px;
+        }
+
+
+        .points-haut {
+            right: 17%;
+            top: 165px;
+        }
+
+
+        .points-milieu {
+            left: 12%;
+            top: 540px;
+            transform: rotate(-12deg);
+        }
+
+
+        .points-bas {
+            right: 12%;
+            bottom: 105px;
+            transform: rotate(8deg);
+        }
+
+
+        /* =====================================================
+           CONTENU
+        ===================================================== */
+
+        .conteneur {
+            position: relative;
+            z-index: 2;
+            width: min(1120px, calc(100% - 40px));
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: relative;
+            z-index: 5;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 25px;
+
+            min-height: 125px;
+
+            background: var(--bleu);
+
+            padding: 20px 30px;
+
+            overflow: hidden;
+
+            border-radius:
+                0 0 45% 55% /
+                0 0 35% 45%;
+
+            box-shadow:
+                0 12px 30px rgba(119,165,170,0.16);
+        }
+
+
+        header::after {
+            content: "";
+            position: absolute;
+
+            width: 220px;
+            height: 90px;
+
+            right: -60px;
+            bottom: -45px;
+
+            background: rgba(255,255,255,0.12);
+
+            border-radius: 50%;
+        }
+
+
+        header img {
+            width: 125px;
             height: auto;
 
             filter:
                 brightness(0)
                 invert(1);
+
+            position: relative;
+            z-index: 2;
         }
 
 
-        .bandeau span {
-
+        header span {
             color: var(--blanc);
 
             font-size: 16px;
-
             font-weight: 700;
 
             letter-spacing: 2.5px;
-
             text-transform: uppercase;
-        }
-
-
-        /* =====================================================
-           PAGE PRINCIPALE
-        ===================================================== */
-
-        .page {
 
             position: relative;
-
-            max-width: 1150px;
-
-            margin: 0 auto;
-
-            padding: 65px 30px 70px;
+            z-index: 2;
         }
 
 
         /* =====================================================
-           DÉCORATIONS
-        ===================================================== */
-
-        .decorations {
-
-            position: absolute;
-
-            inset: 0;
-
-            overflow: hidden;
-
-            pointer-events: none;
-
-            z-index: 0;
-        }
-
-
-        /* grand cercle complet */
-
-        .cercle-gauche {
-
-            position: absolute;
-
-            width: 420px;
-
-            height: 420px;
-
-            border: 2px solid rgba(119, 165, 170, 0.17);
-
-            border-radius: 50%;
-
-            left: -310px;
-
-            top: 270px;
-        }
-
-
-        .cercle-gauche::after {
-
-            content: "";
-
-            position: absolute;
-
-            width: 280px;
-
-            height: 280px;
-
-            border: 2px solid rgba(119, 165, 170, 0.12);
-
-            border-radius: 50%;
-
-            left: 70px;
-
-            top: 70px;
-        }
-
-
-        /* cercle droit */
-
-        .cercle-droit {
-
-            position: absolute;
-
-            width: 330px;
-
-            height: 330px;
-
-            border: 2px solid rgba(119, 165, 170, 0.15);
-
-            border-radius: 50%;
-
-            right: -240px;
-
-            top: 540px;
-        }
-
-
-        /* petite pastille */
-
-        .pastille {
-
-            position: absolute;
-
-            width: 18px;
-
-            height: 18px;
-
-            background: var(--bleu);
-
-            border-radius: 50%;
-
-            opacity: 0.45;
-        }
-
-
-        .pastille.one {
-            left: 7%;
-            top: 190px;
-        }
-
-
-        .pastille.two {
-            right: 9%;
-            top: 430px;
-
-            width: 12px;
-            height: 12px;
-        }
-
-
-        .pastille.three {
-            left: 10%;
-            bottom: 180px;
-
-            width: 10px;
-            height: 10px;
-        }
-
-
-        /* =====================================================
-           INTRO
+           INTRODUCTION
         ===================================================== */
 
         .intro {
-
-            position: relative;
-
-            z-index: 2;
-
             text-align: center;
-
-            padding: 35px 15px 45px;
+            padding: 75px 15px 50px;
         }
 
 
         .intro h1 {
-
             margin: 0;
-
-            font-family: "Baloo 2", cursive;
 
             color: var(--bleu);
 
-            font-size: clamp(55px, 8vw, 90px);
+            font-size: clamp(65px, 10vw, 105px);
 
-            line-height: 0.95;
+            line-height: 0.9;
 
-            letter-spacing: -2px;
+            font-weight: 800;
 
-            transform: rotate(-2deg);
-
-            text-shadow:
-                4px 5px 0 rgba(119, 165, 170, 0.10);
+            letter-spacing: -4px;
         }
 
 
         .intro p {
-
             max-width: 650px;
 
-            margin: 20px auto 0;
+            margin: 30px auto 0;
 
-            padding: 18px 25px;
-
-            background: rgba(255,255,255,0.82);
-
-            border-radius: 28px;
-
-            font-size: 18px;
+            font-size: 20px;
 
             line-height: 1.45;
 
-            box-shadow:
-                0 12px 30px rgba(0,0,0,0.05);
+            font-weight: 400;
+
+            color: var(--noir);
+        }
+
+
+        .intro strong {
+            color: var(--bleu);
+            font-weight: 700;
         }
 
 
@@ -330,58 +478,41 @@
         ===================================================== */
 
         .navigation {
-
             position: relative;
 
-            z-index: 2;
+            min-height: 820px;
 
-            min-height: 760px;
-
-            margin-top: 5px;
+            margin-top: 10px;
         }
 
 
         /* =====================================================
-           VRAIES COURBES
+           COURBE CENTRALE
         ===================================================== */
 
-        .decor-line {
-
+        .ligne-centrale {
             position: absolute;
 
-            border: 2px solid rgba(119,165,170,0.20);
+            width: 720px;
+            height: 370px;
+
+            left: 50%;
+            top: 170px;
+
+            transform:
+                translateX(-50%)
+                rotate(-8deg);
+
+            border: 2px solid var(--noir);
+
+            border-left-color: transparent;
+            border-bottom-color: transparent;
 
             border-radius: 50%;
 
+            opacity: 0.85;
+
             pointer-events: none;
-        }
-
-
-        .decor-line.one {
-
-            width: 360px;
-
-            height: 180px;
-
-            top: 55px;
-
-            left: 23%;
-
-            transform: rotate(8deg);
-        }
-
-
-        .decor-line.two {
-
-            width: 300px;
-
-            height: 150px;
-
-            top: 375px;
-
-            right: 18%;
-
-            transform: rotate(-12deg);
         }
 
 
@@ -390,214 +521,123 @@
         ===================================================== */
 
         .bulle {
-
             position: absolute;
 
+            width: 290px;
+            min-height: 190px;
+
             display: flex;
-
             align-items: center;
-
             justify-content: center;
-
-            text-align: center;
-
-            width: 285px;
-
-            height: 190px;
 
             padding: 30px;
 
             color: var(--blanc);
 
+            background: var(--bleu);
+
             text-decoration: none;
 
-            font-size: 31px;
+            text-align: center;
 
+            font-size: 31px;
             line-height: 1.05;
 
             font-weight: 700;
 
-            z-index: 5;
-
-            box-shadow:
-                0 20px 35px rgba(0,0,0,0.14),
-                inset 0 -10px 0 rgba(0,0,0,0.06);
-
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
+
+            box-shadow:
+                0 15px 28px rgba(0,0,0,0.10);
         }
 
 
-        /* formes volontairement légèrement différentes */
+        /* formes organiques */
+
 
         .fiches {
-
-            top: 15px;
-
-            left: 3%;
-
-            background: var(--bleu);
+            left: 4%;
+            top: 20px;
 
             border-radius:
-                48% 52% 45% 55% /
-                55% 45% 55% 45%;
+                42% 58% 52% 48% /
+                58% 44% 56% 42%;
+
+            transform: rotate(-4deg);
+        }
+
+
+        .conferences {
+            right: 4%;
+            top: 135px;
+
+            border-radius:
+                58% 42% 46% 54% /
+                43% 57% 47% 53%;
+
+            transform: rotate(4deg);
+        }
+
+
+        .specialites {
+            right: 8%;
+            top: 350px;
+
+            border-radius:
+                48% 52% 60% 40% /
+                55% 45% 53% 47%;
 
             transform: rotate(-3deg);
         }
 
 
-        .conferences {
-
-            top: 135px;
-
-            right: 2%;
-
-            background: var(--bleu);
-
-            border-radius:
-                52% 48% 55% 45% /
-                45% 55% 45% 55%;
-
-            transform: rotate(3deg);
-        }
-
-
-        .specialites {
-
-            top: 325px;
-
-            right: 7%;
-
-            background: var(--bleu);
-
-            border-radius:
-                45% 55% 50% 50% /
-                55% 45% 50% 50%;
-
-            transform: rotate(-2deg);
-        }
-
-
         .rejoindre {
-
-            top: 440px;
-
             left: 5%;
-
-            background: var(--bleu);
+            top: 465px;
 
             border-radius:
-                55% 45% 48% 52% /
-                48% 52% 45% 55%;
+                57% 43% 45% 55% /
+                48% 52% 58% 42%;
 
             transform: rotate(3deg);
         }
 
 
         .contact {
-
-            top: 600px;
-
             right: 8%;
-
-            background: var(--bleu);
+            top: 625px;
 
             border-radius:
-                50% 50% 45% 55% /
-                45% 55% 55% 45%;
+                44% 56% 53% 47% /
+                54% 46% 57% 43%;
 
-            transform: rotate(-3deg);
+            transform: rotate(-4deg);
         }
 
 
         .bulle:hover {
-
             transform:
-                scale(1.08)
+                scale(1.06)
                 rotate(0deg);
 
             box-shadow:
-                0 28px 50px rgba(0,0,0,0.20),
-                inset 0 -10px 0 rgba(0,0,0,0.07);
+                0 22px 40px rgba(0,0,0,0.16);
         }
 
 
         /* =====================================================
-           PETITS POINTS SUR LA COMPOSITION
-        ===================================================== */
-
-        .mini {
-
-            position: absolute;
-
-            width: 13px;
-
-            height: 13px;
-
-            border-radius: 50%;
-
-            background: var(--bleu);
-
-            opacity: 0.55;
-
-            z-index: 4;
-        }
-
-
-        .mini.a {
-
-            top: 160px;
-
-            left: 39%;
-        }
-
-
-        .mini.b {
-
-            top: 315px;
-
-            left: 24%;
-
-            width: 9px;
-
-            height: 9px;
-        }
-
-
-        .mini.c {
-
-            top: 500px;
-
-            right: 32%;
-
-            width: 16px;
-
-            height: 16px;
-        }
-
-
-        .mini.d {
-
-            top: 650px;
-
-            left: 42%;
-
-            width: 8px;
-
-            height: 8px;
-        }
-
-
-        /* =====================================================
-           BAS
+           FOOTER
         ===================================================== */
 
         footer {
+            position: relative;
+            z-index: 2;
 
             text-align: center;
 
-            padding: 20px 20px 50px;
+            padding: 25px 20px 55px;
 
             color: var(--bleu);
 
@@ -605,163 +645,219 @@
 
             font-weight: 600;
 
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
         }
 
 
         /* =====================================================
-           MOBILE
+           TABLETTE / MOBILE
         ===================================================== */
 
         @media (max-width: 700px) {
 
-            .bandeau {
-
-                min-height: 90px;
-
+            header {
+                min-height: 100px;
                 gap: 14px;
-
                 padding: 15px;
             }
 
 
-            .bandeau img {
-
-                width: 85px;
+            header img {
+                width: 90px;
             }
 
 
-            .bandeau span {
-
-                font-size: 11px;
-
-                letter-spacing: 1.4px;
+            header span {
+                font-size: 10px;
+                letter-spacing: 1.3px;
             }
 
 
-            .page {
-
-                padding: 45px 15px 40px;
+            .conteneur {
+                width: calc(100% - 25px);
             }
 
 
             .intro {
-
-                padding-bottom: 25px;
+                padding: 60px 10px 35px;
             }
 
 
             .intro h1 {
-
                 font-size: 58px;
+                letter-spacing: -2px;
             }
 
 
             .intro p {
-
-                font-size: 17px;
-
-                padding: 16px 20px;
+                font-size: 18px;
+                line-height: 1.4;
             }
 
 
             .navigation {
+                min-height: 780px;
+            }
 
-                min-height: 820px;
+
+            .ligne-centrale {
+                width: 480px;
+                height: 300px;
+
+                top: 145px;
             }
 
 
             .bulle {
-
-                width: 195px;
-
-                height: 140px;
-
-                font-size: 22px;
+                width: 205px;
+                min-height: 140px;
 
                 padding: 20px;
+
+                font-size: 23px;
             }
 
 
             .fiches {
-
-                left: -5%;
-
-                top: 5px;
+                left: -4%;
+                top: 10px;
             }
 
 
             .conferences {
-
-                right: -5%;
-
-                top: 125px;
+                right: -4%;
+                top: 120px;
             }
 
 
             .specialites {
-
-                right: -5%;
-
-                top: 295px;
+                right: -4%;
+                top: 290px;
             }
 
 
             .rejoindre {
-
-                left: -5%;
-
-                top: 420px;
+                left: -4%;
+                top: 410px;
             }
 
 
             .contact {
-
-                right: -5%;
-
-                top: 590px;
+                right: -4%;
+                top: 575px;
             }
 
 
-            .decor-line.one {
-
-                width: 240px;
-
-                height: 120px;
-
-                left: 20%;
-            }
-
-
-            .decor-line.two {
-
+            .forme-haut-gauche {
                 width: 220px;
-
-                height: 110px;
-
-                right: 12%;
-
-                top: 430px;
+                height: 130px;
+                left: -120px;
             }
 
 
-            .cercle-gauche {
-
-                width: 300px;
-
-                height: 300px;
-
-                left: -240px;
+            .forme-haut-droite {
+                width: 200px;
+                height: 160px;
+                right: -110px;
             }
 
 
-            .cercle-droit {
+            .forme-bas-gauche {
+                width: 240px;
+                height: 170px;
+                left: -140px;
+            }
 
-                width: 250px;
 
-                height: 250px;
+            .forme-bas-droite {
+                width: 220px;
+                height: 160px;
+                right: -120px;
+            }
 
-                right: -200px;
+
+            .courbe.one {
+                left: -100px;
+            }
+
+
+            .courbe.two {
+                right: -90px;
+            }
+
+
+            .points-haut {
+                right: 8%;
+                top: 155px;
+            }
+
+
+            .points-milieu {
+                left: 3%;
+                top: 520px;
+            }
+
+
+            .points-bas {
+                right: 4%;
+                bottom: 100px;
+            }
+
+
+            .vague-haut-gauche,
+            .vague-haut-gauche-2 {
+                left: -130px;
+            }
+
+
+            .vague-haut-droite {
+                right: -130px;
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .bulle {
+                width: 190px;
+                min-height: 130px;
+                font-size: 21px;
+            }
+
+
+            .navigation {
+                min-height: 735px;
+            }
+
+
+            .fiches {
+                left: -8%;
+            }
+
+
+            .conferences {
+                right: -8%;
+            }
+
+
+            .specialites {
+                right: -8%;
+            }
+
+
+            .rejoindre {
+                left: -8%;
+            }
+
+
+            .contact {
+                right: -8%;
+            }
+
+
+            .intro h1 {
+                font-size: 52px;
             }
 
         }
@@ -774,10 +870,68 @@
 
 
     <!-- =====================================================
-         BANDEAU
+         DÉCORATION
     ===================================================== -->
 
-    <header class="bandeau">
+    <div class="decor">
+
+        <!-- formes organiques -->
+
+        <span class="forme forme-haut-gauche"></span>
+        <span class="forme forme-haut-droite"></span>
+        <span class="forme forme-bas-gauche"></span>
+        <span class="forme forme-bas-droite"></span>
+
+
+        <!-- vagues -->
+
+        <span class="vague vague-haut-gauche"></span>
+        <span class="vague vague-haut-gauche-2 fine"></span>
+
+        <span class="vague vague-haut-droite fine"></span>
+
+        <span class="vague vague-bas-gauche fine"></span>
+
+        <span class="vague vague-bas-droite"></span>
+
+
+        <!-- courbes noires -->
+
+        <span class="courbe one"></span>
+        <span class="courbe two"></span>
+        <span class="courbe three"></span>
+
+
+        <!-- amas de points -->
+
+        <div class="points points-haut">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+
+        <div class="points points-milieu petit">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+
+        <div class="points points-bas">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         HEADER
+    ===================================================== -->
+
+    <header>
 
         <img
             src="logo-cesirevise.png"
@@ -792,30 +946,13 @@
 
 
     <!-- =====================================================
-         PAGE
+         CONTENU
     ===================================================== -->
 
-    <main class="page">
+    <main class="conteneur">
 
 
-        <!-- Décor -->
-
-        <div class="decorations">
-
-            <span class="cercle-gauche"></span>
-
-            <span class="cercle-droit"></span>
-
-            <span class="pastille one"></span>
-            <span class="pastille two"></span>
-            <span class="pastille three"></span>
-
-        </div>
-
-
-        <!-- =================================================
-             INTRODUCTION
-        ================================================= -->
+        <!-- INTRODUCTION -->
 
         <section class="intro">
 
@@ -824,14 +961,11 @@
             </h1>
 
             <p>
-
                 Un espace pensé par et pour les
-                étudiant·e·s infirmier·ère·s de Pontchaillou.
-
+                <strong>étudiant·e·s infirmier·ère·s</strong>
+                de Pontchaillou.
                 <br>
-
                 Réviser · s’orienter · partager · avancer
-
             </p>
 
         </section>
@@ -844,35 +978,26 @@
         <section class="navigation">
 
 
-            <!-- vraies formes -->
+            <!-- grande courbe noire -->
 
-            <span class="decor-line one"></span>
-
-            <span class="decor-line two"></span>
+            <span class="ligne-centrale"></span>
 
 
-            <!-- petits points -->
-
-            <span class="mini a"></span>
-
-            <span class="mini b"></span>
-
-            <span class="mini c"></span>
-
-            <span class="mini d"></span>
-
-
-            <!-- bulles -->
+            <!-- FICHES -->
 
             <a href="fiches.html" class="bulle fiches">
                 FICHES
             </a>
 
 
+            <!-- CONFÉRENCES -->
+
             <a href="#" class="bulle conferences">
                 CONFÉRENCES
             </a>
 
+
+            <!-- FORUM -->
 
             <a href="forum.html" class="bulle specialites">
                 FORUM DES<br>
@@ -880,11 +1005,15 @@
             </a>
 
 
+            <!-- NOUS REJOINDRE -->
+
             <a href="#" class="bulle rejoindre">
                 NOUS<br>
                 REJOINDRE
             </a>
 
+
+            <!-- CONTACT -->
 
             <a href="contacts.html" class="bulle contact">
                 NOUS<br>
@@ -894,14 +1023,15 @@
 
         </section>
 
-
     </main>
 
 
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
     <footer>
-
         CESIREVISE · CESIR · IFSI PONTCHAILLOU
-
     </footer>
 
 
