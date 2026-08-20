@@ -8,226 +8,976 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
 
     <style>
 
+        /* =====================================================
+           COULEURS
+        ===================================================== */
+
         :root {
-            --bleu-cesir: #77A5AA;
-            --mauve: #D585A9;
-            --rouge: #EB5555;
-            --vert: #7EAA83;
-            --jaune: #FFD230;
-            --marron: #9A7458;
+            --bleu: #77A5AA;
+
+            --physio: #77A5AA;
+            --psycho: #D585A9;
+            --pharmaco: #EB5555;
+            --normes: #7EAA83;
+            --orientation: #FFD230;
+            --stage: #9A7458;
+
+            --bleu-clair: #EAF3F4;
+            --fond: #FAFCFC;
+
             --noir: #111111;
             --blanc: #FFFFFF;
         }
+
+
+        /* =====================================================
+           BASE
+        ===================================================== */
 
         * {
             box-sizing: border-box;
         }
 
+
         html {
             scroll-behavior: smooth;
         }
 
+
         body {
             margin: 0;
-            background: var(--blanc);
+
+            background: var(--fond);
+
             color: var(--noir);
+
             font-family: "League Spartan", sans-serif;
+
             overflow-x: hidden;
         }
 
-        /* -------------------------
-           EN-TÊTE
-        ------------------------- */
 
-        header {
-            text-align: center;
-            padding: 45px 25px 20px;
+        a {
+            -webkit-tap-highlight-color: transparent;
         }
 
-        .logo {
-            width: min(260px, 65vw);
-            height: auto;
+
+        /* =====================================================
+           DÉCOR GLOBAL
+        ===================================================== */
+
+        .decor {
+            position: fixed;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+
+            z-index: 0;
         }
 
-        /* -------------------------
-           TITRE
-        ------------------------- */
 
-        .titre {
-            text-align: center;
-            padding: 35px 25px 55px;
+        /* =====================================================
+           FORMES ORGANIQUES
+        ===================================================== */
+
+        .forme {
+            position: absolute;
+
+            background: var(--bleu-clair);
         }
 
-        .titre h1 {
-            margin: 0;
-            color: var(--noir);
-            font-size: clamp(48px, 8vw, 75px);
-            font-weight: 700;
+
+        .forme-haut-gauche {
+            width: 330px;
+            height: 190px;
+
+            left: -150px;
+            top: 80px;
+
+            border-radius:
+                62% 38% 45% 55% /
+                52% 48% 57% 43%;
+
+            transform: rotate(-17deg);
         }
 
-        .titre p {
-            max-width: 650px;
-            margin: 18px auto 0;
-            font-size: 20px;
-            line-height: 1.5;
+
+        .forme-haut-droite {
+            width: 290px;
+            height: 210px;
+
+            right: -130px;
+            top: 110px;
+
+            border-radius:
+                42% 58% 55% 45% /
+                58% 42% 48% 52%;
+
+            transform: rotate(18deg);
         }
 
-        /* -------------------------
-           BULLES
-        ------------------------- */
 
-        .categories {
-            width: min(1100px, 92%);
-            margin: 0 auto;
+        .forme-bas-gauche {
+            width: 330px;
+            height: 210px;
 
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 45px;
+            left: -170px;
+            bottom: 80px;
 
-            padding-bottom: 90px;
+            border-radius:
+                48% 52% 62% 38% /
+                55% 45% 55% 45%;
+
+            transform: rotate(12deg);
         }
 
-        .bulle {
-            min-height: 250px;
+
+        .forme-bas-droite {
+            width: 310px;
+            height: 220px;
+
+            right: -145px;
+            bottom: 30px;
+
+            border-radius:
+                55% 45% 40% 60% /
+                46% 54% 48% 52%;
+
+            transform: rotate(-15deg);
+        }
+
+
+        /* =====================================================
+           VAGUES
+        ===================================================== */
+
+        .vague {
+            position: absolute;
+
+            width: 260px;
+            height: 125px;
+
+            border: 3px solid var(--bleu);
+
+            border-left-color: transparent;
+            border-bottom-color: transparent;
+
+            border-radius: 55% 45% 50% 50%;
+        }
+
+
+        .vague.fine {
+            border-width: 1.5px;
+        }
+
+
+        .vague-haut-gauche {
+            left: -120px;
+            top: 125px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        .vague-haut-gauche-2 {
+            left: -95px;
+            top: 155px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        .vague-haut-droite {
+            right: -110px;
+            top: 165px;
+
+            transform: rotate(145deg);
+        }
+
+
+        .vague-bas-gauche {
+            left: -125px;
+            bottom: 145px;
+
+            transform: rotate(10deg);
+        }
+
+
+        .vague-bas-droite {
+            right: -120px;
+            bottom: 120px;
+
+            transform: rotate(165deg);
+        }
+
+
+        /* =====================================================
+           COURBES NOIRES
+        ===================================================== */
+
+        .courbe {
+            position: absolute;
+
+            border: 3px solid var(--noir);
+
+            border-left-color: transparent;
+            border-bottom-color: transparent;
 
             border-radius: 50%;
 
+            opacity: 0.9;
+        }
+
+
+        .courbe.one {
+            width: 230px;
+            height: 110px;
+
+            left: -80px;
+            top: 360px;
+
+            transform: rotate(20deg);
+        }
+
+
+        .courbe.two {
+            width: 210px;
+            height: 105px;
+
+            right: -80px;
+            top: 500px;
+
+            transform: rotate(-25deg);
+        }
+
+
+        .courbe.three {
+            width: 280px;
+            height: 125px;
+
+            right: -140px;
+            bottom: 280px;
+
+            transform: rotate(150deg);
+        }
+
+
+        /* =====================================================
+           AMAS DE POINTS
+        ===================================================== */
+
+        .points {
+            position: absolute;
+
+            width: 75px;
+            height: 65px;
+        }
+
+
+        .points span {
+            position: absolute;
+
+            width: 7px;
+            height: 7px;
+
+            border-radius: 50%;
+
+            background: var(--bleu);
+        }
+
+
+        .points span:nth-child(1) {
+            left: 5px;
+            top: 8px;
+        }
+
+
+        .points span:nth-child(2) {
+            left: 22px;
+            top: 3px;
+        }
+
+
+        .points span:nth-child(3) {
+            left: 39px;
+            top: 11px;
+        }
+
+
+        .points span:nth-child(4) {
+            left: 56px;
+            top: 5px;
+        }
+
+
+        .points span:nth-child(5) {
+            left: 13px;
+            top: 25px;
+        }
+
+
+        .points span:nth-child(6) {
+            left: 31px;
+            top: 31px;
+        }
+
+
+        .points span:nth-child(7) {
+            left: 49px;
+            top: 27px;
+        }
+
+
+        .points span:nth-child(8) {
+            left: 67px;
+            top: 34px;
+        }
+
+
+        .points span:nth-child(9) {
+            left: 5px;
+            top: 46px;
+        }
+
+
+        .points span:nth-child(10) {
+            left: 23px;
+            top: 52px;
+        }
+
+
+        .points span:nth-child(11) {
+            left: 43px;
+            top: 47px;
+        }
+
+
+        .points span:nth-child(12) {
+            left: 60px;
+            top: 55px;
+        }
+
+
+        .points.one {
+            left: 12%;
+            top: 230px;
+        }
+
+
+        .points.two {
+            right: 15%;
+            top: 320px;
+
+            transform: rotate(10deg);
+        }
+
+
+        .points.three {
+            left: 20%;
+            bottom: 120px;
+
+            transform: rotate(-8deg);
+        }
+
+
+        .points.four {
+            right: 10%;
+            bottom: 190px;
+
+            transform: rotate(15deg);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        header {
+            position: relative;
+
+            z-index: 3;
+
             display: flex;
-            align-items: center;
+
             justify-content: center;
 
-            padding: 35px;
+            padding: 35px 20px 10px;
+        }
 
-            color: var(--blanc);
-            text-decoration: none;
+
+        .logo {
+            width: min(230px, 60vw);
+            height: auto;
+        }
+
+
+        /* =====================================================
+           TITRE
+        ===================================================== */
+
+        .titre {
+            position: relative;
+
+            z-index: 2;
+
             text-align: center;
 
-            font-size: clamp(27px, 3vw, 38px);
+            padding: 35px 20px 55px;
+        }
+
+
+        .titre h1 {
+            margin: 0;
+
+            color: var(--bleu);
+
+            font-size: clamp(65px, 10vw, 100px);
+
+            line-height: 0.9;
+
+            font-weight: 800;
+
+            letter-spacing: -3px;
+        }
+
+
+        .titre p {
+            max-width: 650px;
+
+            margin: 28px auto 0;
+
+            color: var(--noir);
+
+            font-size: 20px;
+
+            line-height: 1.45;
+
+            font-weight: 400;
+        }
+
+
+        /* =====================================================
+           CONTENEUR CATÉGORIES
+        ===================================================== */
+
+        .categories {
+            position: relative;
+
+            z-index: 2;
+
+            width: min(1000px, calc(100% - 40px));
+
+            height: 900px;
+
+            margin: 0 auto 30px;
+        }
+
+
+        /* =====================================================
+           BULLES
+        ===================================================== */
+
+        .bulle {
+            position: absolute;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            text-align: center;
+
+            width: 270px;
+            height: 205px;
+
+            padding: 30px;
+
+            color: var(--blanc);
+
+            text-decoration: none;
+
+            font-size: 29px;
+
+            line-height: 1.05;
+
             font-weight: 700;
-            letter-spacing: 0.5px;
 
             box-shadow:
-                0 18px 35px rgba(0, 0, 0, 0.18),
-                inset 0 -8px 0 rgba(0, 0, 0, 0.08);
+                0 15px 30px rgba(0,0,0,0.10);
 
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
 
+
         .bulle:hover {
-            transform: translateY(-10px) scale(1.03);
+            transform:
+                scale(1.06)
+                rotate(0deg);
 
             box-shadow:
-                0 28px 45px rgba(0, 0, 0, 0.25),
-                inset 0 -8px 0 rgba(0, 0, 0, 0.08);
+                0 23px 42px rgba(0,0,0,0.17);
         }
+
 
         .bulle:active {
             transform: scale(0.97);
         }
 
-        /* -------------------------
-           COULEURS
-        ------------------------- */
+
+        /* =====================================================
+           POSITIONS + FORMES
+        ===================================================== */
+
+
+        /* PHYSIO */
 
         .physiopatho {
-            background: var(--bleu-cesir);
+            left: 3%;
+            top: 20px;
+
+            background: var(--physio);
+
+            border-radius:
+                43% 57% 50% 50% /
+                56% 44% 57% 43%;
+
+            transform: rotate(-4deg);
         }
+
+
+        /* PSYCHO */
 
         .psychopatho {
-            background: var(--mauve);
+            right: 3%;
+            top: 125px;
+
+            background: var(--psycho);
+
+            border-radius:
+                58% 42% 45% 55% /
+                46% 54% 59% 41%;
+
+            transform: rotate(4deg);
         }
+
+
+        /* PHARMACO */
 
         .pharmaco {
-            background: var(--rouge);
+            left: 17%;
+            top: 285px;
+
+            background: var(--pharmaco);
+
+            border-radius:
+                48% 52% 57% 43% /
+                43% 57% 48% 52%;
+
+            transform: rotate(3deg);
         }
+
+
+        /* NORMES */
 
         .normes {
-            background: var(--vert);
+            right: 13%;
+            top: 390px;
+
+            background: var(--normes);
+
+            border-radius:
+                55% 45% 42% 58% /
+                58% 42% 54% 46%;
+
+            transform: rotate(-4deg);
         }
+
+
+        /* ORIENTATION */
 
         .orientation {
-            background: var(--jaune);
+            left: 4%;
+            top: 550px;
+
+            background: var(--orientation);
+
+            color: var(--noir);
+
+            border-radius:
+                45% 55% 58% 42% /
+                50% 50% 43% 57%;
+
+            transform: rotate(-3deg);
         }
+
+
+        /* STAGE */
 
         .stage {
-            background: var(--marron);
+            right: 4%;
+            top: 665px;
+
+            background: var(--stage);
+
+            border-radius:
+                57% 43% 49% 51% /
+                44% 56% 55% 45%;
+
+            transform: rotate(4deg);
         }
 
-        /* -------------------------
+
+        /* =====================================================
            RETOUR
-        ------------------------- */
+        ===================================================== */
+
+        .retour-zone {
+            position: relative;
+
+            z-index: 3;
+
+            text-align: center;
+
+            padding: 5px 20px 70px;
+        }
+
 
         .retour {
-            display: block;
-            width: fit-content;
+            display: inline-flex;
 
-            margin: 0 auto 70px;
+            align-items: center;
+            justify-content: center;
 
-            padding: 16px 32px;
+            padding: 14px 27px;
 
-            border-radius: 30px;
+            border: 2px solid var(--noir);
 
-            background: var(--noir);
-            color: var(--blanc);
+            border-radius:
+                42% 58% 50% 50% /
+                55% 45% 55% 45%;
+
+            background: transparent;
+
+            color: var(--noir);
 
             text-decoration: none;
 
-            font-size: 18px;
+            font-size: 17px;
+
             font-weight: 600;
 
-            transition: transform 0.25s ease;
+            transition:
+                background 0.25s ease,
+                color 0.25s ease,
+                transform 0.25s ease;
         }
 
+
         .retour:hover {
+            background: var(--noir);
+
+            color: var(--blanc);
+
             transform: scale(1.05);
         }
 
-        /* -------------------------
+
+        /* =====================================================
            MOBILE
-        ------------------------- */
+        ===================================================== */
 
         @media (max-width: 700px) {
 
-            .categories {
-                width: 94%;
-                grid-template-columns: repeat(2, 1fr);
-                gap: 18px;
+            header {
+                padding-top: 30px;
             }
 
-            .bulle {
-                min-height: 170px;
-                padding: 20px;
 
-                font-size: 22px;
-
-                box-shadow:
-                    0 12px 25px rgba(0, 0, 0, 0.18),
-                    inset 0 -6px 0 rgba(0, 0, 0, 0.08);
+            .logo {
+                width: 190px;
             }
+
 
             .titre {
-                padding-bottom: 35px;
+                padding:
+                    25px 15px 35px;
             }
 
+
             .titre h1 {
-                font-size: 48px;
+                font-size: 58px;
+
+                letter-spacing: -2px;
             }
+
 
             .titre p {
                 font-size: 18px;
             }
+
+
+            .categories {
+                width: 100%;
+
+                height: 760px;
+
+                margin-bottom: 20px;
+            }
+
+
+            .bulle {
+                width: 190px;
+                height: 145px;
+
+                padding: 20px;
+
+                font-size: 22px;
+            }
+
+
+            .physiopatho {
+                left: -6%;
+                top: 10px;
+            }
+
+
+            .psychopatho {
+                right: -6%;
+                top: 95px;
+            }
+
+
+            .pharmaco {
+                left: 5%;
+                top: 250px;
+            }
+
+
+            .normes {
+                right: 5%;
+                top: 330px;
+            }
+
+
+            .orientation {
+                left: -5%;
+                top: 475px;
+            }
+
+
+            .stage {
+                right: -5%;
+                top: 555px;
+            }
+
+
+            .points.one {
+                left: 4%;
+                top: 215px;
+            }
+
+
+            .points.two {
+                right: 2%;
+                top: 285px;
+            }
+
+
+            .points.three {
+                left: 8%;
+                bottom: 85px;
+            }
+
+
+            .points.four {
+                right: 2%;
+                bottom: 125px;
+            }
+
+
+            .courbe.one {
+                left: -100px;
+            }
+
+
+            .courbe.two {
+                right: -100px;
+            }
+
+
+            .courbe.three {
+                right: -150px;
+            }
+
+
+            .forme-haut-gauche {
+                width: 230px;
+                height: 140px;
+
+                left: -130px;
+            }
+
+
+            .forme-haut-droite {
+                width: 220px;
+                height: 155px;
+
+                right: -125px;
+            }
+
+
+            .forme-bas-gauche {
+                width: 240px;
+                height: 160px;
+
+                left: -135px;
+            }
+
+
+            .forme-bas-droite {
+                width: 230px;
+                height: 165px;
+
+                right: -130px;
+            }
+
+
+            .vague-haut-gauche,
+            .vague-haut-gauche-2 {
+                left: -135px;
+            }
+
+
+            .vague-haut-droite {
+                right: -135px;
+            }
+
+        }
+
+
+        @media (max-width: 430px) {
+
+            .categories {
+                height: 720px;
+            }
+
+
+            .bulle {
+                width: 180px;
+                height: 135px;
+
+                font-size: 20px;
+            }
+
+
+            .psychopatho {
+                right: -8%;
+            }
+
+
+            .normes {
+                right: 2%;
+            }
+
+
+            .stage {
+                right: -8%;
+            }
+
+
+            .orientation {
+                left: -8%;
+            }
+
         }
 
     </style>
 </head>
 
+
 <body>
+
+
+    <!-- =====================================================
+         DÉCORATION
+    ===================================================== -->
+
+    <div class="decor">
+
+        <!-- formes organiques -->
+
+        <span class="forme forme-haut-gauche"></span>
+        <span class="forme forme-haut-droite"></span>
+        <span class="forme forme-bas-gauche"></span>
+        <span class="forme forme-bas-droite"></span>
+
+
+        <!-- vagues -->
+
+        <span class="vague vague-haut-gauche"></span>
+        <span class="vague vague-haut-gauche-2 fine"></span>
+
+        <span class="vague vague-haut-droite fine"></span>
+
+        <span class="vague vague-bas-gauche fine"></span>
+
+        <span class="vague vague-bas-droite"></span>
+
+
+        <!-- courbes noires -->
+
+        <span class="courbe one"></span>
+        <span class="courbe two"></span>
+        <span class="courbe three"></span>
+
+
+        <!-- points -->
+
+        <div class="points one">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+
+        <div class="points two">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+        </div>
+
+
+        <div class="points three">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+
+        <div class="points four">
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span><span></span>
+            <span></span><span></span><span></span>
+        </div>
+
+    </div>
+
+
+    <!-- =====================================================
+         LOGO
+    ===================================================== -->
 
     <header>
 
@@ -240,53 +990,105 @@
     </header>
 
 
+    <!-- =====================================================
+         CONTENU
+    ===================================================== -->
+
     <main>
+
+
+        <!-- TITRE -->
 
         <section class="titre">
 
-            <h1>FICHES</h1>
+            <h1>
+                FICHES
+            </h1>
 
             <p>
-                Retrouve ici les fiches et ressources de CESIREVISE.
-                Chaque catégorie rassemble les contenus correspondant
-                au thème choisi.
+                Retrouve ici les fiches et ressources de
+                <strong>CESIREVISE</strong>.
+                Chaque catégorie rassemble les contenus
+                correspondant au thème choisi.
             </p>
 
         </section>
 
 
+        <!-- =================================================
+             CATÉGORIES
+        ================================================= -->
+
         <section class="categories">
 
-            <a href="physiopatho.html" class="bulle physiopatho">
+
+            <a
+                href="physiopatho.html"
+                class="bulle physiopatho"
+            >
                 PHYSIOPATHO
             </a>
 
-            <a href="psychopatho.html" class="bulle psychopatho">
+
+            <a
+                href="psychopatho.html"
+                class="bulle psychopatho"
+            >
                 PSYCHOPATHO
             </a>
 
-            <a href="pharmaco.html" class="bulle pharmaco">
+
+            <a
+                href="pharmaco.html"
+                class="bulle pharmaco"
+            >
                 PHARMACO
             </a>
 
-            <a href="normes.html" class="bulle normes">
-                NORMES<br>BIOLOGIQUES
+
+            <a
+                href="normes.html"
+                class="bulle normes"
+            >
+                NORMES<br>
+                BIOLOGIQUES
             </a>
 
-            <a href="#" class="bulle orientation">
+
+            <a
+                href="#"
+                class="bulle orientation"
+            >
                 ORIENTATION
             </a>
 
-            <a href="#" class="bulle stage">
+
+            <a
+                href="#"
+                class="bulle stage"
+            >
                 STAGE / TP
             </a>
+
 
         </section>
 
 
-        <a href="index.html" class="retour">
-            ← Retour à l'accueil
-        </a>
+        <!-- =================================================
+             RETOUR
+        ================================================= -->
+
+        <div class="retour-zone">
+
+            <a
+                href="index.html"
+                class="retour"
+            >
+                ← Retour à l'accueil
+            </a>
+
+        </div>
+
 
     </main>
 
