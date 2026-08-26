@@ -1,1128 +1,1483 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>CESI Révise – Tutorat IFSI Pontchaillou Rennes</title>
-
-    <meta name="google-site-verification" content="googleb31f89011bd47473.html">
-
-    <meta name="description"
-          content="CESI Révise : espace de tutorat et de révision pour les étudiants infirmiers de l'IFSI Pontchaillou à Rennes. Fiches, ressources, forum et informations.">
-
-    <meta name="robots" content="index, follow">
-
-
-    <!-- POLICE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
-
-
-<style>
-
-/* =========================================================
-   BASE
-========================================================= */
-
-:root {
-    --bleu: #77A5AA;
-    --bleu-clair: #DDEEEF;
-
-    --jaune: #FFD52A;
-    --rouge: #D95B5B;
-    --vert: #83AAA0;
-
-    --fond: #F8F8F8;
-    --noir: #111111;
-    --blanc: #FFFFFF;
-}
-
-* {
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    margin: 0;
-
-    background: var(--fond);
-
-    color: var(--noir);
-
-    font-family: "League Spartan", sans-serif;
-
-    overflow-x: hidden;
-}
-
-
-/* =========================================================
-   HEADER
-========================================================= */
-
-header {
-    position: relative;
-
-    height: 105px;
-
-    background: var(--blanc);
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-bottom: 1px solid #111;
-}
-
-
-/*
-Petit rappel graphique bleu
-dans le coin supérieur droit
-*/
-
-header::after {
-    content: "";
-
-    position: absolute;
-
-    width: 115px;
-    height: 115px;
-
-    right: -48px;
-    top: -45px;
-
-    background: var(--bleu);
-
-    border-radius:
-        50% 50% 50% 18%;
-}
-
-
-/* lignes dans le coin */
-
-.header-lines {
-    position: absolute;
-
-    right: 15px;
-    top: 18px;
-
-    width: 95px;
-    height: 60px;
-
-    z-index: 2;
-}
-
-.header-lines::before,
-.header-lines::after {
-    content: "";
-
-    position: absolute;
-
-    width: 85px;
-    height: 40px;
-
-    border: 2px solid var(--bleu);
-
-    border-left-color: transparent;
-    border-bottom-color: transparent;
-
-    border-radius: 60% 40% 50% 50%;
-
-    transform: rotate(15deg);
-}
-
-.header-lines::before {
-    top: 0;
-    right: 0;
-}
-
-.header-lines::after {
-    top: 12px;
-    right: 8px;
-}
-
-
-.logo {
-    width: 120px;
-
-    height: auto;
-
-    z-index: 3;
-}
-
-
-/* =========================================================
-   POINTS
-========================================================= */
-
-.points {
-    position: absolute;
-
-    width: 90px;
-    height: 90px;
-
-    z-index: 1;
-}
-
-.points span {
-    position: absolute;
-
-    width: 5px;
-    height: 5px;
-
-    border-radius: 50%;
-
-    background: var(--bleu);
-}
-
-
-/* première rangée */
-
-.points span:nth-child(1) {
-    left: 5px;
-    top: 5px;
-}
-
-.points span:nth-child(2) {
-    left: 20px;
-    top: 2px;
-}
-
-.points span:nth-child(3) {
-    left: 36px;
-    top: 7px;
-}
-
-.points span:nth-child(4) {
-    left: 53px;
-    top: 3px;
-}
-
-.points span:nth-child(5) {
-    left: 69px;
-    top: 8px;
-}
-
-
-/* deuxième */
-
-.points span:nth-child(6) {
-    left: 12px;
-    top: 20px;
-}
-
-.points span:nth-child(7) {
-    left: 29px;
-    top: 23px;
-}
-
-.points span:nth-child(8) {
-    left: 47px;
-    top: 19px;
-}
-
-.points span:nth-child(9) {
-    left: 64px;
-    top: 25px;
-}
-
-
-/* troisième */
-
-.points span:nth-child(10) {
-    left: 3px;
-    top: 38px;
-}
-
-.points span:nth-child(11) {
-    left: 21px;
-    top: 43px;
-}
-
-.points span:nth-child(12) {
-    left: 40px;
-    top: 38px;
-}
-
-.points span:nth-child(13) {
-    left: 59px;
-    top: 45px;
-}
-
-.points span:nth-child(14) {
-    left: 76px;
-    top: 39px;
-}
-
-
-/* quatrième */
-
-.points span:nth-child(15) {
-    left: 12px;
-    top: 59px;
-}
-
-.points span:nth-child(16) {
-    left: 30px;
-    top: 65px;
-}
-
-.points span:nth-child(17) {
-    left: 48px;
-    top: 59px;
-}
-
-.points span:nth-child(18) {
-    left: 66px;
-    top: 65px;
-}
-
-
-/* cinquième */
-
-.points span:nth-child(19) {
-    left: 5px;
-    top: 78px;
-}
-
-.points span:nth-child(20) {
-    left: 22px;
-    top: 83px;
-}
-
-.points span:nth-child(21) {
-    left: 41px;
-    top: 77px;
-}
-
-.points span:nth-child(22) {
-    left: 59px;
-    top: 83px;
-}
-
-
-/* positions */
-
-.points-top-right {
-    right: 5%;
-    top: 145px;
-}
-
-.points-middle-left {
-    left: 3%;
-    top: 430px;
-}
-
-.points-bottom-right {
-    right: 4%;
-    bottom: 260px;
-}
-
-
-/* =========================================================
-   DÉCOR COINS
-========================================================= */
-
-.corner-shape {
-    position: absolute;
-
-    pointer-events: none;
-
-    z-index: 0;
-}
-
-
-/* jaune haut gauche */
-
-.yellow-corner {
-    width: 145px;
-    height: 145px;
-
-    left: -72px;
-    top: 180px;
-
-    border: 3px solid var(--jaune);
-
-    border-left: none;
-    border-bottom: none;
-
-    border-radius: 0 70% 0 0;
-
-    transform: rotate(12deg);
-}
-
-
-/* rouge haut droite */
-
-.red-corner {
-    width: 150px;
-    height: 150px;
-
-    right: -72px;
-    top: 360px;
-
-    border: 4px solid var(--rouge);
-
-    border-right: none;
-    border-bottom: none;
-
-    border-radius: 70% 0 0 0;
-
-    transform: rotate(-12deg);
-}
-
-
-/* jaune bas gauche */
-
-.yellow-bottom {
-    width: 165px;
-    height: 165px;
-
-    left: -85px;
-    bottom: 250px;
-
-    border: 3px solid var(--jaune);
-
-    border-left: none;
-    border-bottom: none;
-
-    border-radius: 0 75% 0 0;
-
-    transform: rotate(-8deg);
-}
-
-
-/* =========================================================
-   PAGE
-========================================================= */
-
-main {
-    position: relative;
-
-    width: min(1120px, 94%);
-
-    margin: auto;
-
-    padding-bottom: 70px;
-}
-
-
-/* =========================================================
-   INTRO
-========================================================= */
-
-.intro {
-    position: relative;
-
-    text-align: center;
-
-    padding: 70px 20px 40px;
-}
-
-
-/* petit élément graphique au-dessus */
-
-.intro::before {
-    content: "";
-
-    position: absolute;
-
-    width: 65px;
-    height: 65px;
-
-    left: 12%;
-    top: 50px;
-
-    border: 2px solid var(--bleu);
-
-    border-radius:
-        52% 48% 60% 40%;
-
-    transform: rotate(-20deg);
-}
-
-
-.intro h1 {
-    margin: 0;
-
-    color: var(--bleu);
-
-    font-size: clamp(58px, 9vw, 100px);
-
-    line-height: .9;
-
-    font-weight: 800;
-
-    letter-spacing: -3px;
-}
-
-
-.intro p {
-    max-width: 650px;
-
-    margin: 28px auto 0;
-
-    font-size: 20px;
-
-    line-height: 1.45;
-
-    font-weight: 400;
-}
-
-
-.intro strong {
-    font-weight: 700;
-}
-
-
-/* =========================================================
-   SERPENTIN
-========================================================= */
-
-.navigation {
-    position: relative;
-
-    min-height: 930px;
-
-    margin-top: 10px;
-}
-
-
-/*
-COURBES NOIRES
-
-Elles sont volontairement petites
-et viennent accompagner les bulles.
-*/
-
-.black-curve {
-    position: absolute;
-
-    width: 170px;
-    height: 75px;
-
-    border: 2px solid var(--noir);
-
-    border-left: none;
-    border-bottom: none;
-
-    border-radius: 0 100% 0 0;
-}
-
-
-/* courbe 1 */
-
-.curve-one {
-    left: 28%;
-    top: 130px;
-
-    transform: rotate(22deg);
-}
-
-
-/* courbe 2 */
-
-.curve-two {
-    right: 27%;
-    top: 325px;
-
-    transform: rotate(158deg);
-}
-
-
-/* courbe 3 */
-
-.curve-three {
-    left: 27%;
-    top: 530px;
-
-    transform: rotate(20deg);
-}
-
-
-/* =========================================================
-   BULLES
-========================================================= */
-
-.bulle {
-    position: absolute;
-
-    width: 290px;
-    height: 190px;
-
-    display: flex;
-
-    align-items: center;
-    justify-content: center;
-
-    text-align: center;
-
-    padding: 30px;
-
-    background: var(--bleu);
-
-    color: var(--blanc);
-
-    text-decoration: none;
-
-    font-size: 31px;
-
-    line-height: 1.05;
-
-    font-weight: 700;
-
-    transition:
-        transform .25s ease,
-        box-shadow .25s ease;
-
-    box-shadow:
-        0 12px 25px rgba(0,0,0,.10);
-}
-
-
-/*
-Chaque bulle possède
-une forme légèrement différente.
-*/
-
-
-/* FICHES */
-
-.fiches {
-    left: 4%;
-    top: 15px;
-
-    border-radius:
-        47% 53% 50% 50% /
-        54% 46% 57% 43%;
-
-    transform: rotate(-3deg);
-}
-
-
-/* CONFÉRENCES */
-
-.conferences {
-    right: 4%;
-    top: 150px;
-
-    border-radius:
-        55% 45% 48% 52% /
-        44% 56% 54% 46%;
-
-    transform: rotate(3deg);
-}
-
-
-/* SPÉCIALITÉS */
-
-.specialites {
-    right: 8%;
-    top: 360px;
-
-    border-radius:
-        48% 52% 55% 45% /
-        57% 43% 49% 51%;
-
-    transform: rotate(-3deg);
-}
-
-
-/* REJOINDRE */
-
-.rejoindre {
-    left: 5%;
-    top: 500px;
-
-    border-radius:
-        56% 44% 47% 53% /
-        48% 52% 57% 43%;
-
-    transform: rotate(3deg);
-}
-
-
-/* CONTACT */
-
-.contact {
-    right: 8%;
-    top: 695px;
-
-    border-radius:
-        45% 55% 53% 47% /
-        56% 44% 54% 46%;
-
-    transform: rotate(-3deg);
-}
-
-
-/* hover */
-
-.bulle:hover {
-    transform:
-        scale(1.05)
-        rotate(0deg);
-
-    box-shadow:
-        0 20px 35px rgba(0,0,0,.15);
-}
-
-
-.bulle:active {
-    transform: scale(.97);
-}
-
-
-/* =========================================================
-   PETITES FORMES AUTOUR DES BULLES
-========================================================= */
-
-.small-shape {
-    position: absolute;
-
-    width: 42px;
-    height: 42px;
-
-    border: 2px solid var(--noir);
-
-    border-radius:
-        48% 52% 43% 57%;
-}
-
-
-/* près de fiches */
-
-.shape-one {
-    top: 90px;
-    left: 34%;
-
-    transform: rotate(25deg);
-}
-
-
-/* près des spécialités */
-
-.shape-two {
-    top: 430px;
-    left: 32%;
-
-    border-color: var(--rouge);
-
-    transform: rotate(-20deg);
-}
-
-
-/* près du contact */
-
-.shape-three {
-    bottom: 50px;
-    left: 42%;
-
-    border-color: var(--jaune);
-
-    transform: rotate(15deg);
-}
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
-
-footer {
-    position: relative;
-
-    text-align: center;
-
-    padding: 25px 20px 50px;
-
-    border-top: 1px solid #111;
-
-    background: var(--blanc);
-
-    font-size: 14px;
-
-    font-weight: 600;
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================================================
-   MOBILE
-========================================================= */
-
-@media (max-width: 700px) {
-
-    header {
-        height: 90px;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#77A5AA">
+  <meta name="description" content="CESIREVISE — Tutorat et ressources de révision pour les étudiants infirmiers.">
+  <meta name="robots" content="index, follow">
+
+  <title>CESIREVISE — Tutorat IDE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+
+    :root {
+      --teal: #77A5AA;
+      --teal-dark: #527F84;
+      --ink: #202020;
+      --paper: #F7F7F5;
+      --white: #FFFFFF;
+      --shadow: 0 14px 35px rgba(32, 32, 32, .10);
     }
 
-    .logo {
-        width: 90px;
+    * {
+      box-sizing: border-box;
     }
 
-    header::after {
-        width: 90px;
-        height: 90px;
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "League Spartan", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
     }
 
 
-    main {
-        width: 100%;
+    /* =====================================================
+       POINTS DÉCORATIFS
+       ===================================================== */
+
+    .decor-dots {
+      position: absolute;
+      width: 250px;
+      height: 205px;
+      pointer-events: none;
+      z-index: 0;
+      overflow: visible;
+    }
+
+    .decor-dots .dot {
+      position: absolute;
+      display: block;
+      border-radius: 50%;
+      background: var(--teal);
+      transform: translate(-50%, -50%);
+    }
+
+    .dots-top-left {
+      top: 18px;
+      left: -22px;
+    }
+
+    .dots-bottom-right {
+      right: -28px;
+      bottom: 25px;
     }
 
 
-    .intro {
-        padding:
-            55px 18px 30px;
+    /* =====================================================
+       LIGNES COURBES DANS LES COINS
+       Elles commencent et terminent volontairement
+       hors du cadre.
+       ===================================================== */
+
+    .corner-lines {
+      position: absolute;
+      width: 315px;
+      height: 315px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
+
+    .corner-lines svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
+
+    .corner-lines path {
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
+
+    .corner-lines path:nth-child(2) {
+      stroke-width: 7;
+    }
+
+    /* Coin supérieur droit */
+    .lines-top-right {
+      top: -112px;
+      right: -118px;
+    }
+
+    /* Coin inférieur gauche */
+    .lines-bottom-left {
+      bottom: -112px;
+      left: -118px;
+      transform: rotate(180deg);
     }
 
 
-    .intro h1 {
-        font-size: 56px;
+    /* =====================================================
+       HEADER
+       ===================================================== */
 
-        letter-spacing: -2px;
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247,247,245,.94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(32,32,32,.08);
+    }
+
+    .header-inner {
+      width: min(1180px, calc(100% - 34px));
+      min-height: 76px;
+      margin: auto;
+
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+
+      text-decoration: none;
+      font-weight: 800;
+    }
+
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      line-height: .9;
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 5px;
+
+      color: var(--teal-dark);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav a {
+      text-decoration: none;
+      padding: 10px 14px;
+      border-radius: 999px;
+
+      font-weight: 700;
+      font-size: .92rem;
+
+      transition: .2s ease;
+    }
+
+    .nav a:hover,
+    .nav a:focus-visible {
+      background: var(--teal);
+      color: white;
+      transform: translateY(-1px);
+    }
+
+    .menu-button {
+      display: none;
+
+      border: 0;
+      background: transparent;
+
+      font: inherit;
+      font-size: 1.7rem;
+
+      cursor: pointer;
     }
 
 
-    .intro p {
-        font-size: 18px;
+    /* =====================================================
+       HERO
+       ===================================================== */
+
+    .hero {
+      position: relative;
+      isolation: isolate;
+
+      min-height: 650px;
+
+      display: grid;
+      place-items: center;
+
+      overflow: hidden;
+
+      padding: 80px 20px 110px;
+
+      background: var(--paper);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+
+      width: min(930px, 100%);
+
+      text-align: center;
+    }
+
+    .hero-logo {
+      width: 125px;
+      height: 125px;
+
+      object-fit: contain;
+      border-radius: 50%;
+
+      margin-bottom: 25px;
+
+      filter: drop-shadow(
+        0 8px 15px rgba(0,0,0,.12)
+      );
+    }
+
+    .eyebrow {
+      margin: 0 0 12px;
+
+      font-size: .95rem;
+      font-weight: 800;
+
+      letter-spacing: .18em;
+      text-transform: uppercase;
+
+      color: var(--teal-dark);
+    }
+
+    h1 {
+      margin: 0;
+
+      font-size: clamp(4rem, 9vw, 7.8rem);
+
+      line-height: .82;
+
+      letter-spacing: -.055em;
+
+      font-weight: 800;
+    }
+
+    h1 span {
+      display: block;
+
+      margin-top: 18px;
+
+      color: var(--teal);
+
+      font-size: .48em;
+
+      letter-spacing: -.035em;
+    }
+
+    .hero p {
+      max-width: 650px;
+
+      margin: 34px auto 0;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      font-size: 1.25rem;
+
+      line-height: 1.35;
+    }
+
+    .hero-cta {
+      display: inline-flex;
+
+      align-items: center;
+      justify-content: center;
+
+      margin-top: 28px;
+
+      padding: 15px 26px;
+
+      border-radius: 999px;
+
+      color: white;
+      background: var(--ink);
+
+      text-decoration: none;
+
+      font-weight: 800;
+
+      transition: .2s ease;
+    }
+
+    .hero-cta:hover {
+      background: var(--teal-dark);
+      transform: translateY(-2px);
     }
 
 
-    .intro::before {
-        left: 5%;
-        top: 35px;
+    /* =====================================================
+       SECTION RESSOURCES
+       ===================================================== */
 
-        width: 45px;
-        height: 45px;
+    .resources {
+      position: relative;
+
+      padding: 30px 20px 110px;
+
+      overflow: hidden;
+    }
+
+    .section-heading {
+      width: min(980px, 100%);
+
+      margin: 0 auto 55px;
+
+      text-align: center;
+    }
+
+    .section-heading h2 {
+      margin: 0;
+
+      font-size: clamp(2.5rem, 6vw, 4.6rem);
+
+      line-height: .9;
+
+      font-weight: 800;
+
+      letter-spacing: -.045em;
+    }
+
+    .section-heading p {
+      margin: 18px auto 0;
+
+      max-width: 650px;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      font-size: 1.1rem;
     }
 
 
-    .navigation {
-        min-height: 780px;
+    /* =====================================================
+       NAVIGATION EN SERPENT
+       ===================================================== */
+
+    .snake {
+      position: relative;
+
+      width: min(1000px, 100%);
+
+      margin: auto;
+
+      display: flex;
+
+      flex-direction: column;
+
+      gap: 36px;
+    }
+
+    .snake::before {
+      content: "";
+
+      position: absolute;
+
+      z-index: 0;
+
+      left: 50%;
+
+      top: 70px;
+      bottom: 70px;
+
+      width: 5px;
+
+      background: var(--teal);
+
+      border-radius: 99px;
+
+      transform: translateX(-50%);
+
+      opacity: .75;
+    }
+
+    .bubble {
+      position: relative;
+
+      z-index: 2;
+
+      width: min(560px, 82%);
+
+      min-height: 150px;
+
+      display: flex;
+
+      align-items: center;
+
+      gap: 24px;
+
+      padding: 26px 34px;
+
+      background: var(--white);
+
+      border: 3px solid var(--ink);
+
+      border-radius:
+        44% 56% 52% 48% /
+        52% 45% 55% 48%;
+
+      box-shadow: var(--shadow);
+
+      text-decoration: none;
+
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+    }
+
+    .bubble:nth-child(odd) {
+      align-self: flex-start;
+    }
+
+    .bubble:nth-child(even) {
+      align-self: flex-end;
+    }
+
+    .bubble:hover,
+    .bubble:focus-visible {
+      transform: scale(1.025) rotate(-1deg);
+
+      box-shadow:
+        0 20px 45px rgba(32,32,32,.16);
+
+      outline: none;
+    }
+
+    .bubble-icon {
+      flex: 0 0 72px;
+
+      width: 72px;
+      height: 72px;
+
+      display: grid;
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: var(--teal);
+
+      color: var(--ink);
+
+      font-size: 2rem;
+
+      font-weight: 800;
+    }
+
+    .bubble h3 {
+      margin: 0;
+
+      font-size: 2rem;
+
+      line-height: .95;
+
+      letter-spacing: -.025em;
+    }
+
+    .bubble p {
+      margin: 8px 0 0;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      font-size: 1rem;
+
+      line-height: 1.25;
+    }
+
+    .bubble-arrow {
+      margin-left: auto;
+
+      font-size: 1.8rem;
+
+      font-weight: 800;
     }
 
 
-    .bulle {
-        width: 195px;
-        height: 140px;
+    /* =====================================================
+       BLOCS DU BAS
+       ===================================================== */
 
-        padding: 20px;
+    .about,
+    .contact {
+      position: relative;
 
-        font-size: 22px;
+      width: min(1050px, calc(100% - 40px));
+
+      margin: 0 auto 90px;
+
+      padding: 55px clamp(28px, 6vw, 70px);
+
+      background: var(--teal);
+
+      border: 3px solid var(--ink);
+
+      border-radius:
+        38px 52px 42px 55px;
+
+      overflow: hidden;
     }
 
+    .about h2,
+    .contact h2 {
+      position: relative;
 
-    .fiches {
-        left: -5%;
-        top: 10px;
+      z-index: 2;
+
+      margin: 0;
+
+      font-size: clamp(2.5rem, 5vw, 4rem);
+
+      line-height: .9;
+
+      letter-spacing: -.04em;
     }
 
+    .about p,
+    .contact p {
+      position: relative;
 
-    .conferences {
-        right: -5%;
-        top: 120px;
+      z-index: 2;
+
+      max-width: 700px;
+
+      margin: 22px 0 0;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      font-size: 1.15rem;
+
+      line-height: 1.35;
     }
-
-
-    .specialites {
-        right: -5%;
-        top: 285px;
-    }
-
-
-    .rejoindre {
-        left: -5%;
-        top: 410px;
-    }
-
 
     .contact {
-        right: -5%;
-        top: 570px;
+      background: var(--white);
+    }
+
+    .contact-links {
+      position: relative;
+
+      z-index: 2;
+
+      display: flex;
+
+      flex-wrap: wrap;
+
+      gap: 12px;
+
+      margin-top: 25px;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+
+      padding: 12px 18px;
+
+      border: 2px solid var(--ink);
+
+      border-radius: 999px;
+
+      text-decoration: none;
+
+      font-weight: 800;
+
+      background: var(--paper);
+    }
+
+    .contact-links a:hover {
+      background: var(--teal);
     }
 
 
-    .points-top-right {
-        right: -10px;
-        top: 150px;
+    /* =====================================================
+       FOOTER
+       ===================================================== */
 
-        transform: scale(.8);
+    footer {
+      padding: 35px 20px 50px;
+
+      text-align: center;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      color: #555;
+    }
+
+    footer strong {
+      color: var(--teal-dark);
     }
 
 
-    .points-middle-left {
-        left: -20px;
-        top: 390px;
+    /* =====================================================
+       MOBILE
+       ===================================================== */
 
-        transform: scale(.75);
-    }
+    @media (max-width: 760px) {
 
+      .header-inner {
+        min-height: 68px;
+      }
 
-    .points-bottom-right {
-        right: -15px;
-        bottom: 130px;
+      .brand-text {
+        font-size: 1.1rem;
+      }
 
-        transform: scale(.75);
-    }
+      .brand img {
+        width: 44px;
+        height: 44px;
+      }
 
+      .menu-button {
+        display: block;
+      }
 
-    .yellow-corner {
-        width: 100px;
-        height: 100px;
+      .nav {
+        display: none;
 
-        left: -50px;
-    }
+        position: absolute;
 
+        top: 68px;
+        left: 15px;
+        right: 15px;
 
-    .red-corner {
+        padding: 12px;
+
+        flex-direction: column;
+        align-items: stretch;
+
+        background: var(--white);
+
+        border: 2px solid var(--ink);
+
+        border-radius: 22px;
+
+        box-shadow: var(--shadow);
+      }
+
+      .nav.open {
+        display: flex;
+      }
+
+      .nav a {
+        text-align: center;
+      }
+
+      .hero {
+        min-height: 610px;
+
+        padding-top: 65px;
+      }
+
+      .hero-logo {
         width: 105px;
         height: 105px;
+      }
 
-        right: -50px;
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .decor-dots {
+        transform: scale(.78);
+
+        transform-origin: center;
+      }
+
+      .corner-lines {
+        transform: scale(.72);
+
+        transform-origin: center;
+      }
+
+      .lines-bottom-left {
+        transform:
+          scale(.72)
+          rotate(180deg);
+      }
+
+      .snake::before {
+        left: 25px;
+
+        transform: none;
+      }
+
+      .bubble,
+      .bubble:nth-child(odd),
+      .bubble:nth-child(even) {
+        align-self: flex-end;
+
+        width: calc(100% - 25px);
+
+        min-height: 135px;
+
+        padding: 22px 20px;
+
+        gap: 16px;
+      }
+
+      .bubble-icon {
+        flex-basis: 58px;
+
+        width: 58px;
+        height: 58px;
+
+        font-size: 1.5rem;
+      }
+
+      .bubble h3 {
+        font-size: 1.45rem;
+      }
+
+      .bubble p {
+        font-size: .92rem;
+      }
+
+      .bubble-arrow {
+        font-size: 1.4rem;
+      }
+
+      .about,
+      .contact {
+        width: calc(100% - 30px);
+
+        margin-bottom: 60px;
+
+        padding: 38px 25px;
+      }
     }
 
 
-    .yellow-bottom {
-        width: 110px;
-        height: 110px;
+    @media (prefers-reduced-motion: reduce) {
 
-        left: -55px;
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+        transition: none !important;
+      }
+
     }
 
-
-    .black-curve {
-        width: 110px;
-        height: 50px;
-    }
-
-
-    .curve-one {
-        left: 27%;
-        top: 105px;
-    }
-
-
-    .curve-two {
-        right: 26%;
-        top: 275px;
-    }
-
-
-    .curve-three {
-        left: 26%;
-        top: 455px;
-    }
-
-
-    .small-shape {
-        width: 30px;
-        height: 30px;
-    }
-
-}
-
-
-@media (max-width: 430px) {
-
-    .bulle {
-        width: 185px;
-        height: 132px;
-
-        font-size: 21px;
-    }
-
-    .intro h1 {
-        font-size: 51px;
-    }
-
-}
-
-</style>
+  </style>
 </head>
 
 
 <body>
 
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
 
-<!-- =====================================================
-     HEADER
-===================================================== -->
+  <header class="site-header">
 
-<header>
+    <div class="header-inner">
 
-    <img
-        src="logo-cesirevise.png"
-        alt="Logo CESIREVISE"
-        class="logo"
+      <a
+        class="brand"
+        href="#accueil"
+        aria-label="Retour à l'accueil CESIREVISE"
+      >
+
+        <img
+          src="logo-cesirevise.png"
+          alt="Logo CESIREVISE"
+        >
+
+        <div class="brand-text">
+          CESIREVISE
+
+          <span>
+            Tutorat IDE
+          </span>
+        </div>
+
+      </a>
+
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰
+      </button>
+
+
+      <nav
+        class="nav"
+        id="main-nav"
+        aria-label="Navigation principale"
+      >
+
+        <a href="#accueil">
+          Accueil
+        </a>
+
+        <a href="fiches.html">
+          Fiches
+        </a>
+
+        <a href="#conferences">
+          Conférences
+        </a>
+
+        <a href="forum.html">
+          Forum
+        </a>
+
+        <a href="#rejoindre">
+          Nous rejoindre
+        </a>
+
+        <a href="contacts.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+  <main>
+
+
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+
+    <section
+      class="hero"
+      id="accueil"
     >
 
-    <span class="header-lines"></span>
+      <!-- Points -->
+      <div
+        class="decor-dots dots-top-left"
+        aria-hidden="true"
+      ></div>
 
-</header>
-
-
-<!-- =====================================================
-     DÉCOR
-===================================================== -->
-
-<div class="points points-top-right">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-</div>
+      <div
+        class="decor-dots dots-bottom-right"
+        aria-hidden="true"
+      ></div>
 
 
-<div class="points points-middle-left">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-</div>
+      <!-- Ligne coin supérieur droit -->
+      <div
+        class="corner-lines lines-top-right"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 315 315"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M82 -55
+               C92 42 126 83 191 88
+               C250 93 287 124 315 185
+               C331 219 333 263 319 335"
+          />
+
+          <path
+            d="M126 -55
+               C136 39 158 66 207 73
+               C266 82 300 117 325 173
+               C342 211 344 263 331 335"
+          />
+
+        </svg>
+
+      </div>
 
 
-<div class="points points-bottom-right">
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-    <span></span><span></span><span></span><span></span>
-</div>
+      <!-- Ligne coin inférieur gauche -->
+      <div
+        class="corner-lines lines-bottom-left"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 315 315"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M82 -55
+               C92 42 126 83 191 88
+               C250 93 287 124 315 185
+               C331 219 333 263 319 335"
+          />
+
+          <path
+            d="M126 -55
+               C136 39 158 66 207 73
+               C266 82 300 117 325 173
+               C342 211 344 263 331 335"
+          />
+
+        </svg>
+
+      </div>
 
 
-<div class="corner-shape yellow-corner"></div>
-<div class="corner-shape red-corner"></div>
-<div class="corner-shape yellow-bottom"></div>
+      <!-- Contenu -->
+      <div class="hero-content">
 
+        <img
+          class="hero-logo"
+          src="logo-cesirevise.png"
+          alt="Logo du Tutorat CESIREVISE"
+        >
 
-<!-- =====================================================
-     CONTENU
-===================================================== -->
-
-<main>
-
-
-    <!-- INTRO -->
-
-    <section class="intro">
+        <p class="eyebrow">
+          IFSI · Pontchaillou · Rennes
+        </p>
 
         <h1>
-            CESIREVISE
+          CESIREVISE
+
+          <span>
+            révise autrement.
+          </span>
         </h1>
 
         <p>
-            Un espace pensé par et pour les
-            <strong>étudiant·e·s infirmier·ère·s</strong>
-            de Pontchaillou.
-            <br>
-            Réviser · s’orienter · partager · avancer
+          Ton espace de révision pensé par des étudiants infirmiers,
+          pour rendre les cours plus simples, plus clairs
+          et surtout plus agréables à apprendre.
         </p>
 
+        <a
+          class="hero-cta"
+          href="#fiches"
+        >
+          Commencer à réviser ↓
+        </a>
+
+      </div>
+
     </section>
 
 
-    <!-- =================================================
-         SERPENTIN
-    ================================================= -->
+    <!-- =====================================================
+         RESSOURCES
+         ===================================================== -->
 
-    <section class="navigation">
+    <section
+      class="resources"
+      id="fiches"
+    >
 
-
-        <!-- courbes -->
-
-        <span class="black-curve curve-one"></span>
-        <span class="black-curve curve-two"></span>
-        <span class="black-curve curve-three"></span>
-
-
-        <!-- petites formes -->
-
-        <span class="small-shape shape-one"></span>
-        <span class="small-shape shape-two"></span>
-        <span class="small-shape shape-three"></span>
+      <div
+        class="decor-dots dots-top-left"
+        aria-hidden="true"
+      ></div>
 
 
-        <!-- FICHES -->
+      <div
+        class="corner-lines lines-top-right"
+        aria-hidden="true"
+      >
+
+        <svg
+          viewBox="0 0 315 315"
+          aria-hidden="true"
+        >
+
+          <path
+            d="M82 -55
+               C92 42 126 83 191 88
+               C250 93 287 124 315 185
+               C331 219 333 263 319 335"
+          />
+
+          <path
+            d="M126 -55
+               C136 39 158 66 207 73
+               C266 82 300 117 325 173
+               C342 211 344 263 331 335"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <div class="section-heading">
+
+        <h2>
+          Par où<br>
+
+          <span style="color:var(--teal)">
+            commencer ?
+          </span>
+        </h2>
+
+        <p>
+          Choisis ton espace et avance dans tes révisions
+          à ton rythme.
+        </p>
+
+      </div>
+
+
+      <!-- Navigation en serpent -->
+
+      <div class="snake">
+
 
         <a
-            href="fiches.html"
-            class="bulle fiches"
+          class="bubble"
+          href="fiches.html"
+          aria-label="Accéder aux fiches de révision"
         >
-            FICHES
+
+          <div class="bubble-icon">
+            ✦
+          </div>
+
+          <div>
+
+            <h3>
+              Fiches
+            </h3>
+
+            <p>
+              Physiopatho, psychopatho, pharmaco,
+              normes biologiques, orientation et TP.
+            </p>
+
+          </div>
+
+          <div class="bubble-arrow">
+            →
+          </div>
+
         </a>
 
 
-        <!-- CONFÉRENCES -->
-
         <a
-            href="#"
-            class="bulle conferences"
+          class="bubble"
+          href="#conferences"
+          aria-label="Voir les conférences"
         >
-            CONFÉRENCES
+
+          <div class="bubble-icon">
+            ◌
+          </div>
+
+          <div>
+
+            <h3>
+              Conférences
+            </h3>
+
+            <p>
+              Retrouve les conférences et contenus
+              proposés par le tutorat.
+            </p>
+
+          </div>
+
+          <div class="bubble-arrow">
+            →
+          </div>
+
         </a>
 
 
-        <!-- FORUM -->
-
         <a
-            href="forum.html"
-            class="bulle specialites"
+          class="bubble"
+          href="forum.html"
+          aria-label="Accéder au forum des spécialités"
         >
-            FORUM DES<br>
-            SPÉCIALITÉS
+
+          <div class="bubble-icon">
+            ⌁
+          </div>
+
+          <div>
+
+            <h3>
+              Forum
+            </h3>
+
+            <p>
+              Découvre les spécialités et échange
+              autour du métier infirmier.
+            </p>
+
+          </div>
+
+          <div class="bubble-arrow">
+            →
+          </div>
+
         </a>
 
 
-        <!-- REJOINDRE -->
-
         <a
-            href="#"
-            class="bulle rejoindre"
+          class="bubble"
+          href="#rejoindre"
+          aria-label="Découvrir comment rejoindre CESIREVISE"
         >
-            NOUS<br>
-            REJOINDRE
+
+          <div class="bubble-icon">
+            +
+          </div>
+
+          <div>
+
+            <h3>
+              Nous rejoindre
+            </h3>
+
+            <p>
+              Envie de participer au tutorat
+              et de faire vivre CESIREVISE ?
+            </p>
+
+          </div>
+
+          <div class="bubble-arrow">
+            →
+          </div>
+
         </a>
 
 
-        <!-- CONTACT -->
-
         <a
-            href="contacts.html"
-            class="bulle contact"
+          class="bubble"
+          href="contacts.html"
+          aria-label="Nous contacter"
         >
-            NOUS<br>
-            CONTACTER
+
+          <div class="bubble-icon">
+            @
+          </div>
+
+          <div>
+
+            <h3>
+              Contact
+            </h3>
+
+            <p>
+              Une question, une idée ou une suggestion ?
+              Écris-nous.
+            </p>
+
+          </div>
+
+          <div class="bubble-arrow">
+            →
+          </div>
+
         </a>
 
+
+      </div>
 
     </section>
 
-</main>
+
+    <!-- =====================================================
+         À PROPOS
+         ===================================================== -->
+
+    <section
+      class="about"
+      id="conferences"
+    >
+
+      <div
+        class="decor-dots dots-bottom-right"
+        aria-hidden="true"
+      ></div>
+
+      <h2>
+        Un tutorat<br>
+        fait pour les IDE.
+      </h2>
+
+      <p>
+        CESIREVISE est un espace gratuit de révision
+        destiné aux étudiants en soins infirmiers.
+        L'objectif : rassembler des ressources utiles
+        dans une interface simple, visuelle et agréable.
+      </p>
+
+    </section>
 
 
-<!-- =====================================================
-     FOOTER
-===================================================== -->
+    <!-- =====================================================
+         CONTACT / REJOINDRE
+         ===================================================== -->
 
-<footer>
+    <section
+      class="contact"
+      id="rejoindre"
+    >
 
-    CESIREVISE · CESIR · IFSI PONTCHAILLOU
+      <div
+        class="corner-lines lines-top-right"
+        aria-hidden="true"
+      >
 
-</footer>
+        <svg
+          viewBox="0 0 315 315"
+          aria-hidden="true"
+        >
 
+          <path
+            d="M82 -55
+               C92 42 126 83 191 88
+               C250 93 287 124 315 185
+               C331 219 333 263 319 335"
+          />
+
+          <path
+            d="M126 -55
+               C136 39 158 66 207 73
+               C266 82 300 117 325 173
+               C342 211 344 263 331 335"
+          />
+
+        </svg>
+
+      </div>
+
+
+      <h2>
+        On se retrouve<br>
+        sur les réseaux ?
+      </h2>
+
+      <p>
+        Suis CESIREVISE pour retrouver les nouvelles fiches,
+        les publications et les actualités du tutorat.
+      </p>
+
+
+      <div class="contact-links">
+
+        <a
+          href="https://www.instagram.com/cesirevise/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Instagram · @cesirevise
+        </a>
+
+        <a
+          href="https://www.tiktok.com/@cesirevise"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          TikTok · @cesirevise
+        </a>
+
+        <a
+          href="mailto:tutorat.cesirevise@gmail.com"
+        >
+          Mail · tutorat.cesirevise@gmail.com
+        </a>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+
+  <footer>
+
+    <strong>
+      CESIREVISE
+    </strong>
+
+    · Tutorat IDE · Rennes
+
+  </footer>
+
+
+  <!-- =====================================================
+       MENU MOBILE
+       ===================================================== -->
+
+  <script>
+
+    const menuButton =
+      document.querySelector('.menu-button');
+
+    const nav =
+      document.querySelector('.nav');
+
+
+    menuButton.addEventListener('click', () => {
+
+      const open =
+        nav.classList.toggle('open');
+
+      menuButton.setAttribute(
+        'aria-expanded',
+        String(open)
+      );
+
+      menuButton.textContent =
+        open ? '×' : '☰';
+
+    });
+
+
+    nav.querySelectorAll('a').forEach(link => {
+
+      link.addEventListener('click', () => {
+
+        nav.classList.remove('open');
+
+        menuButton.setAttribute(
+          'aria-expanded',
+          'false'
+        );
+
+        menuButton.textContent = '☰';
+
+      });
+
+    });
+
+  </script>
+
+
+  <!-- =====================================================
+       GÉNÉRATION DES POINTS
+       Points volontairement irréguliers :
+       pas de grille, pas d'espacement fixe.
+       ===================================================== -->
+
+  <script>
+
+    document
+      .querySelectorAll('.decor-dots')
+      .forEach((cluster, clusterIndex) => {
+
+        const count = 54;
+
+        let seed =
+          918273 +
+          clusterIndex * 731;
+
+
+        const random = () => {
+
+          seed =
+            (seed * 1664525 + 1013904223)
+            >>> 0;
+
+          return seed / 4294967296;
+
+        };
+
+
+        for (let i = 0; i < count; i++) {
+
+          const dot =
+            document.createElement('span');
+
+          dot.className = 'dot';
+
+
+          /*
+             Position aléatoire.
+             Les valeurs permettent d'obtenir
+             un amas irrégulier.
+          */
+
+          const x =
+            -4 + random() * 225;
+
+          const y =
+            -4 + random() * 188;
+
+
+          /*
+             Taille légèrement différente
+             pour éviter l'effet quadrillage.
+          */
+
+          const size =
+            5 + random() * 5.5;
+
+
+          dot.style.left =
+            `${x}px`;
+
+          dot.style.top =
+            `${y}px`;
+
+          dot.style.width =
+            `${size}px`;
+
+          dot.style.height =
+            `${size}px`;
+
+
+          /*
+             Opacité légèrement variable.
+          */
+
+          dot.style.opacity =
+            `${0.55 + random() * 0.35}`;
+
+
+          cluster.appendChild(dot);
+
+        }
+
+      });
+
+  </script>
 
 </body>
 </html>
