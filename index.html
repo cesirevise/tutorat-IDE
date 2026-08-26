@@ -76,44 +76,52 @@
       bottom: 25px;
     }
 
-    /* ================================
-   LIGNES COURBES — COINS
-================================ */
 
-  .corner-lines {
-    position: absolute;
-    width: 360px;
-    height: 360px;
-    pointer-events: none;
-    z-index: 5;
-    overflow: visible;
-  }
+    /* =====================================================
+       LIGNES COURBES DANS LES COINS
+       Elles commencent et terminent volontairement
+       hors du cadre.
+       ===================================================== */
 
-  .corner-lines svg {
-    width: 100%;
-    height: 100%;
-    overflow: visible;
-  }
+    .corner-lines {
+      position: absolute;
+      width: 315px;
+      height: 315px;
+      pointer-events: none;
+      z-index: 1;
+      overflow: visible;
+    }
 
-  .corner-lines path {
-    fill: none;
-    stroke: #77A5AA;
-    stroke-width: 8px;
-    stroke-linecap: round;
-  }
+    .corner-lines svg {
+      width: 100%;
+      height: 100%;
+      display: block;
+      overflow: visible;
+    }
 
-/* Coin HAUT DROIT */
-  .lines-top-right {
-    top: -145px;
-    right: -145px;
-  }
+    .corner-lines path {
+      fill: none;
+      stroke: var(--teal);
+      stroke-width: 8;
+      stroke-linecap: round;
+    }
 
-/* Coin BAS GAUCHE */
-  .lines-bottom-left {
-    bottom: -145px;
-    left: -145px;
-    transform: rotate(180deg);
-  }
+    .corner-lines path:nth-child(2) {
+      stroke-width: 7;
+    }
+
+    /* Coin supérieur droit */
+    .lines-top-right {
+      top: -112px;
+      right: -118px;
+    }
+
+    /* Coin inférieur gauche */
+    .lines-bottom-left {
+      bottom: -112px;
+      left: -118px;
+      transform: rotate(180deg);
+    }
 
 
     /* =====================================================
@@ -780,76 +788,11 @@
 
     }
 
-    @media (max-width: 600px) {
-
-    .corner-lines {
-        width: 270px;
-        height: 270px;
-    }
-
-    .lines-top-right {
-        top: -110px;
-        right: -110px;
-    }
-
-    .lines-bottom-left {
-        bottom: -110px;
-        left: -110px;
-    }
-
-    .corner-lines path {
-        stroke-width: 7px;
-    }
-}
-
   </style>
 </head>
 
 
 <body>
-
-  <!-- LIGNES COURBES COIN HAUT DROIT -->
-<div class="corner-lines lines-top-right" aria-hidden="true">
-    <svg viewBox="0 0 360 360">
-
-        <path d="
-            M 95 -45
-            C 95 40, 125 85, 190 95
-            C 265 107, 305 155, 320 220
-            C 330 265, 325 315, 300 405
-        " />
-
-        <path d="
-            M 135 -45
-            C 135 35, 160 70, 215 82
-            C 285 97, 325 145, 340 210
-            C 352 260, 345 315, 320 405
-        " />
-
-    </svg>
-</div>
-
-
-<!-- LIGNES COURBES COIN BAS GAUCHE -->
-<div class="corner-lines lines-bottom-left" aria-hidden="true">
-    <svg viewBox="0 0 360 360">
-
-        <path d="
-            M 95 -45
-            C 95 40, 125 85, 190 95
-            C 265 107, 305 155, 320 220
-            C 330 265, 325 315, 300 405
-        " />
-
-        <path d="
-            M 135 -45
-            C 135 35, 160 70, 215 82
-            C 285 97, 325 145, 340 210
-            C 352 260, 345 315, 320 405
-        " />
-
-    </svg>
-</div>
 
   <!-- =====================================================
        HEADER
