@@ -1,1096 +1,1607 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Fiches — CESIREVISE</title>
+  <meta name="theme-color" content="#77A5AA">
+  <meta name="description" content="CESIREVISE — Fiches de révision pour les étudiants infirmiers.">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <title>CESIREVISE — Fiches</title>
 
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- POLICES -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <style>
 
-        /* =====================================================
-           COULEURS
-        ===================================================== */
+  <style>
 
-        :root {
-            --bleu: #77A5AA;
+    /* ==================================================
+       COULEURS CESIREVISE
+    ================================================== */
 
-            --physio: #77A5AA;
-            --psycho: #D585A9;
-            --pharmaco: #EB5555;
-            --normes: #7EAA83;
-            --orientation: #FFD230;
-            --stage: #9A7458;
+    :root {
 
-            --bleu-clair: #EAF3F4;
-            --fond: #FAFCFC;
+      --physio: #77A5AA;
+      --psycho: #D585A9;
+      --bio: #8EAC51;
+      --pharmaco: #D76162;
+      --pharmaco-peps: #EB5555;
+      --tp: #FF914D;
+      --metier: #FFD230;
 
-            --noir: #111111;
-            --blanc: #FFFFFF;
-        }
+      --noir: #202020;
+      --fond: #F7F7F5;
+      --blanc: #FFFFFF;
 
+      --ombre: 0 15px 35px rgba(0,0,0,.10);
+    }
 
-        /* =====================================================
-           BASE
-        ===================================================== */
 
-        * {
-            box-sizing: border-box;
-        }
+    /* ==================================================
+       BASE
+    ================================================== */
 
+    * {
+      box-sizing: border-box;
+    }
 
-        html {
-            scroll-behavior: smooth;
-        }
+    html {
+      scroll-behavior: smooth;
+    }
 
+    body {
+      margin: 0;
 
-        body {
-            margin: 0;
+      background: var(--fond);
+      color: var(--noir);
 
-            background: var(--fond);
+      font-family: "League Spartan", sans-serif;
 
-            color: var(--noir);
+      overflow-x: hidden;
+    }
 
-            font-family: "League Spartan", sans-serif;
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
 
-            overflow-x: hidden;
-        }
 
+    /* ==================================================
+       HEADER
+    ================================================== */
 
-        a {
-            -webkit-tap-highlight-color: transparent;
-        }
+    header {
+      position: sticky;
 
+      top: 0;
 
-        /* =====================================================
-           DÉCOR GLOBAL
-        ===================================================== */
+      z-index: 100;
 
-        .decor {
-            position: fixed;
+      background: rgba(247,247,245,.95);
 
-            inset: 0;
+      backdrop-filter: blur(12px);
 
-            overflow: hidden;
+      border-bottom: 1px solid rgba(0,0,0,.08);
+    }
 
-            pointer-events: none;
 
-            z-index: 0;
-        }
+    .header-inner {
 
+      width: min(1180px, calc(100% - 35px));
 
-        /* =====================================================
-           FORMES ORGANIQUES
-        ===================================================== */
+      min-height: 76px;
 
-        .forme {
-            position: absolute;
+      margin: auto;
 
-            background: var(--bleu-clair);
-        }
+      display: flex;
 
+      align-items: center;
 
-        .forme-haut-gauche {
-            width: 330px;
-            height: 190px;
+      justify-content: space-between;
+    }
 
-            left: -150px;
-            top: 80px;
 
-            border-radius:
-                62% 38% 45% 55% /
-                52% 48% 57% 43%;
+    /* LOGO */
 
-            transform: rotate(-17deg);
-        }
+    .logo {
 
+      display: flex;
 
-        .forme-haut-droite {
-            width: 290px;
-            height: 210px;
+      align-items: center;
 
-            right: -130px;
-            top: 110px;
+      gap: 12px;
 
-            border-radius:
-                42% 58% 55% 45% /
-                58% 42% 48% 52%;
+      font-weight: 800;
+    }
 
-            transform: rotate(18deg);
-        }
 
+    .logo img {
 
-        .forme-bas-gauche {
-            width: 330px;
-            height: 210px;
+      width: 52px;
+      height: 52px;
 
-            left: -170px;
-            bottom: 80px;
+      object-fit: contain;
+    }
 
-            border-radius:
-                48% 52% 62% 38% /
-                55% 45% 55% 45%;
 
-            transform: rotate(12deg);
-        }
+    .logo-name {
 
+      font-size: 1.35rem;
 
-        .forme-bas-droite {
-            width: 310px;
-            height: 220px;
+      line-height: .9;
 
-            right: -145px;
-            bottom: 30px;
+      letter-spacing: -.04em;
+    }
 
-            border-radius:
-                55% 45% 40% 60% /
-                46% 54% 48% 52%;
 
-            transform: rotate(-15deg);
-        }
+    .logo-name span {
 
+      display: block;
 
-        /* =====================================================
-           VAGUES
-        ===================================================== */
+      margin-top: 5px;
 
-        .vague {
-            position: absolute;
+      color: #527F84;
 
-            width: 260px;
-            height: 125px;
+      font-size: .65rem;
 
-            border: 3px solid var(--bleu);
+      letter-spacing: .13em;
 
-            border-left-color: transparent;
-            border-bottom-color: transparent;
+      text-transform: uppercase;
+    }
 
-            border-radius: 55% 45% 50% 50%;
-        }
 
+    /* MENU */
 
-        .vague.fine {
-            border-width: 1.5px;
-        }
+    nav {
 
+      display: flex;
 
-        .vague-haut-gauche {
-            left: -120px;
-            top: 125px;
+      align-items: center;
 
-            transform: rotate(-25deg);
-        }
+      gap: 8px;
+    }
 
 
-        .vague-haut-gauche-2 {
-            left: -95px;
-            top: 155px;
+    nav a {
 
-            transform: rotate(-25deg);
-        }
+      padding: 10px 15px;
 
+      border-radius: 50px;
 
-        .vague-haut-droite {
-            right: -110px;
-            top: 165px;
+      font-size: .92rem;
 
-            transform: rotate(145deg);
-        }
+      font-weight: 700;
 
+      transition: .2s ease;
+    }
 
-        .vague-bas-gauche {
-            left: -125px;
-            bottom: 145px;
 
-            transform: rotate(10deg);
-        }
+    nav a:hover {
 
+      background: var(--physio);
 
-        .vague-bas-droite {
-            right: -120px;
-            bottom: 120px;
+      color: white;
+    }
 
-            transform: rotate(165deg);
-        }
 
+    .menu-button {
 
-        /* =====================================================
-           COURBES NOIRES
-        ===================================================== */
+      display: none;
 
-        .courbe {
-            position: absolute;
+      border: 0;
 
-            border: 3px solid var(--noir);
+      background: transparent;
 
-            border-left-color: transparent;
-            border-bottom-color: transparent;
+      font-size: 1.8rem;
 
-            border-radius: 50%;
+      cursor: pointer;
+    }
 
-            opacity: 0.9;
-        }
 
+    /* ==================================================
+       DÉCOR — LIGNES COURBES
+    ================================================== */
 
-        .courbe.one {
-            width: 230px;
-            height: 110px;
+    .corner-lines {
 
-            left: -80px;
-            top: 360px;
+      position: absolute;
 
-            transform: rotate(20deg);
-        }
+      width: 360px;
+      height: 360px;
 
+      pointer-events: none;
 
-        .courbe.two {
-            width: 210px;
-            height: 105px;
+      z-index: 1;
 
-            right: -80px;
-            top: 500px;
+      overflow: visible;
+    }
 
-            transform: rotate(-25deg);
-        }
 
+    .corner-lines svg {
 
-        .courbe.three {
-            width: 280px;
-            height: 125px;
+      width: 100%;
+      height: 100%;
 
-            right: -140px;
-            bottom: 280px;
+      overflow: visible;
+    }
 
-            transform: rotate(150deg);
-        }
 
+    .corner-lines path {
 
-        /* =====================================================
-           AMAS DE POINTS
-        ===================================================== */
+      fill: none;
 
-        .points {
-            position: absolute;
+      stroke: var(--physio);
 
-            width: 75px;
-            height: 65px;
-        }
+      stroke-width: 8;
 
+      stroke-linecap: round;
+    }
 
-        .points span {
-            position: absolute;
 
-            width: 7px;
-            height: 7px;
+    .corner-lines path:nth-child(2) {
 
-            border-radius: 50%;
+      stroke-width: 7;
+    }
 
-            background: var(--bleu);
-        }
 
+    /* HAUT DROIT */
 
-        .points span:nth-child(1) {
-            left: 5px;
-            top: 8px;
-        }
+    .lines-top-right {
 
+      top: -145px;
 
-        .points span:nth-child(2) {
-            left: 22px;
-            top: 3px;
-        }
+      right: -145px;
+    }
 
 
-        .points span:nth-child(3) {
-            left: 39px;
-            top: 11px;
-        }
+    /* BAS GAUCHE */
 
+    .lines-bottom-left {
 
-        .points span:nth-child(4) {
-            left: 56px;
-            top: 5px;
-        }
+      bottom: -145px;
 
+      left: -145px;
 
-        .points span:nth-child(5) {
-            left: 13px;
-            top: 25px;
-        }
+      transform: rotate(180deg);
+    }
 
 
-        .points span:nth-child(6) {
-            left: 31px;
-            top: 31px;
-        }
+    /* ==================================================
+       DÉCOR — POINTS
+    ================================================== */
 
+    .dots {
 
-        .points span:nth-child(7) {
-            left: 49px;
-            top: 27px;
-        }
+      position: absolute;
 
+      width: 230px;
+      height: 190px;
 
-        .points span:nth-child(8) {
-            left: 67px;
-            top: 34px;
-        }
+      pointer-events: none;
 
+      z-index: 1;
+    }
 
-        .points span:nth-child(9) {
-            left: 5px;
-            top: 46px;
-        }
 
+    .dots span {
 
-        .points span:nth-child(10) {
-            left: 23px;
-            top: 52px;
-        }
+      position: absolute;
 
+      display: block;
 
-        .points span:nth-child(11) {
-            left: 43px;
-            top: 47px;
-        }
+      border-radius: 50%;
+    }
 
 
-        .points span:nth-child(12) {
-            left: 60px;
-            top: 55px;
-        }
+    .dots-top-left {
 
+      top: 20px;
 
-        .points.one {
-            left: 12%;
-            top: 230px;
-        }
+      left: 10px;
+    }
 
 
-        .points.two {
-            right: 15%;
-            top: 320px;
+    .dots-bottom-right {
 
-            transform: rotate(10deg);
-        }
+      right: 10px;
 
+      bottom: 20px;
+    }
 
-        .points.three {
-            left: 20%;
-            bottom: 120px;
 
-            transform: rotate(-8deg);
-        }
+    /* ==================================================
+       HERO
+    ================================================== */
 
+    .hero {
 
-        .points.four {
-            right: 10%;
-            bottom: 190px;
+      position: relative;
 
-            transform: rotate(15deg);
-        }
+      min-height: 480px;
 
+      display: flex;
 
-        /* =====================================================
-           HEADER
-        ===================================================== */
+      align-items: center;
 
-        header {
-            position: relative;
+      justify-content: center;
 
-            z-index: 3;
+      text-align: center;
 
-            display: flex;
+      padding: 80px 20px 100px;
 
-            justify-content: center;
+      overflow: hidden;
+    }
 
-            padding: 35px 20px 10px;
-        }
 
+    .hero-content {
 
-        .logo {
-            width: min(230px, 60vw);
-            height: auto;
-        }
+      position: relative;
 
+      z-index: 3;
 
-        /* =====================================================
-           TITRE
-        ===================================================== */
+      width: min(900px,100%);
+    }
 
-        .titre {
-            position: relative;
 
-            z-index: 2;
+    .eyebrow {
 
-            text-align: center;
+      margin: 0 0 15px;
 
-            padding: 35px 20px 55px;
-        }
+      color: #527F84;
 
+      font-size: .9rem;
 
-        .titre h1 {
-            margin: 0;
+      font-weight: 800;
 
-            color: var(--bleu);
+      letter-spacing: .18em;
 
-            font-size: clamp(65px, 10vw, 100px);
+      text-transform: uppercase;
+    }
 
-            line-height: 0.9;
 
-            font-weight: 800;
+    .hero h1 {
 
-            letter-spacing: -3px;
-        }
+      margin: 0;
 
+      font-size: clamp(4rem, 10vw, 8rem);
 
-        .titre p {
-            max-width: 650px;
+      line-height: .78;
 
-            margin: 28px auto 0;
+      letter-spacing: -.065em;
 
-            color: var(--noir);
+      font-weight: 800;
+    }
 
-            font-size: 20px;
 
-            line-height: 1.45;
+    .hero h1 span {
 
-            font-weight: 400;
-        }
+      display: block;
 
+      margin-top: 20px;
 
-        /* =====================================================
-           CONTENEUR CATÉGORIES
-        ===================================================== */
+      color: var(--physio);
 
-        .categories {
-            position: relative;
+      font-size: .35em;
 
-            z-index: 2;
+      letter-spacing: -.02em;
+    }
 
-            width: min(1000px, calc(100% - 40px));
 
-            height: 900px;
+    .hero-text {
 
-            margin: 0 auto 30px;
-        }
+      max-width: 650px;
 
+      margin: 35px auto 0;
 
-        /* =====================================================
-           BULLES
-        ===================================================== */
+      font-family: "Baloo 2", sans-serif;
 
-        .bulle {
-            position: absolute;
+      font-size: 1.2rem;
 
-            display: flex;
+      line-height: 1.35;
+    }
 
-            align-items: center;
 
-            justify-content: center;
+    /* ==================================================
+       SECTION FICHES
+    ================================================== */
 
-            text-align: center;
+    .fiches {
 
-            width: 270px;
-            height: 205px;
+      position: relative;
 
-            padding: 30px;
+      padding: 20px 20px 120px;
 
-            color: var(--blanc);
+      overflow: hidden;
+    }
 
-            text-decoration: none;
 
-            font-size: 29px;
+    .section-title {
 
-            line-height: 1.05;
+      position: relative;
 
-            font-weight: 700;
+      z-index: 3;
 
-            box-shadow:
-                0 15px 30px rgba(0,0,0,0.10);
+      text-align: center;
 
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
-        }
+      margin-bottom: 65px;
+    }
 
 
-        .bulle:hover {
-            transform:
-                scale(1.06)
-                rotate(0deg);
+    .section-title h2 {
 
-            box-shadow:
-                0 23px 42px rgba(0,0,0,0.17);
-        }
+      margin: 0;
 
+      font-size: clamp(3rem, 7vw, 5rem);
 
-        .bulle:active {
-            transform: scale(0.97);
-        }
+      line-height: .85;
 
+      letter-spacing: -.055em;
+    }
 
-        /* =====================================================
-           POSITIONS + FORMES
-        ===================================================== */
 
+    .section-title h2 span {
 
-        /* PHYSIO */
+      color: var(--physio);
+    }
 
-        .physiopatho {
-            left: 3%;
-            top: 20px;
 
-            background: var(--physio);
+    .section-title p {
 
-            border-radius:
-                43% 57% 50% 50% /
-                56% 44% 57% 43%;
+      max-width: 620px;
 
-            transform: rotate(-4deg);
-        }
+      margin: 20px auto 0;
 
+      font-family: "Baloo 2", sans-serif;
 
-        /* PSYCHO */
+      font-size: 1.1rem;
 
-        .psychopatho {
-            right: 3%;
-            top: 125px;
+      line-height: 1.35;
+    }
 
-            background: var(--psycho);
 
-            border-radius:
-                58% 42% 45% 55% /
-                46% 54% 59% 41%;
+    /* ==================================================
+       SERPENTIN
+    ================================================== */
 
-            transform: rotate(4deg);
-        }
+    .fiches-list {
 
+      position: relative;
 
-        /* PHARMACO */
+      width: min(1050px, 100%);
 
-        .pharmaco {
-            left: 17%;
-            top: 285px;
+      margin: auto;
 
-            background: var(--pharmaco);
+      display: flex;
 
-            border-radius:
-                48% 52% 57% 43% /
-                43% 57% 48% 52%;
+      flex-direction: column;
 
-            transform: rotate(3deg);
-        }
+      gap: 38px;
+    }
 
 
-        /* NORMES */
+    /* Ligne centrale */
 
-        .normes {
-            right: 13%;
-            top: 390px;
+    .fiches-list::before {
 
-            background: var(--normes);
+      content: "";
 
-            border-radius:
-                55% 45% 42% 58% /
-                58% 42% 54% 46%;
+      position: absolute;
 
-            transform: rotate(-4deg);
-        }
+      z-index: 0;
 
+      top: 70px;
 
-        /* ORIENTATION */
+      bottom: 70px;
 
-        .orientation {
-            left: 4%;
-            top: 550px;
+      left: 50%;
 
-            background: var(--orientation);
+      width: 5px;
 
-            color: var(--noir);
+      transform: translateX(-50%);
 
-            border-radius:
-                45% 55% 58% 42% /
-                50% 50% 43% 57%;
+      background: var(--physio);
 
-            transform: rotate(-3deg);
-        }
+      border-radius: 999px;
 
+      opacity: .6;
+    }
 
-        /* STAGE */
 
-        .stage {
-            right: 4%;
-            top: 665px;
+    /* ==================================================
+       CARTE
+    ================================================== */
 
-            background: var(--stage);
+    .fiche {
 
-            border-radius:
-                57% 43% 49% 51% /
-                44% 56% 55% 45%;
+      position: relative;
 
-            transform: rotate(4deg);
-        }
+      z-index: 2;
 
+      width: min(590px, 84%);
 
-        /* =====================================================
-           RETOUR
-        ===================================================== */
+      min-height: 160px;
 
-        .retour-zone {
-            position: relative;
+      padding: 28px 32px;
 
-            z-index: 3;
+      display: flex;
 
-            text-align: center;
+      align-items: center;
 
-            padding: 5px 20px 70px;
-        }
+      gap: 22px;
 
+      background: white;
 
-        .retour {
-            display: inline-flex;
+      border: 3px solid var(--noir);
 
-            align-items: center;
-            justify-content: center;
+      box-shadow: var(--ombre);
 
-            padding: 14px 27px;
+      transition: .22s ease;
+    }
 
-            border: 2px solid var(--noir);
 
-            border-radius:
-                42% 58% 50% 50% /
-                55% 45% 55% 45%;
+    /* Formes différentes */
 
-            background: transparent;
+    .fiche:nth-child(odd) {
 
-            color: var(--noir);
+      align-self: flex-start;
 
-            text-decoration: none;
+      border-radius:
+        48% 52% 55% 45% /
+        48% 45% 55% 52%;
+    }
 
-            font-size: 17px;
 
-            font-weight: 600;
+    .fiche:nth-child(even) {
 
-            transition:
-                background 0.25s ease,
-                color 0.25s ease,
-                transform 0.25s ease;
-        }
+      align-self: flex-end;
 
+      border-radius:
+        55% 45% 46% 54% /
+        52% 55% 45% 48%;
+    }
 
-        .retour:hover {
-            background: var(--noir);
 
-            color: var(--blanc);
+    .fiche:hover {
 
-            transform: scale(1.05);
-        }
+      transform: scale(1.025) rotate(-1deg);
 
+      box-shadow:
+        0 22px 45px rgba(0,0,0,.16);
+    }
 
-        /* =====================================================
-           MOBILE
-        ===================================================== */
 
-        @media (max-width: 700px) {
+    /* ==================================================
+       ROND COULEUR
+    ================================================== */
 
-            header {
-                padding-top: 30px;
-            }
+    .fiche-icon {
 
+      flex: 0 0 78px;
 
-            .logo {
-                width: 190px;
-            }
+      width: 78px;
+      height: 78px;
 
+      display: flex;
 
-            .titre {
-                padding:
-                    25px 15px 35px;
-            }
+      align-items: center;
 
+      justify-content: center;
 
-            .titre h1 {
-                font-size: 58px;
+      border-radius: 50%;
 
-                letter-spacing: -2px;
-            }
+      font-size: 1.8rem;
 
+      font-weight: 800;
 
-            .titre p {
-                font-size: 18px;
-            }
+      color: var(--noir);
+    }
 
 
-            .categories {
-                width: 100%;
+    /* ==================================================
+       TEXTE
+    ================================================== */
 
-                height: 760px;
+    .fiche-content {
 
-                margin-bottom: 20px;
-            }
+      min-width: 0;
+    }
 
 
-            .bulle {
-                width: 190px;
-                height: 145px;
+    .fiche h3 {
 
-                padding: 20px;
+      margin: 0;
 
-                font-size: 22px;
-            }
+      font-size: 2rem;
 
+      line-height: .9;
 
-            .physiopatho {
-                left: -6%;
-                top: 10px;
-            }
+      letter-spacing: -.03em;
+    }
 
 
-            .psychopatho {
-                right: -6%;
-                top: 95px;
-            }
+    .fiche p {
 
+      margin: 9px 0 0;
 
-            .pharmaco {
-                left: 5%;
-                top: 250px;
-            }
+      font-family: "Baloo 2", sans-serif;
 
+      font-size: 1rem;
 
-            .normes {
-                right: 5%;
-                top: 330px;
-            }
+      line-height: 1.25;
+    }
 
 
-            .orientation {
-                left: -5%;
-                top: 475px;
-            }
+    .arrow {
 
+      margin-left: auto;
 
-            .stage {
-                right: -5%;
-                top: 555px;
-            }
+      font-size: 1.8rem;
 
+      font-weight: 800;
+    }
 
-            .points.one {
-                left: 4%;
-                top: 215px;
-            }
 
+    /* ==================================================
+       COULEURS DES CATÉGORIES
+    ================================================== */
 
-            .points.two {
-                right: 2%;
-                top: 285px;
-            }
+    .physio .fiche-icon {
 
+      background: var(--physio);
+    }
 
-            .points.three {
-                left: 8%;
-                bottom: 85px;
-            }
 
+    .psycho .fiche-icon {
 
-            .points.four {
-                right: 2%;
-                bottom: 125px;
-            }
+      background: var(--psycho);
+    }
 
 
-            .courbe.one {
-                left: -100px;
-            }
+    .bio .fiche-icon {
 
+      background: var(--bio);
+    }
 
-            .courbe.two {
-                right: -100px;
-            }
 
+    .pharmaco .fiche-icon {
 
-            .courbe.three {
-                right: -150px;
-            }
+      background: var(--pharmaco);
+    }
 
 
-            .forme-haut-gauche {
-                width: 230px;
-                height: 140px;
+    .tp .fiche-icon {
 
-                left: -130px;
-            }
+      background: var(--tp);
+    }
 
 
-            .forme-haut-droite {
-                width: 220px;
-                height: 155px;
+    .metier .fiche-icon {
 
-                right: -125px;
-            }
+      background: var(--metier);
+    }
 
 
-            .forme-bas-gauche {
-                width: 240px;
-                height: 160px;
+    /* ==================================================
+       BANDEAU BAS
+    ================================================== */
 
-                left: -135px;
-            }
+    .info {
 
+      position: relative;
 
-            .forme-bas-droite {
-                width: 230px;
-                height: 165px;
+      width: min(1000px, calc(100% - 40px));
 
-                right: -130px;
-            }
+      margin: 0 auto 90px;
 
+      padding: 50px clamp(25px,6vw,65px);
 
-            .vague-haut-gauche,
-            .vague-haut-gauche-2 {
-                left: -135px;
-            }
+      background: var(--physio);
 
+      border: 3px solid var(--noir);
 
-            .vague-haut-droite {
-                right: -135px;
-            }
+      border-radius:
+        40px 55px 45px 52px;
 
-        }
+      overflow: hidden;
+    }
 
 
-        @media (max-width: 430px) {
+    .info h2 {
 
-            .categories {
-                height: 720px;
-            }
+      position: relative;
 
+      z-index: 3;
 
-            .bulle {
-                width: 180px;
-                height: 135px;
+      margin: 0;
 
-                font-size: 20px;
-            }
+      font-size: clamp(2.5rem,5vw,4rem);
 
+      line-height: .9;
 
-            .psychopatho {
-                right: -8%;
-            }
+      letter-spacing: -.04em;
+    }
 
 
-            .normes {
-                right: 2%;
-            }
+    .info p {
 
+      position: relative;
 
-            .stage {
-                right: -8%;
-            }
+      z-index: 3;
 
+      max-width: 700px;
 
-            .orientation {
-                left: -8%;
-            }
+      margin: 20px 0 0;
 
-        }
+      font-family: "Baloo 2", sans-serif;
 
-    </style>
+      font-size: 1.1rem;
+
+      line-height: 1.35;
+    }
+
+
+    /* ==================================================
+       FOOTER
+    ================================================== */
+
+    footer {
+
+      padding: 35px 20px 50px;
+
+      text-align: center;
+
+      color: #555;
+
+      font-family: "Baloo 2", sans-serif;
+    }
+
+
+    footer strong {
+
+      color: #527F84;
+    }
+
+
+    /* ==================================================
+       MOBILE
+    ================================================== */
+
+    @media (max-width: 760px) {
+
+      .header-inner {
+
+        min-height: 68px;
+      }
+
+
+      .logo img {
+
+        width: 44px;
+        height: 44px;
+      }
+
+
+      .logo-name {
+
+        font-size: 1.1rem;
+      }
+
+
+      .menu-button {
+
+        display: block;
+      }
+
+
+      nav {
+
+        display: none;
+
+        position: absolute;
+
+        top: 68px;
+
+        left: 15px;
+
+        right: 15px;
+
+        padding: 12px;
+
+        flex-direction: column;
+
+        background: white;
+
+        border: 2px solid var(--noir);
+
+        border-radius: 22px;
+
+        box-shadow: var(--ombre);
+      }
+
+
+      nav.open {
+
+        display: flex;
+      }
+
+
+      nav a {
+
+        text-align: center;
+      }
+
+
+      .hero {
+
+        min-height: 430px;
+
+        padding-top: 60px;
+      }
+
+
+      .hero h1 {
+
+        font-size: clamp(3.5rem,17vw,6rem);
+      }
+
+
+      .corner-lines {
+
+        width: 270px;
+        height: 270px;
+      }
+
+
+      .lines-top-right {
+
+        top: -110px;
+
+        right: -110px;
+      }
+
+
+      .lines-bottom-left {
+
+        bottom: -110px;
+
+        left: -110px;
+      }
+
+
+      .corner-lines path {
+
+        stroke-width: 7;
+      }
+
+
+      .fiches-list::before {
+
+        left: 24px;
+
+        transform: none;
+      }
+
+
+      .fiche,
+      .fiche:nth-child(odd),
+      .fiche:nth-child(even) {
+
+        align-self: flex-end;
+
+        width: calc(100% - 24px);
+
+        min-height: 135px;
+
+        padding: 22px 18px;
+
+        gap: 15px;
+      }
+
+
+      .fiche-icon {
+
+        flex: 0 0 58px;
+
+        width: 58px;
+        height: 58px;
+
+        font-size: 1.35rem;
+      }
+
+
+      .fiche h3 {
+
+        font-size: 1.4rem;
+      }
+
+
+      .fiche p {
+
+        font-size: .9rem;
+      }
+
+
+      .arrow {
+
+        font-size: 1.4rem;
+      }
+
+
+      .info {
+
+        width: calc(100% - 30px);
+
+        padding: 38px 25px;
+      }
+    }
+
+  </style>
 </head>
 
 
 <body>
 
 
-    <!-- =====================================================
-         DÉCORATION
-    ===================================================== -->
+<!-- ==================================================
+     HEADER
+================================================== -->
 
-    <div class="decor">
+<header>
 
-        <!-- formes organiques -->
-
-        <span class="forme forme-haut-gauche"></span>
-        <span class="forme forme-haut-droite"></span>
-        <span class="forme forme-bas-gauche"></span>
-        <span class="forme forme-bas-droite"></span>
+  <div class="header-inner">
 
 
-        <!-- vagues -->
+    <a
+      class="logo"
+      href="index.html"
+    >
 
-        <span class="vague vague-haut-gauche"></span>
-        <span class="vague vague-haut-gauche-2 fine"></span>
+      <img
+        src="logo-cesirevise.png"
+        alt="Logo CESIREVISE"
+      >
 
-        <span class="vague vague-haut-droite fine"></span>
+      <div class="logo-name">
 
-        <span class="vague vague-bas-gauche fine"></span>
+        CESIREVISE
 
-        <span class="vague vague-bas-droite"></span>
+        <span>
+          Tutorat IDE
+        </span>
 
+      </div>
 
-        <!-- courbes noires -->
-
-        <span class="courbe one"></span>
-        <span class="courbe two"></span>
-        <span class="courbe three"></span>
-
-
-        <!-- points -->
-
-        <div class="points one">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-        </div>
+    </a>
 
 
-        <div class="points two">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-        </div>
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+    >
+      ☰
+    </button>
 
 
-        <div class="points three">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-        </div>
+    <nav>
+
+      <a href="index.html">
+        Accueil
+      </a>
+
+      <a
+        href="fiches.html"
+        aria-current="page"
+      >
+        Fiches
+      </a>
+
+      <a href="forum.html">
+        Forum
+      </a>
+
+      <a href="contacts.html">
+        Contact
+      </a>
+
+    </nav>
+
+  </div>
+
+</header>
 
 
-        <div class="points four">
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span><span></span>
-            <span></span><span></span><span></span>
-        </div>
 
-    </div>
+<!-- ==================================================
+     HERO
+================================================== -->
 
-
-    <!-- =====================================================
-         LOGO
-    ===================================================== -->
-
-    <header>
-
-        <img
-            src="logo-cesirevise.png"
-            alt="Logo CESIREVISE"
-            class="logo"
-        >
-
-    </header>
+<section class="hero">
 
 
-    <!-- =====================================================
-         CONTENU
-    ===================================================== -->
+  <!-- POINTS -->
 
-    <main>
-
-
-        <!-- TITRE -->
-
-        <section class="titre">
-
-            <h1>
-                FICHES
-            </h1>
-
-            <p>
-                Retrouve ici les fiches et ressources de
-                <strong>CESIREVISE</strong>.
-                Chaque catégorie rassemble les contenus
-                correspondant au thème choisi.
-            </p>
-
-        </section>
+  <div
+    class="dots dots-top-left"
+    aria-hidden="true"
+  ></div>
 
 
-        <!-- =================================================
-             CATÉGORIES
-        ================================================= -->
-
-        <section class="categories">
-
-
-            <a
-                href="physiopatho.html"
-                class="bulle physiopatho"
-            >
-                PHYSIOPATHO
-            </a>
+  <div
+    class="dots dots-bottom-right"
+    aria-hidden="true"
+  ></div>
 
 
-            <a
-                href="psychopatho.html"
-                class="bulle psychopatho"
-            >
-                PSYCHOPATHO
-            </a>
+
+  <!-- COURBES HAUT DROIT -->
+
+  <div
+    class="corner-lines lines-top-right"
+    aria-hidden="true"
+  >
+
+    <svg viewBox="0 0 360 360">
+
+      <path
+        d="M95 -45
+           C95 40 125 85 190 95
+           C265 107 305 155 320 220
+           C330 265 325 315 300 405"
+      />
+
+      <path
+        d="M135 -45
+           C135 35 160 70 215 82
+           C285 97 325 145 340 210
+           C352 260 345 315 320 405"
+      />
+
+    </svg>
+
+  </div>
 
 
-            <a
-                href="pharmaco.html"
-                class="bulle pharmaco"
-            >
-                PHARMACO
-            </a>
+
+  <!-- COURBES BAS GAUCHE -->
+
+  <div
+    class="corner-lines lines-bottom-left"
+    aria-hidden="true"
+  >
+
+    <svg viewBox="0 0 360 360">
+
+      <path
+        d="M95 -45
+           C95 40 125 85 190 95
+           C265 107 305 155 320 220
+           C330 265 325 315 300 405"
+      />
+
+      <path
+        d="M135 -45
+           C135 35 160 70 215 82
+           C285 97 325 145 340 210
+           C352 260 345 315 320 405"
+      />
+
+    </svg>
+
+  </div>
 
 
-            <a
-                href="normes.html"
-                class="bulle normes"
-            >
-                NORMES<br>
-                BIOLOGIQUES
-            </a>
+
+  <div class="hero-content">
+
+    <p class="eyebrow">
+      CESIREVISE · RESSOURCES
+    </p>
 
 
-            <a
-                href="#"
-                class="bulle orientation"
-            >
-                ORIENTATION
-            </a>
+    <h1>
+
+      FICHES
+
+      <span>
+        révise à ton rythme.
+      </span>
+
+    </h1>
 
 
-            <a
-                href="#"
-                class="bulle stage"
-            >
-                STAGE / TP
-            </a>
+    <p class="hero-text">
+
+      Retrouve toutes tes ressources de révision,
+      classées par matière pour t'y retrouver
+      facilement.
+
+    </p>
+
+  </div>
+
+</section>
 
 
-        </section>
+
+<!-- ==================================================
+     CATÉGORIES
+================================================== -->
+
+<section class="fiches">
 
 
-        <!-- =================================================
-             RETOUR
-        ================================================= -->
+  <!-- POINTS -->
 
-        <div class="retour-zone">
-
-            <a
-                href="index.html"
-                class="retour"
-            >
-                ← Retour à l'accueil
-            </a>
-
-        </div>
+  <div
+    class="dots dots-top-left"
+    aria-hidden="true"
+  ></div>
 
 
-    </main>
+
+  <!-- COURBE HAUT DROIT -->
+
+  <div
+    class="corner-lines lines-top-right"
+    aria-hidden="true"
+  >
+
+    <svg viewBox="0 0 360 360">
+
+      <path
+        d="M95 -45
+           C95 40 125 85 190 95
+           C265 107 305 155 320 220
+           C330 265 325 315 300 405"
+      />
+
+      <path
+        d="M135 -45
+           C135 35 160 70 215 82
+           C285 97 325 145 340 210
+           C352 260 345 315 320 405"
+      />
+
+    </svg>
+
+  </div>
+
+
+
+  <div class="section-title">
+
+    <h2>
+
+      Choisis ta
+
+      <br>
+
+      <span>
+        matière.
+      </span>
+
+    </h2>
+
+
+    <p>
+
+      Chaque matière possède sa propre couleur
+      pour retrouver rapidement les ressources
+      dont tu as besoin.
+
+    </p>
+
+  </div>
+
+
+
+  <div class="fiches-list">
+
+
+
+    <!-- ==================================================
+         PHYSIO
+    ================================================== -->
+
+    <a
+      class="fiche physio"
+      href="physiopatho.html"
+    >
+
+      <div class="fiche-icon">
+        ✚
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Physiopathologie
+        </h3>
+
+        <p>
+          Comprendre les mécanismes des pathologies
+          et leurs conséquences.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+
+    <!-- ==================================================
+         PSYCHO
+    ================================================== -->
+
+    <a
+      class="fiche psycho"
+      href="psychopatho.html"
+    >
+
+      <div class="fiche-icon">
+        ◌
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Psychopathologie
+        </h3>
+
+        <p>
+          Troubles psychiques, mécanismes,
+          symptômes et prise en charge.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+
+    <!-- ==================================================
+         NORMES BIO
+    ================================================== -->
+
+    <a
+      class="fiche bio"
+      href="#"
+    >
+
+      <div class="fiche-icon">
+        ⌁
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Normes biologiques
+        </h3>
+
+        <p>
+          Les valeurs biologiques essentielles
+          à connaître en IFSI.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+
+    <!-- ==================================================
+         PHARMACO
+    ================================================== -->
+
+    <a
+      class="fiche pharmaco"
+      href="pharmaco.html"
+    >
+
+      <div class="fiche-icon">
+        Rx
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Pharmacologie
+        </h3>
+
+        <p>
+          Médicaments, classes, mécanismes d'action
+          et notions essentielles.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+
+    <!-- ==================================================
+         TP
+    ================================================== -->
+
+    <a
+      class="fiche tp"
+      href="#"
+    >
+
+      <div class="fiche-icon">
+        ✓
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Stage / TP
+        </h3>
+
+        <p>
+          Ressources pratiques pour les stages
+          et les travaux pratiques.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+
+    <!-- ==================================================
+         MÉTIER
+    ================================================== -->
+
+    <a
+      class="fiche metier"
+      href="#"
+    >
+
+      <div class="fiche-icon">
+        ★
+      </div>
+
+
+      <div class="fiche-content">
+
+        <h3>
+          Métier / Orientation
+        </h3>
+
+        <p>
+          Spécialités, parcours, orientation
+          et découverte du métier infirmier.
+        </p>
+
+      </div>
+
+
+      <div class="arrow">
+        →
+      </div>
+
+    </a>
+
+
+  </div>
+
+</section>
+
+
+
+<!-- ==================================================
+     BAS DE PAGE
+================================================== -->
+
+<section class="info">
+
+
+  <div
+    class="dots dots-bottom-right"
+    aria-hidden="true"
+  ></div>
+
+
+  <h2>
+
+    Des fiches
+
+    <br>
+
+    pensées pour les IDE.
+
+  </h2>
+
+
+  <p>
+
+    L'objectif de CESIREVISE :
+    rendre les révisions plus simples,
+    plus visuelles et plus agréables,
+    sans perdre l'essentiel.
+
+  </p>
+
+</section>
+
+
+
+<footer>
+
+  <strong>
+    CESIREVISE
+  </strong>
+
+  · Tutorat IDE · Rennes
+
+</footer>
+
+
+
+<!-- ==================================================
+     JAVASCRIPT
+================================================== -->
+
+<script>
+
+
+  /* ================================================
+     MENU MOBILE
+  ================================================ */
+
+  const menuButton =
+    document.querySelector(".menu-button");
+
+  const nav =
+    document.querySelector("nav");
+
+
+  menuButton.addEventListener("click", () => {
+
+    const ouvert =
+      nav.classList.toggle("open");
+
+
+    menuButton.setAttribute(
+      "aria-expanded",
+      ouvert
+    );
+
+
+    menuButton.textContent =
+      ouvert ? "×" : "☰";
+
+  });
+
+
+
+  /* ================================================
+     POINTS ALÉATOIRES
+     
+     Ils ne sont PAS disposés en quadrillage.
+  ================================================ */
+
+  document
+    .querySelectorAll(".dots")
+    .forEach((groupe, index) => {
+
+
+      let seed =
+        123456 + index * 98765;
+
+
+      function random() {
+
+        seed =
+          (seed * 1664525 + 1013904223)
+          >>> 0;
+
+        return seed / 4294967296;
+
+      }
+
+
+      const nombreDePoints = 48;
+
+
+      for (
+        let i = 0;
+        i < nombreDePoints;
+        i++
+      ) {
+
+
+        const point =
+          document.createElement("span");
+
+
+        /* Position irrégulière */
+
+        const x =
+          random() * 225;
+
+        const y =
+          random() * 185;
+
+
+        /* Taille légèrement variable */
+
+        const taille =
+          5 + random() * 6;
+
+
+        point.style.left =
+          x + "px";
+
+        point.style.top =
+          y + "px";
+
+        point.style.width =
+          taille + "px";
+
+        point.style.height =
+          taille + "px";
+
+
+        /* Opacité variable */
+
+        point.style.opacity =
+          .55 + random() * .35;
+
+
+        /*
+          Les points restent dans la
+          couleur principale de la DA.
+        */
+
+        point.style.background =
+          "#77A5AA";
+
+
+        groupe.appendChild(point);
+
+      }
+
+    });
+
+</script>
+
 
 </body>
 </html>
