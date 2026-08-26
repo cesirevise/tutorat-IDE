@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="fr">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="theme-color" content="#77A5AA">
-  <meta name="description" content="CESIREVISE — Fiches de révision pour les étudiants infirmiers.">
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="theme-color"
+    content="#77A5AA"
+  >
+
+  <meta
+    name="description"
+    content="CESIREVISE — Fiches de révision pour les étudiants infirmiers."
+  >
 
   <title>CESIREVISE — Fiches</title>
 
-  <!-- POLICES -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- ==================================================
+       POLICES
+  ================================================== -->
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
 
 
   <style>
@@ -36,7 +61,8 @@
       --fond: #F7F7F5;
       --blanc: #FFFFFF;
 
-      --ombre: 0 15px 35px rgba(0,0,0,.10);
+      --ombre: 0 14px 35px rgba(32,32,32,.10);
+
     }
 
 
@@ -48,24 +74,29 @@
       box-sizing: border-box;
     }
 
+
     html {
       scroll-behavior: smooth;
     }
 
+
     body {
+
       margin: 0;
 
       background: var(--fond);
+
       color: var(--noir);
 
-      font-family: "League Spartan", sans-serif;
+      font-family: "League Spartan", Arial, sans-serif;
 
       overflow-x: hidden;
+
     }
+
 
     a {
       color: inherit;
-      text-decoration: none;
     }
 
 
@@ -73,7 +104,8 @@
        HEADER
     ================================================== */
 
-    header {
+    .site-header {
+
       position: sticky;
 
       top: 0;
@@ -84,13 +116,14 @@
 
       backdrop-filter: blur(12px);
 
-      border-bottom: 1px solid rgba(0,0,0,.08);
+      border-bottom: 1px solid rgba(32,32,32,.08);
+
     }
 
 
     .header-inner {
 
-      width: min(1180px, calc(100% - 35px));
+      width: min(1180px, calc(100% - 34px));
 
       min-height: 76px;
 
@@ -101,12 +134,15 @@
       align-items: center;
 
       justify-content: space-between;
+
+      gap: 24px;
+
     }
 
 
     /* LOGO */
 
-    .logo {
+    .brand {
 
       display: flex;
 
@@ -114,30 +150,38 @@
 
       gap: 12px;
 
+      text-decoration: none;
+
       font-weight: 800;
+
     }
 
 
-    .logo img {
+    .brand img {
 
       width: 52px;
+
       height: 52px;
 
       object-fit: contain;
+
+      border-radius: 50%;
+
     }
 
 
-    .logo-name {
+    .brand-text {
 
       font-size: 1.35rem;
 
       line-height: .9;
 
-      letter-spacing: -.04em;
+      letter-spacing: -.03em;
+
     }
 
 
-    .logo-name span {
+    .brand-text span {
 
       display: block;
 
@@ -145,45 +189,54 @@
 
       color: #527F84;
 
-      font-size: .65rem;
+      font-size: .68rem;
 
-      letter-spacing: .13em;
+      letter-spacing: .12em;
 
       text-transform: uppercase;
+
     }
 
 
     /* MENU */
 
-    nav {
+    .nav {
 
       display: flex;
 
       align-items: center;
 
       gap: 8px;
+
     }
 
 
-    nav a {
+    .nav a {
 
-      padding: 10px 15px;
+      text-decoration: none;
 
-      border-radius: 50px;
+      padding: 10px 14px;
 
-      font-size: .92rem;
+      border-radius: 999px;
 
       font-weight: 700;
 
+      font-size: .92rem;
+
       transition: .2s ease;
+
     }
 
 
-    nav a:hover {
+    .nav a:hover,
+    .nav a:focus-visible {
 
       background: var(--physio);
 
       color: white;
+
+      outline: none;
+
     }
 
 
@@ -198,11 +251,68 @@
       font-size: 1.8rem;
 
       cursor: pointer;
+
+      color: var(--noir);
+
     }
 
 
     /* ==================================================
-       DÉCOR — LIGNES COURBES
+       POINTS DÉCORATIFS
+    ================================================== */
+
+    .decor-dots {
+
+      position: absolute;
+
+      width: 250px;
+
+      height: 205px;
+
+      pointer-events: none;
+
+      z-index: 0;
+
+      overflow: visible;
+
+    }
+
+
+    .decor-dots .dot {
+
+      position: absolute;
+
+      display: block;
+
+      border-radius: 50%;
+
+      background: var(--physio);
+
+      transform: translate(-50%, -50%);
+
+    }
+
+
+    .dots-top-left {
+
+      top: 15px;
+
+      left: -15px;
+
+    }
+
+
+    .dots-bottom-right {
+
+      right: -15px;
+
+      bottom: 15px;
+
+    }
+
+
+    /* ==================================================
+       LIGNES COURBES DANS LES COINS
     ================================================== */
 
     .corner-lines {
@@ -210,6 +320,7 @@
       position: absolute;
 
       width: 360px;
+
       height: 360px;
 
       pointer-events: none;
@@ -217,15 +328,20 @@
       z-index: 1;
 
       overflow: visible;
+
     }
 
 
     .corner-lines svg {
 
       width: 100%;
+
       height: 100%;
 
+      display: block;
+
       overflow: visible;
+
     }
 
 
@@ -238,26 +354,29 @@
       stroke-width: 8;
 
       stroke-linecap: round;
+
     }
 
 
     .corner-lines path:nth-child(2) {
 
       stroke-width: 7;
+
     }
 
 
-    /* HAUT DROIT */
+    /* Haut droit */
 
     .lines-top-right {
 
       top: -145px;
 
       right: -145px;
+
     }
 
 
-    /* BAS GAUCHE */
+    /* Bas gauche */
 
     .lines-bottom-left {
 
@@ -266,49 +385,7 @@
       left: -145px;
 
       transform: rotate(180deg);
-    }
 
-
-    /* ==================================================
-       DÉCOR — POINTS
-    ================================================== */
-
-    .dots {
-
-      position: absolute;
-
-      width: 230px;
-      height: 190px;
-
-      pointer-events: none;
-
-      z-index: 1;
-    }
-
-
-    .dots span {
-
-      position: absolute;
-
-      display: block;
-
-      border-radius: 50%;
-    }
-
-
-    .dots-top-left {
-
-      top: 20px;
-
-      left: 10px;
-    }
-
-
-    .dots-bottom-right {
-
-      right: 10px;
-
-      bottom: 20px;
     }
 
 
@@ -320,19 +397,18 @@
 
       position: relative;
 
-      min-height: 480px;
+      isolation: isolate;
 
-      display: flex;
+      min-height: 470px;
 
-      align-items: center;
+      display: grid;
 
-      justify-content: center;
-
-      text-align: center;
-
-      padding: 80px 20px 100px;
+      place-items: center;
 
       overflow: hidden;
+
+      padding: 75px 20px 90px;
+
     }
 
 
@@ -342,13 +418,16 @@
 
       z-index: 3;
 
-      width: min(900px,100%);
+      width: min(900px, 100%);
+
+      text-align: center;
+
     }
 
 
     .eyebrow {
 
-      margin: 0 0 15px;
+      margin: 0 0 14px;
 
       color: #527F84;
 
@@ -359,6 +438,7 @@
       letter-spacing: .18em;
 
       text-transform: uppercase;
+
     }
 
 
@@ -368,11 +448,12 @@
 
       font-size: clamp(4rem, 10vw, 8rem);
 
-      line-height: .78;
+      line-height: .8;
 
-      letter-spacing: -.065em;
+      letter-spacing: -.06em;
 
       font-weight: 800;
+
     }
 
 
@@ -384,9 +465,10 @@
 
       color: var(--physio);
 
-      font-size: .35em;
+      font-size: .34em;
 
       letter-spacing: -.02em;
+
     }
 
 
@@ -394,13 +476,14 @@
 
       max-width: 650px;
 
-      margin: 35px auto 0;
+      margin: 32px auto 0;
 
-      font-family: "Baloo 2", sans-serif;
+      font-family: "Baloo 2", Arial, sans-serif;
 
       font-size: 1.2rem;
 
       line-height: 1.35;
+
     }
 
 
@@ -412,25 +495,29 @@
 
       position: relative;
 
-      padding: 20px 20px 120px;
+      padding: 30px 20px 120px;
 
       overflow: hidden;
+
     }
 
 
-    .section-title {
+    .section-heading {
 
       position: relative;
 
       z-index: 3;
 
+      width: min(900px, 100%);
+
+      margin: 0 auto 65px;
+
       text-align: center;
 
-      margin-bottom: 65px;
     }
 
 
-    .section-title h2 {
+    .section-heading h2 {
 
       margin: 0;
 
@@ -439,164 +526,277 @@
       line-height: .85;
 
       letter-spacing: -.055em;
+
     }
 
 
-    .section-title h2 span {
+    .section-heading h2 span {
 
       color: var(--physio);
+
     }
 
 
-    .section-title p {
+    .section-heading p:last-child {
 
-      max-width: 620px;
+      max-width: 650px;
 
       margin: 20px auto 0;
 
-      font-family: "Baloo 2", sans-serif;
+      font-family: "Baloo 2", Arial, sans-serif;
 
       font-size: 1.1rem;
 
       line-height: 1.35;
+
     }
 
 
     /* ==================================================
-       SERPENTIN
+       GRILLE DES 6 MATIÈRES
+       
+       2 grosses bulles par ligne
     ================================================== */
 
     .fiches-list {
 
       position: relative;
 
-      width: min(1050px, 100%);
+      z-index: 3;
+
+      width: min(1150px, 100%);
 
       margin: auto;
 
-      display: flex;
+      display: grid;
 
-      flex-direction: column;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
 
-      gap: 38px;
-    }
+      gap: 55px 45px;
 
+      align-items: center;
 
-    /* Ligne centrale */
-
-    .fiches-list::before {
-
-      content: "";
-
-      position: absolute;
-
-      z-index: 0;
-
-      top: 70px;
-
-      bottom: 70px;
-
-      left: 50%;
-
-      width: 5px;
-
-      transform: translateX(-50%);
-
-      background: var(--physio);
-
-      border-radius: 999px;
-
-      opacity: .6;
     }
 
 
     /* ==================================================
-       CARTE
+       BULLES
     ================================================== */
 
     .fiche {
 
       position: relative;
 
-      z-index: 2;
+      width: 100%;
 
-      width: min(590px, 84%);
+      min-height: 300px;
 
-      min-height: 160px;
-
-      padding: 28px 32px;
+      padding: 45px;
 
       display: flex;
 
-      align-items: center;
+      flex-direction: column;
 
-      gap: 22px;
+      align-items: flex-start;
 
-      background: white;
+      justify-content: center;
+
+      color: var(--noir);
+
+      text-decoration: none;
 
       border: 3px solid var(--noir);
 
-      box-shadow: var(--ombre);
+      box-shadow: 9px 11px 0 rgba(32,32,32,.12);
 
-      transition: .22s ease;
-    }
+      overflow: hidden;
 
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
 
-    /* Formes différentes */
-
-    .fiche:nth-child(odd) {
-
-      align-self: flex-start;
-
-      border-radius:
-        48% 52% 55% 45% /
-        48% 45% 55% 52%;
-    }
-
-
-    .fiche:nth-child(even) {
-
-      align-self: flex-end;
-
-      border-radius:
-        55% 45% 46% 54% /
-        52% 55% 45% 48%;
-    }
-
-
-    .fiche:hover {
-
-      transform: scale(1.025) rotate(-1deg);
-
-      box-shadow:
-        0 22px 45px rgba(0,0,0,.16);
     }
 
 
     /* ==================================================
-       ROND COULEUR
+       FORMES IRRÉGULIÈRES
+       
+       Chaque bulle possède une forme différente.
+    ================================================== */
+
+
+    /* Physiopathologie */
+
+    .fiche:nth-child(1) {
+
+      border-radius:
+        58% 42% 48% 52% /
+        44% 56% 45% 55%;
+
+      transform: rotate(-1.4deg);
+
+    }
+
+
+    /* Psychopathologie */
+
+    .fiche:nth-child(2) {
+
+      border-radius:
+        43% 57% 54% 46% /
+        57% 43% 58% 42%;
+
+      transform: rotate(1.4deg);
+
+    }
+
+
+    /* Normes biologiques */
+
+    .fiche:nth-child(3) {
+
+      border-radius:
+        51% 49% 62% 38% /
+        43% 59% 41% 57%;
+
+      transform: rotate(.8deg);
+
+    }
+
+
+    /* Pharmacologie */
+
+    .fiche:nth-child(4) {
+
+      border-radius:
+        62% 38% 45% 55% /
+        51% 44% 56% 49%;
+
+      transform: rotate(-1deg);
+
+    }
+
+
+    /* Stage / TP */
+
+    .fiche:nth-child(5) {
+
+      border-radius:
+        45% 55% 58% 42% /
+        59% 42% 58% 41%;
+
+      transform: rotate(-1.2deg);
+
+    }
+
+
+    /* Métier */
+
+    .fiche:nth-child(6) {
+
+      border-radius:
+        56% 44% 42% 58% /
+        47% 61% 39% 53%;
+
+      transform: rotate(1.5deg);
+
+    }
+
+
+    /* ==================================================
+       COULEURS DES MATIÈRES
+    ================================================== */
+
+    .fiche.physio {
+
+      background: var(--physio);
+
+    }
+
+
+    .fiche.psycho {
+
+      background: var(--psycho);
+
+    }
+
+
+    .fiche.bio {
+
+      background: var(--bio);
+
+    }
+
+
+    .fiche.pharmaco {
+
+      background: var(--pharmaco);
+
+    }
+
+
+    .fiche.tp {
+
+      background: var(--tp);
+
+    }
+
+
+    .fiche.metier {
+
+      background: var(--metier);
+
+    }
+
+
+    /* ==================================================
+       HOVER
+    ================================================== */
+
+    .fiche:hover,
+    .fiche:focus-visible {
+
+      transform:
+        translateY(-8px)
+        rotate(0deg)
+        scale(1.025);
+
+      box-shadow:
+        13px 17px 0 rgba(32,32,32,.18);
+
+      outline: none;
+
+    }
+
+
+    /* ==================================================
+       ICÔNE
     ================================================== */
 
     .fiche-icon {
 
-      flex: 0 0 78px;
+      flex: 0 0 72px;
 
-      width: 78px;
-      height: 78px;
+      width: 72px;
 
-      display: flex;
+      height: 72px;
 
-      align-items: center;
+      display: grid;
 
-      justify-content: center;
+      place-items: center;
+
+      margin-bottom: 22px;
 
       border-radius: 50%;
 
-      font-size: 1.8rem;
+      background: rgba(255,255,255,.78);
+
+      border: 2px solid var(--noir);
+
+      font-size: 1.7rem;
 
       font-weight: 800;
 
-      color: var(--noir);
     }
 
 
@@ -606,7 +806,8 @@
 
     .fiche-content {
 
-      min-width: 0;
+      max-width: 410px;
+
     }
 
 
@@ -614,78 +815,65 @@
 
       margin: 0;
 
-      font-size: 2rem;
+      font-size: clamp(1.9rem, 3vw, 2.65rem);
 
       line-height: .9;
 
-      letter-spacing: -.03em;
+      letter-spacing: -.04em;
+
     }
 
 
     .fiche p {
 
-      margin: 9px 0 0;
+      margin: 14px 0 0;
 
-      font-family: "Baloo 2", sans-serif;
+      max-width: 380px;
 
-      font-size: 1rem;
+      font-family: "Baloo 2", Arial, sans-serif;
 
-      line-height: 1.25;
+      font-size: 1.05rem;
+
+      line-height: 1.3;
+
     }
 
+
+    /* ==================================================
+       FLÈCHE
+    ================================================== */
 
     .arrow {
 
-      margin-left: auto;
+      position: absolute;
 
-      font-size: 1.8rem;
+      right: 35px;
+
+      bottom: 30px;
+
+      width: 47px;
+
+      height: 47px;
+
+      display: grid;
+
+      place-items: center;
+
+      border-radius: 50%;
+
+      background: rgba(255,255,255,.78);
+
+      border: 2px solid var(--noir);
+
+      font-size: 1.5rem;
 
       font-weight: 800;
+
     }
 
 
     /* ==================================================
-       COULEURS DES CATÉGORIES
-    ================================================== */
-
-    .physio .fiche-icon {
-
-      background: var(--physio);
-    }
-
-
-    .psycho .fiche-icon {
-
-      background: var(--psycho);
-    }
-
-
-    .bio .fiche-icon {
-
-      background: var(--bio);
-    }
-
-
-    .pharmaco .fiche-icon {
-
-      background: var(--pharmaco);
-    }
-
-
-    .tp .fiche-icon {
-
-      background: var(--tp);
-    }
-
-
-    .metier .fiche-icon {
-
-      background: var(--metier);
-    }
-
-
-    /* ==================================================
-       BANDEAU BAS
+       BLOC FINAL
     ================================================== */
 
     .info {
@@ -696,7 +884,7 @@
 
       margin: 0 auto 90px;
 
-      padding: 50px clamp(25px,6vw,65px);
+      padding: 50px clamp(25px, 6vw, 65px);
 
       background: var(--physio);
 
@@ -706,6 +894,7 @@
         40px 55px 45px 52px;
 
       overflow: hidden;
+
     }
 
 
@@ -713,15 +902,16 @@
 
       position: relative;
 
-      z-index: 3;
+      z-index: 2;
 
       margin: 0;
 
-      font-size: clamp(2.5rem,5vw,4rem);
+      font-size: clamp(2.5rem, 5vw, 4rem);
 
       line-height: .9;
 
       letter-spacing: -.04em;
+
     }
 
 
@@ -729,17 +919,18 @@
 
       position: relative;
 
-      z-index: 3;
+      z-index: 2;
 
       max-width: 700px;
 
       margin: 20px 0 0;
 
-      font-family: "Baloo 2", sans-serif;
+      font-family: "Baloo 2", Arial, sans-serif;
 
       font-size: 1.1rem;
 
       line-height: 1.35;
+
     }
 
 
@@ -755,13 +946,15 @@
 
       color: #555;
 
-      font-family: "Baloo 2", sans-serif;
+      font-family: "Baloo 2", Arial, sans-serif;
+
     }
 
 
     footer strong {
 
       color: #527F84;
+
     }
 
 
@@ -771,32 +964,40 @@
 
     @media (max-width: 760px) {
 
+
+      /* HEADER */
+
       .header-inner {
 
         min-height: 68px;
+
       }
 
 
-      .logo img {
+      .brand img {
 
         width: 44px;
+
         height: 44px;
+
       }
 
 
-      .logo-name {
+      .brand-text {
 
         font-size: 1.1rem;
+
       }
 
 
       .menu-button {
 
         display: block;
+
       }
 
 
-      nav {
+      .nav {
 
         display: none;
 
@@ -812,46 +1013,66 @@
 
         flex-direction: column;
 
-        background: white;
+        align-items: stretch;
+
+        background: var(--blanc);
 
         border: 2px solid var(--noir);
 
         border-radius: 22px;
 
         box-shadow: var(--ombre);
+
       }
 
 
-      nav.open {
+      .nav.open {
 
         display: flex;
+
       }
 
 
-      nav a {
+      .nav a {
 
         text-align: center;
+
       }
 
+
+      /* HERO */
 
       .hero {
 
         min-height: 430px;
 
         padding-top: 60px;
+
       }
 
 
       .hero h1 {
 
-        font-size: clamp(3.5rem,17vw,6rem);
+        font-size: clamp(3.5rem, 17vw, 6rem);
+
       }
 
+
+      .hero-text {
+
+        font-size: 1.05rem;
+
+      }
+
+
+      /* DÉCOR */
 
       .corner-lines {
 
         width: 270px;
+
         height: 270px;
+
       }
 
 
@@ -860,6 +1081,7 @@
         top: -110px;
 
         right: -110px;
+
       }
 
 
@@ -868,65 +1090,91 @@
         bottom: -110px;
 
         left: -110px;
+
       }
 
 
       .corner-lines path {
 
         stroke-width: 7;
+
       }
 
 
-      .fiches-list::before {
+      .decor-dots {
 
-        left: 24px;
+        transform: scale(.78);
 
-        transform: none;
+      }
+
+
+      /* ==================================================
+         UNE BULLE PAR LIGNE SUR TÉLÉPHONE
+      ================================================== */
+
+      .fiches-list {
+
+        width: calc(100% - 10px);
+
+        display: flex;
+
+        flex-direction: column;
+
+        gap: 30px;
+
       }
 
 
       .fiche,
-      .fiche:nth-child(odd),
-      .fiche:nth-child(even) {
+      .fiche:nth-child(1),
+      .fiche:nth-child(2),
+      .fiche:nth-child(3),
+      .fiche:nth-child(4),
+      .fiche:nth-child(5),
+      .fiche:nth-child(6) {
 
-        align-self: flex-end;
+        width: 100%;
 
-        width: calc(100% - 24px);
+        min-height: 270px;
 
-        min-height: 135px;
+        padding: 35px;
 
-        padding: 22px 18px;
-
-        gap: 15px;
       }
 
 
       .fiche-icon {
 
-        flex: 0 0 58px;
+        width: 62px;
 
-        width: 58px;
-        height: 58px;
+        height: 62px;
 
-        font-size: 1.35rem;
+        flex-basis: 62px;
+
+        margin-bottom: 18px;
+
       }
 
 
       .fiche h3 {
 
-        font-size: 1.4rem;
+        font-size: 2rem;
+
       }
 
 
       .fiche p {
 
-        font-size: .9rem;
+        font-size: 1rem;
+
       }
 
 
       .arrow {
 
-        font-size: 1.4rem;
+        right: 25px;
+
+        bottom: 25px;
+
       }
 
 
@@ -935,673 +1183,772 @@
         width: calc(100% - 30px);
 
         padding: 38px 25px;
+
       }
+
+    }
+
+
+    /* ==================================================
+       ACCESSIBILITÉ
+    ================================================== */
+
+    @media (prefers-reduced-motion: reduce) {
+
+      html {
+        scroll-behavior: auto;
+      }
+
+      *,
+      *::before,
+      *::after {
+
+        transition: none !important;
+
+      }
+
     }
 
   </style>
+
 </head>
 
 
 <body>
 
 
-<!-- ==================================================
-     HEADER
-================================================== -->
+  <!-- ==================================================
+       HEADER
+  ================================================== -->
 
-<header>
+  <header class="site-header">
 
-  <div class="header-inner">
+    <div class="header-inner">
 
-
-    <a
-      class="logo"
-      href="index.html"
-    >
-
-      <img
-        src="logo-cesirevise.png"
-        alt="Logo CESIREVISE"
-      >
-
-      <div class="logo-name">
-
-        CESIREVISE
-
-        <span>
-          Tutorat IDE
-        </span>
-
-      </div>
-
-    </a>
-
-
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-    >
-      ☰
-    </button>
-
-
-    <nav>
-
-      <a href="index.html">
-        Accueil
-      </a>
 
       <a
-        href="fiches.html"
-        aria-current="page"
+        class="brand"
+        href="index.html"
+        aria-label="Accueil CESIREVISE"
       >
-        Fiches
+
+        <img
+          src="logo-cesirevise.png"
+          alt="Logo CESIREVISE"
+        >
+
+        <div class="brand-text">
+
+          CESIREVISE
+
+          <span>
+            Tutorat IDE
+          </span>
+
+        </div>
+
       </a>
 
-      <a href="forum.html">
-        Forum
+
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰
+      </button>
+
+
+      <nav
+        class="nav"
+        id="main-nav"
+        aria-label="Navigation principale"
+      >
+
+        <a href="index.html">
+          Accueil
+        </a>
+
+        <a
+          href="fiches.html"
+          aria-current="page"
+        >
+          Fiches
+        </a>
+
+        <a href="forum.html">
+          Forum
+        </a>
+
+        <a href="contacts.html">
+          Contact
+        </a>
+
+      </nav>
+
+    </div>
+
+  </header>
+
+
+
+  <!-- ==================================================
+       HERO
+  ================================================== -->
+
+  <section class="hero">
+
+
+    <!-- POINTS -->
+
+    <div
+      class="decor-dots dots-top-left"
+      aria-hidden="true"
+    ></div>
+
+
+    <div
+      class="decor-dots dots-bottom-right"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- LIGNES HAUT DROIT -->
+
+    <div
+      class="corner-lines lines-top-right"
+      aria-hidden="true"
+    >
+
+      <svg viewBox="0 0 360 360">
+
+        <path
+          d="M95 -45
+             C95 40 125 85 190 95
+             C265 107 305 155 320 220
+             C330 265 325 315 300 405"
+        />
+
+        <path
+          d="M135 -45
+             C135 35 160 70 215 82
+             C285 97 325 145 340 210
+             C352 260 345 315 320 405"
+        />
+
+      </svg>
+
+    </div>
+
+
+    <!-- LIGNES BAS GAUCHE -->
+
+    <div
+      class="corner-lines lines-bottom-left"
+      aria-hidden="true"
+    >
+
+      <svg viewBox="0 0 360 360">
+
+        <path
+          d="M95 -45
+             C95 40 125 85 190 95
+             C265 107 305 155 320 220
+             C330 265 325 315 300 405"
+        />
+
+        <path
+          d="M135 -45
+             C135 35 160 70 215 82
+             C285 97 325 145 340 210
+             C352 260 345 315 320 405"
+        />
+
+      </svg>
+
+    </div>
+
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        CESIREVISE · RESSOURCES
+      </p>
+
+
+      <h1>
+
+        FICHES
+
+        <span>
+          révise à ton rythme.
+        </span>
+
+      </h1>
+
+
+      <p class="hero-text">
+
+        Retrouve toutes tes fiches de révision,
+        classées par matière pour réviser
+        plus facilement.
+
+      </p>
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==================================================
+       FICHES
+  ================================================== -->
+
+  <section class="fiches">
+
+
+    <!-- POINTS -->
+
+    <div
+      class="decor-dots dots-top-left"
+      aria-hidden="true"
+    ></div>
+
+
+    <div
+      class="decor-dots dots-bottom-right"
+      aria-hidden="true"
+    ></div>
+
+
+    <!-- LIGNES HAUT DROIT -->
+
+    <div
+      class="corner-lines lines-top-right"
+      aria-hidden="true"
+    >
+
+      <svg viewBox="0 0 360 360">
+
+        <path
+          d="M95 -45
+             C95 40 125 85 190 95
+             C265 107 305 155 320 220
+             C330 265 325 315 300 405"
+        />
+
+        <path
+          d="M135 -45
+             C135 35 160 70 215 82
+             C285 97 325 145 340 210
+             C352 260 345 315 320 405"
+        />
+
+      </svg>
+
+    </div>
+
+
+    <!-- LIGNES BAS GAUCHE -->
+
+    <div
+      class="corner-lines lines-bottom-left"
+      aria-hidden="true"
+    >
+
+      <svg viewBox="0 0 360 360">
+
+        <path
+          d="M95 -45
+             C95 40 125 85 190 95
+             C265 107 305 155 320 220
+             C330 265 325 315 300 405"
+        />
+
+        <path
+          d="M135 -45
+             C135 35 160 70 215 82
+             C285 97 325 145 340 210
+             C352 260 345 315 320 405"
+        />
+
+      </svg>
+
+    </div>
+
+
+
+    <div class="section-heading">
+
+
+      <p class="eyebrow">
+        CESIREVISE · RÉVISIONS
+      </p>
+
+
+      <h2>
+
+        Choisis ta
+
+        <br>
+
+        <span>
+          matière.
+        </span>
+
+      </h2>
+
+
+      <p>
+
+        Retrouve toutes tes fiches de révision,
+        classées par matière.
+
+      </p>
+
+    </div>
+
+
+
+    <!-- ==================================================
+         6 BULLES
+    ================================================== -->
+
+    <div class="fiches-list">
+
+
+      <!-- ==================================================
+           PHYSIOPATHOLOGIE
+      ================================================== -->
+
+      <a
+        class="fiche physio"
+        href="physiopatho.html"
+      >
+
+        <div class="fiche-icon">
+          ✚
+        </div>
+
+
+        <div class="fiche-content">
+
+          <h3>
+            Physiopathologie
+          </h3>
+
+
+          <p>
+            Comprendre les mécanismes des pathologies
+            et leurs conséquences.
+          </p>
+
+        </div>
+
+
+        <div class="arrow">
+          →
+        </div>
+
       </a>
 
-      <a href="contacts.html">
-        Contact
+
+
+      <!-- ==================================================
+           PSYCHOPATHOLOGIE
+      ================================================== -->
+
+      <a
+        class="fiche psycho"
+        href="psychopatho.html"
+      >
+
+        <div class="fiche-icon">
+          ◌
+        </div>
+
+
+        <div class="fiche-content">
+
+          <h3>
+            Psychopathologie
+          </h3>
+
+
+          <p>
+            Troubles psychiques, symptômes,
+            mécanismes et prise en charge.
+          </p>
+
+        </div>
+
+
+        <div class="arrow">
+          →
+        </div>
+
       </a>
 
-    </nav>
-
-  </div>
-
-</header>
 
 
+      <!-- ==================================================
+           NORMES BIOLOGIQUES
+      ================================================== -->
 
-<!-- ==================================================
-     HERO
-================================================== -->
+      <a
+        class="fiche bio"
+        href="#"
+      >
 
-<section class="hero">
-
-
-  <!-- POINTS -->
-
-  <div
-    class="dots dots-top-left"
-    aria-hidden="true"
-  ></div>
+        <div class="fiche-icon">
+          ⌁
+        </div>
 
 
-  <div
-    class="dots dots-bottom-right"
-    aria-hidden="true"
-  ></div>
+        <div class="fiche-content">
+
+          <h3>
+            Normes biologiques
+          </h3>
 
 
+          <p>
+            Les valeurs biologiques essentielles
+            à connaître en IFSI.
+          </p>
 
-  <!-- COURBES HAUT DROIT -->
+        </div>
 
-  <div
-    class="corner-lines lines-top-right"
-    aria-hidden="true"
-  >
 
-    <svg viewBox="0 0 360 360">
+        <div class="arrow">
+          →
+        </div>
 
-      <path
-        d="M95 -45
-           C95 40 125 85 190 95
-           C265 107 305 155 320 220
-           C330 265 325 315 300 405"
-      />
-
-      <path
-        d="M135 -45
-           C135 35 160 70 215 82
-           C285 97 325 145 340 210
-           C352 260 345 315 320 405"
-      />
-
-    </svg>
-
-  </div>
+      </a>
 
 
 
-  <!-- COURBES BAS GAUCHE -->
+      <!-- ==================================================
+           PHARMACOLOGIE
+      ================================================== -->
 
-  <div
-    class="corner-lines lines-bottom-left"
-    aria-hidden="true"
-  >
+      <a
+        class="fiche pharmaco"
+        href="pharmaco.html"
+      >
 
-    <svg viewBox="0 0 360 360">
-
-      <path
-        d="M95 -45
-           C95 40 125 85 190 95
-           C265 107 305 155 320 220
-           C330 265 325 315 300 405"
-      />
-
-      <path
-        d="M135 -45
-           C135 35 160 70 215 82
-           C285 97 325 145 340 210
-           C352 260 345 315 320 405"
-      />
-
-    </svg>
-
-  </div>
+        <div class="fiche-icon">
+          Rx
+        </div>
 
 
+        <div class="fiche-content">
 
-  <div class="hero-content">
-
-    <p class="eyebrow">
-      CESIREVISE · RESSOURCES
-    </p>
-
-
-    <h1>
-
-      FICHES
-
-      <span>
-        révise à ton rythme.
-      </span>
-
-    </h1>
+          <h3>
+            Pharmacologie
+          </h3>
 
 
-    <p class="hero-text">
+          <p>
+            Médicaments, classes,
+            mécanismes d'action et notions essentielles.
+          </p>
 
-      Retrouve toutes tes ressources de révision,
-      classées par matière pour t'y retrouver
-      facilement.
+        </div>
 
-    </p>
 
-  </div>
+        <div class="arrow">
+          →
+        </div>
 
-</section>
+      </a>
 
 
 
-<!-- ==================================================
-     CATÉGORIES
-================================================== -->
+      <!-- ==================================================
+           STAGE / TP
+      ================================================== -->
 
-<section class="fiches">
+      <a
+        class="fiche tp"
+        href="#"
+      >
 
-
-  <!-- POINTS -->
-
-  <div
-    class="dots dots-top-left"
-    aria-hidden="true"
-  ></div>
-
+        <div class="fiche-icon">
+          ✓
+        </div>
 
 
-  <!-- COURBE HAUT DROIT -->
+        <div class="fiche-content">
 
-  <div
-    class="corner-lines lines-top-right"
-    aria-hidden="true"
-  >
+          <h3>
+            Stage / TP
+          </h3>
 
-    <svg viewBox="0 0 360 360">
 
-      <path
-        d="M95 -45
-           C95 40 125 85 190 95
-           C265 107 305 155 320 220
-           C330 265 325 315 300 405"
-      />
+          <p>
+            Ressources pratiques pour les stages
+            et les travaux pratiques.
+          </p>
 
-      <path
-        d="M135 -45
-           C135 35 160 70 215 82
-           C285 97 325 145 340 210
-           C352 260 345 315 320 405"
-      />
+        </div>
 
-    </svg>
 
-  </div>
+        <div class="arrow">
+          →
+        </div>
+
+      </a>
 
 
 
-  <div class="section-title">
+      <!-- ==================================================
+           MÉTIER / ORIENTATION
+      ================================================== -->
+
+      <a
+        class="fiche metier"
+        href="#"
+      >
+
+        <div class="fiche-icon">
+          ★
+        </div>
+
+
+        <div class="fiche-content">
+
+          <h3>
+            Métier / Orientation
+          </h3>
+
+
+          <p>
+            Spécialités, parcours, orientation
+            et découverte du métier infirmier.
+          </p>
+
+        </div>
+
+
+        <div class="arrow">
+          →
+        </div>
+
+      </a>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- ==================================================
+       BLOC FINAL
+  ================================================== -->
+
+  <section class="info">
+
+
+    <div
+      class="decor-dots dots-bottom-right"
+      aria-hidden="true"
+    ></div>
+
 
     <h2>
 
-      Choisis ta
+      Des fiches
 
       <br>
 
-      <span>
-        matière.
-      </span>
+      pensées pour les IDE.
 
     </h2>
 
 
     <p>
 
-      Chaque matière possède sa propre couleur
-      pour retrouver rapidement les ressources
-      dont tu as besoin.
+      L'objectif de CESIREVISE :
+      rendre les révisions plus simples,
+      plus visuelles et plus agréables,
+      sans perdre l'essentiel.
 
     </p>
 
-  </div>
+  </section>
 
 
 
-  <div class="fiches-list">
+  <!-- ==================================================
+       FOOTER
+  ================================================== -->
 
+  <footer>
 
+    <strong>
+      CESIREVISE
+    </strong>
 
-    <!-- ==================================================
-         PHYSIO
-    ================================================== -->
+    · Tutorat IDE · Rennes
 
-    <a
-      class="fiche physio"
-      href="physiopatho.html"
-    >
+  </footer>
 
-      <div class="fiche-icon">
-        ✚
-      </div>
 
 
-      <div class="fiche-content">
+  <!-- ==================================================
+       JAVASCRIPT
+  ================================================== -->
 
-        <h3>
-          Physiopathologie
-        </h3>
+  <script>
 
-        <p>
-          Comprendre les mécanismes des pathologies
-          et leurs conséquences.
-        </p>
 
-      </div>
+    /* ==================================================
+       MENU MOBILE
+    ================================================== */
 
+    const menuButton =
+      document.querySelector(".menu-button");
 
-      <div class="arrow">
-        →
-      </div>
+    const nav =
+      document.querySelector(".nav");
 
-    </a>
 
+    menuButton.addEventListener("click", () => {
 
+      const ouvert =
+        nav.classList.toggle("open");
 
-    <!-- ==================================================
-         PSYCHO
-    ================================================== -->
 
-    <a
-      class="fiche psycho"
-      href="psychopatho.html"
-    >
+      menuButton.setAttribute(
+        "aria-expanded",
+        ouvert
+      );
 
-      <div class="fiche-icon">
-        ◌
-      </div>
 
-
-      <div class="fiche-content">
-
-        <h3>
-          Psychopathologie
-        </h3>
-
-        <p>
-          Troubles psychiques, mécanismes,
-          symptômes et prise en charge.
-        </p>
-
-      </div>
-
-
-      <div class="arrow">
-        →
-      </div>
-
-    </a>
-
-
-
-    <!-- ==================================================
-         NORMES BIO
-    ================================================== -->
-
-    <a
-      class="fiche bio"
-      href="#"
-    >
-
-      <div class="fiche-icon">
-        ⌁
-      </div>
-
-
-      <div class="fiche-content">
-
-        <h3>
-          Normes biologiques
-        </h3>
-
-        <p>
-          Les valeurs biologiques essentielles
-          à connaître en IFSI.
-        </p>
-
-      </div>
-
-
-      <div class="arrow">
-        →
-      </div>
-
-    </a>
-
-
-
-    <!-- ==================================================
-         PHARMACO
-    ================================================== -->
-
-    <a
-      class="fiche pharmaco"
-      href="pharmaco.html"
-    >
-
-      <div class="fiche-icon">
-        Rx
-      </div>
-
-
-      <div class="fiche-content">
-
-        <h3>
-          Pharmacologie
-        </h3>
-
-        <p>
-          Médicaments, classes, mécanismes d'action
-          et notions essentielles.
-        </p>
-
-      </div>
-
-
-      <div class="arrow">
-        →
-      </div>
-
-    </a>
-
-
-
-    <!-- ==================================================
-         TP
-    ================================================== -->
-
-    <a
-      class="fiche tp"
-      href="#"
-    >
-
-      <div class="fiche-icon">
-        ✓
-      </div>
-
-
-      <div class="fiche-content">
-
-        <h3>
-          Stage / TP
-        </h3>
-
-        <p>
-          Ressources pratiques pour les stages
-          et les travaux pratiques.
-        </p>
-
-      </div>
-
-
-      <div class="arrow">
-        →
-      </div>
-
-    </a>
-
-
-
-    <!-- ==================================================
-         MÉTIER
-    ================================================== -->
-
-    <a
-      class="fiche metier"
-      href="#"
-    >
-
-      <div class="fiche-icon">
-        ★
-      </div>
-
-
-      <div class="fiche-content">
-
-        <h3>
-          Métier / Orientation
-        </h3>
-
-        <p>
-          Spécialités, parcours, orientation
-          et découverte du métier infirmier.
-        </p>
-
-      </div>
-
-
-      <div class="arrow">
-        →
-      </div>
-
-    </a>
-
-
-  </div>
-
-</section>
-
-
-
-<!-- ==================================================
-     BAS DE PAGE
-================================================== -->
-
-<section class="info">
-
-
-  <div
-    class="dots dots-bottom-right"
-    aria-hidden="true"
-  ></div>
-
-
-  <h2>
-
-    Des fiches
-
-    <br>
-
-    pensées pour les IDE.
-
-  </h2>
-
-
-  <p>
-
-    L'objectif de CESIREVISE :
-    rendre les révisions plus simples,
-    plus visuelles et plus agréables,
-    sans perdre l'essentiel.
-
-  </p>
-
-</section>
-
-
-
-<footer>
-
-  <strong>
-    CESIREVISE
-  </strong>
-
-  · Tutorat IDE · Rennes
-
-</footer>
-
-
-
-<!-- ==================================================
-     JAVASCRIPT
-================================================== -->
-
-<script>
-
-
-  /* ================================================
-     MENU MOBILE
-  ================================================ */
-
-  const menuButton =
-    document.querySelector(".menu-button");
-
-  const nav =
-    document.querySelector("nav");
-
-
-  menuButton.addEventListener("click", () => {
-
-    const ouvert =
-      nav.classList.toggle("open");
-
-
-    menuButton.setAttribute(
-      "aria-expanded",
-      ouvert
-    );
-
-
-    menuButton.textContent =
-      ouvert ? "×" : "☰";
-
-  });
-
-
-
-  /* ================================================
-     POINTS ALÉATOIRES
-     
-     Ils ne sont PAS disposés en quadrillage.
-  ================================================ */
-
-  document
-    .querySelectorAll(".dots")
-    .forEach((groupe, index) => {
-
-
-      let seed =
-        123456 + index * 98765;
-
-
-      function random() {
-
-        seed =
-          (seed * 1664525 + 1013904223)
-          >>> 0;
-
-        return seed / 4294967296;
-
-      }
-
-
-      const nombreDePoints = 48;
-
-
-      for (
-        let i = 0;
-        i < nombreDePoints;
-        i++
-      ) {
-
-
-        const point =
-          document.createElement("span");
-
-
-        /* Position irrégulière */
-
-        const x =
-          random() * 225;
-
-        const y =
-          random() * 185;
-
-
-        /* Taille légèrement variable */
-
-        const taille =
-          5 + random() * 6;
-
-
-        point.style.left =
-          x + "px";
-
-        point.style.top =
-          y + "px";
-
-        point.style.width =
-          taille + "px";
-
-        point.style.height =
-          taille + "px";
-
-
-        /* Opacité variable */
-
-        point.style.opacity =
-          .55 + random() * .35;
-
-
-        /*
-          Les points restent dans la
-          couleur principale de la DA.
-        */
-
-        point.style.background =
-          "#77A5AA";
-
-
-        groupe.appendChild(point);
-
-      }
+      menuButton.textContent =
+        ouvert ? "×" : "☰";
 
     });
 
-</script>
+
+
+    /* ==================================================
+       FERMER LE MENU APRÈS UN CLIC
+    ================================================== */
+
+    nav.querySelectorAll("a").forEach((lien) => {
+
+      lien.addEventListener("click", () => {
+
+        nav.classList.remove("open");
+
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+
+        menuButton.textContent = "☰";
+
+      });
+
+    });
+
+
+
+    /* ==================================================
+       POINTS ALÉATOIRES
+       
+       Ils sont volontairement irréguliers :
+       pas de quadrillage.
+    ================================================== */
+
+    document
+      .querySelectorAll(".decor-dots")
+      .forEach((groupe, index) => {
+
+
+        let seed =
+          918273 + index * 731;
+
+
+        function random() {
+
+          seed =
+            (seed * 1664525 + 1013904223)
+            >>> 0;
+
+          return seed / 4294967296;
+
+        }
+
+
+        const nombreDePoints = 45;
+
+
+        for (
+          let i = 0;
+          i < nombreDePoints;
+          i++
+        ) {
+
+
+          const point =
+            document.createElement("span");
+
+
+          point.className = "dot";
+
+
+          /*
+             Position totalement irrégulière
+          */
+
+          point.style.left =
+            `${-5 + random() * 235}px`;
+
+
+          point.style.top =
+            `${-5 + random() * 195}px`;
+
+
+          /*
+             Taille légèrement différente
+          */
+
+          const taille =
+            5 + random() * 6;
+
+
+          point.style.width =
+            `${taille}px`;
+
+
+          point.style.height =
+            `${taille}px`;
+
+
+          /*
+             Opacité légèrement variable
+          */
+
+          point.style.opacity =
+            `${0.55 + random() * 0.35}`;
+
+
+          groupe.appendChild(point);
+
+        }
+
+      });
+
+  </script>
 
 
 </body>
+
 </html>
