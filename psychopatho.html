@@ -3,453 +3,451 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Psychopatho — CESIREVISE</title>
-<!-- Polices -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-    :root {
-        --mauve: #D585A9;
-        --mauve-pale: #FBEFF5;
-        --mauve-clair: #E8B7CC;
-        --noir: #111111;
-        --blanc: #FFFFFF;
-    }
-    * {
-        box-sizing: border-box;
-    }
-    html {
-        scroll-behavior: smooth;
-    }
-    body {
-        margin: 0;
-        background:
-            radial-gradient(
-                circle at 8% 18%,
-                rgba(213, 133, 169, 0.16),
-                transparent 27%
-            ),
-            radial-gradient(
-                circle at 92% 70%,
-                rgba(213, 133, 169, 0.12),
-                transparent 30%
-            ),
-            var(--mauve-pale);
-        color: var(--noir);
-        font-family: "League Spartan", sans-serif;
-        overflow-x: hidden;
-        position: relative;
-    }
-    /* -------------------------
-       GRAND LOGO EN FOND
-    ------------------------- */
-    body::before {
-        content: "";
-        position: fixed;
-        width: 1150px;
-        height: 1150px;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
-        background-image: url("logo-cesirevise.png");
-        background-repeat: no-repeat;
-        background-position: center;
-        background-size: contain;
-        opacity: 0.055;
-        pointer-events: none;
-        z-index: 0;
-    }
-    /* -------------------------
-       CONTENU
-    ------------------------- */
-    .page {
-        position: relative;
-        z-index: 1;
-        width: min(1150px, 92%);
-        margin: 0 auto;
-        padding: 60px 0 100px;
-    }
-    /* -------------------------
-       RETOUR
-    ------------------------- */
-    .retour {
-        display: inline-flex;
-        align-items: center;
-        padding: 12px 22px;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.78);
-        color: var(--noir);
-        text-decoration: none;
-        font-weight: 600;
-        box-shadow:
-            0 8px 20px rgba(0, 0, 0, 0.08);
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-    .retour:hover {
-        transform: translateY(-3px);
-        box-shadow:
-            0 12px 25px rgba(0, 0, 0, 0.12);
-    }
-    /* -------------------------
-       TITRE
-    ------------------------- */
-    .titre {
-        text-align: center;
-        padding: 55px 15px 60px;
-        position: relative;
-        width: 100%;
-        overflow: hidden;
-    }
-    .titre h1 {
-        margin: 0;
-        font-family: "Baloo 2", cursive;
-        font-size: clamp(55px, 9vw, 105px);
-        line-height: 0.9;
-        color: var(--mauve);
-        letter-spacing: -2px;
-        transform: rotate(-2deg);
-        text-shadow:
-            3px 3px 0 rgba(255, 255, 255, 0.9),
-            7px 8px 0 rgba(213, 133, 169, 0.12);
-        max-width: 100%;
-    }
-    .titre p {
-        margin: 22px auto 0;
-        max-width: 680px;
-        font-size: 20px;
-        line-height: 1.5;
-        opacity: 0.85;
-    }
-    /* -------------------------
-       LISTE DES FICHES
-    ------------------------- */
-    .fiches {
-        display: grid;
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-        gap: 28px;
-        padding: 10px 0;
-        width: 100%;
-    }
-    /* -------------------------
-       CARTES
-    ------------------------- */
-    .pdf {
-        min-height: 125px;
-        min-width: 0;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 25px;
-        border-radius: 30px;
-        background: rgba(255, 255, 255, 0.90);
-        border: 3px solid rgba(213, 133, 169, 0.42);
-        color: var(--mauve);
-        text-decoration: none;
-        font-size: 25px;
-        font-weight: 700;
-        text-align: center;
-        line-height: 1.1;
-        overflow-wrap: break-word;
-        box-shadow:
-            0 12px 25px rgba(0, 0, 0, 0.10),
-            8px 8px 0 rgba(213, 133, 169, 0.12);
-        transition:
-            transform 0.3s ease,
-            box-shadow 0.3s ease,
-            background 0.3s ease;
-    }
-    .pdf:hover {
-        transform:
-            translateY(-7px)
-            rotate(-1deg);
-        background: var(--blanc);
-        box-shadow:
-            0 20px 35px rgba(0, 0, 0, 0.15),
-            10px 10px 0 rgba(213, 133, 169, 0.18);
-    }
-    .pdf:nth-child(3n) {
-        border-radius: 38px 26px 34px 28px;
-    }
-    .pdf:nth-child(3n + 1) {
-        border-radius: 26px 38px 28px 34px;
-    }
-    .pdf:nth-child(4n) {
-        transform: rotate(0.8deg);
-    }
-    .pdf:nth-child(4n):hover {
-        transform:
-            translateY(-7px)
-            rotate(1.5deg);
-    }
-    /* -------------------------
-       DÉCORATIONS PSYCHOPATHO
-    ------------------------- */
-    .psy-deco {
-        position: fixed;
-        pointer-events: none;
-        z-index: 0;
-        color: var(--mauve);
-        opacity: 0.42;
-    }
-    /* -------------------------
-       CERVEAU
-    ------------------------- */
-    .brain {
-        width: 125px;
-        height: 105px;
-        top: 14%;
-        left: 1%;
-        animation:
-            brainFloat 6s ease-in-out infinite;
-    }
-    .brain path {
-        fill: rgba(213, 133, 169, 0.10);
-        stroke: var(--mauve);
-        stroke-width: 4;
-        stroke-linecap: round;
-        stroke-linejoin: round;
-    }
-    .brain line {
-        stroke: var(--mauve);
-        stroke-width: 3;
-        stroke-linecap: round;
-    }
-    /* -------------------------
-       NEURONE
-    ------------------------- */
-    .neurone {
-        width: 115px;
-        height: 115px;
-        right: 1%;
-        top: 24%;
-        animation:
-            float 5.5s ease-in-out infinite;
-    }
-    .neurone line {
-        stroke: var(--mauve);
-        stroke-width: 3;
-        stroke-linecap: round;
-    }
-    .neurone circle {
-        fill: rgba(213, 133, 169, 0.12);
-        stroke: var(--mauve);
-        stroke-width: 3;
-    }
-    /* -------------------------
-       BULLES DE PENSÉE
-    ------------------------- */
-    .thought {
-        width: 100px;
-        height: 80px;
-        left: 3%;
-        bottom: 24%;
-        animation:
-            float 6s ease-in-out infinite reverse;
-    }
-    .thought circle {
-        fill: rgba(213, 133, 169, 0.10);
-        stroke: var(--mauve);
-        stroke-width: 3;
-    }
-    /* -------------------------
-       HUMEURS
-    ------------------------- */
-    .mood {
-        width: 100px;
-        height: 90px;
-        right: 4%;
-        bottom: 15%;
-        animation:
-            moodFloat 5s ease-in-out infinite;
-    }
-    .mood circle {
-        fill: rgba(213, 133, 169, 0.10);
-        stroke: var(--mauve);
-        stroke-width: 3;
-    }
-    .mood path {
-        fill: none;
-        stroke: var(--mauve);
-        stroke-width: 3;
-        stroke-linecap: round;
-    }
-    /* -------------------------
-       PETIT SYMBOLE PSY
-    ------------------------- */
-    .psy-symbol {
-        width: 65px;
-        height: 65px;
-        right: 15%;
-        top: 13%;
-        animation:
-            float 4.5s ease-in-out infinite;
-    }
-    .psy-symbol circle {
-        fill: none;
-        stroke: var(--mauve);
-        stroke-width: 3;
-    }
-    .psy-symbol path {
-        fill: none;
-        stroke: var(--mauve);
-        stroke-width: 3;
-        stroke-linecap: round;
-    }
-    /* -------------------------
-       ANIMATIONS
-    ------------------------- */
-    @keyframes float {
-        0%,
-        100% {
-            transform: translateY(0);
+    <title>Psychopatho — CESIREVISE</title>
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --mauve: #D585A9;
+            --mauve-pale: #FBEFF5;
+            --mauve-clair: #E8B7CC;
+            --noir: #111111;
+            --blanc: #FFFFFF;
         }
-        50% {
-            transform: translateY(-10px);
+        * {
+            box-sizing: border-box;
         }
-    }
-    @keyframes brainFloat {
-        0%,
-        100% {
-            transform:
-                translateY(0)
-                rotate(-4deg);
+        html {
+            scroll-behavior: smooth;
         }
-        50% {
-            transform:
-                translateY(-10px)
-                rotate(2deg);
+        body {
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at 8% 18%,
+                    rgba(213, 133, 169, 0.16),
+                    transparent 27%
+                ),
+                radial-gradient(
+                    circle at 92% 70%,
+                    rgba(213, 133, 169, 0.12),
+                    transparent 30%
+                ),
+                var(--mauve-pale);
+            color: var(--noir);
+            font-family: "League Spartan", sans-serif;
+            overflow-x: hidden;
+            position: relative;
         }
-    }
-    @keyframes moodFloat {
-        0%,
-        100% {
-            transform:
-                translateY(0)
-                rotate(3deg);
+        /* =========================
+           GRAND LOGO EN FOND
+        ========================== */
+        body::before {
+            content: "";
+            position: fixed;
+            width: 1150px;
+            height: 1150px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            background-image: url("logo-cesirevise.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.055;
+            pointer-events: none;
+            z-index: 0;
         }
-        50% {
-            transform:
-                translateY(-10px)
-                rotate(-3deg);
-        }
-    }
-    /* -------------------------
-       MOBILE
-    ------------------------- */
-    @media (max-width: 700px) {
+        /* =========================
+           CONTENU
+        ========================== */
         .page {
-            width: 94%;
-            padding-top: 30px;
+            position: relative;
+            z-index: 1;
+            width: min(1150px, 92%);
+            margin: 0 auto;
+            padding: 60px 0 100px;
         }
+        /* =========================
+           RETOUR
+        ========================== */
+        .retour {
+            display: inline-flex;
+            align-items: center;
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.78);
+            color: var(--noir);
+            text-decoration: none;
+            font-weight: 600;
+            box-shadow:
+                0 8px 20px rgba(0, 0, 0, 0.08);
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+        .retour:hover {
+            transform: translateY(-3px);
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.12);
+        }
+        /* =========================
+           TITRE
+        ========================== */
         .titre {
-            padding: 45px 5px 45px;
+            text-align: center;
+            padding: 55px 15px 60px;
+            position: relative;
             width: 100%;
-            overflow: hidden;
         }
         .titre h1 {
-            font-size: 58px;
-            letter-spacing: -2px;
+            margin: 0;
+            font-family: "Baloo 2", cursive;
+            font-size: clamp(55px, 9vw, 105px);
             line-height: 0.9;
-            max-width: 100%;
+            color: var(--mauve);
+            letter-spacing: -2px;
             transform: rotate(-2deg);
+            text-shadow:
+                3px 3px 0 rgba(255, 255, 255, 0.9),
+                7px 8px 0 rgba(213, 133, 169, 0.12);
         }
         .titre p {
-            font-size: 18px;
-            max-width: 100%;
+            margin: 22px auto 0;
+            max-width: 680px;
+            font-size: 20px;
+            line-height: 1.5;
+            opacity: 0.85;
         }
+        /* =========================
+           LISTE DES FICHES
+        ========================== */
         .fiches {
+            display: grid;
             grid-template-columns:
                 repeat(2, minmax(0, 1fr));
-            gap: 16px;
+            gap: 28px;
+            padding: 10px 0;
             width: 100%;
         }
+        /* =========================
+           CARTES
+        ========================== */
         .pdf {
-            min-height: 115px;
-            min-width: 0;
-            padding: 18px 10px;
-            font-size: 20px;
-            line-height: 1.05;
-            border-radius: 24px;
-            overflow-wrap: break-word;
+            min-height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.90);
+            border:
+                3px solid rgba(213, 133, 169, 0.42);
+            color: var(--mauve);
+            text-decoration: none;
+            font-size: 25px;
+            font-weight: 700;
+            text-align: center;
+            line-height: 1.1;
+            box-shadow:
+                0 12px 25px rgba(0, 0, 0, 0.10),
+                8px 8px 0 rgba(213, 133, 169, 0.12);
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
         }
-        body::before {
-            width: 700px;
-            height: 700px;
-            opacity: 0.045;
+        .pdf:hover {
+            transform:
+                translateY(-7px)
+                rotate(-1deg);
+            background: var(--blanc);
+            box-shadow:
+                0 20px 35px rgba(0, 0, 0, 0.15),
+                10px 10px 0 rgba(213, 133, 169, 0.18);
         }
-        /* Décorations mobiles */
+        .pdf:nth-child(3n) {
+            border-radius:
+                38px 26px 34px 28px;
+        }
+        .pdf:nth-child(3n + 1) {
+            border-radius:
+                26px 38px 28px 34px;
+        }
+        .pdf:nth-child(4n) {
+            transform: rotate(0.8deg);
+        }
+        .pdf:nth-child(4n):hover {
+            transform:
+                translateY(-7px)
+                rotate(1.5deg);
+        }
+        /* =========================
+           DÉCORATIONS
+        ========================== */
         .psy-deco {
-            opacity: 0.28;
+            position: fixed;
+            pointer-events: none;
+            z-index: 0;
+            color: var(--mauve);
+            opacity: 0.42;
         }
+        /* =========================
+           CERVEAU
+        ========================== */
         .brain {
-            width: 80px;
-            height: 70px;
-            left: -10px;
+            width: 125px;
+            height: 105px;
+            top: 14%;
+            left: 1%;
+            animation:
+                brainFloat 6s ease-in-out infinite;
         }
+        .brain path {
+            fill:
+                rgba(213, 133, 169, 0.10);
+            stroke: var(--mauve);
+            stroke-width: 4;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+        .brain line {
+            stroke: var(--mauve);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        /* =========================
+           NEURONE
+        ========================== */
         .neurone {
-            width: 70px;
-            height: 70px;
-            right: -5px;
+            width: 115px;
+            height: 115px;
+            right: 1%;
+            top: 24%;
+            animation:
+                float 5.5s ease-in-out infinite;
         }
+        .neurone line {
+            stroke: var(--mauve);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        .neurone circle {
+            fill:
+                rgba(213, 133, 169, 0.12);
+            stroke: var(--mauve);
+            stroke-width: 3;
+        }
+        /* =========================
+           BULLES DE PENSÉE
+        ========================== */
         .thought {
-            width: 65px;
-            height: 55px;
-            left: -5px;
+            width: 100px;
+            height: 80px;
+            left: 3%;
+            bottom: 24%;
+            animation:
+                float 6s ease-in-out infinite reverse;
         }
+        .thought circle {
+            fill:
+                rgba(213, 133, 169, 0.10);
+            stroke: var(--mauve);
+            stroke-width: 3;
+        }
+        /* =========================
+           HUMEURS
+        ========================== */
         .mood {
-            width: 65px;
-            height: 60px;
-            right: -5px;
+            width: 100px;
+            height: 90px;
+            right: 4%;
+            bottom: 15%;
+            animation:
+                moodFloat 5s ease-in-out infinite;
         }
+        .mood circle {
+            fill:
+                rgba(213, 133, 169, 0.10);
+            stroke: var(--mauve);
+            stroke-width: 3;
+        }
+        .mood path {
+            fill: none;
+            stroke: var(--mauve);
+            stroke-width: 3;
+            stroke-linecap: round;
+        }
+        /* =========================
+           PETIT SYMBOLE PSY
+        ========================== */
         .psy-symbol {
-            width: 45px;
-            height: 45px;
-            right: 5%;
+            width: 65px;
+            height: 65px;
+            right: 15%;
+            top: 13%;
+            animation:
+                float 4.5s ease-in-out infinite;
         }
-    }
-    /* -------------------------
-       TRÈS PETITS MOBILES
-    ------------------------- */
-    @media (max-width: 380px) {
-        .page {
-            width: 92%;
+        .psy-symbol circle {
+            fill: none;
+            stroke: var(--mauve);
+            stroke-width: 3;
         }
-        .titre {
-            padding-left: 2px;
-            padding-right: 2px;
+        .psy-symbol path {
+            fill: none;
+            stroke: var(--mauve);
+            stroke-width: 3;
+            stroke-linecap: round;
         }
-        .titre h1 {
-            font-size: 52px;
-            letter-spacing: -2.5px;
+        /* =========================
+           ANIMATIONS
+        ========================== */
+        @keyframes float {
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
         }
-        .titre p {
-            font-size: 17px;
+        @keyframes brainFloat {
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(-4deg);
+            }
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(2deg);
+            }
         }
-        .fiches {
-            gap: 12px;
+        @keyframes moodFloat {
+            0%,
+            100% {
+                transform:
+                    translateY(0)
+                    rotate(3deg);
+            }
+            50% {
+                transform:
+                    translateY(-10px)
+                    rotate(-3deg);
+            }
         }
-        .pdf {
-            font-size: 18px;
-            padding: 15px 8px;
-            min-height: 105px;
+        /* =========================
+           MOBILE
+        ========================== */
+        @media (max-width: 700px) {
+            .page {
+                width: 94%;
+                padding-top: 30px;
+            }
+            .titre {
+                padding:
+                    45px 5px 45px;
+            }
+            .titre h1 {
+                font-size: 58px;
+                letter-spacing: -2px;
+                line-height: 0.9;
+            }
+            .titre p {
+                font-size: 18px;
+            }
+            .fiches {
+                grid-template-columns:
+                    repeat(2, minmax(0, 1fr));
+                gap: 16px;
+            }
+            .pdf {
+                min-height: 115px;
+                padding:
+                    18px 10px;
+                font-size: 20px;
+                line-height: 1.05;
+                border-radius: 24px;
+            }
+            body::before {
+                width: 700px;
+                height: 700px;
+                opacity: 0.045;
+            }
+            .psy-deco {
+                opacity: 0.28;
+            }
+            .brain {
+                width: 80px;
+                height: 70px;
+                left: -10px;
+            }
+            .neurone {
+                width: 70px;
+                height: 70px;
+                right: -5px;
+            }
+            .thought {
+                width: 65px;
+                height: 55px;
+                left: -5px;
+            }
+            .mood {
+                width: 65px;
+                height: 60px;
+                right: -5px;
+            }
+            .psy-symbol {
+                width: 45px;
+                height: 45px;
+                right: 5%;
+            }
         }
-        .brain {
-            left: -18px;
+        /* =========================
+           TRÈS PETITS MOBILES
+        ========================== */
+        @media (max-width: 380px) {
+            .page {
+                width: 92%;
+            }
+            .titre {
+                padding-left: 2px;
+                padding-right: 2px;
+            }
+            .titre h1 {
+                font-size: 52px;
+                letter-spacing: -2.5px;
+            }
+            .titre p {
+                font-size: 17px;
+            }
+            .fiches {
+                gap: 12px;
+            }
+            .pdf {
+                font-size: 18px;
+                padding:
+                    15px 8px;
+                min-height: 105px;
+            }
+            .brain {
+                left: -18px;
+            }
+            .neurone {
+                right: -15px;
+            }
+            .thought {
+                left: -15px;
+            }
+            .mood {
+                right: -15px;
+            }
         }
-        .neurone {
-            right: -15px;
-        }
-        .thought {
-            left: -15px;
-        }
-        .mood {
-            right: -15px;
-        }
-    }
-</style>
+    </style>
 </head>
 <body>
 <!-- =========================
@@ -471,7 +469,12 @@
         C76 97 66 98 62 88
         Z
     "></path>
-    <line x1="62" y1="18" x2="62" y2="85"></line>
+    <line
+        x1="62"
+        y1="18"
+        x2="62"
+        y2="85">
+    </line>
     <path d="
         M39 29
         C47 34 43 43 34 44
@@ -502,59 +505,50 @@
     <line x1="90" y1="23" x2="102" y2="28"></line>
     <line x1="93" y1="72" x2="105" y2="75"></line>
     <line x1="27" y1="88" x2="17" y2="96"></line>
-    <circle cx="57"
-            cy="58"
-            r="17">
-    </circle>
-    <circle cx="20"
-            cy="25"
-            r="6">
-    </circle>
-    <circle cx="90"
-            cy="23"
-            r="6">
-    </circle>
-    <circle cx="93"
-            cy="72"
-            r="6">
-    </circle>
-    <circle cx="27"
-            cy="88"
-            r="6">
-    </circle>
+    <circle cx="57" cy="58" r="17"></circle>
+    <circle cx="20" cy="25" r="6"></circle>
+    <circle cx="90" cy="23" r="6"></circle>
+    <circle cx="93" cy="72" r="6"></circle>
+    <circle cx="27" cy="88" r="6"></circle>
 </svg>
 <!-- BULLES DE PENSÉE -->
 <svg class="psy-deco thought"
      viewBox="0 0 100 80">
-    <circle cx="62"
-            cy="31"
-            r="27">
+    <circle
+        cx="62"
+        cy="31"
+        r="27">
     </circle>
-    <circle cx="30"
-            cy="61"
-            r="8">
+    <circle
+        cx="30"
+        cy="61"
+        r="8">
     </circle>
-    <circle cx="18"
-            cy="73"
-            r="4">
+    <circle
+        cx="18"
+        cy="73"
+        r="4">
     </circle>
 </svg>
 <!-- HUMEURS -->
 <svg class="psy-deco mood"
      viewBox="0 0 100 90">
-    <circle cx="50"
-            cy="45"
-            r="34">
+    <circle
+        cx="50"
+        cy="45"
+        r="34">
     </circle>
-    <circle cx="38"
-            cy="38"
-            r="3"
-            fill="#D585A9">
+    <circle
+        cx="38"
+        cy="38"
+        r="3"
+        fill="#D585A9">
     </circle>
-    <circle cx="62"
-            cy="38"
-            r="3"
-            fill="#D585A9">
+    <circle
+        cx="62"
+        cy="38"
+        r="3"
+        fill="#D585A9">
     </circle>
     <path d="
         M32 57
@@ -564,9 +558,10 @@
 <!-- SYMBOLE PSY -->
 <svg class="psy-deco psy-symbol"
      viewBox="0 0 65 65">
-    <circle cx="32.5"
-            cy="32.5"
-            r="25">
+    <circle
+        cx="32.5"
+        cy="32.5"
+        r="25">
     </circle>
     <path d="
         M20 32
@@ -578,24 +573,38 @@
         L32 45
     "></path>
 </svg>
+<!-- =========================
+     CONTENU
+========================== -->
 <main class="page">
     <!-- RETOUR -->
     <a href="fiches.html" class="retour">
         ← Retour aux fiches
     </a>
     <!-- TITRE -->
+    <section class="titre">
+        <h1>PSYCHOPATHO</h1>
+        <p>
+            Tes fiches pour comprendre les troubles psychiques,
+            leurs mécanismes, leurs manifestations et leur prise en charge.
+        </p>
+    </section>
+    <!-- =========================
+         FICHES
+    ========================== -->
     <section class="fiches">
-<a href="psycho-bipolarite.pdf" class="pdf">
-    BIPOLARITÉ
-</a>
-<a href="psycho-depression.pdf" class="pdf">
-    DÉPRESSION
-</a>
-<a href="psycho-addictologie.pdf" class="pdf">
-    ADDICTOLOGIE
-</a>
-</section>
-
+        <a href="psycho-bipolarite.pdf"
+           class="pdf">
+            BIPOLARITÉ
+        </a>
+        <a href="psycho-depression.pdf"
+           class="pdf">
+            DÉPRÉSSION
+        </a>
+        <a href="psycho-addictologie.pdf"
+           class="pdf">
+            ADDICTOLOGIE
+        </a>
     </section>
 </main>
 </body>
