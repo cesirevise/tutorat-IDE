@@ -145,33 +145,25 @@
     /* =====================================================
        HEADER
        ===================================================== */
-
-.header {
-    width: 100%;
-    padding: 22px 35px;
+.brand {
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 10;
-}
-
-.logo-cesir {
     text-decoration: none;
+    font-weight: 800;
     line-height: 1;
 }
 
-.logo-noir,
-.logo-bleu {
+.brand-cesir,
+.brand-evis {
     font-size: 27px;
-    font-weight: 800;
     letter-spacing: -1.5px;
 }
 
-.logo-noir {
-    color: #222;
+.brand-cesir {
+    color: #202020;
 }
 
-.logo-bleu {
+.brand-evis {
     color: #77A5AA;
 }
 
@@ -218,29 +210,6 @@
 
       text-decoration: none;
       font-weight: 800;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
-
-    .brand-text {
-      line-height: .9;
-      font-size: 1.35rem;
-      letter-spacing: -.03em;
-    }
-
-    .brand-text span {
-      display: block;
-      margin-top: 5px;
-
-      color: var(--teal-dark);
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
     }
 
     .nav {
@@ -708,14 +677,10 @@
         min-height: 68px;
       }
 
-      .brand-text {
-        font-size: 1.1rem;
-      }
-
-      .brand img {
-        width: 44px;
-        height: 44px;
-      }
+      .brand-cesir,
+      .brand-evis {
+        font-size: 23px;
+      } 
 
       .menu-button {
         display: block;
