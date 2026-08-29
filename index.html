@@ -148,6 +148,55 @@
        HEADER
        ===================================================== */
 
+/* =========================================
+   LOGO EN-TÊTE
+========================================= */
+
+.header {
+    width: 100%;
+    padding: 22px 35px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-cesir {
+    text-decoration: none;
+    line-height: 1;
+}
+
+.logo-noir,
+.logo-bleu {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.logo-noir {
+    color: #222;
+}
+
+.logo-bleu {
+    color: #77A5AA;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 18px 20px;
+    }
+
+    .logo-noir,
+    .logo-bleu {
+        font-size: 23px;
+    }
+
+}
+    
     .site-header {
       position: sticky;
       top: 0;
@@ -818,6 +867,11 @@
        HEADER
        ===================================================== -->
 
+  <header class="header">
+    <a href="index.html" class="logo-cesir">
+        <span class="logo-noir">CESIR’</span><span class="logo-bleu">EVISE</span>
+    </a>
+</header>
   <header class="site-header">
 
     <div class="header-inner">
