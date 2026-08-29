@@ -142,6 +142,9 @@
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
+        /* =========================
+           CARTES
+        ========================= */
         .year-card {
             position: relative;
             min-height: 260px;
@@ -164,7 +167,9 @@
         .year-card:active {
             transform: scale(0.98);
         }
-        /* Couleurs */
+        /* =========================
+           COULEURS
+        ========================= */
         .l1 {
             background: #77A5AA;
         }
@@ -174,26 +179,36 @@
         .l3 {
             background: #FFD230;
         }
-    
-        }
+        /* =========================
+           TITRE L1 / L2 / L3
+        ========================= */
         .year-title {
-            font-size: 38px;
+            font-size: 72px;
+            line-height: 0.85;
             font-weight: 800;
+            letter-spacing: -2px;
             color: white;
         }
         .l3 .year-title {
             color: #222;
         }
+        /* =========================
+           DESCRIPTION
+        ========================= */
         .year-description {
             font-size: 16px;
             font-weight: 500;
+            line-height: 1.2;
             color: rgba(255,255,255,0.9);
-            margin-top: 5px;
+            margin-top: 0;
+            padding-right: 50px;
         }
         .l3 .year-description {
             color: rgba(0,0,0,0.7);
         }
-        /* Flèche */
+        /* =========================
+           FLÈCHE
+        ========================= */
         .arrow {
             position: absolute;
             right: 25px;
@@ -271,6 +286,7 @@
                 font-size: 14px;
                 padding: 8px 14px;
             }
+            /* INTRO */
             .intro {
                 width: 90%;
                 margin-top: 40px;
@@ -283,6 +299,7 @@
             .intro p {
                 font-size: 17px;
             }
+            /* CARTES */
             .years {
                 width: 90%;
                 grid-template-columns: 1fr;
@@ -294,21 +311,24 @@
                 padding: 28px 25px;
                 border-radius: 28px;
             }
-            .year-number {
-                font-size: 55px;
-            }
+            /* L1 / L2 / L3 */
             .year-title {
-                font-size: 32px;
+                font-size: 58px;
+                line-height: 0.85;
             }
+            /* DESCRIPTION */
             .year-description {
                 font-size: 15px;
+                padding-right: 45px;
             }
+            /* FLÈCHE */
             .arrow {
                 width: 40px;
                 height: 40px;
                 right: 20px;
                 bottom: 18px;
             }
+            /* INFO */
             .info {
                 width: 90%;
                 padding: 20px;
@@ -323,6 +343,7 @@
             .info p {
                 font-size: 15px;
             }
+            /* FOOTER */
             footer {
                 padding-bottom: 30px;
             }
@@ -343,10 +364,13 @@
             ← Accueil
         </a>
     </header>
-    <!-- INTRO -->
+    <!-- CONTENU -->
     <main>
+        <!-- INTRO -->
         <section class="intro">
-            <span class="tag">CONFÉRENCES</span>
+            <span class="tag">
+                CONFÉRENCES
+            </span>
             <h1>
                 ENTRAÎNE TOI !
             </h1>
@@ -358,37 +382,48 @@
         </section>
         <!-- ANNÉES -->
         <section class="years">
+            <!-- L1 -->
             <a href="conferences-l1.html" class="year-card l1">
-                <div>
-                    <div class="year-title">L1</div>
-                    <div class="year-description">
-                        Conférences de première année
-                    </div>
+                <div class="year-title">
+                    L1
                 </div>
-                <div class="arrow">→</div>
+                <div class="year-description">
+                    Conférences de première année
+                </div>
+                <div class="arrow">
+                    →
+                </div>
             </a>
+            <!-- L2 -->
             <a href="conferences-l2.html" class="year-card l2">
-                <div>
-                    <div class="year-title">L2</div>
-                    <div class="year-description">
-                        Conférences de deuxième année
-                    </div>
+                <div class="year-title">
+                    L2
                 </div>
-                <div class="arrow">→</div>
+                <div class="year-description">
+                    Conférences de deuxième année
+                </div>
+                <div class="arrow">
+                    →
+                </div>
             </a>
+            <!-- L3 -->
             <a href="conferences-l3.html" class="year-card l3">
-                <div>
-                    <div class="year-title">L3</div>
-                    <div class="year-description">
-                        Conférences de troisième année
-                    </div>
+                <div class="year-title">
+                    L3
                 </div>
-                <div class="arrow">→</div>
+                <div class="year-description">
+                    Conférences de troisième année
+                </div>
+                <div class="arrow">
+                    →
+                </div>
             </a>
         </section>
         <!-- INFO -->
         <section class="info">
-            <div class="info-icon">i</div>
+            <div class="info-icon">
+                i
+            </div>
             <p>
                 Les conférences sont organisées par année d'études.
                 Une seconde organisation par matière sera également
