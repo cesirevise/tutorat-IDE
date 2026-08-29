@@ -64,7 +64,6 @@
       color: inherit;
     }
 
-
     /* =====================================================
        POINTS DÉCORATIFS
        ===================================================== */
@@ -96,9 +95,10 @@
       bottom: 25px;
     }
 
-
     /* =====================================================
        LIGNES COURBES DANS LES COINS
+       Elles commencent et terminent volontairement
+       hors du cadre.
        ===================================================== */
 
     .corner-lines {
@@ -141,32 +141,38 @@
       transform: rotate(180deg);
     }
 
-
     /* =====================================================
        HEADER
        ===================================================== */
-.brand {
+
+.header {
+    width: 100%;
+    padding: 22px 35px;
     display: flex;
     align-items: center;
+    position: relative;
+    z-index: 10;
+}
+
+.logo-cesir {
     text-decoration: none;
-    font-weight: 800;
     line-height: 1;
 }
 
-.brand-cesir,
-.brand-evis {
+.logo-noir,
+.logo-bleu {
     font-size: 27px;
+    font-weight: 800;
     letter-spacing: -1.5px;
 }
 
-.brand-cesir {
-    color: #202020;
+.logo-noir {
+    color: #222;
 }
 
-.brand-evis {
+.logo-bleu {
     color: #77A5AA;
 }
-
 
 /* MOBILE */
 
@@ -212,6 +218,29 @@
       font-weight: 800;
     }
 
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+      border-radius: 50%;
+    }
+
+    .brand-text {
+      line-height: .9;
+      font-size: 1.35rem;
+      letter-spacing: -.03em;
+    }
+
+    .brand-text span {
+      display: block;
+      margin-top: 5px;
+
+      color: var(--teal-dark);
+      font-size: .68rem;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+
     .nav {
       display: flex;
       align-items: center;
@@ -247,7 +276,6 @@
 
       cursor: pointer;
     }
-
 
     /* =====================================================
        HERO
@@ -367,7 +395,6 @@
       transform: translateY(-2px);
     }
 
-
     /* =====================================================
        SECTION RESSOURCES
        ===================================================== */
@@ -409,7 +436,6 @@
 
       font-size: 1.1rem;
     }
-
 
     /* =====================================================
        NAVIGATION EN SERPENT
@@ -552,7 +578,6 @@
       font-weight: 800;
     }
 
-
     /* =====================================================
        BLOCS DU BAS
        ===================================================== */
@@ -647,7 +672,6 @@
       background: var(--teal);
     }
 
-
     /* =====================================================
        FOOTER
        ===================================================== */
@@ -666,7 +690,6 @@
       color: var(--teal-dark);
     }
 
-
     /* =====================================================
        MOBILE
        ===================================================== */
@@ -677,10 +700,14 @@
         min-height: 68px;
       }
 
-      .brand-cesir,
-      .brand-evis {
-        font-size: 23px;
-      } 
+      .brand-text {
+        font-size: 1.1rem;
+      }
+
+      .brand img {
+        width: 44px;
+        height: 44px;
+      }
 
       .menu-button {
         display: block;
@@ -801,7 +828,6 @@
       }
     }
 
-
     @media (prefers-reduced-motion: reduce) {
 
       html {
@@ -819,64 +845,85 @@
   </style>
 </head>
 
-
 <body>
 
   <!-- =====================================================
        HEADER
        ===================================================== -->
 
- <header class="site-header">
 
-  <div class="header-inner">
+  <header class="site-header">
 
-    <a
-      class="brand"
-      href="#accueil"
-      aria-label="Retour à l'accueil CESIREVISE"
-    >
-      <span class="brand-cesir">CESIR’</span><span class="brand-evis">EVISE</span>
-    </a>
+    <div class="header-inner">
 
+      <a
+        class="brand"
+        href="#accueil"
+        aria-label="Retour à l'accueil CESIREVISE"
+      >
 
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-      aria-controls="main-nav"
-    >
-      ☰
-    </button>
+        <img
+          src="logo-cesirevise.png"
+          alt="Logo CESIREVISE"
+        >
 
+        <div class="brand-text">
+          CESIREVISE
 
-    <nav
-      class="nav"
-      id="main-nav"
-      aria-label="Navigation principale"
-    >
+          <span>
+            Tutorat IDE
+          </span>
+        </div>
 
-      <a href="#accueil">Accueil</a>
+      </a>
 
-      <a href="fiches.html">Fiches</a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰
+      </button>
 
-      <a href="conferences.html">Conférences</a>
+      <nav
+        class="nav"
+        id="main-nav"
+        aria-label="Navigation principale"
+      >
 
-      <a href="forum.html">Forum</a>
+        <a href="#accueil">
+          Accueil
+        </a>
 
-      <a href="#rejoindre">Nous rejoindre</a>
+        <a href="fiches.html">
+          Fiches
+        </a>
 
-      <a href="contacts.html">Contact</a>
+        <a href="conferences.html">
+          Conférences
+        </a>
 
-    </nav>
+        <a href="forum.html">
+          Forum
+        </a>
 
-  </div>
+        <a href="#rejoindre">
+          Nous rejoindre
+        </a>
 
-</header>
+        <a href="contacts.html">
+          Contact
+        </a>
 
+      </nav>
+
+    </div>
+
+  </header>
 
   <main>
-
 
     <!-- =====================================================
          HERO
@@ -897,7 +944,6 @@
         class="decor-dots dots-bottom-right"
         aria-hidden="true"
       ></div>
-
 
       <!-- Ligne coin supérieur droit -->
       <div
@@ -928,7 +974,6 @@
 
       </div>
 
-
       <!-- Ligne coin inférieur gauche -->
       <div
         class="corner-lines lines-bottom-left"
@@ -957,7 +1002,6 @@
         </svg>
 
       </div>
-
 
       <!-- Contenu -->
       <div class="hero-content">
@@ -997,7 +1041,6 @@
 
     </section>
 
-
     <!-- =====================================================
          RESSOURCES
          ===================================================== -->
@@ -1011,7 +1054,6 @@
         class="decor-dots dots-top-left"
         aria-hidden="true"
       ></div>
-
 
       <div
         class="corner-lines lines-top-right"
@@ -1041,7 +1083,6 @@
 
       </div>
 
-
       <div class="section-heading">
 
         <h2>
@@ -1059,11 +1100,9 @@
 
       </div>
 
-
       <!-- Navigation en serpent -->
 
       <div class="snake">
-
 
         <a
           class="bubble"
@@ -1094,7 +1133,6 @@
 
         </a>
 
-
         <a
           class="bubble"
           href="conferences.html"
@@ -1123,7 +1161,6 @@
           </div>
 
         </a>
-
 
         <a
           class="bubble"
@@ -1154,7 +1191,6 @@
 
         </a>
 
-
         <a
           class="bubble"
           href="#rejoindre"
@@ -1182,7 +1218,6 @@
           </div>
 
         </a>
-
 
         <a
           class="bubble"
@@ -1213,11 +1248,9 @@
 
         </a>
 
-
       </div>
 
     </section>
-
 
     <!-- =====================================================
          À PROPOS
@@ -1246,7 +1279,6 @@
       </p>
 
     </section>
-
 
     <!-- =====================================================
          CONTACT / REJOINDRE
@@ -1285,7 +1317,6 @@
 
       </div>
 
-
       <h2>
         On se retrouve<br>
         sur les réseaux ?
@@ -1295,7 +1326,6 @@
         Suis CESIREVISE pour retrouver les nouvelles fiches,
         les publications et les actualités du tutorat.
       </p>
-
 
       <div class="contact-links">
 
@@ -1327,7 +1357,6 @@
 
   </main>
 
-
   <!-- =====================================================
        FOOTER
        ===================================================== -->
@@ -1342,7 +1371,6 @@
 
   </footer>
 
-
   <!-- =====================================================
        MENU MOBILE
        ===================================================== -->
@@ -1354,7 +1382,6 @@
 
     const nav =
       document.querySelector('.nav');
-
 
     menuButton.addEventListener('click', () => {
 
@@ -1370,7 +1397,6 @@
         open ? '×' : '☰';
 
     });
-
 
     nav.querySelectorAll('a').forEach(link => {
 
@@ -1391,7 +1417,6 @@
 
   </script>
 
-
   <!-- =====================================================
        GÉNÉRATION DES POINTS
        Points volontairement irréguliers :
@@ -1410,7 +1435,6 @@
           918273 +
           clusterIndex * 731;
 
-
         const random = () => {
 
           seed =
@@ -1421,14 +1445,12 @@
 
         };
 
-
         for (let i = 0; i < count; i++) {
 
           const dot =
             document.createElement('span');
 
           dot.className = 'dot';
-
 
           /*
              Position aléatoire.
@@ -1442,7 +1464,6 @@
           const y =
             -4 + random() * 188;
 
-
           /*
              Taille légèrement différente
              pour éviter l'effet quadrillage.
@@ -1450,7 +1471,6 @@
 
           const size =
             5 + random() * 5.5;
-
 
           dot.style.left =
             `${x}px`;
@@ -1464,14 +1484,12 @@
           dot.style.height =
             `${size}px`;
 
-
           /*
              Opacité légèrement variable.
           */
 
           dot.style.opacity =
             `${0.55 + random() * 0.35}`;
-
 
           cluster.appendChild(dot);
 
