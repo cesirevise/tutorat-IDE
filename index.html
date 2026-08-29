@@ -99,8 +99,6 @@
 
     /* =====================================================
        LIGNES COURBES DANS LES COINS
-       Elles commencent et terminent volontairement
-       hors du cadre.
        ===================================================== */
 
     .corner-lines {
@@ -147,10 +145,6 @@
     /* =====================================================
        HEADER
        ===================================================== */
-
-/* =========================================
-   LOGO EN-TÊTE
-========================================= */
 
 .header {
     width: 100%;
@@ -867,83 +861,53 @@
        HEADER
        ===================================================== -->
 
-  <header class="header">
-    <a href="index.html" class="logo-cesir">
-        <span class="logo-noir">CESIR’</span><span class="logo-bleu">EVISE</span>
+ <header class="site-header">
+
+  <div class="header-inner">
+
+    <a
+      class="brand"
+      href="#accueil"
+      aria-label="Retour à l'accueil CESIREVISE"
+    >
+      <span class="brand-cesir">CESIR’</span><span class="brand-evis">EVISE</span>
     </a>
+
+
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      ☰
+    </button>
+
+
+    <nav
+      class="nav"
+      id="main-nav"
+      aria-label="Navigation principale"
+    >
+
+      <a href="#accueil">Accueil</a>
+
+      <a href="fiches.html">Fiches</a>
+
+      <a href="conferences.html">Conférences</a>
+
+      <a href="forum.html">Forum</a>
+
+      <a href="#rejoindre">Nous rejoindre</a>
+
+      <a href="contacts.html">Contact</a>
+
+    </nav>
+
+  </div>
+
 </header>
-  <header class="site-header">
-
-    <div class="header-inner">
-
-      <a
-        class="brand"
-        href="#accueil"
-        aria-label="Retour à l'accueil CESIREVISE"
-      >
-
-        <img
-          src="logo-cesirevise.png"
-          alt="Logo CESIREVISE"
-        >
-
-        <div class="brand-text">
-          CESIR'<span>EVISE</span>
-
-          <span>
-            Tutorat IDE
-          </span>
-        </div>
-
-      </a>
-
-
-      <button
-        class="menu-button"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="main-nav"
-      >
-        ☰
-      </button>
-
-
-      <nav
-        class="nav"
-        id="main-nav"
-        aria-label="Navigation principale"
-      >
-
-        <a href="#accueil">
-          Accueil
-        </a>
-
-        <a href="fiches.html">
-          Fiches
-        </a>
-
-        <a href="conferences.html">
-          Conférences
-        </a>
-
-        <a href="forum.html">
-          Forum
-        </a>
-
-        <a href="#rejoindre">
-          Nous rejoindre
-        </a>
-
-        <a href="contacts.html">
-          Contact
-        </a>
-
-      </nav>
-
-    </div>
-
-  </header>
 
 
   <main>
