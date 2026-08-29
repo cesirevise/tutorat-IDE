@@ -11,7 +11,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=League+Spartan:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
 
 
     <style>
@@ -125,7 +128,7 @@
 
             position: relative;
 
-            z-index: 1;
+            z-index: 2;
 
             width:
                 min(1150px, 92%);
@@ -150,7 +153,8 @@
             padding:
                 12px 22px;
 
-            border-radius: 30px;
+            border-radius:
+                30px;
 
             background:
                 rgba(255, 255, 255, 0.78);
@@ -158,9 +162,11 @@
             color:
                 var(--noir);
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
-            font-weight: 600;
+            font-weight:
+                600;
 
             box-shadow:
                 0 8px 20px
@@ -189,7 +195,8 @@
 
         .titre {
 
-            text-align: center;
+            text-align:
+                center;
 
             padding:
                 55px 15px 60px;
@@ -205,9 +212,10 @@
                 cursive;
 
             font-size:
-                clamp(55px, 9vw, 105px);
+                clamp(48px, 8vw, 100px);
 
-            line-height: 0.9;
+            line-height:
+                0.9;
 
             color:
                 var(--jaune);
@@ -253,7 +261,8 @@
 
         .fiches {
 
-            display: grid;
+            display:
+                grid;
 
             grid-template-columns:
                 repeat(2, 1fr);
@@ -272,16 +281,20 @@
 
         .pdf {
 
-            position: relative;
+            position:
+                relative;
 
             min-height:
-                155px;
+                145px;
 
-            display: flex;
+            display:
+                flex;
 
-            align-items: center;
+            align-items:
+                center;
 
-            justify-content: center;
+            justify-content:
+                center;
 
             padding:
                 25px;
@@ -297,9 +310,10 @@
                 rgba(255, 210, 48, 0.75);
 
             color:
-                var(--noir);
+                var(--jaune);
 
-            text-decoration: none;
+            text-decoration:
+                none;
 
             font-size:
                 25px;
@@ -317,6 +331,9 @@
 
                 8px 8px 0
                 var(--jaune-ombre);
+
+            overflow:
+                hidden;
 
             transition:
 
@@ -346,6 +363,10 @@
                 rgba(255, 210, 48, 0.20);
         }
 
+
+        /* =====================================================
+           FORMES DIFFÉRENTES DES CASES
+        ===================================================== */
 
         .pdf:nth-child(3n) {
 
@@ -377,171 +398,250 @@
 
 
         /* =====================================================
-           PETITS ÉLÉMENTS MÉDICAUX
+           PETITE ICÔNE DANS LES CASES
+        ===================================================== */
+
+        .pdf-icon {
+
+            position:
+                absolute;
+
+            right:
+                18px;
+
+            top:
+                12px;
+
+            width:
+                38px;
+
+            height:
+                38px;
+
+            opacity:
+                0.13;
+        }
+
+
+        .pdf-icon svg {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            fill:
+                none;
+
+            stroke:
+                var(--jaune);
+
+            stroke-width:
+                2.5;
+
+            stroke-linecap:
+                round;
+
+            stroke-linejoin:
+                round;
+        }
+
+
+        /* =====================================================
+           DÉCORATIONS MÉDICALES
         ===================================================== */
 
         .medical-deco {
 
-            position: fixed;
+            position:
+                fixed;
 
-            z-index: 0;
+            z-index:
+                1;
 
-            pointer-events: none;
+            pointer-events:
+                none;
+
+            opacity:
+                0.28;
 
             color:
                 var(--jaune);
-
-            opacity:
-                0.55;
-
-            font-family:
-                "Baloo 2",
-                sans-serif;
-
-            font-weight:
-                800;
-
-            user-select:
-                none;
         }
 
 
-        /* Stéthoscope */
+        .medical-deco svg {
+
+            width:
+                100%;
+
+            height:
+                100%;
+
+            fill:
+                none;
+
+            stroke:
+                var(--jaune);
+
+            stroke-width:
+                4;
+
+            stroke-linecap:
+                round;
+
+            stroke-linejoin:
+                round;
+        }
+
+
+        /* =====================================================
+           STÉTHOSCOPE
+        ===================================================== */
 
         .stethoscope {
 
+            width:
+                125px;
+
+            height:
+                150px;
+
             left:
-                2%;
-
-            top:
-                24%;
-
-            font-size:
-                62px;
-
-            transform:
-                rotate(-18deg);
-        }
-
-
-        /* Cœur */
-
-        .heart {
-
-            right:
-                5%;
+                -15px;
 
             top:
                 19%;
 
-            font-size:
-                65px;
-
             transform:
-                rotate(12deg);
+                rotate(-12deg);
         }
 
 
-        /* Radio */
+        /* =====================================================
+           ECG
+        ===================================================== */
+
+        .ecg {
+
+            width:
+                190px;
+
+            height:
+                80px;
+
+            right:
+                -35px;
+
+            top:
+                28%;
+
+            transform:
+                rotate(4deg);
+        }
+
+
+        /* =====================================================
+           RADIO
+        ===================================================== */
 
         .xray {
 
+            width:
+                105px;
+
+            height:
+                135px;
+
             left:
-                4%;
+                1%;
 
             bottom:
-                23%;
-
-            font-size:
-                58px;
-
-            transform:
-                rotate(-10deg);
-        }
-
-
-        /* Squelette */
-
-        .skeleton {
-
-            right:
-                3%;
-
-            bottom:
-                18%;
-
-            font-size:
-                64px;
-
-            transform:
-                rotate(10deg);
-        }
-
-
-        /* Croix */
-
-        .cross {
-
-            right:
-                15%;
-
-            top:
-                43%;
-
-            font-size:
-                45px;
+                20%;
 
             transform:
                 rotate(-8deg);
         }
 
 
-        /* ECG */
+        /* =====================================================
+           SQUELETTE / OS
+        ===================================================== */
 
-        .ecg {
+        .bone {
 
-            left:
-                13%;
+            width:
+                125px;
 
-            top:
-                12%;
-
-            font-size:
-                38px;
-
-            transform:
-                rotate(-4deg);
-
-            letter-spacing:
-                2px;
-        }
-
-
-        /* Petit cœur bas */
-
-        .small-heart {
+            height:
+                90px;
 
             right:
-                15%;
+                -20px;
 
             bottom:
-                8%;
-
-            font-size:
-                38px;
+                20%;
 
             transform:
-                rotate(15deg);
+                rotate(18deg);
         }
 
 
         /* =====================================================
-           PETITS CERCLES DÉCORATIFS
+           CROIX MÉDICALE
+        ===================================================== */
+
+        .cross {
+
+            width:
+                70px;
+
+            height:
+                70px;
+
+            right:
+                13%;
+
+            top:
+                13%;
+
+            transform:
+                rotate(8deg);
+        }
+
+
+        /* =====================================================
+           SERINGUE
+        ===================================================== */
+
+        .syringe {
+
+            width:
+                120px;
+
+            height:
+                65px;
+
+            left:
+                12%;
+
+            bottom:
+                7%;
+
+            transform:
+                rotate(-15deg);
+        }
+
+
+        /* =====================================================
+           CERCLES DÉCORATIFS
         ===================================================== */
 
         .deco-circle {
 
-            position: fixed;
+            position:
+                fixed;
 
             border-radius:
                 50%;
@@ -557,20 +657,20 @@
                 var(--jaune);
 
             opacity:
-                0.45;
+                0.25;
         }
 
 
         .circle-one {
 
             width:
-                80px;
+                90px;
 
             height:
-                80px;
+                90px;
 
             left:
-                -25px;
+                -35px;
 
             top:
                 48%;
@@ -580,16 +680,16 @@
         .circle-two {
 
             width:
-                105px;
+                120px;
 
             height:
-                105px;
+                120px;
 
             right:
-                -45px;
+                -50px;
 
             top:
-                58%;
+                52%;
         }
 
 
@@ -599,7 +699,8 @@
 
         .dots {
 
-            position: fixed;
+            position:
+                fixed;
 
             width:
                 120px;
@@ -633,27 +734,27 @@
                 var(--jaune);
 
             opacity:
-                0.55;
+                0.45;
         }
 
 
         .dots-left {
 
             left:
-                -10px;
+                -5px;
 
             top:
-                68%;
+                66%;
         }
 
 
         .dots-right {
 
             right:
-                -15px;
+                -5px;
 
             top:
-                33%;
+                38%;
         }
 
 
@@ -684,7 +785,7 @@
             .titre h1 {
 
                 font-size:
-                    58px;
+                    55px;
             }
 
 
@@ -721,85 +822,131 @@
             }
 
 
-            /* Décorations plus discrètes */
+            .pdf-icon {
+
+                width:
+                    28px;
+
+                height:
+                    28px;
+
+                right:
+                    10px;
+
+                top:
+                    8px;
+            }
+
+
+            /* Décorations plus petites sur téléphone */
 
             .medical-deco {
 
                 opacity:
-                    0.32;
-
-                transform:
-                    scale(.65);
+                    0.20;
             }
 
 
             .stethoscope {
 
-                left:
-                    -20px;
+                width:
+                    85px;
 
-                top:
-                    25%;
-            }
-
-
-            .heart {
-
-                right:
-                    -20px;
-
-                top:
-                    17%;
-            }
-
-
-            .xray {
+                height:
+                    105px;
 
                 left:
-                    -15px;
-
-                bottom:
-                    25%;
-            }
-
-
-            .skeleton {
-
-                right:
-                    -20px;
-
-                bottom:
-                    20%;
-            }
-
-
-            .cross {
-
-                right:
-                    5%;
+                    -30px;
 
                 top:
-                    45%;
+                    22%;
             }
 
 
             .ecg {
 
-                left:
-                    5%;
+                width:
+                    120px;
+
+                height:
+                    55px;
+
+                right:
+                    -30px;
 
                 top:
-                    13%;
+                    30%;
             }
 
 
-            .small-heart {
+            .xray {
+
+                width:
+                    75px;
+
+                height:
+                    95px;
+
+                left:
+                    -18px;
+
+                bottom:
+                    23%;
+            }
+
+
+            .bone {
+
+                width:
+                    90px;
+
+                height:
+                    65px;
 
                 right:
+                    -25px;
+
+                bottom:
+                    21%;
+            }
+
+
+            .cross {
+
+                width:
+                    50px;
+
+                height:
+                    50px;
+
+                right:
+                    8%;
+
+                top:
+                    14%;
+            }
+
+
+            .syringe {
+
+                width:
+                    90px;
+
+                height:
+                    50px;
+
+                left:
                     5%;
 
                 bottom:
-                    9%;
+                    7%;
+            }
+
+
+            .deco-circle {
+
+                opacity:
+                    0.18;
             }
 
 
@@ -815,13 +962,6 @@
                     0.045;
             }
 
-
-            .deco-circle {
-
-                opacity:
-                    0.25;
-            }
-
         }
 
     </style>
@@ -833,57 +973,283 @@
 
 
     <!-- =====================================================
-         DÉCORATIONS MÉDICALES
+         DÉCORATION : STÉTHOSCOPE
     ===================================================== -->
 
-    <span class="medical-deco stethoscope">
-        ♧
-    </span>
+    <div class="medical-deco stethoscope">
+
+        <svg viewBox="0 0 120 150">
+
+            <path
+                d="M25 10
+                   V62
+                   C25 91 45 108 60 108
+                   C76 108 95 91 95 62
+                   V10"
+            />
+
+            <path
+                d="M60 108
+                   V125
+                   C60 137 72 142 82 142"
+            />
+
+            <circle
+                cx="91"
+                cy="142"
+                r="9"
+            />
+
+            <circle
+                cx="25"
+                cy="10"
+                r="6"
+            />
+
+            <circle
+                cx="95"
+                cy="10"
+                r="6"
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco heart">
-        ♥
-    </span>
+
+    <!-- =====================================================
+         DÉCORATION : ECG
+    ===================================================== -->
+
+    <div class="medical-deco ecg">
+
+        <svg viewBox="0 0 190 80">
+
+            <path
+                d="
+                M2 42
+                H32
+                L43 42
+                L52 17
+                L63 65
+                L75 35
+                L83 42
+                H104
+                L115 42
+                L124 23
+                L136 60
+                L147 42
+                H188
+                "
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco xray">
-        🩻
-    </span>
+
+    <!-- =====================================================
+         DÉCORATION : RADIO
+    ===================================================== -->
+
+    <div class="medical-deco xray">
+
+        <svg viewBox="0 0 105 135">
+
+            <rect
+                x="12"
+                y="8"
+                width="81"
+                height="115"
+                rx="8"
+            />
+
+            <circle
+                cx="52"
+                cy="47"
+                r="17"
+            />
+
+            <path
+                d="
+                M52 64
+                V100
+
+                M35 76
+                L52 84
+                L70 76
+
+                M40 120
+                L52 100
+                L65 120
+                "
+            />
+
+            <circle
+                cx="52"
+                cy="47"
+                r="4"
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco skeleton">
-        🦴
-    </span>
+
+    <!-- =====================================================
+         DÉCORATION : OS
+    ===================================================== -->
+
+    <div class="medical-deco bone">
+
+        <svg viewBox="0 0 125 90">
+
+            <path
+                d="
+                M23 23
+
+                C15 16 5 20 5 29
+                C5 37 12 41 18 39
+
+                L82 67
+
+                C88 70 94 69 99 64
+
+                C105 58 102 49 96 46
+
+                C92 43 88 44 85 46
+
+                L23 23
+
+                "
+            />
+
+            <path
+                d="
+                M101 64
+
+                C108 70 118 66 120 58
+
+                C122 50 116 45 109 46
+
+                "
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco cross">
-        ✚
-    </span>
+
+    <!-- =====================================================
+         DÉCORATION : CROIX MÉDICALE
+    ===================================================== -->
+
+    <div class="medical-deco cross">
+
+        <svg viewBox="0 0 70 70">
+
+            <path
+                d="
+                M25 5
+                H45
+                V25
+                H65
+                V45
+                H45
+                V65
+                H25
+                V45
+                H5
+                V25
+                H25
+                Z
+                "
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco ecg">
-        〰︎♥〰︎
-    </span>
+
+    <!-- =====================================================
+         DÉCORATION : SERINGUE
+    ===================================================== -->
+
+    <div class="medical-deco syringe">
+
+        <svg viewBox="0 0 120 65">
+
+            <path
+                d="
+                M22 17
+                L72 17
+                L92 37
+                L42 37
+                Z
+                "
+            />
+
+            <path
+                d="
+                M72 17
+                L82 7
+                L102 27
+                L92 37
+                "
+            />
+
+            <path
+                d="
+                M102 27
+                L116 41
+                "
+            />
+
+            <path
+                d="
+                M20 17
+                L8 17
+                "
+            />
+
+            <path
+                d="
+                M42 17
+                V37
+                "
+            />
+
+            <path
+                d="
+                M56 17
+                V37
+                "
+            />
+
+        </svg>
+
+    </div>
 
 
-    <span class="medical-deco small-heart">
-        ♡
-    </span>
+
+    <!-- =====================================================
+         CERCLES
+    ===================================================== -->
+
+    <span class="deco-circle circle-one"></span>
+
+    <span class="deco-circle circle-two"></span>
 
 
-    <!-- Cercles -->
 
-    <span
-        class="deco-circle circle-one">
-    </span>
-
-
-    <span
-        class="deco-circle circle-two">
-    </span>
-
-
-    <!-- Points -->
+    <!-- =====================================================
+         PETITS POINTS GAUCHE
+    ===================================================== -->
 
     <div
         class="dots dots-left"
@@ -891,14 +1257,24 @@
     >
 
         <span style="left:15px;top:20px"></span>
+
         <span style="left:45px;top:5px"></span>
+
         <span style="left:75px;top:28px"></span>
+
         <span style="left:30px;top:55px"></span>
+
         <span style="left:65px;top:70px"></span>
+
         <span style="left:100px;top:52px"></span>
 
     </div>
 
+
+
+    <!-- =====================================================
+         PETITS POINTS DROITE
+    ===================================================== -->
 
     <div
         class="dots dots-right"
@@ -906,9 +1282,13 @@
     >
 
         <span style="left:20px;top:15px"></span>
+
         <span style="left:55px;top:35px"></span>
+
         <span style="left:90px;top:10px"></span>
+
         <span style="left:40px;top:70px"></span>
+
         <span style="left:80px;top:80px"></span>
 
     </div>
@@ -944,12 +1324,9 @@
             </h1>
 
             <p>
-
-                Retrouve ici les ressources du tutorat
-                pour découvrir le métier infirmier,
-                les différentes possibilités d'exercice
-                et construire ton orientation.
-
+                Découvre les différentes possibilités
+                du métier infirmier et construis ton
+                orientation au fil de ta formation.
             </p>
 
         </section>
@@ -957,57 +1334,227 @@
 
 
         <!-- =================================================
-             6 CASES PDF
+             6 CASES
         ================================================= -->
 
         <section class="fiches">
 
 
+            <!-- CASE 1 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <path
+                            d="M20 4
+                               V36
+                               M4 20
+                               H36"
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
+
+            <!-- CASE 2 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <circle
+                            cx="20"
+                            cy="20"
+                            r="14"
+                        />
+
+                        <path
+                            d="
+                            M20 10
+                            V30
+
+                            M10 20
+                            H30
+                            "
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
+
+            <!-- CASE 3 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <path
+                            d="
+                            M4 21
+                            H11
+                            L15 10
+                            L20 30
+                            L25 17
+                            L29 21
+                            H36
+                            "
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
+
+            <!-- CASE 4 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <path
+                            d="
+                            M8 12
+                            C8 7 12 5 16 8
+
+                            C20 11 20 16 20 20
+
+                            C20 16 20 11 24 8
+
+                            C28 5 32 7 32 12
+
+                            V25
+
+                            C32 31 27 35 20 35
+
+                            C13 35 8 31 8 25
+
+                            Z
+                            "
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
+
+            <!-- CASE 5 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <rect
+                            x="7"
+                            y="5"
+                            width="26"
+                            height="30"
+                            rx="4"
+                        />
+
+                        <circle
+                            cx="20"
+                            cy="15"
+                            r="5"
+                        />
+
+                        <path
+                            d="
+                            M13 29
+                            C14 23 26 23 27 29
+                            "
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
+
+            <!-- CASE 6 -->
+
             <a
                 href="#"
                 class="pdf"
             >
+
+                <span class="pdf-icon">
+
+                    <svg viewBox="0 0 40 40">
+
+                        <path
+                            d="
+                            M20 4
+                            V36
+
+                            M4 20
+                            H36
+                            "
+                        />
+
+                        <circle
+                            cx="20"
+                            cy="20"
+                            r="15"
+                        />
+
+                    </svg>
+
+                </span>
+
                 INSÉRER PDF
+
             </a>
 
 
