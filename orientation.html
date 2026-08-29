@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color"
+        content="#FFD230">
+  <meta name="description"
+        content="CESIREVISE — Métier et orientation pour les étudiants en IFSI.">
+  <meta name="robots"
+        content="index, follow">
+  <link rel="icon"
+        type="image/png"
+        href="logo-cesirevise.png">
+  <title>Métier & Orientation — CESIREVISE</title>
+  <!-- =====================================================
+       POLICES
+       ===================================================== -->
+  <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+  <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    /* =====================================================
+       VARIABLES
+       ===================================================== */
+    :root {
+      --yellow: #FFD230;
+      --yellow-dark: #D9AC00;
+      --teal: #77A5AA;
+      --ink: #202020;
+      --paper: #F7F7F5;
+      --white: #FFFFFF;
+      --grey: #707070;
+      --shadow:
+        0 14px 35px rgba(32,32,32,.10);
+    }
+    /* =====================================================
+       BASE
+       ===================================================== */
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family:
+        "League Spartan",
+        Arial,
+        sans-serif;
+      overflow-x: hidden;
+    }
+    a {
+      color: inherit;
+    }
+    /* =====================================================
+       HEADER
+       ===================================================== */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background:
+        rgba(247,247,245,.94);
+      backdrop-filter:
+        blur(12px);
+      border-bottom:
+        1px solid rgba(32,32,32,.08);
+    }
+    .header-inner {
+      width:
+        min(1180px, calc(100% - 34px));
+      min-height: 76px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+    /* LOGO */
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      line-height: 1;
+    }
+    .brand img {
+      width: 52px;
+      height: 52px;
+      object-fit: contain;
+    }
+    .brand-name {
+      font-size: 1.45rem;
+      font-weight: 800;
+      letter-spacing: -.05em;
+      white-space: nowrap;
+    }
+    .brand-black {
+      color: #202020;
+    }
+    .brand-blue {
+      color: #77A5AA;
+    }
+    /* NAVIGATION */
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .nav a {
+      padding:
+        10px 14px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-size: .92rem;
+      font-weight: 700;
+      transition: .2s ease;
+    }
+    .nav a:hover {
+      background:
+        var(--yellow);
+      transform:
+        translateY(-1px);
+    }
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+    /* =====================================================
+       DÉCORATIONS
+       ===================================================== */
+    .decor-dots {
+      position: absolute;
+      width: 180px;
+      height: 150px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .decor-dots span {
+      position: absolute;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background:
+        var(--yellow);
+      opacity: .75;
+    }
+    .dots-left {
+      top: 50px;
+      left: -30px;
+    }
+    .dots-right {
+      right: -30px;
+      bottom: 20px;
+    }
+    .decor-circle {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      border:
+        5px solid var(--yellow);
+      border-radius: 50%;
+      pointer-events: none;
+      opacity: .9;
+    }
+    .circle-top {
+      right: 5%;
+      top: 50px;
+    }
+    .circle-bottom {
+      left: 5%;
+      bottom: 70px;
+      width: 70px;
+      height: 70px;
+      border-width: 4px;
+    }
+    /* =====================================================
+       HERO
+       ===================================================== */
+    .hero {
+      position: relative;
+      min-height: 500px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding:
+        80px 20px 90px;
+      overflow: hidden;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width:
+        min(850px, 100%);
+    }
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      padding:
+        9px 18px;
+      border:
+        2px solid var(--ink);
+      border-radius: 999px;
+      background:
+        var(--yellow);
+      font-size: .82rem;
+      font-weight: 800;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+    .hero h1 {
+      margin:
+        28px 0 0;
+      font-size:
+        clamp(3.8rem, 10vw, 7.5rem);
+      line-height: .8;
+      letter-spacing: -.065em;
+      font-weight: 800;
+    }
+    .hero h1 span {
+      display: block;
+      margin-top: 20px;
+      font-size: .45em;
+      color:
+        var(--yellow-dark);
+      letter-spacing: -.03em;
+    }
+    .hero p {
+      max-width: 650px;
+      margin:
+        32px auto 0;
+      font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+      font-size: 1.2rem;
+      line-height: 1.4;
+      color:
+        #454545;
+    }
+    /* =====================================================
+       TITRE DES PDF
+       ===================================================== */
+    .documents {
+      position: relative;
+      padding:
+        20px 20px 110px;
+      overflow: hidden;
+    }
+    .section-title {
+      width:
+        min(1000px, 100%);
+      margin:
+        0 auto 50px;
+      text-align: center;
+    }
+    .section-title h2 {
+      margin: 0;
+      font-size:
+        clamp(2.7rem, 6vw, 4.5rem);
+      line-height: .85;
+      letter-spacing: -.05em;
+    }
+    .section-title h2 span {
+      color:
+        var(--yellow-dark);
+    }
+    .section-title p {
+      max-width: 600px;
+      margin:
+        20px auto 0;
+      font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+      font-size: 1.1rem;
+      line-height: 1.35;
+    }
+    /* =====================================================
+       GRILLE PDF
+       ===================================================== */
+    .pdf-grid {
+      width:
+        min(1050px, 100%);
+      margin: auto;
+      display: grid;
+      grid-template-columns:
+        repeat(2, 1fr);
+      gap: 28px;
+    }
+    /* =====================================================
+       CARTE PDF
+       ===================================================== */
+    .pdf-card {
+      position: relative;
+      min-height: 240px;
+      padding: 35px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background:
+        var(--white);
+      border:
+        3px solid var(--ink);
+      border-radius:
+        48px 35px 45px 38px;
+      text-decoration: none;
+      box-shadow:
+        var(--shadow);
+      overflow: hidden;
+      transition:
+        transform .22s ease,
+        box-shadow .22s ease;
+    }
+    .pdf-card:nth-child(2) {
+      border-radius:
+        35px 48px 38px 45px;
+    }
+    .pdf-card:nth-child(3) {
+      border-radius:
+        42px 38px 50px 35px;
+    }
+    .pdf-card:nth-child(4) {
+      border-radius:
+        35px 50px 40px 45px;
+    }
+    .pdf-card:nth-child(5) {
+      border-radius:
+        50px 38px 42px 35px;
+    }
+    .pdf-card:nth-child(6) {
+      border-radius:
+        38px 45px 35px 50px;
+    }
+    .pdf-card:hover {
+      transform:
+        translateY(-8px)
+        rotate(-.5deg);
+      box-shadow:
+        0 22px 45px
+        rgba(32,32,32,.16);
+    }
+    /* NUMÉRO */
+    .pdf-number {
+      position: absolute;
+      top: 15px;
+      right: 23px;
+      font-size: 3.8rem;
+      font-weight: 800;
+      line-height: 1;
+      color:
+        rgba(255,210,48,.38);
+    }
+    /* ICÔNE PDF */
+    .pdf-icon {
+      width: 78px;
+      height: 78px;
+      display: grid;
+      place-items: center;
+      margin-bottom: 20px;
+      border-radius: 50%;
+      background:
+        var(--yellow);
+      font-size: 2rem;
+      font-weight: 800;
+    }
+    .pdf-card h3 {
+      margin: 0;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+    .pdf-card p {
+      margin:
+        10px 0 0;
+      font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+      color:
+        var(--grey);
+      font-size: 1rem;
+    }
+    .pdf-arrow {
+      position: absolute;
+      bottom: 20px;
+      right: 25px;
+      font-size: 1.5rem;
+      font-weight: 800;
+    }
+    /* =====================================================
+       PETITE NOTE
+       ===================================================== */
+    .note {
+      width:
+        min(850px, calc(100% - 40px));
+      margin:
+        70px auto 0;
+      padding:
+        30px;
+      background:
+        var(--yellow);
+      border:
+        3px solid var(--ink);
+      border-radius:
+        30px 40px 35px 42px;
+      text-align: center;
+    }
+    .note p {
+      margin: 0;
+      font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.35;
+    }
+    /* =====================================================
+       FOOTER
+       ===================================================== */
+    footer {
+      padding:
+        35px 20px 50px;
+      text-align: center;
+      font-family:
+        "Baloo 2",
+        Arial,
+        sans-serif;
+      color:
+        #555;
+    }
+    footer strong {
+      color:
+        var(--yellow-dark);
+    }
+    /* =====================================================
+       MOBILE
+       ===================================================== */
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 68px;
+      }
+      .brand img {
+        width: 44px;
+        height: 44px;
+      }
+      .brand-name {
+        font-size: 1.15rem;
+      }
+      .menu-button {
+        display: block;
+      }
+      .nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 15px;
+        right: 15px;
+        padding: 12px;
+        flex-direction: column;
+        background:
+          var(--white);
+        border:
+          2px solid var(--ink);
+        border-radius: 22px;
+        box-shadow:
+          var(--shadow);
+      }
+      .nav.open {
+        display: flex;
+      }
+      .nav a {
+        text-align: center;
+      }
+      .hero {
+        min-height: 470px;
+        padding:
+          65px 20px 75px;
+      }
+      .hero h1 {
+        font-size:
+          clamp(3.5rem, 18vw, 6rem);
+      }
+      .hero p {
+        font-size: 1.05rem;
+      }
+      .circle-top {
+        right: -70px;
+      }
+      .dots-left {
+        left: -80px;
+      }
+      .pdf-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+      .pdf-card {
+        min-height: 215px;
+        padding: 30px 25px;
+      }
+      .pdf-icon {
+        width: 68px;
+        height: 68px;
+      }
+      .pdf-card h3 {
+        font-size: 1.55rem;
+      }
+      .note {
+        width:
+          calc(100% - 30px);
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =====================================================
+       HEADER
+       ===================================================== -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a
+        class="brand"
+        href="index.html"
+        aria-label="Retour à l'accueil CESIREVISE"
+      >
+        <img
+          src="logo-cesirevise.png"
+          alt="Logo CESIREVISE"
+        >
+        <span class="brand-name">
+          <span class="brand-black">
+            CESIR’
+          </span>
+          <span class="brand-blue">
+            EVISE
+          </span>
+        </span>
+      </a>
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Ouvrir le menu"
+        aria-expanded="false"
+        aria-controls="main-nav"
+      >
+        ☰
+      </button>
+      <nav
+        class="nav"
+        id="main-nav"
+        aria-label="Navigation principale"
+      >
+        <a href="index.html">
+          Accueil
+        </a>
+        <a href="fiches.html">
+          Fiches
+        </a>
+        <a href="conferences.html">
+          Conférences
+        </a>
+        <a href="forum.html">
+          Forum
+        </a>
+        <a href="orientation.html">
+          Orientation
+        </a>
+        <a href="contacts.html">
+          Contact
+        </a>
+      </nav>
+    </div>
+  </header>
+  <!-- =====================================================
+       CONTENU
+       ===================================================== -->
+  <main>
+    <!-- =====================================================
+         HERO
+         ===================================================== -->
+    <section class="hero">
+      <!-- Décoration gauche -->
+      <div
+        class="decor-dots dots-left"
+        aria-hidden="true"
+      >
+        <span style="left:20px;top:20px"></span>
+        <span style="left:55px;top:45px"></span>
+        <span style="left:95px;top:15px"></span>
+        <span style="left:35px;top:80px"></span>
+        <span style="left:80px;top:95px"></span>
+        <span style="left:125px;top:65px"></span>
+        <span style="left:110px;top:125px"></span>
+        <span style="left:155px;top:105px"></span>
+      </div>
+      <!-- Cercle droit -->
+      <div
+        class="decor-circle circle-top"
+        aria-hidden="true"
+      ></div>
+      <div class="hero-content">
+        <div class="badge">
+          MÉTIER · ORIENTATION
+        </div>
+        <h1>
+          Métier
+          <span>
+            & orientation
+          </span>
+        </h1>
+        <p>
+          Retrouve ici toutes les ressources du tutorat
+          pour mieux comprendre le métier infirmier,
+          découvrir les possibilités qui s'offrent à toi
+          et réfléchir à ton orientation.
+        </p>
+      </div>
+    </section>
+    <!-- =====================================================
+         DOCUMENTS
+         ===================================================== -->
+    <section class="documents">
+      <!-- Décoration -->
+      <div
+        class="decor-dots dots-right"
+        aria-hidden="true"
+      >
+        <span style="left:20px;top:30px"></span>
+        <span style="left:60px;top:10px"></span>
+        <span style="left:100px;top:45px"></span>
+        <span style="left:45px;top:75px"></span>
+        <span style="left:90px;top:95px"></span>
+        <span style="left:135px;top:70px"></span>
+      </div>
+      <div
+        class="decor-circle circle-bottom"
+        aria-hidden="true"
+      ></div>
+      <div class="section-title">
+        <h2>
+          Les ressources
+          <span>
+            à découvrir.
+          </span>
+        </h2>
+        <p>
+          Clique sur une ressource pour consulter
+          le PDF correspondant.
+        </p>
+      </div>
+      <!-- =================================================
+           6 CASES PDF
+           ================================================= -->
+      <div class="pdf-grid">
+        <!-- PDF 1 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            01
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+        <!-- PDF 2 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            02
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+        <!-- PDF 3 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            03
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+        <!-- PDF 4 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            04
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+        <!-- PDF 5 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            05
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+        <!-- PDF 6 -->
+        <a
+          href="#"
+          class="pdf-card"
+        >
+          <div class="pdf-number">
+            06
+          </div>
+          <div class="pdf-icon">
+            PDF
+          </div>
+          <h3>
+            Insérer un PDF
+          </h3>
+          <p>
+            Ressource métier / orientation
+          </p>
+          <div class="pdf-arrow">
+            →
+          </div>
+        </a>
+      </div>
+      <!-- NOTE -->
+      <div class="note">
+        <p>
+          ✦ De nouvelles ressources pourront être ajoutées
+          progressivement pour t'accompagner dans ton parcours.
+        </p>
+      </div>
+    </section>
+  </main>
+  <!-- =====================================================
+       FOOTER
+       ===================================================== -->
+  <footer>
+    <strong>
+      CESIREVISE
+    </strong>
+    · Métier & Orientation · Rennes
+  </footer>
+  <!-- =====================================================
+       MENU MOBILE
+       ===================================================== -->
+  <script>
+    const menuButton =
+      document.querySelector('.menu-button');
+    const nav =
+      document.querySelector('.nav');
+    menuButton.addEventListener(
+      'click',
+      () => {
+        const open =
+          nav.classList.toggle('open');
+        menuButton.setAttribute(
+          'aria-expanded',
+          String(open)
+        );
+        menuButton.textContent =
+          open ? '×' : '☰';
+      }
+    );
+    nav
+      .querySelectorAll('a')
+      .forEach(link => {
+        link.addEventListener(
+          'click',
+          () => {
+            nav.classList.remove('open');
+            menuButton.setAttribute(
+              'aria-expanded',
+              'false'
+            );
+            menuButton.textContent =
+              '☰';
+          }
+        );
+      });
+  </script>
+</body>
+</html>
