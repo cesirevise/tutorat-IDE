@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://cesirevise.github.io/tutorat-IDE/sitemap.xml
