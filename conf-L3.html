@@ -3,411 +3,416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Conférences L2 — CESIREVISE</title>
-    <!-- POLICE -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* =========================
-           BASE
-        ========================= */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        body {
-            font-family: 'League Spartan', sans-serif;
-            background: #F8F8F6;
-            color: #222;
-            overflow-x: hidden;
-        }
-        /* =========================
-           FORMES DÉCORATIVES
-        ========================= */
-        .shape {
-            position: fixed;
-            z-index: -1;
-            pointer-events: none;
-        }
-        .shape-one {
-            width: 260px;
-            height: 260px;
-            background: #77A5AA;
-            opacity: 0.12;
-            border-radius: 50%;
-            top: -100px;
-            right: -80px;
-        }
-        .shape-two {
-            width: 190px;
-            height: 190px;
-            background: #D585A9;
-            opacity: 0.10;
-            border-radius: 50% 40% 60% 45%;
-            left: -90px;
-            top: 45%;
-            transform: rotate(25deg);
-        }
-        .shape-three {
-            width: 120px;
-            height: 120px;
-            border: 14px solid #FFD230;
-            opacity: 0.13;
-            border-radius: 50%;
-            right: -55px;
-            bottom: 12%;
-        }
-        /* =========================
-           HEADER
-        ========================= */
+<title>Conférences L2 — CESIREVISE</title>
+<!-- POLICE -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    /* =========================
+       BASE
+    ========================= */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+    html {
+        scroll-behavior: smooth;
+    }
+    body {
+        font-family: 'League Spartan', sans-serif;
+        background: #F8F8F6;
+        color: #222;
+        overflow-x: hidden;
+    }
+    /* =========================
+       DÉCORATIONS DE FOND
+    ========================= */
+    .shape {
+        position: fixed;
+        pointer-events: none;
+        z-index: -1;
+    }
+    .shape-one {
+        width: 270px;
+        height: 270px;
+        background: #77A5AA;
+        opacity: 0.12;
+        border-radius: 50%;
+        top: -110px;
+        right: -90px;
+    }
+    .shape-two {
+        width: 190px;
+        height: 190px;
+        background: #D585A9;
+        opacity: 0.10;
+        border-radius: 50% 40% 60% 45%;
+        left: -90px;
+        top: 45%;
+        transform: rotate(25deg);
+    }
+    .shape-three {
+        width: 115px;
+        height: 115px;
+        border: 14px solid #FFD230;
+        opacity: 0.13;
+        border-radius: 50%;
+        right: -50px;
+        bottom: 12%;
+    }
+    /* =========================
+       HEADER
+    ========================= */
+    header {
+        width: 100%;
+        padding: 24px 7%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+    .logo {
+        text-decoration: none;
+        color: #222;
+        font-size: 27px;
+        font-weight: 800;
+        letter-spacing: -1px;
+    }
+    .logo span {
+        color: #77A5AA;
+    }
+    .back {
+        text-decoration: none;
+        color: #222;
+        font-size: 16px;
+        font-weight: 600;
+        padding: 10px 18px;
+        border: 2px solid #222;
+        border-radius: 30px;
+        transition: 0.25s ease;
+    }
+    .back:hover {
+        background: #222;
+        color: white;
+    }
+    /* =========================
+       INTRO
+    ========================= */
+    .intro {
+        width: 90%;
+        max-width: 900px;
+        margin: 55px auto 65px;
+        text-align: center;
+    }
+    .tag {
+        display: inline-block;
+        background: #77A5AA;
+        color: white;
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+        margin-bottom: 18px;
+    }
+    h1 {
+        font-size: clamp(65px, 10vw, 110px);
+        line-height: 0.8;
+        font-weight: 800;
+        letter-spacing: -4px;
+        margin-bottom: 25px;
+    }
+    .intro p {
+        max-width: 600px;
+        margin: auto;
+        font-size: 19px;
+        line-height: 1.5;
+        color: #555;
+    }
+    /* =========================
+       ZONE VIDE
+    ========================= */
+    .empty-section {
+        position: relative;
+        width: 90%;
+        max-width: 1050px;
+        min-height: 390px;
+        margin: 0 auto 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    /* =========================
+       CERCLE DÉCORATIF
+    ========================= */
+    .empty-circle {
+        position: absolute;
+        width: 360px;
+        height: 360px;
+        border: 2px solid #77A5AA;
+        border-radius: 50%;
+        opacity: 0.16;
+    }
+    .empty-circle::before {
+        content: "";
+        position: absolute;
+        width: 280px;
+        height: 280px;
+        border: 2px dashed #D585A9;
+        border-radius: 50%;
+        top: 38px;
+        left: 38px;
+    }
+    /* =========================
+       PETITS ÉLÉMENTS
+    ========================= */
+    .decor-dot {
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+    }
+    .dot-blue {
+        background: #77A5AA;
+        top: 45px;
+        left: 20%;
+    }
+    .dot-pink {
+        background: #D585A9;
+        bottom: 55px;
+        right: 19%;
+    }
+    .dot-yellow {
+        background: #FFD230;
+        width: 20px;
+        height: 20px;
+        top: 90px;
+        right: 24%;
+    }
+    /* =========================
+       PETITE ÉTOILE
+    ========================= */
+    .star {
+        position: absolute;
+        color: #77A5AA;
+        font-size: 34px;
+        font-weight: 800;
+    }
+    .star-left {
+        left: 23%;
+        bottom: 70px;
+        transform: rotate(-12deg);
+    }
+    .star-right {
+        right: 22%;
+        top: 65px;
+        transform: rotate(15deg);
+    }
+    /* =========================
+       MESSAGE
+    ========================= */
+    .empty-content {
+        position: relative;
+        z-index: 2;
+        width: 90%;
+        max-width: 750px;
+        text-align: center;
+        background: rgba(248, 248, 246, 0.88);
+        padding: 45px 35px;
+        border-radius: 28px;
+    }
+    .empty-content h2 {
+        font-size: clamp(38px, 5vw, 60px);
+        line-height: 1.05;
+        font-weight: 800;
+        letter-spacing: -1.5px;
+        color: #222;
+        margin-bottom: 22px;
+    }
+    .empty-content p {
+        max-width: 680px;
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 1.5;
+        font-weight: 600;
+        color: #77A5AA;
+    }
+    /* =========================
+       PETITE LIGNE DÉCORATIVE
+    ========================= */
+    .under-decoration {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 9px;
+        margin-top: 28px;
+    }
+    .under-decoration span {
+        display: block;
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: #77A5AA;
+    }
+    .under-decoration span:nth-child(2) {
+        width: 42px;
+        border-radius: 10px;
+    }
+    .under-decoration span:nth-child(3) {
+        background: #D585A9;
+    }
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+        text-align: center;
+        padding: 30px 20px 45px;
+        color: #777;
+        font-size: 14px;
+    }
+    /* =========================
+       MOBILE
+    ========================= */
+    @media (max-width: 750px) {
         header {
-            width: 100%;
-            padding: 24px 7%;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
+            padding: 20px 5%;
         }
         .logo {
-            text-decoration: none;
-            color: #222;
-            font-size: 27px;
-            font-weight: 800;
-            letter-spacing: -1px;
-        }
-        .logo span {
-            color: #77A5AA;
+            font-size: 23px;
         }
         .back {
-            text-decoration: none;
-            color: #222;
-            font-size: 16px;
-            font-weight: 600;
-            padding: 10px 18px;
-            border: 2px solid #222;
-            border-radius: 30px;
-            transition: 0.25s ease;
-        }
-        .back:hover {
-            background: #222;
-            color: white;
-        }
-        /* =========================
-           INTRO
-        ========================= */
-        .intro {
-            width: 90%;
-            max-width: 900px;
-            margin: 55px auto 80px;
-            text-align: center;
-        }
-        .tag {
-            display: inline-block;
-            background: #77A5AA;
-            color: white;
-            padding: 8px 18px;
-            border-radius: 30px;
             font-size: 14px;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            margin-bottom: 18px;
+            padding: 8px 14px;
+        }
+        .intro {
+            margin-top: 40px;
+            margin-bottom: 45px;
         }
         h1 {
-            font-size: clamp(65px, 10vw, 110px);
-            line-height: 0.8;
-            font-weight: 800;
-            letter-spacing: -4px;
-            margin-bottom: 25px;
+            font-size: 72px;
+            letter-spacing: -3px;
         }
         .intro p {
-            max-width: 600px;
-            margin: auto;
-            font-size: 19px;
-            line-height: 1.5;
-            color: #555;
+            font-size: 17px;
         }
-        /* =========================
-           SERPENTIN
-        ========================= */
-        .timeline {
-            position: relative;
+        .empty-section {
+            min-height: 390px;
+            width: 100%;
+            margin-bottom: 65px;
+        }
+        .empty-circle {
+            width: 310px;
+            height: 310px;
+        }
+        .empty-circle::before {
+            width: 240px;
+            height: 240px;
+            top: 33px;
+            left: 33px;
+        }
+        .empty-content {
             width: 90%;
-            max-width: 1000px;
-            margin: 0 auto 100px;
-            padding: 20px 0 50px;
+            padding: 35px 20px;
         }
-        /* =========================
-           LIGNE CENTRALE
-        ========================= */
-        .timeline::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 4px;
-            background: #222;
-            transform: translateX(-50%);
-            border-radius: 10px;
+        .empty-content h2 {
+            font-size: 38px;
         }
-        /* =========================
-           ITEM
-        ========================= */
-        .conference {
-            position: relative;
-            width: 50%;
-            padding: 30px 50px;
-            margin-bottom: 60px;
+        .empty-content p {
+            font-size: 17px;
         }
-        /* Gauche */
-        .conference.left {
-            left: 0;
-            text-align: right;
-            padding-right: 70px;
+        .dot-blue {
+            left: 8%;
+            top: 55px;
         }
-        /* Droite */
-        .conference.right {
-            left: 50%;
-            text-align: left;
-            padding-left: 70px;
+        .dot-pink {
+            right: 8%;
+            bottom: 60px;
         }
-        /* =========================
-           POINT
-        ========================= */
-        .dot {
-            position: absolute;
-            top: 42px;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            border: 5px solid #F8F8F6;
-            box-shadow: 0 0 0 3px #222;
-            z-index: 2;
+        .dot-yellow {
+            right: 12%;
+            top: 85px;
         }
-        .left .dot {
-            right: -12px;
+        .star-left {
+            left: 8%;
+            bottom: 90px;
         }
-        .right .dot {
-            left: -12px;
+        .star-right {
+            right: 7%;
+            top: 65px;
         }
-        /* =========================
-           COULEURS MATIÈRES
-        ========================= */
-        .physio .dot {
-            background: #77A5AA;
-        }
-        .psycho .dot {
-            background: #D585A9;
-        }
-        .pharma .dot {
-            background: #D76162;
-        }
-        .normes .dot {
-            background: #8EAC51;
-        }
-        .tp .dot {
-            background: #FF914D;
-        }
-        .metier .dot {
-            background: #FFD230;
-        }
-        /* =========================
-           CONTENU
-        ========================= */
-        .subject {
-            font-size: 14px;
-            font-weight: 800;
-            letter-spacing: 0.8px;
-            text-transform: uppercase;
-            margin-bottom: 8px;
-        }
-        . conf22S1 .subject {
-            color: #77A5AA;
-        }
-        .conf24S1 .subject {
-            color: #D585A9;
-        }
-        .conf44S1 .subject {
-            color: #D76162;
-        }
-        .conf25S2 .subject {
-            color: #8EAC51;
-        }
-        .conf22S2 .subject {
-            color: #FF914D;
-        }
-        .conference h2 {
-            font-size: 32px;
-            line-height: 1;
-            font-weight: 800;
-            margin-bottom: 12px;
-        }
-        .conference p {
-            font-size: 16px;
-            line-height: 1.45;
-            color: #555;
-            margin-bottom: 18px;
-        }
-        /* =========================
-           BOUTON
-        ========================= */
-        .conference-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            text-decoration: none;
-            color: #222;
-            font-size: 15px;
-            font-weight: 700;
-            border-bottom: 2px solid #222;
-            padding-bottom: 3px;
-            transition: 0.25s ease;
-        }
-        .conference-link:hover {
-            gap: 13px;
-        }
-        /* =========================
-           FOOTER
-        ========================= */
         footer {
-            text-align: center;
-            padding: 30px 20px 45px;
-            color: #777;
-            font-size: 14px;
+            padding-bottom: 30px;
         }
-        /* =========================
-           MOBILE
-        ========================= */
-        @media (max-width: 750px) {
-            header {
-                padding: 20px 5%;
-            }
-            .logo {
-                font-size: 23px;
-            }
-            .back {
-                font-size: 14px;
-                padding: 8px 14px;
-            }
-            /* INTRO */
-            .intro {
-                margin-top: 40px;
-                margin-bottom: 55px;
-            }
-            h1 {
-                font-size: 72px;
-                letter-spacing: -3px;
-            }
-            .intro p {
-                font-size: 17px;
-            }
-            /* TIMELINE */
-            .timeline {
-                width: 94%;
-                padding-bottom: 20px;
-            }
-            .timeline::before {
-                left: 25px;
-                width: 3px;
-            }
-            /* ITEMS */
-            .conference,
-            .conference.left,
-            .conference.right {
-                width: 100%;
-                left: 0;
-                text-align: left;
-                padding: 15px 15px 15px 65px;
-                margin-bottom: 45px;
-            }
-            /* POINT */
-            .dot,
-            .left .dot,
-            .right .dot {
-                left: 14px;
-                right: auto;
-                top: 28px;
-                width: 22px;
-                height: 22px;
-                border-width: 4px;
-            }
-            /* TEXT */
-            .subject {
-                font-size: 13px;
-            }
-            .conference h2 {
-                font-size: 27px;
-            }
-            .conference p {
-                font-size: 15px;
-            }
-            footer {
-                padding-bottom: 30px;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
+<!-- =========================
+     DÉCORATIONS DE FOND
+========================= -->
+<div class="shape shape-one"></div>
+<div class="shape shape-two"></div>
+<div class="shape shape-three"></div>
+<!-- =========================
+     HEADER
+========================= -->
+<header>
+    <a href="index.html" class="logo">
+        CESIR'<span>EVISE</span>
+    </a>
+    <a href="conferences.html" class="back">
+        ← Conférences
+    </a>
+</header>
+<!-- =========================
+     CONTENU
+========================= -->
+<main>
+    <section class="intro">
+        <span class="tag">
+            CONFÉRENCES
+        </span>
+        <h1>
+            L2
+        </h1>
+        <p>
+            Les conférences du tutorat CESIR pour approfondir,
+            comprendre et réviser sous formes de QCM.
+        </p>
+    </section>
     <!-- =========================
-         FORMES
+         MESSAGE
     ========================= -->
-    <div class="shape shape-one"></div>
-    <div class="shape shape-two"></div>
-    <div class="shape shape-three"></div>
-    <!-- =========================
-         HEADER
-    ========================= -->
-    <header>
-        <a href="index.html" class="logo">
-            CESIR'<span>EVISE</span>
-        </a>
-        <a href="conferences.html" class="back">
-            ← Conférences
-        </a>
-    </header>
-    <!-- =========================
-         INTRO
-    ========================= -->
-    <main>
-        <section class="intro">
-            <span class="tag">
-                CONFÉRENCES
-            </span>
-            <h1>
-                L2
-            </h1>
+    <section class="empty-section">
+        <div class="empty-circle"></div>
+        <div class="decor-dot dot-blue"></div>
+        <div class="decor-dot dot-pink"></div>
+        <div class="decor-dot dot-yellow"></div>
+        <div class="star star-left">✦</div>
+        <div class="star star-right">✦</div>
+        <div class="empty-content">
+            <h2>
+                Oups, il n’y a pas encore de conférences ici
+            </h2>
             <p>
-                Les conférences du tutorat CESIR pour approfondir,
-                comprendre et réviser sous formes de QCM.
+                Nous les rajouterons en cours d’année.
+                Nous vous préviendrons des prochaines conférences
+                sur le site, alors tenez-vous à jour !!
             </p>
-        </section>
-        <!-- =========================
-             SERPENTIN
-        ========================= -->
-        <section class="timeline">
-            <article class="conference left ">
-                <div class="dot"></div>
-                <div class="subject">
-                    4.4 S5
-                </div>
-                <h2>
-                    PAS ENCORE DE CONFÉRENCE ICI :( 
-                </h2>
-                <a href="conf-4.4-S5.pdf" class="conference-link">
-                    Voir la conférence →
-                </a>
-            </article>
-        </section>
-    </main>
-    <!-- =========================
-         FOOTER
-    ========================= -->
-    <footer>
-        © CESIREVISE — Tutorat CESIR
-    </footer>
+            <div class="under-decoration">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </section>
+</main>
+<!-- =========================
+     FOOTER
+========================= -->
+<footer>
+    © CESIREVISE — Tutorat CESIR
+</footer>
 </body>
 </html>
