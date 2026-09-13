@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#77A5AA">
+  <meta name="description" content="Les dernières actualités de CESIREVISE : nouvelles fiches, conférences et événements du tutorat IDE.">
+  <meta name="robots" content="index, follow">
+  <title>Actualités — CESIREVISE</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #77A5AA;
+      --teal-dark: #527F84;
+      --ink: #202020;
+      --paper: #F7F7F5;
+      --white: #FFFFFF;
+      --pink: #D585A9;
+      --green: #8EAC51;
+      --red: #D76162;
+      --orange: #FF914D;
+      --yellow: #FFD230;
+      --shadow: 0 14px 35px rgba(32, 32, 32, .10);
+      --radius: 30px;
+    }
+    * {
+      box-sizing: border-box;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: "League Spartan", Arial, sans-serif;
+      overflow-x: hidden;
+    }
+    a {
+      color: inherit;
+    }
+    /* =========================
+       HEADER
+    ========================= */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(247, 247, 245, .94);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(32, 32, 32, .06);
+    }
+    .header-inner {
+      width: min(1120px, calc(100% - 36px));
+      margin: auto;
+      min-height: 82px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 1.25rem;
+    }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      object-fit: contain;
+    }
+    .brand-text {
+      line-height: .9;
+    }
+    .brand-text span {
+      display: block;
+      margin-top: 5px;
+      font-size: .72rem;
+      font-weight: 500;
+      opacity: .65;
+    }
+    .nav {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .nav a {
+      text-decoration: none;
+      font-weight: 600;
+      font-size: .95rem;
+      transition: color .2s ease;
+    }
+    .nav a:hover {
+      color: var(--teal-dark);
+    }
+    .nav .active {
+      color: var(--teal-dark);
+    }
+    .menu-button {
+      display: none;
+      border: 0;
+      background: transparent;
+      font-size: 1.7rem;
+      cursor: pointer;
+    }
+    /* =========================
+       DECORATIONS
+    ========================= */
+    .decor-dots {
+      position: absolute;
+      width: 220px;
+      height: 180px;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .decor-dots .dot {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--teal);
+      opacity: .75;
+    }
+    .dots-top-left {
+      top: 35px;
+      left: -20px;
+    }
+    .dots-bottom-right {
+      right: -20px;
+      bottom: 30px;
+    }
+    .dot:nth-child(1) { left: 25px; top: 20px; }
+    .dot:nth-child(2) { left: 55px; top: 45px; }
+    .dot:nth-child(3) { left: 88px; top: 27px; }
+    .dot:nth-child(4) { left: 120px; top: 62px; }
+    .dot:nth-child(5) { left: 40px; top: 92px; }
+    .dot:nth-child(6) { left: 82px; top: 115px; }
+    .dot:nth-child(7) { left: 135px; top: 100px; }
+    .dot:nth-child(8) { left: 170px; top: 72px; }
+    .wave {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 7px solid var(--teal);
+      border-left-color: transparent;
+      border-bottom-color: transparent;
+      border-radius: 50%;
+      opacity: .8;
+      pointer-events: none;
+    }
+    .wave-top-right {
+      top: -190px;
+      right: -150px;
+    }
+    /* =========================
+       HERO
+    ========================= */
+    .hero {
+      position: relative;
+      padding: 90px 20px 65px;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      width: min(850px, 100%);
+      margin: auto;
+    }
+    .eyebrow {
+      color: var(--teal-dark);
+      text-transform: uppercase;
+      letter-spacing: .13em;
+      font-size: .78rem;
+      font-weight: 800;
+      margin: 0 0 12px;
+    }
+    h1 {
+      margin: 0;
+      font-size: clamp(3rem, 8vw, 5.7rem);
+      line-height: .85;
+      letter-spacing: -.05em;
+      font-weight: 800;
+    }
+    h1 span {
+      display: block;
+      color: var(--teal);
+    }
+    .hero p {
+      max-width: 620px;
+      margin: 25px auto 0;
+      font-family: "Baloo 2", sans-serif;
+      font-size: 1.15rem;
+      line-height: 1.45;
+      opacity: .78;
+    }
+    /* =========================
+       NEWS
+    ========================= */
+    .news-section {
+      position: relative;
+      width: min(1050px, calc(100% - 30px));
+      margin: 0 auto 100px;
+    }
+    .news-list {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+    }
+    .news-card {
+      position: relative;
+      min-height: 230px;
+      padding: 35px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      background: var(--white);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      text-decoration: none;
+      transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+    }
+    .news-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 45px rgba(32, 32, 32, .14);
+    }
+    .news-card::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 9px;
+      background: var(--teal);
+    }
+    .news-card.fiche::before {
+      background: var(--green);
+    }
+    .news-card.conference::before {
+      background: var(--pink);
+    }
+    .news-card.actualite::before {
+      background: var(--orange);
+    }
+    .news-content {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+    .news-type {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      margin-bottom: 13px;
+      padding: 7px 13px;
+      border-radius: 999px;
+      background: #eef6f6;
+      color: var(--teal-dark);
+      font-size: .72rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .fiche .news-type {
+      background: #f0f5e9;
+      color: #6d873c;
+    }
+    .conference .news-type {
+      background: #f8edf3;
+      color: #ad6286;
+    }
+    .actualite .news-type {
+      background: #fff0e7;
+      color: #d96e2f;
+    }
+    .news-card h2 {
+      margin: 0 0 10px;
+      font-size: clamp(1.65rem, 4vw, 2.35rem);
+      line-height: 1;
+      letter-spacing: -.025em;
+    }
+    .news-card p {
+      margin: 0;
+      max-width: 650px;
+      font-family: "Baloo 2", sans-serif;
+      font-size: 1rem;
+      line-height: 1.4;
+      opacity: .72;
+    }
+    .news-date {
+      margin-top: 17px;
+      font-size: .8rem;
+      font-weight: 700;
+      opacity: .5;
+    }
+    .news-arrow {
+      flex-shrink: 0;
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal);
+      color: white;
+      font-size: 1.7rem;
+      font-weight: 500;
+      transition: transform .25s ease;
+    }
+    .news-card:hover .news-arrow {
+      transform: translateX(5px);
+    }
+    /* =========================
+       FOOTER
+    ========================= */
+    footer {
+      padding: 35px 20px 45px;
+      text-align: center;
+      font-size: .82rem;
+      opacity: .6;
+    }
+    /* =========================
+       MOBILE
+    ========================= */
+    @media (max-width: 760px) {
+      .header-inner {
+        min-height: 70px;
+      }
+      .menu-button {
+        display: block;
+      }
+      .nav {
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        display: none;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+        background: var(--paper);
+        padding: 10px 20px 20px;
+        box-shadow: 0 12px 25px rgba(32, 32, 32, .08);
+      }
+      .nav.open {
+        display: flex;
+      }
+      .nav a {
+        padding: 14px 5px;
+        border-bottom: 1px solid rgba(32, 32, 32, .06);
+      }
+      .hero {
+        padding: 65px 20px 45px;
+      }
+      .news-card {
+        padding: 28px 25px 28px 30px;
+        min-height: auto;
+        align-items: flex-start;
+      }
+      .news-arrow {
+        width: 48px;
+        height: 48px;
+        font-size: 1.3rem;
+      }
+      .news-card p {
+        font-size: .95rem;
+      }
+    }
+    @media (max-width: 520px) {
+      .brand-text {
+        font-size: 1.05rem;
+      }
+      .brand img {
+        width: 42px;
+        height: 42px;
+      }
+      .hero h1 {
+        font-size: 3.25rem;
+      }
+      .news-card {
+        flex-direction: column;
+        gap: 20px;
+      }
+      .news-arrow {
+        align-self: flex-end;
+      }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+      *,
+      *::before {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- =========================
+       HEADER
+  ========================== -->
+  <header class="site-header">
+    <div class="header-inner">
+  <a class="brand" href="index.html" aria-label="Retour à l'accueil CESIREVISE">
+    <img src="logo-cesirevise.png" alt="Logo CESIREVISE">
+    <div class="brand-text">
+      CESIREVISE
+      <span>Tutorat IDE</span>
+    </div>
+  </a>
+  <button
+    class="menu-button"
+    type="button"
+    aria-label="Ouvrir le menu"
+    aria-expanded="false"
+    aria-controls="main-nav">
+    ☰
+  </button>
+  <nav class="nav" id="main-nav" aria-label="Navigation principale">
+    <a href="index.html">Accueil</a>
+    <a href="fiches.html">Fiches</a>
+    <a href="news.html" class="active">Actualités</a>
+    <a href="index.html#conferences">Conférences</a>
+    <a href="forum.html">Forum</a>
+    <a href="index.html#rejoindre">Nous rejoindre</a>
+    <a href="contacts.html">Contact</a>
+  </nav>
+</div>
+  </header>
+  <main>
+<!-- =========================
+     HERO
+========================== -->
+<section class="hero">
+  <div class="decor-dots dots-top-left" aria-hidden="true">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="wave wave-top-right" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="eyebrow">
+      CESIREVISE · Les nouveautés
+    </p>
+    <h1>
+      Les
+      <span>actualités.</span>
+    </h1>
+    <p>
+      Nouvelles fiches, conférences, événements et nouveautés :
+      retrouve ici tout ce qui vient d'arriver sur CESIREVISE.
+    </p>
+  </div>
+</section>
+<!-- =========================
+     ACTUALITÉS
+========================== -->
+<section class="news-section" aria-label="Dernières actualités">
+  <div class="decor-dots dots-bottom-right" aria-hidden="true">
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
+  </div>
+  <div class="news-list">
+    <!-- =========================
+         NOUVELLE FICHE
+    ========================== -->
+    <a href="fiches.html" class="news-card fiche">
+      <div class="news-content">
+        <span class="news-type">
+          ✦ Nouvelle fiche
+        </span>
+        <h2>
+          Une nouvelle fiche vient d'arriver !
+        </h2>
+        <p>
+          Retrouve dès maintenant une nouvelle ressource
+          pour t'aider dans tes révisions IDE.
+        </p>
+        <div class="news-date">
+          Publiée récemment · CESIREVISE
+        </div>
+      </div>
+      <div class="news-arrow" aria-hidden="true">
+        →
+      </div>
+    </a>
+    <!-- =========================
+         PROCHAINE CONFÉRENCE
+    ========================== -->
+    <a href="index.html#conferences" class="news-card conference">
+      <div class="news-content">
+        <span class="news-type">
+          ◌ Prochaine conférence
+        </span>
+        <h2>
+          Une nouvelle conférence arrive !
+        </h2>
+        <p>
+          Découvre bientôt le prochain rendez-vous proposé
+          par le tutorat et prépare tes questions.
+        </p>
+        <div class="news-date">
+          À venir · CESIREVISE
+        </div>
+      </div>
+      <div class="news-arrow" aria-hidden="true">
+        →
+      </div>
+    </a>
+    <!-- =========================
+         ACTUALITÉ CESIREVISE
+    ========================== -->
+    <a href="index.html" class="news-card actualite">
+      <div class="news-content">
+        <span class="news-type">
+          + Actualité
+        </span>
+        <h2>
+          CESIREVISE continue d'évoluer !
+        </h2>
+        <p>
+          De nouvelles ressources et fonctionnalités arrivent
+          progressivement sur ton espace de révision.
+        </p>
+        <div class="news-date">
+          CESIREVISE · Tutorat IDE
+        </div>
+      </div>
+      <div class="news-arrow" aria-hidden="true">
+        →
+      </div>
+    </a>
+  </div>
+</section>
+  </main>
+  <footer>
+    <strong>CESIREVISE</strong> · Tutorat IDE · Rennes
+  </footer>
+  <script>
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+    menuButton.addEventListener("click", () => {
+      const isOpen = nav.classList.toggle("open");
+      menuButton.setAttribute(
+        "aria-expanded",
+        isOpen ? "true" : "false"
+      );
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Fermer le menu" : "Ouvrir le menu"
+      );
+    });
+    document.querySelectorAll(".nav a").forEach(link => {
+      link.addEventListener("click", () => {
+        nav.classList.remove("open");
+        menuButton.setAttribute(
+          "aria-expanded",
+          "false"
+        );
+        menuButton.setAttribute(
+          "aria-label",
+          "Ouvrir le menu"
+        );
+      });
+    });
+  </script>
+</body>
+</html>
