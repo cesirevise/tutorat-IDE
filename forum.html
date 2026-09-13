@@ -2,1438 +2,1169 @@
 <html lang="fr">
 <head>
 
-    <meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+  <link rel="icon" type="image/png" href="logo-cesirevise.png">
 
-    <title>Forum des spécialités · CESIREVISE</title>
+  <title>Forum des métiers · CESIREVISE</title>
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-    <link
-        href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet"
-    >
+  <style>
 
-    <style>
-
-        :root {
-            --bleu: #77A5AA;
-            --blanc: #FFFFFF;
-            --noir: #111111;
-        }
-
-
-        * {
-            box-sizing: border-box;
-        }
-
-
-        html,
-        body {
-
-            margin: 0;
-
-            width: 100%;
-            height: 100%;
-
-            overflow: hidden;
-
-            font-family:
-                "League Spartan",
-                sans-serif;
-
-            background: #111;
-        }
-
-
-        /* ==================================================
-           CARROUSEL
-        ================================================== */
-
-        .carrousel {
-
-            position: relative;
-
-            width: 100vw;
-            height: 100vh;
-
-            overflow: hidden;
-
-            touch-action: pan-y;
-        }
-
-
-        .slides {
-
-            display: flex;
-
-            width: 100%;
-            height: 100%;
-
-            transition:
-                transform 0.55s
-                cubic-bezier(0.77, 0, 0.18, 1);
-        }
-
-
-        .slide {
-
-            position: relative;
-
-            flex: 0 0 100%;
-
-            width: 100vw;
-            height: 100vh;
-
-            overflow: hidden;
-
-            background-size: cover;
-            background-position: center;
-        }
-
-
-        /* ==================================================
-           ASSOMBRISSEMENT DES PHOTOS
-        ================================================== */
-
-        .slide::after {
-
-            content: "";
-
-            position: absolute;
-
-            inset: 0;
-
-            background:
-                linear-gradient(
-                    to bottom,
-                    rgba(0,0,0,0.12) 0%,
-                    rgba(0,0,0,0.18) 45%,
-                    rgba(0,0,0,0.62) 100%
-                );
-
-            pointer-events: none;
-        }
-
-
-        /* ==================================================
-           CONTENU DU SLIDE
-        ================================================== */
-
-        .contenu-slide {
-
-            position: absolute;
-
-            z-index: 2;
-
-            left: 0;
-            right: 0;
-
-            bottom: 105px;
-
-            display: flex;
-
-            justify-content: center;
-
-            padding: 20px;
-        }
-
-
-        /* ==================================================
-           BOUTON MÉTIER
-        ================================================== */
-
-        .bouton-metier {
-
-            border:
-                2px solid
-                rgba(255,255,255,0.9);
-
-            background:
-                rgba(255,255,255,0.08);
-
-            backdrop-filter: blur(5px);
-
-            color: white;
-
-            font-family:
-                "League Spartan",
-                sans-serif;
-
-            font-size:
-                clamp(30px, 5vw, 55px);
-
-            font-weight: 800;
-
-            letter-spacing: 0.5px;
-
-            padding:
-                14px 35px 17px;
-
-            border-radius: 18px;
-
-            cursor: pointer;
-
-            text-shadow:
-                0 3px 10px rgba(0,0,0,0.5);
-
-            box-shadow:
-                0 8px 25px
-                rgba(0,0,0,0.18);
-
-            transition:
-                background 0.25s ease,
-                transform 0.25s ease;
-        }
-
-
-        .bouton-metier:hover {
-
-            background:
-                rgba(255,255,255,0.18);
-
-            transform:
-                scale(1.04);
-        }
-
-
-        .bouton-metier:active {
-
-            transform:
-                scale(0.97);
-        }
-
-
-        /* ==================================================
-           POINTS
-        ================================================== */
-
-        .points {
-
-            position: absolute;
-
-            z-index: 5;
-
-            bottom: 30px;
-
-            left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            display: flex;
-
-            align-items: center;
-
-            gap: 9px;
-        }
-
-
-        .point {
-
-            width: 8px;
-            height: 8px;
-
-            border-radius: 50%;
-
-            border: none;
-
-            padding: 0;
-
-            background:
-                rgba(255,255,255,0.45);
-
-            cursor: pointer;
-
-            transition:
-                width 0.25s ease,
-                background 0.25s ease,
-                transform 0.25s ease;
-        }
-
-
-        .point.actif {
-
-            width: 24px;
-
-            border-radius: 10px;
-
-            background: white;
-
-            transform:
-                scale(1.05);
-        }
-
-
-        /* ==================================================
-           FICHE
-           
-           IMPORTANT :
-           La fiche entière est FIXE.
-           
-           Le défilement est uniquement dans
-           .fiche-contenu.
-        ================================================== */
-
-        .fiche {
-
-            position: fixed;
-
-            z-index: 20;
-
-            inset: 0;
-
-            width: 100%;
-            height: 100%;
-
-            background:
-                #F5FAFA;
-
-            transform:
-                translateY(100%);
-
-            transition:
-                transform 0.65s
-                cubic-bezier(0.77, 0, 0.18, 1);
-
-            overflow: hidden;
-        }
-
-
-        .fiche.ouverte {
-
-            transform:
-                translateY(0);
-        }
-
-
-        /* ==================================================
-           CONTENU QUI DÉFILE
-           
-           Le bouton RETOUR n'est PAS dedans.
-        ================================================== */
-
-        .fiche-contenu {
-
-            width: 100%;
-
-            height: 100%;
-
-            padding:
-                45px
-                max(25px, 7vw)
-                110px;
-
-            max-width: 1000px;
-
-            margin: 0 auto;
-
-            overflow-y: auto;
-
-            overflow-x: hidden;
-
-            -webkit-overflow-scrolling: touch;
-
-            overscroll-behavior-y: contain;
-        }
-
-
-        /* ==================================================
-           IMAGES DES FICHES
-        ================================================== */
-
-        .pages-ipde {
-
-            width: 100%;
-
-            display: flex;
-
-            flex-direction: column;
-
-            align-items: center;
-
-            gap: 18px;
-
-            padding-bottom: 30px;
-        }
-
-
-        .pages-ipde img {
-
-            display: block;
-
-            width: 100%;
-
-            max-width: 900px;
-
-            height: auto;
-
-            flex-shrink: 0;
-        }
-
-
-        /* ==================================================
-           BOUTON X
-           
-           FIXE AU-DESSUS DE LA FICHE
-        ================================================== */
-
-        .fermer {
-
-            position: fixed;
-
-            z-index: 1000;
-
-            top: 22px;
-            right: 25px;
-
-            width: 45px;
-            height: 45px;
-
-            border: none;
-
-            border-radius: 50%;
-
-            background:
-                var(--bleu);
-
-            color: white;
-
-            font-size: 25px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            box-shadow:
-                0 8px 20px
-                rgba(0,0,0,0.15);
-        }
-
-
-        /* ==================================================
-           BOUTON RETOUR AU FORUM
-           
-           FIXE AU-DESSUS DES IMAGES.
-           
-           Il ne défile JAMAIS avec les fiches.
-        ================================================== */
-
-        .bouton-retour-forum {
-
-            position: fixed;
-
-            z-index: 1000;
-
-            bottom: 25px;
-
-            left: 50%;
-
-            transform:
-                translateX(-50%);
-
-            padding:
-                12px 24px;
-
-            border: none;
-
-            border-radius: 14px;
-
-            background:
-                var(--bleu);
-
-            color: white;
-
-            font-family:
-                "League Spartan",
-                sans-serif;
-
-            font-size: 18px;
-
-            font-weight: 700;
-
-            cursor: pointer;
-
-            white-space: nowrap;
-
-            box-shadow:
-                0 6px 18px
-                rgba(0,0,0,0.22);
-
-            transition:
-                background 0.2s ease,
-                transform 0.2s ease;
-        }
-
-
-        .bouton-retour-forum:hover {
-
-            background:
-                #66969B;
-
-            transform:
-                translateX(-50%)
-                translateY(-2px);
-        }
-
-
-        .bouton-retour-forum:active {
-
-            transform:
-                translateX(-50%)
-                scale(0.97);
-        }
-
-        /* ==================================================
-   BOUTON RETOUR À L'ACCUEIL
-================================================== */
-
-.bouton-retour-accueil {
-
-    position: fixed;
-
-    z-index: 10;
-
-    top: 22px;
-    left: 25px;
-
-    padding: 11px 20px;
-
-    border: none;
-
-    border-radius: 14px;
-
-    background: rgba(255,255,255,0.92);
-
-    color: var(--bleu);
-
-    font-family:
-        "League Spartan",
-        sans-serif;
-
-    font-size: 17px;
-
-    font-weight: 700;
-
-    cursor: pointer;
-
-    box-shadow:
-        0 6px 18px rgba(0,0,0,0.18);
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease;
-}
-
-.bouton-retour-accueil:hover {
-
-    background: white;
-
-    transform:
-        translateY(-2px);
-}
-
-.bouton-retour-accueil:active {
-
-    transform:
-        scale(0.97);
-}
-
-
-/* Sur téléphone */
-
-@media (max-width: 700px) {
-
-    .bouton-retour-accueil {
-
-        top: 16px;
-        left: 16px;
-
-        padding:
-            9px 15px;
-
-        font-size: 15px;
+    :root {
+      --bleu: #77A5AA;
+      --blanc: #FFFFFF;
+      --noir: #111111;
     }
 
-}
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        /* ==================================================
-           MOBILE
-        ================================================== */
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      font-family: "League Spartan", sans-serif;
+      background: var(--noir);
+    }
 
-        @media (max-width: 700px) {
+    /* =========================
+       BOUTON RETOUR ACCUEIL
+    ========================= */
 
-            .contenu-slide {
+    .bouton-retour-accueil {
+      position: fixed;
+      top: 25px;
+      left: 25px;
+      z-index: 1000;
 
-                bottom: 90px;
-            }
+      color: white;
+      text-decoration: none;
 
+      font-size: 17px;
+      font-weight: 600;
 
-            .bouton-metier {
+      padding: 10px 17px;
 
-                font-size: 30px;
+      border: 1px solid rgba(255,255,255,0.45);
+      border-radius: 30px;
 
-                padding:
-                    12px 27px 15px;
-            }
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(8px);
 
+      transition: 0.25s ease;
+    }
 
-            .points {
-
-                bottom: 25px;
-            }
-
-
-            .fiche-contenu {
-
-                padding:
-                    35px
-                    22px
-                    100px;
-            }
-
-
-            .bouton-retour-forum {
-
-                bottom: 18px;
-
-                padding:
-                    11px 20px;
-
-                font-size: 17px;
-            }
+    .bouton-retour-accueil:hover {
+      background: rgba(255,255,255,0.15);
+      transform: translateY(-2px);
+    }
 
 
-            .fermer {
+    /* =========================
+       CARROUSEL
+    ========================= */
 
-                top: 16px;
+    .carrousel {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      position: relative;
+    }
 
-                right: 16px;
-            }
-        }
+    .slides {
+      display: flex;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.65s cubic-bezier(.77,0,.18,1);
+    }
 
-    </style>
+    .slide {
+      min-width: 100%;
+      width: 100%;
+      height: 100vh;
+
+      position: relative;
+
+      background-size: cover;
+      background-position: center;
+
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      color: white;
+    }
+
+    .slide::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+
+      background: rgba(0,0,0,0.45);
+
+      z-index: 1;
+    }
+
+
+    /* =========================
+       SLIDE INTRODUCTION
+    ========================= */
+
+    .slide-intro {
+      background:
+        radial-gradient(circle at 20% 20%, rgba(255,255,255,0.16), transparent 30%),
+        radial-gradient(circle at 80% 80%, rgba(255,255,255,0.10), transparent 35%),
+        linear-gradient(135deg, #77A5AA, #4f7f84);
+    }
+
+    .slide-intro::after {
+      background: rgba(0,0,0,0.12);
+    }
+
+    .contenu-intro {
+      position: relative;
+      z-index: 2;
+
+      width: min(850px, 90%);
+
+      text-align: center;
+
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      animation: apparition 0.8s ease;
+    }
+
+    .intro-petit-titre {
+      font-size: 18px;
+      font-weight: 700;
+      letter-spacing: 4px;
+
+      margin-bottom: 18px;
+
+      opacity: 0.9;
+    }
+
+    .intro-titre {
+      font-size: clamp(55px, 9vw, 115px);
+      line-height: 0.9;
+
+      font-weight: 800;
+      letter-spacing: -3px;
+
+      margin-bottom: 30px;
+    }
+
+    .intro-texte {
+      max-width: 720px;
+
+      font-size: clamp(19px, 2.3vw, 27px);
+      line-height: 1.35;
+      font-weight: 400;
+
+      opacity: 0.95;
+
+      margin-bottom: 42px;
+    }
+
+    .bouton-intro {
+      border: 2px solid white;
+
+      background: rgba(255,255,255,0.12);
+      color: white;
+
+      padding: 17px 30px;
+
+      border-radius: 50px;
+
+      font-family: inherit;
+      font-size: 19px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(8px);
+
+      transition: 0.25s ease;
+    }
+
+    .bouton-intro:hover {
+      background: white;
+      color: var(--bleu);
+      transform: translateY(-3px);
+    }
+
+    .bouton-intro span {
+      margin-left: 10px;
+      transition: 0.25s ease;
+    }
+
+    .bouton-intro:hover span {
+      margin-left: 16px;
+    }
+
+
+    /* =========================
+       SLIDES MÉTIERS
+    ========================= */
+
+    .contenu-slide {
+      position: absolute;
+
+      bottom: 105px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      width: 90%;
+      max-width: 1000px;
+
+      text-align: center;
+
+      z-index: 2;
+    }
+
+    .titre-metier {
+      font-size: clamp(45px, 8vw, 100px);
+      line-height: 0.9;
+
+      font-weight: 800;
+      letter-spacing: -2px;
+
+      margin-bottom: 30px;
+    }
+
+    .bouton-metier {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      padding: 17px 30px;
+
+      border: 2px solid rgba(255,255,255,0.8);
+      border-radius: 50px;
+
+      background: rgba(255,255,255,0.12);
+      color: white;
+
+      font-family: inherit;
+      font-size: 18px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      backdrop-filter: blur(8px);
+
+      transition: 0.25s ease;
+    }
+
+    .bouton-metier:hover {
+      background: white;
+      color: var(--bleu);
+
+      transform: translateY(-3px);
+    }
+
+    .bouton-metier:active {
+      transform: scale(0.97);
+    }
+
+
+    /* =========================
+       POINTS
+    ========================= */
+
+    .points {
+      position: fixed;
+
+      bottom: 30px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 100;
+
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .point {
+      width: 8px;
+      height: 8px;
+
+      border: none;
+      border-radius: 20px;
+
+      background: rgba(255,255,255,0.45);
+
+      cursor: pointer;
+
+      transition: 0.3s ease;
+    }
+
+    .point.actif {
+      width: 28px;
+      background: white;
+    }
+
+
+    /* =========================
+       FICHE
+    ========================= */
+
+    .fiche {
+      position: fixed;
+      inset: 0;
+
+      z-index: 500;
+
+      background: white;
+
+      transform: translateY(100%);
+
+      transition: transform 0.55s cubic-bezier(.77,0,.18,1);
+
+      overflow: hidden;
+    }
+
+    .fiche.ouverte {
+      transform: translateY(0);
+    }
+
+    .fiche-contenu {
+      width: 100%;
+      height: 100%;
+
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      padding-bottom: 100px;
+    }
+
+    .pages-ipde img {
+      display: block;
+
+      width: 100%;
+      max-width: 1000px;
+
+      height: auto;
+
+      margin: 0 auto;
+    }
+
+    .fermer {
+      position: fixed;
+
+      top: 20px;
+      right: 20px;
+
+      z-index: 600;
+
+      width: 48px;
+      height: 48px;
+
+      border: none;
+      border-radius: 50%;
+
+      background: rgba(0,0,0,0.75);
+      color: white;
+
+      font-size: 28px;
+      line-height: 1;
+
+      cursor: pointer;
+
+      transition: 0.25s ease;
+    }
+
+    .fermer:hover {
+      transform: rotate(90deg);
+      background: #111;
+    }
+
+    .bouton-retour-forum {
+      position: fixed;
+
+      bottom: 20px;
+      left: 50%;
+
+      transform: translateX(-50%);
+
+      z-index: 600;
+
+      padding: 13px 24px;
+
+      border: none;
+      border-radius: 30px;
+
+      background: var(--bleu);
+      color: white;
+
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 700;
+
+      cursor: pointer;
+
+      box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+
+      transition: 0.25s ease;
+    }
+
+    .bouton-retour-forum:hover {
+      transform: translateX(-50%) translateY(-3px);
+    }
+
+
+    /* =========================
+       ANIMATION
+    ========================= */
+
+    @keyframes apparition {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+
+    /* =========================
+       MOBILE
+    ========================= */
+
+    @media (max-width: 600px) {
+
+      .bouton-retour-accueil {
+        top: 15px;
+        left: 15px;
+
+        font-size: 14px;
+        padding: 8px 13px;
+      }
+
+      .intro-petit-titre {
+        font-size: 14px;
+        letter-spacing: 3px;
+      }
+
+      .intro-titre {
+        font-size: 55px;
+        letter-spacing: -2px;
+      }
+
+      .intro-texte {
+        font-size: 18px;
+        line-height: 1.4;
+      }
+
+      .bouton-intro,
+      .bouton-metier {
+        font-size: 16px;
+        padding: 14px 22px;
+      }
+
+      .contenu-slide {
+        bottom: 90px;
+      }
+
+      .titre-metier {
+        font-size: 48px;
+      }
+
+      .points {
+        bottom: 20px;
+        gap: 6px;
+      }
+
+      .point {
+        width: 7px;
+        height: 7px;
+      }
+
+      .point.actif {
+        width: 24px;
+      }
+
+    }
+
+  </style>
 
 </head>
 
 
 <body>
-<a
-    href="index.html"
-    class="bouton-retour-accueil"
->
+
+
+  <!-- =========================
+       RETOUR ACCUEIL
+  ========================== -->
+
+  <a href="index.html" class="bouton-retour-accueil">
     ← Retour à l’accueil
-</a>
-
-<!-- =====================================================
-     FORUM / CARROUSEL
-===================================================== -->
-
-<div class="carrousel">
-
-    <div
-        class="slides"
-        id="slides"
-    >
+  </a>
 
 
-        <!-- IADE -->
+  <!-- =========================
+       CARROUSEL
+  ========================== -->
 
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-iade.jpg');
-            "
-            data-metier="IADE"
-        >
+  <main class="carrousel">
 
-            <div class="contenu-slide">
-
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(0)"
-                >
-                    IADE
-                </button>
-
-            </div>
-
-        </section>
+    <div class="slides" id="slides">
 
 
-        <!-- IBODE -->
+      <!-- =========================
+           SLIDE 0 : INTRODUCTION
+      ========================== -->
 
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-ibode.jpg');
-            "
-            data-metier="IBODE"
-        >
+      <section class="slide slide-intro">
 
-            <div class="contenu-slide">
+        <div class="contenu-intro">
 
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(1)"
-                >
-                    IBODE
-                </button>
+          <div class="intro-petit-titre">
+            CESIRÉVISE
+          </div>
 
-            </div>
+          <h1 class="intro-titre">
+            FORUM<br>DES MÉTIERS
+          </h1>
 
-        </section>
+          <p class="intro-texte">
+            Le forum des métiers est un évènement organisé par le pôle tutorat du CESIR. 
+              Il permet de regrouper au sein du pôle de formation une sélection d'intervenants, 
+              pouvant répondre à vos interrogations. La navigation est libre 
+              après des interventions en amphithéatres.
+          </p>
 
+          <button
+            class="bouton-intro"
+            onclick="allerA(1)"
+          >
+            Découvrir les métiers
+            <span>→</span>
+          </button>
 
-        <!-- STOMATHÉRAPEUTE -->
+        </div>
 
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-stomatherapeute.png');
-            "
-            data-metier="STOMATHÉRAPEUTE"
-        >
-
-            <div class="contenu-slide">
-
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(2)"
-                >
-                    STOMATHÉRAPEUTE
-                </button>
-
-            </div>
-
-        </section>
+      </section>
 
 
-        <!-- IPA -->
+      <!-- =========================
+           IADE
+      ========================== -->
 
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-ipa.jpg');
-            "
-            data-metier="IPA"
-        >
+      <section
+        class="slide"
+        style="background-image: url('photo-iade.jpg');"
+      >
 
-            <div class="contenu-slide">
+        <div class="contenu-slide">
 
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(3)"
-                >
-                    IPA
-                </button>
+          <h2 class="titre-metier">
+            IADE
+          </h2>
 
-            </div>
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(0)"
+          >
+            Découvrir le métier →
+          </button>
 
-        </section>
+        </div>
 
-
-        <!-- PERFUSIONNISTE -->
-
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-perfusionniste.jpg');
-            "
-            data-metier="PERFUSIONNISTE"
-        >
-
-            <div class="contenu-slide">
-
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(4)"
-                >
-                    PERFUSIONNISTE
-                </button>
-
-            </div>
-
-        </section>
+      </section>
 
 
-        <!-- IPDE -->
+      <!-- =========================
+           IBODE
+      ========================== -->
 
-        <section
-            class="slide"
-            style="
-                background-image:
-                url('photo-ipde.jpg');
-            "
-            data-metier="IPDE"
-        >
+      <section
+        class="slide"
+        style="background-image: url('photo-ibode.jpg');"
+      >
 
-            <div class="contenu-slide">
+        <div class="contenu-slide">
 
-                <button
-                    class="bouton-metier"
-                    onclick="ouvrirFiche(5)"
-                >
-                    IPDE
-                </button>
+          <h2 class="titre-metier">
+            IBODE
+          </h2>
 
-            </div>
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(1)"
+          >
+            Découvrir le métier →
+          </button>
 
-        </section>
+        </div>
 
+      </section>
+
+
+      <!-- =========================
+           STOMATHÉRAPEUTE
+      ========================== -->
+
+      <section
+        class="slide"
+        style="background-image: url('photo-stomatherapeute.png');"
+      >
+
+        <div class="contenu-slide">
+
+          <h2 class="titre-metier">
+            STOMATHÉRAPEUTE
+          </h2>
+
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(2)"
+          >
+            Découvrir le métier →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           IPA
+      ========================== -->
+
+      <section
+        class="slide"
+        style="background-image: url('photo-ipa.jpg');"
+      >
+
+        <div class="contenu-slide">
+
+          <h2 class="titre-metier">
+            IPA
+          </h2>
+
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(3)"
+          >
+            Découvrir le métier →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           PERFUSIONNISTE
+      ========================== -->
+
+      <section
+        class="slide"
+        style="background-image: url('photo-perfusionniste.jpg');"
+      >
+
+        <div class="contenu-slide">
+
+          <h2 class="titre-metier">
+            PERFUSIONNISTE
+          </h2>
+
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(4)"
+          >
+            Découvrir le métier →
+          </button>
+
+        </div>
+
+      </section>
+
+
+      <!-- =========================
+           IPDE
+      ========================== -->
+
+      <section
+        class="slide"
+        style="background-image: url('photo-ipde.jpg');"
+      >
+
+        <div class="contenu-slide">
+
+          <h2 class="titre-metier">
+            IPDE
+          </h2>
+
+          <button
+            class="bouton-metier"
+            onclick="ouvrirFiche(5)"
+          >
+            Découvrir le métier →
+          </button>
+
+        </div>
+
+      </section>
 
     </div>
 
 
-    <!-- =================================================
-         POINTS
-    ================================================== -->
+    <!-- =========================
+         POINTS DE NAVIGATION
+    ========================== -->
 
     <div class="points">
 
-        <button
-            class="point"
-            onclick="allerA(0)"
-        ></button>
+      <button class="point actif" onclick="allerA(0)" aria-label="Introduction"></button>
 
-        <button
-            class="point"
-            onclick="allerA(1)"
-        ></button>
+      <button class="point" onclick="allerA(1)" aria-label="IADE"></button>
 
-        <button
-            class="point"
-            onclick="allerA(2)"
-        ></button>
+      <button class="point" onclick="allerA(2)" aria-label="IBODE"></button>
 
-        <button
-            class="point"
-            onclick="allerA(3)"
-        ></button>
+      <button class="point" onclick="allerA(3)" aria-label="Stomathérapeute"></button>
 
-        <button
-            class="point"
-            onclick="allerA(4)"
-        ></button>
+      <button class="point" onclick="allerA(4)" aria-label="IPA"></button>
 
-        <button
-            class="point"
-            onclick="allerA(5)"
-        ></button>
+      <button class="point" onclick="allerA(5)" aria-label="Perfusionniste"></button>
+
+      <button class="point" onclick="allerA(6)" aria-label="IPDE"></button>
 
     </div>
 
-</div>
+  </main>
 
 
-<!-- =====================================================
-     FICHE
-===================================================== -->
+  <!-- =========================
+       FICHE
+  ========================== -->
 
-<div
-    class="fiche"
-    id="fiche"
->
-
-
-    <!-- X FIXE -->
+  <div class="fiche" id="fiche">
 
     <button
-        class="fermer"
-        onclick="fermerFiche()"
-        aria-label="Fermer"
+      class="fermer"
+      onclick="fermerFiche()"
+      aria-label="Fermer"
     >
-        ×
+      ×
     </button>
-
-
-    <!-- =================================================
-         CONTENU SCROLLABLE
-         
-         LES IMAGES DES FICHES SONT GÉNÉRÉES ICI.
-    ================================================== -->
 
     <div
-        class="fiche-contenu"
-        id="contenuFiche"
+      class="fiche-contenu"
+      id="contenuFiche"
     ></div>
 
-
-    <!-- =================================================
-         BOUTON FIXE
-         
-         IL EST EN DEHORS DE fiche-contenu.
-         DONC IL NE PEUT PAS DÉFILER AVEC LES IMAGES.
-    ================================================== -->
-
     <button
-        class="bouton-retour-forum"
-        onclick="fermerFiche()"
+      class="bouton-retour-forum"
+      onclick="fermerFiche()"
     >
-        Retour au forum →
+      ← Retour au forum
     </button>
 
-
-</div>
-
-
-<script>
+  </div>
 
 
-    /* ==================================================
+  <script>
+
+    /* =========================
        DONNÉES
-    ================================================== */
+    ========================== */
 
     const metiers = [
-
-        "IADE",
-
-        "IBODE",
-
-        "STOMATHÉRAPEUTE",
-
-        "IPA",
-
-        "PERFUSIONNISTE",
-
-        "IPDE"
-
+      "IADE",
+      "IBODE",
+      "STOMATHÉRAPEUTE",
+      "IPA",
+      "PERFUSIONNISTE",
+      "IPDE"
     ];
-
 
     const nomsFichiers = [
-
-        "iade",
-
-        "ibode",
-
-        "stomatherapeute",
-
-        "ipa",
-
-        "perfusionniste",
-
-        "ipde"
-
+      "iade",
+      "ibode",
+      "stomatherapeute",
+      "ipa",
+      "perfusionniste",
+      "ipde"
     ];
-
 
     const nombrePages = [
-
-        10,
-
-        8,
-
-        6,
-
-        7,
-
-        6,
-
-        7
-
+      10,
+      8,
+      6,
+      7,
+      6,
+      7
     ];
 
 
-    /* ==================================================
-       SLIDE ACTUEL
-    ================================================== */
+    /* =========================
+       VARIABLES CARROUSEL
+    ========================== */
 
-    let indexActuel =
-        Math.floor(
-            Math.random()
-            * metiers.length
-        );
+    const slides = document.getElementById("slides");
+    const points = document.querySelectorAll(".point");
 
+    const nombreSlides = metiers.length + 1;
 
-    /* ==================================================
-       ÉLÉMENTS
-    ================================================== */
+    /*
+      0 = introduction
+      1 = IADE
+      2 = IBODE
+      3 = STOMATHÉRAPEUTE
+      4 = IPA
+      5 = PERFUSIONNISTE
+      6 = IPDE
+    */
 
-    const slides =
-        document.getElementById(
-            "slides"
-        );
-
-
-    const points =
-        document.querySelectorAll(
-            ".point"
-        );
+    let indexActuel = 0;
 
 
-    const fiche =
-        document.getElementById(
-            "fiche"
-        );
-
-
-    const contenuFiche =
-        document.getElementById(
-            "contenuFiche"
-        );
-
-
-    /* ==================================================
-       AFFICHER LE SLIDE
-    ================================================== */
+    /* =========================
+       AFFICHER SLIDE
+    ========================== */
 
     function afficherSlide() {
 
-        slides.style.transform =
-            `translateX(-${indexActuel * 100}%)`;
+      slides.style.transform =
+        `translateX(-${indexActuel * 100}%)`;
 
+      points.forEach((point, index) => {
 
-        points.forEach(
-            (point, index) => {
-
-                point.classList.toggle(
-                    "actif",
-                    index === indexActuel
-                );
-
-            }
+        point.classList.toggle(
+          "actif",
+          index === indexActuel
         );
+
+      });
 
     }
 
 
-    /* ==================================================
-       ALLER À UN SLIDE
-    ================================================== */
+    /* =========================
+       ALLER À UNE SLIDE
+    ========================== */
 
     function allerA(index) {
 
-        indexActuel = index;
+      if (index < 0) {
+        index = nombreSlides - 1;
+      }
 
-        afficherSlide();
+      if (index >= nombreSlides) {
+        index = 0;
+      }
+
+      indexActuel = index;
+
+      afficherSlide();
 
     }
 
 
-    /* ==================================================
-       SLIDE SUIVANT
-    ================================================== */
+    /* =========================
+       SLIDE SUIVANTE
+    ========================== */
 
     function suivant() {
 
-        indexActuel++;
+      indexActuel++;
 
-        if (
-            indexActuel >=
-            metiers.length
-        ) {
+      if (indexActuel >= nombreSlides) {
+        indexActuel = 0;
+      }
 
-            indexActuel = 0;
-
-        }
-
-        afficherSlide();
+      afficherSlide();
 
     }
 
 
-    /* ==================================================
-       SLIDE PRÉCÉDENT
-    ================================================== */
+    /* =========================
+       SLIDE PRÉCÉDENTE
+    ========================== */
 
     function precedent() {
 
-        indexActuel--;
+      indexActuel--;
 
-        if (
-            indexActuel < 0
-        ) {
+      if (indexActuel < 0) {
+        indexActuel = nombreSlides - 1;
+      }
 
-            indexActuel =
-                metiers.length - 1;
-
-        }
-
-        afficherSlide();
+      afficherSlide();
 
     }
 
 
-    /* ==================================================
+    /* =========================
        OUVRIR UNE FICHE
-    ================================================== */
+    ========================== */
 
     function ouvrirFiche(index) {
 
-        const nom =
-            nomsFichiers[index];
+      const contenuFiche =
+        document.getElementById("contenuFiche");
 
+      const fiche =
+        document.getElementById("fiche");
 
-        const pages =
-            nombrePages[index];
+      const nom =
+        nomsFichiers[index];
 
+      const pages =
+        nombrePages[index];
 
-        /*
-         * On remet le scroll en haut
-         * à chaque nouvelle fiche.
-         */
+      let html = `
+        <div class="pages-ipde">
+      `;
 
-        contenuFiche.scrollTop = 0;
-
-
-        /*
-         * Construction des images.
-         *
-         * IMPORTANT :
-         * On ne supprime aucun fichier.
-         * On affiche simplement les images
-         * correspondant au métier choisi.
-         */
-
-        let html = `
-            <div class="pages-ipde">
-        `;
-
-
-        for (
-            let i = 1;
-            i <= pages;
-            i++
-        ) {
-
-            html += `
-
-                <img
-                    src="./fiche-${i}-${nom}.jpg"
-                    alt="
-                        Fiche
-                        ${metiers[index]}
-                        - page ${i}
-                    "
-                >
-
-            `;
-
-        }
-
+      for (let i = 1; i <= pages; i++) {
 
         html += `
-            </div>
+          <img
+            src="./fiche-${i}-${nom}.jpg"
+            alt="Page ${i} de la fiche ${metiers[index]}"
+            loading="${i === 1 ? "eager" : "lazy"}"
+          >
         `;
 
+      }
 
-        contenuFiche.innerHTML =
-            html;
+      html += `
+        </div>
+      `;
 
+      contenuFiche.innerHTML = html;
 
-        /*
-         * Ouvre la fiche
-         */
+      contenuFiche.scrollTop = 0;
 
-        fiche.classList.add(
-            "ouverte"
-        );
+      fiche.classList.add("ouverte");
 
     }
 
 
-    /* ==================================================
-       FERMER LA FICHE
-    ================================================== */
+    /* =========================
+       FERMER UNE FICHE
+    ========================== */
 
     function fermerFiche() {
 
-        fiche.classList.remove(
-            "ouverte"
-        );
+      document
+        .getElementById("fiche")
+        .classList.remove("ouverte");
 
     }
 
 
-    /* ==================================================
-       SWIPE HORIZONTAL
-    ================================================== */
+    /* =========================
+       SWIPE MOBILE
+    ========================== */
 
     let debutX = 0;
-
-    let debutY = 0;
-
+    let finX = 0;
 
     document.addEventListener(
-        "touchstart",
-        function(e) {
+      "touchstart",
+      function(e) {
 
-            /*
-             * Si une fiche est ouverte,
-             * le doigt sert à faire défiler
-             * la fiche.
-             *
-             * On NE touche donc pas
-             * au carrousel.
-             */
-
-            if (
-                fiche.classList.contains(
-                    "ouverte"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            debutX =
-                e.touches[0].clientX;
-
-
-            debutY =
-                e.touches[0].clientY;
-
-        },
-        {
-            passive: true
+        if (
+          document
+            .getElementById("fiche")
+            .classList.contains("ouverte")
+        ) {
+          return;
         }
+
+        debutX = e.touches[0].clientX;
+
+      },
+      { passive: true }
     );
 
 
     document.addEventListener(
-        "touchend",
-        function(e) {
+      "touchend",
+      function(e) {
 
-            if (
-                fiche.classList.contains(
-                    "ouverte"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            const finX =
-                e.changedTouches[0].clientX;
-
-
-            const finY =
-                e.changedTouches[0].clientY;
-
-
-            const distanceX =
-                finX - debutX;
-
-
-            const distanceY =
-                finY - debutY;
-
-
-            /*
-             * Swipe uniquement horizontal
-             */
-
-            if (
-
-                Math.abs(distanceX) > 60
-
-                &&
-
-                Math.abs(distanceX)
-                >
-                Math.abs(distanceY)
-
-            ) {
-
-                if (
-                    distanceX < 0
-                ) {
-
-                    suivant();
-
-                } else {
-
-                    precedent();
-
-                }
-
-            }
-
-        },
-        {
-            passive: true
+        if (
+          document
+            .getElementById("fiche")
+            .classList.contains("ouverte")
+        ) {
+          return;
         }
+
+        finX = e.changedTouches[0].clientX;
+
+        const difference =
+          finX - debutX;
+
+        if (Math.abs(difference) < 50) {
+          return;
+        }
+
+        if (difference < 0) {
+          suivant();
+        } else {
+          precedent();
+        }
+
+      },
+      { passive: true }
     );
 
 
-    /* ==================================================
-       SOURIS : GLISSER
-    ================================================== */
+    /* =========================
+       SOURIS / TRACKPAD
+    ========================== */
 
-    let sourisX = 0;
-
-    let sourisEnCours = false;
-
+    let sourisEnfoncee = false;
+    let sourisDebutX = 0;
 
     document.addEventListener(
-        "mousedown",
-        function(e) {
+      "mousedown",
+      function(e) {
 
-            if (
-                fiche.classList.contains(
-                    "ouverte"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            sourisX =
-                e.clientX;
-
-
-            sourisEnCours =
-                true;
-
+        if (
+          document
+            .getElementById("fiche")
+            .classList.contains("ouverte")
+        ) {
+          return;
         }
+
+        sourisEnfoncee = true;
+        sourisDebutX = e.clientX;
+
+      }
     );
 
 
     document.addEventListener(
-        "mouseup",
-        function(e) {
+      "mouseup",
+      function(e) {
 
-            if (
-                !sourisEnCours
-            ) {
-
-                return;
-
-            }
-
-
-            sourisEnCours =
-                false;
-
-
-            if (
-                fiche.classList.contains(
-                    "ouverte"
-                )
-            ) {
-
-                return;
-
-            }
-
-
-            const distance =
-                e.clientX - sourisX;
-
-
-            if (
-                Math.abs(distance) > 70
-            ) {
-
-                if (
-                    distance < 0
-                ) {
-
-                    suivant();
-
-                } else {
-
-                    precedent();
-
-                }
-
-            }
-
+        if (!sourisEnfoncee) {
+          return;
         }
+
+        sourisEnfoncee = false;
+
+        if (
+          document
+            .getElementById("fiche")
+            .classList.contains("ouverte")
+        ) {
+          return;
+        }
+
+        const difference =
+          e.clientX - sourisDebutX;
+
+        if (Math.abs(difference) < 60) {
+          return;
+        }
+
+        if (difference < 0) {
+          suivant();
+        } else {
+          precedent();
+        }
+
+      }
     );
 
 
-    /* ==================================================
+    /* =========================
        CLAVIER
-    ================================================== */
+    ========================== */
 
     document.addEventListener(
-        "keydown",
-        function(e) {
+      "keydown",
+      function(e) {
 
-            /*
-             * Si la fiche est ouverte,
-             * les flèches ne changent PAS
-             * de métier.
-             */
+        const ficheOuverte =
+          document
+            .getElementById("fiche")
+            .classList.contains("ouverte");
 
-            if (
-                fiche.classList.contains(
-                    "ouverte"
-                )
-            ) {
+        if (ficheOuverte) {
 
-                if (
-                    e.key === "Escape"
-                ) {
+          if (e.key === "Escape") {
+            fermerFiche();
+          }
 
-                    fermerFiche();
-
-                }
-
-                return;
-
-            }
-
-
-            if (
-                e.key === "ArrowRight"
-            ) {
-
-                suivant();
-
-            }
-
-
-            if (
-                e.key === "ArrowLeft"
-            ) {
-
-                precedent();
-
-            }
-
-
-            if (
-                e.key === "ArrowUp"
-            ) {
-
-                ouvrirFiche(
-                    indexActuel
-                );
-
-            }
+          return;
 
         }
+
+
+        if (e.key === "ArrowRight") {
+          suivant();
+        }
+
+
+        if (e.key === "ArrowLeft") {
+          precedent();
+        }
+
+
+        /*
+          Sur la slide d'introduction,
+          ↑ fait simplement passer au premier métier.
+        */
+
+        if (
+          e.key === "ArrowUp" &&
+          indexActuel === 0
+        ) {
+          allerA(1);
+          return;
+        }
+
+
+        /*
+          Sur une slide métier,
+          ↑ ouvre directement sa fiche.
+        */
+
+        if (
+          e.key === "ArrowUp" &&
+          indexActuel > 0
+        ) {
+
+          ouvrirFiche(indexActuel - 1);
+
+        }
+
+      }
     );
 
 
-    /* ==================================================
+    /* =========================
        INITIALISATION
-    ================================================== */
+    ========================== */
 
     afficherSlide();
 
-
-</script>
-
+  </script>
 
 </body>
 </html>
