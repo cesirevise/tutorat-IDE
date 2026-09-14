@@ -66,51 +66,81 @@
         /* =========================
            HEADER
         ========================= */
-<!-- HEADER -->
-<header class="site-header">
+.site-header {
 
-    <a href="index.html" class="header-logo">
-        <img src="logo-cesirevise.png" alt="CESIRÉVISE">
-    </a>
+    width: 100%;
 
-    <!-- MENU ORDINATEUR -->
-    <nav class="desktop-nav">
+    padding: 18px 7%;
 
-        <a href="index.html">Accueil</a>
-        <a href="fiches.html">Fiches</a>
-        <a href="news.html">Actualités</a>
-        <a href="conferences.html">Conférences</a>
-        <a href="kit.html">Kit de stage</a>
-        <a href="forum.html">Forum</a>
-        <a href="index.html#rejoindre">Nous rejoindre</a>
-        <a href="contacts.html">Contact</a>
+    display: flex;
 
-    </nav>
+    align-items: center;
 
-    <!-- BOUTON MOBILE -->
-    <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Ouvrir le menu"
-    >
-        ☰
-    </button>
+    justify-content: space-between;
 
-    <!-- MENU MOBILE -->
-    <nav class="mobile-nav">
+    background: rgba(248, 248, 246, 0.96);
 
-        <a href="index.html">Accueil</a>
-        <a href="fiches.html">Fiches</a>
-        <a href="news.html">Actualités</a>
-        <a href="conferences.html">Conférences</a>
-        <a href="kit.html">Kit de stage</a>
-        <a href="forum.html">Forum</a>
-        <a href="index.html#rejoindre">Nous rejoindre</a>
-        <a href="contacts.html">Contact</a>
+    backdrop-filter: blur(10px);
 
-    </nav>
+    position: sticky;
 
-</header>
+    top: 0;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid rgba(119, 165, 170, 0.15);
+
+}
+
+.header-logo {
+
+    text-decoration: none;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+.header-logo img {
+
+    width: 145px;
+
+    height: auto;
+
+    display: block;
+
+}
+
+.desktop-nav {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 20px;
+
+}
+
+.desktop-nav a {
+
+    text-decoration: none;
+
+    color: #222;
+
+    font-size: 15px;
+
+    font-weight: 600;
+
+    transition: 0.2s ease;
+
+}
+
+.desktop-nav a:hover {
+
+    color: #77A5AA;
+
+}
 /* =========================
    MENU MOBILE
 ========================= */
@@ -442,6 +472,7 @@
     <div class="shape shape-one"></div>
     <div class="shape shape-two"></div>
     <div class="shape shape-three"></div>
+    
     <!-- HEADER -->
 <header class="site-header">
 
@@ -451,7 +482,6 @@
 
     <!-- MENU ORDINATEUR -->
     <nav class="desktop-nav">
-
         <a href="index.html">Accueil</a>
         <a href="fiches.html">Fiches</a>
         <a href="news.html">Actualités</a>
@@ -460,7 +490,6 @@
         <a href="forum.html">Forum</a>
         <a href="index.html#rejoindre">Nous rejoindre</a>
         <a href="contacts.html">Contact</a>
-
     </nav>
 
     <!-- BOUTON MOBILE -->
