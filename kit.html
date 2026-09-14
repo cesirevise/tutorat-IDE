@@ -1,0 +1,2137 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Kit de stage CESIRÉVISE — un kit physique pensé pour accompagner les étudiants infirmiers pendant leurs stages."
+    >
+
+    <meta
+        name="keywords"
+        content="CESIREVISE, kit stage infirmier, kit IFSI, étudiant infirmier, stage infirmier, fiches stage"
+    >
+
+    <meta name="theme-color" content="#77A5AA">
+
+    <title>Kit de stage · CESIRÉVISE</title>
+
+    <link rel="icon" type="image/png" href="logo-cesirevise.png">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <style>
+
+        /* =========================================================
+           VARIABLES
+        ========================================================= */
+
+        :root {
+            --primary: #77A5AA;
+            --primary-dark: #5D8D93;
+            --primary-light: #EAF4F5;
+
+            --pink: #D585A9;
+            --green: #8EAC51;
+            --red: #EB5555;
+            --orange: #FF914D;
+            --yellow: #FFD230;
+
+            --dark: #26383A;
+            --text: #405154;
+            --light-text: #718083;
+
+            --background: #F7FAFA;
+            --white: #FFFFFF;
+
+            --radius: 24px;
+            --shadow: 0 12px 35px rgba(45, 76, 79, 0.10);
+        }
+
+
+        /* =========================================================
+           RESET
+        ========================================================= */
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Baloo 2", sans-serif;
+            background: var(--background);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        img {
+            max-width: 100%;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+
+        /* =========================================================
+           NAVIGATION
+        ========================================================= */
+
+        nav {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(12px);
+
+            border-bottom: 1px solid rgba(119, 165, 170, 0.15);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: auto;
+
+            min-height: 76px;
+
+            padding: 10px 25px;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 800;
+            color: var(--primary);
+
+            white-space: nowrap;
+        }
+
+        .logo img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            gap: 22px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .nav-links a {
+            position: relative;
+            padding: 8px 2px;
+            transition: color 0.2s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .nav-links a.active {
+            color: var(--primary);
+        }
+
+        .nav-links a.active::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 2px;
+
+            height: 3px;
+
+            background: var(--primary);
+            border-radius: 20px;
+        }
+
+
+        /* =========================================================
+           HERO
+        ========================================================= */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(
+                    circle at 90% 20%,
+                    rgba(119, 165, 170, 0.20),
+                    transparent 35%
+                ),
+                linear-gradient(
+                    135deg,
+                    #FFFFFF 0%,
+                    #EDF6F6 100%
+                );
+
+            padding: 90px 25px 80px;
+        }
+
+        .hero::before {
+            content: "✦";
+
+            position: absolute;
+            top: 45px;
+            left: 8%;
+
+            font-size: 35px;
+            color: var(--yellow);
+
+            transform: rotate(-15deg);
+        }
+
+        .hero::after {
+            content: "✦";
+
+            position: absolute;
+            right: 8%;
+            bottom: 50px;
+
+            font-size: 45px;
+            color: var(--pink);
+
+            transform: rotate(20deg);
+        }
+
+        .hero-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr 0.95fr;
+
+            align-items: center;
+            gap: 70px;
+        }
+
+        .eyebrow {
+            display: inline-block;
+
+            padding: 7px 16px;
+
+            background: var(--primary-light);
+            color: var(--primary-dark);
+
+            border-radius: 50px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+
+            margin-bottom: 20px;
+        }
+
+        .hero h1 {
+            font-family: "League Spartan", sans-serif;
+            font-size: clamp(45px, 6vw, 76px);
+            line-height: 0.95;
+
+            color: var(--dark);
+
+            margin-bottom: 25px;
+        }
+
+        .hero h1 span {
+            color: var(--primary);
+        }
+
+        .hero p {
+            max-width: 620px;
+
+            font-size: 20px;
+            color: var(--text);
+
+            margin-bottom: 30px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 52px;
+
+            padding: 13px 25px;
+
+            border-radius: 50px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 700;
+
+            transition:
+                transform 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+        }
+
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+
+            box-shadow: 0 8px 20px rgba(119, 165, 170, 0.28);
+        }
+
+        .btn-secondary {
+            background: white;
+            color: var(--primary);
+
+            border: 2px solid var(--primary);
+        }
+
+
+        /* =========================================================
+           HERO PRODUCT CARD
+        ========================================================= */
+
+        .hero-card {
+            position: relative;
+
+            background: white;
+
+            border-radius: 35px;
+
+            padding: 28px;
+
+            box-shadow: var(--shadow);
+
+            transform: rotate(2deg);
+        }
+
+        .hero-card-inner {
+            background: var(--primary-light);
+
+            border-radius: 25px;
+
+            min-height: 390px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            padding: 35px;
+
+            text-align: center;
+        }
+
+        .kit-icon {
+            width: 105px;
+            height: 105px;
+
+            background: white;
+
+            border-radius: 28px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+
+            margin-bottom: 20px;
+
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .hero-card h2 {
+            font-family: "League Spartan", sans-serif;
+
+            font-size: 34px;
+            color: var(--dark);
+
+            margin-bottom: 8px;
+        }
+
+        .hero-card p {
+            font-size: 17px;
+            margin: 0;
+        }
+
+        .badge {
+            position: absolute;
+
+            top: -15px;
+            right: -15px;
+
+            background: var(--yellow);
+            color: var(--dark);
+
+            padding: 10px 17px;
+
+            border-radius: 50px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 800;
+
+            transform: rotate(6deg);
+        }
+
+
+        /* =========================================================
+           GENERAL SECTIONS
+        ========================================================= */
+
+        section {
+            padding: 85px 25px;
+        }
+
+        .section-container {
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        .section-title {
+            text-align: center;
+
+            max-width: 750px;
+            margin: 0 auto 50px;
+        }
+
+        .section-title span {
+            color: var(--primary);
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 800;
+            font-size: 14px;
+
+            letter-spacing: 1.5px;
+        }
+
+        .section-title h2 {
+            font-family: "League Spartan", sans-serif;
+
+            font-size: clamp(34px, 5vw, 50px);
+
+            color: var(--dark);
+
+            line-height: 1.05;
+
+            margin: 8px 0 15px;
+        }
+
+        .section-title p {
+            font-size: 18px;
+            color: var(--light-text);
+        }
+
+
+        /* =========================================================
+           PRESENTATION
+        ========================================================= */
+
+        .presentation {
+            background: white;
+        }
+
+        .presentation-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .info-card {
+            background: var(--background);
+
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            border: 1px solid rgba(119, 165, 170, 0.12);
+
+            transition: transform 0.2s ease;
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .info-icon {
+            width: 58px;
+            height: 58px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: var(--primary-light);
+
+            font-size: 28px;
+
+            margin-bottom: 20px;
+        }
+
+        .info-card:nth-child(2) .info-icon {
+            background: #F9EAF1;
+        }
+
+        .info-card:nth-child(3) .info-icon {
+            background: #FFF2D9;
+        }
+
+        .info-card h3 {
+            font-family: "League Spartan", sans-serif;
+
+            color: var(--dark);
+            font-size: 24px;
+
+            margin-bottom: 8px;
+        }
+
+        .info-card p {
+            color: var(--light-text);
+        }
+
+
+        /* =========================================================
+           APERÇU DES PAGES
+        ========================================================= */
+
+        .preview-section {
+            background: #F7FAFA;
+        }
+
+        .pages-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 30px;
+
+            max-width: 1050px;
+            margin: auto;
+        }
+
+        .page-card {
+            position: relative;
+
+            display: block;
+
+            background: white;
+
+            padding: 12px;
+
+            border-radius: 22px;
+
+            box-shadow: 0 8px 25px rgba(45, 76, 79, 0.09);
+
+            overflow: hidden;
+
+            transition:
+                transform 0.25s ease,
+                box-shadow 0.25s ease;
+        }
+
+        .page-card::after {
+            content: "Voir en grand ↗";
+
+            position: absolute;
+
+            right: 20px;
+            bottom: 20px;
+
+            padding: 7px 13px;
+
+            border-radius: 50px;
+
+            background: rgba(38, 56, 58, 0.88);
+            color: white;
+
+            font-family: "League Spartan", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+
+            opacity: 0;
+
+            transform: translateY(5px);
+
+            transition: 0.2s ease;
+        }
+
+        .page-card:hover {
+            transform: translateY(-6px);
+
+            box-shadow:
+                0 16px 40px rgba(45, 76, 79, 0.15);
+        }
+
+        .page-card:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .page-card img {
+            width: 100%;
+            height: auto;
+
+            display: block;
+
+            border-radius: 14px;
+        }
+
+
+        /* =========================================================
+           CONTENU DU KIT
+        ========================================================= */
+
+        .content-section {
+            background: white;
+        }
+
+        .content-box {
+            max-width: 900px;
+            margin: auto;
+
+            background: var(--primary-light);
+
+            padding: 45px;
+
+            border-radius: 30px;
+        }
+
+        .content-box h3 {
+            font-family: "League Spartan", sans-serif;
+
+            font-size: 30px;
+            color: var(--dark);
+
+            margin-bottom: 25px;
+        }
+
+        .content-list {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 15px 35px;
+
+            list-style: none;
+        }
+
+        .content-list li {
+            position: relative;
+
+            padding-left: 30px;
+
+            font-size: 17px;
+        }
+
+        .content-list li::before {
+            content: "✓";
+
+            position: absolute;
+            left: 0;
+
+            color: var(--green);
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 800;
+        }
+
+
+        /* =========================================================
+           PRIX
+        ========================================================= */
+
+        .price-section {
+            background: var(--dark);
+
+            color: white;
+
+            text-align: center;
+        }
+
+        .price-section .section-title span {
+            color: var(--yellow);
+        }
+
+        .price-section .section-title h2 {
+            color: white;
+        }
+
+        .price-section .section-title p {
+            color: rgba(255, 255, 255, 0.72);
+        }
+
+        .price-card {
+            max-width: 520px;
+
+            margin: auto;
+
+            background: white;
+            color: var(--dark);
+
+            border-radius: 30px;
+
+            padding: 40px;
+
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.18);
+        }
+
+        .price-label {
+            font-family: "League Spartan", sans-serif;
+            font-weight: 700;
+
+            color: var(--primary);
+
+            font-size: 16px;
+        }
+
+        .price {
+            font-family: "League Spartan", sans-serif;
+
+            font-size: 64px;
+            font-weight: 800;
+
+            line-height: 1;
+
+            margin: 12px 0;
+        }
+
+        .price-note {
+            color: var(--light-text);
+
+            margin-bottom: 25px;
+        }
+
+        .price-card .btn {
+            width: 100%;
+        }
+
+
+        /* =========================================================
+           RÉSERVATION
+        ========================================================= */
+
+        .reservation-section {
+            background: var(--background);
+        }
+
+        .reservation-container {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .form-card {
+            background: white;
+
+            border-radius: 30px;
+
+            padding: 45px;
+
+            box-shadow: var(--shadow);
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: repeat(2, 1fr);
+
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+
+            gap: 7px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
+        }
+
+        label {
+            font-family: "League Spartan", sans-serif;
+
+            font-weight: 700;
+
+            color: var(--dark);
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+
+            border: 2px solid #E4EEEE;
+
+            background: #FBFDFD;
+
+            border-radius: 14px;
+
+            padding: 13px 15px;
+
+            font-family: "Baloo 2", sans-serif;
+            font-size: 16px;
+
+            color: var(--dark);
+
+            outline: none;
+
+            transition:
+                border-color 0.2s ease,
+                box-shadow 0.2s ease;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            border-color: var(--primary);
+
+            box-shadow:
+                0 0 0 4px rgba(119, 165, 170, 0.10);
+        }
+
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .required {
+            color: var(--red);
+        }
+
+        .checkbox {
+            grid-column: 1 / -1;
+
+            display: flex;
+            align-items: flex-start;
+
+            gap: 10px;
+
+            margin-top: 5px;
+
+            color: var(--light-text);
+
+            font-size: 14px;
+        }
+
+        .checkbox input {
+            width: auto;
+            margin-top: 5px;
+        }
+
+        .submit-button {
+            grid-column: 1 / -1;
+
+            border: none;
+
+            cursor: pointer;
+
+            width: 100%;
+
+            font-size: 17px;
+        }
+
+        .form-note {
+            text-align: center;
+
+            color: var(--light-text);
+
+            font-size: 13px;
+
+            margin-top: 18px;
+        }
+
+        .success-message {
+            display: none;
+
+            margin-top: 25px;
+
+            padding: 20px;
+
+            border-radius: 18px;
+
+            background: #EEF7E5;
+            color: #55752C;
+
+            text-align: center;
+
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           LOCAL
+        ========================================================= */
+
+        .pickup {
+            background: white;
+        }
+
+        .pickup-box {
+            max-width: 850px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+
+            gap: 30px;
+
+            background: #FFF9E4;
+
+            border-radius: 30px;
+
+            padding: 35px;
+        }
+
+        .pickup-icon {
+            flex-shrink: 0;
+
+            width: 70px;
+            height: 70px;
+
+            border-radius: 22px;
+
+            background: var(--yellow);
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 32px;
+        }
+
+        .pickup h3 {
+            font-family: "League Spartan", sans-serif;
+
+            color: var(--dark);
+
+            font-size: 27px;
+
+            margin-bottom: 5px;
+        }
+
+        .pickup p {
+            color: var(--text);
+        }
+
+
+        /* =========================================================
+           FOOTER
+        ========================================================= */
+
+        footer {
+            background: #203133;
+
+            color: white;
+
+            padding: 45px 25px;
+        }
+
+        .footer-container {
+            max-width: 1150px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 25px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-brand img {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .footer-brand strong {
+            font-family: "League Spartan", sans-serif;
+            font-size: 20px;
+        }
+
+        .footer-text {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 14px;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 20px;
+
+            font-family: "League Spartan", sans-serif;
+            font-weight: 600;
+        }
+
+        .footer-links a:hover {
+            color: var(--yellow);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 900px) {
+
+            .nav-links {
+                gap: 13px;
+                font-size: 13px;
+            }
+
+            .hero-container {
+                grid-template-columns: 1fr;
+
+                gap: 50px;
+
+                max-width: 700px;
+            }
+
+            .hero {
+                padding-top: 65px;
+            }
+
+            .presentation-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .pickup-box {
+                align-items: flex-start;
+            }
+
+        }
+
+
+        @media (max-width: 700px) {
+
+            .nav-container {
+                min-height: auto;
+
+                padding: 10px 15px;
+
+                flex-direction: column;
+
+                gap: 8px;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                overflow-x: auto;
+
+                justify-content: flex-start;
+
+                padding-bottom: 5px;
+
+                white-space: nowrap;
+            }
+
+            .hero {
+                padding: 55px 18px;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 17px;
+            }
+
+            section {
+                padding: 60px 18px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .hero-card {
+                padding: 18px;
+            }
+
+            .hero-card-inner {
+                min-height: 320px;
+            }
+
+            .pages-grid {
+                grid-template-columns: 1fr;
+
+                gap: 20px;
+            }
+
+            .page-card::after {
+                opacity: 1;
+                transform: none;
+            }
+
+            .content-box {
+                padding: 28px 22px;
+            }
+
+            .content-list {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card {
+                padding: 30px 22px;
+            }
+
+            .form-card {
+                padding: 25px 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full,
+            .checkbox,
+            .submit-button {
+                grid-column: auto;
+            }
+
+            .pickup-box {
+                flex-direction: column;
+
+                padding: 28px 22px;
+            }
+
+            .footer-container {
+                flex-direction: column;
+
+                text-align: center;
+            }
+
+            .footer-brand {
+                justify-content: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- =========================================================
+         NAVIGATION
+    ========================================================== -->
+
+    <nav>
+
+        <div class="nav-container">
+
+            <a href="index.html" class="logo">
+
+                <img
+                    src="logo-cesirevise.png"
+                    alt="Logo CESIRÉVISE"
+                >
+
+                <span>CESIRÉVISE</span>
+
+            </a>
+
+
+            <div class="nav-links">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="fiches.html">
+                    Fiches
+                </a>
+
+                <a href="conferences.html">
+                    Conférences
+                </a>
+
+                <a href="forum.html">
+                    Forum des spécialités
+                </a>
+
+                <a href="kit.html" class="active">
+                    Kit de stage
+                </a>
+
+                <a href="rejoindre.html">
+                    Nous rejoindre
+                </a>
+
+                <a href="contact.html">
+                    Nous contacter
+                </a>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
+
+    <header class="hero">
+
+        <div class="hero-container">
+
+
+            <div class="hero-text">
+
+                <span class="eyebrow">
+                    🩺 KIT DE STAGE · CESIRÉVISE
+                </span>
+
+                <h1>
+                    Ton allié<br>
+                    <span>pour les stages.</span>
+                </h1>
+
+                <p>
+                    Un kit physique pensé par et pour les étudiants
+                    infirmiers, pour t'accompagner au quotidien
+                    pendant tes stages.
+                </p>
+
+
+            </div>
+
+
+
+            <div class="hero-card">
+
+                <div class="badge">
+                    ✨ CESIRÉVISE
+                </div>
+
+                <div class="hero-card-inner">
+
+                    <div class="kit-icon">
+                        🩺
+                    </div>
+
+                    <h2>
+                        Kit de stage
+                    </h2>
+
+                    <p>
+                        Pratique · Utile · Pensé pour l'IFSI
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         PRÉSENTATION
+    ========================================================== -->
+
+    <section class="presentation">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    POURQUOI LE KIT ?
+                </span>
+
+                <h2>
+                    Pensé pour la vraie vie en stage
+                </h2>
+
+                <p>
+                    Parce qu'un bon outil peut vraiment faire
+                    la différence lorsqu'on débute dans les services.
+                </p>
+
+            </div>
+
+
+            <div class="presentation-grid">
+
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+                        📚
+                    </div>
+
+                    <h3>
+                        Pratique
+                    </h3>
+
+                    <p>
+                        Des fiches pensées pour être facilement
+                        consultées et utilisées pendant tes stages.
+                    </p>
+
+                </article>
+
+
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+                        🩷
+                    </div>
+
+                    <h3>
+                        Pensé pour les étudiants
+                    </h3>
+
+                    <p>
+                        Le kit a été conçu avec les besoins
+                        des étudiants infirmiers en tête.
+                    </p>
+
+                </article>
+
+
+
+                <article class="info-card">
+
+                    <div class="info-icon">
+                        🎒
+                    </div>
+
+                    <h3>
+                        Format physique
+                    </h3>
+
+                    <p>
+                        Pas besoin de chercher un document sur ton
+                        téléphone : ton kit t'accompagne directement
+                        sur le terrain.
+                    </p>
+
+                </article>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         APERÇU
+    ========================================================== -->
+
+    <section
+        class="preview-section"
+        id="apercu"
+    >
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    APERÇU
+                </span>
+
+                <h2>
+                    Un aperçu des fiches du kit
+                </h2>
+
+                <p>
+                    Découvre les différentes pages incluses
+                    dans le kit. Les contenus détaillés sont
+                    réservés au kit physique.
+                </p>
+
+            </div>
+
+
+            <div class="pages-grid">
+
+
+                <a
+                    href="page1.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page1.png"
+                        alt="Page 1 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page2.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page2.png"
+                        alt="Page 2 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page3.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page3.png"
+                        alt="Page 3 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page4.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page4.png"
+                        alt="Page 4 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page5.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page5.png"
+                        alt="Page 5 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page6.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page6.png"
+                        alt="Page 6 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page7.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page7.png"
+                        alt="Page 7 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page8.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page8.png"
+                        alt="Page 8 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page9.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page9.png"
+                        alt="Page 9 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+
+                <a
+                    href="page10.png"
+                    target="_blank"
+                    class="page-card"
+                >
+
+                    <img
+                        src="page10.png"
+                        alt="Page 10 du kit de stage"
+                        loading="lazy"
+                    >
+
+                </a>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         CONTENU DU KIT
+    ========================================================== -->
+
+    <section class="content-section">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    LE KIT
+                </span>
+
+                <h2>
+                    Ce qui t'attend à l'intérieur
+                </h2>
+
+                <p>
+                    Un support conçu pour être utile avant,
+                    pendant et après tes journées de stage.
+                </p>
+
+            </div>
+
+
+            <div class="content-box">
+
+                <h3>
+                    Un kit pensé pour ton quotidien d'étudiant IDE
+                </h3>
+
+
+                <ul class="content-list">
+
+                    <li>
+                        Des fiches pratiques pour les stages
+                    </li>
+
+                    <li>
+                        Des informations utiles à avoir sous la main
+                    </li>
+
+                    <li>
+                        Un format physique facile à consulter
+                    </li>
+
+                    <li>
+                        Des supports adaptés aux étudiants infirmiers
+                    </li>
+
+                    <li>
+                        Des rappels utiles pour les situations rencontrées
+                    </li>
+
+                    <li>
+                        Un outil complémentaire à ta formation IFSI
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         PRIX
+    ========================================================== -->
+
+    <section class="price-section">
+
+        <div class="section-container">
+
+            <div class="section-title">
+
+                <span>
+                    LE KIT DE STAGE
+                </span>
+
+                <h2>
+                    Ton kit, prêt à t'accompagner
+                </h2>
+
+                <p>
+                    Réserve ton exemplaire en ligne puis
+                    récupère-le directement au local CESIR.
+                </p>
+
+            </div>
+
+
+            <div class="price-card">
+
+                <div class="price-label">
+                    KIT DE STAGE CESIRÉVISE
+                </div>
+
+                <div class="price">
+                    3 €
+                </div>
+
+                <p class="price-note">
+                    Kit physique · Retrait au local du CESIR au PFPS de Rennes. 
+                </p>
+
+                <a
+                    href="#reservation"
+                    class="btn btn-primary"
+                >
+                    Réserver mon kit
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         RETRAIT
+    ========================================================== -->
+
+    <section class="pickup">
+
+        <div class="section-container">
+
+            <div class="pickup-box">
+
+                <div class="pickup-icon">
+                    📍
+                </div>
+
+                <div>
+
+                    <h3>
+                        Où récupérer mon kit ?
+                    </h3>
+
+                    <p>
+                        Le kit de stage est un produit physique.
+                        Après ta réservation, tu pourras venir
+                        le récupérer directement au
+                        <strong>local CESIRÉVISE</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FORMULAIRE DE RÉSERVATION
+    ========================================================== -->
+
+    <section
+        class="reservation-section"
+        id="reservation"
+    >
+
+        <div class="reservation-container">
+
+            <div class="section-title">
+
+                <span>
+                    RÉSERVATION
+                </span>
+
+                <h2>
+                    Réserve ton kit
+                </h2>
+
+                <p>
+                    Remplis le formulaire ci-dessous pour
+                    demander ton exemplaire.
+                </p>
+
+            </div>
+
+
+            <div class="form-card">
+
+                <!--
+                    IMPORTANT :
+                    GitHub Pages ne traite pas directement
+                    les formulaires.
+
+                    Pour recevoir les réservations, remplace
+                    l'attribut action ci-dessous par ton lien
+                    Formspree lorsque tu auras créé le formulaire.
+                -->
+
+                <form
+                    id="reservationForm"
+                    action="#"
+                    method="POST"
+                >
+
+
+                    <div class="form-grid">
+
+
+                        <!-- PRÉNOM -->
+
+                        <div class="form-group">
+
+                            <label for="prenom">
+                                Prénom <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="prenom"
+                                name="prenom"
+                                placeholder="Ton prénom"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- NOM -->
+
+                        <div class="form-group">
+
+                            <label for="nom">
+                                Nom <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nom"
+                                name="nom"
+                                placeholder="Ton nom"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- ANNÉE IFSI -->
+
+                        <div class="form-group">
+
+                            <label for="annee">
+                                Année d'études <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="annee"
+                                name="annee"
+                                required
+                            >
+
+                                <option value="">
+                                    Sélectionner
+                                </option>
+
+                                <option value="1A">
+                                    1re année
+                                </option>
+
+                                <option value="2A">
+                                    2e année
+                                </option>
+
+                                <option value="3A">
+                                    3e année
+                                </option>
+
+                                <option value="autre">
+                                    Autre
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- EMAIL -->
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Adresse e-mail <span class="required">*</span>
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="ton@email.com"
+                                required
+                            >
+
+                        </div>
+
+
+
+                        <!-- TÉLÉPHONE -->
+
+                        <div class="form-group">
+
+                            <label for="telephone">
+                                Téléphone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telephone"
+                                name="telephone"
+                                placeholder="06 00 00 00 00"
+                            >
+
+                        </div>
+
+
+
+                        <!-- QUANTITÉ -->
+
+                        <div class="form-group">
+
+                            <label for="quantite">
+                                Quantité <span class="required">*</span>
+                            </label>
+
+                            <select
+                                id="quantite"
+                                name="quantite"
+                                required
+                            >
+
+                                <option value="1">
+                                    1 kit
+                                </option>
+
+                                <option value="2">
+                                    2 kits
+                                </option>
+
+                                <option value="3">
+                                    3 kits
+                                </option>
+
+                                <option value="4">
+                                    4 kits
+                                </option>
+
+                                <option value="5">
+                                    5 kits
+                                </option>
+
+                            </select>
+
+                        </div>
+
+
+
+                        <!-- MESSAGE -->
+
+                        <div class="form-group full">
+
+                            <label for="message">
+                                Message
+                            </label>
+
+                            <textarea
+                                id="message"
+                                name="message"
+                                placeholder="Une question ou une précision concernant ta réservation ?"
+                            ></textarea>
+
+                        </div>
+
+
+
+                        <!-- CONSENTEMENT -->
+
+                        <label class="checkbox">
+
+                            <input
+                                type="checkbox"
+                                id="consentement"
+                                name="consentement"
+                                required
+                            >
+
+                            <span>
+                                J'accepte que les informations renseignées
+                                soient utilisées uniquement pour traiter
+                                ma demande de réservation.
+                                <span class="required">*</span>
+                            </span>
+
+                        </label>
+
+
+
+                        <!-- BOUTON -->
+
+                        <button
+                            type="submit"
+                            class="btn btn-primary submit-button"
+                        >
+                            🩷 Réserver mon kit
+                        </button>
+
+
+                    </div>
+
+
+                    <p class="form-note">
+                        Une fois ta demande envoyée, CESIRÉVISE pourra
+                        te recontacter concernant la disponibilité et
+                        le retrait de ton kit.
+                    </p>
+
+
+                    <div
+                        class="success-message"
+                        id="successMessage"
+                    >
+                        ✨ Ta demande de réservation a bien été prise
+                        en compte !
+                    </div>
+
+
+                </form>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
+
+    <footer>
+
+        <div class="footer-container">
+
+
+            <div class="footer-brand">
+
+                <img
+                    src="logo-cesirevise.png"
+                    alt="Logo CESIRÉVISE"
+                >
+
+                <div>
+
+                    <strong>
+                        CESIRÉVISE
+                    </strong>
+
+                    <div class="footer-text">
+                        Réviser autrement en IFSI 💗
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="footer-links">
+
+                <a href="index.html">
+                    Accueil
+                </a>
+
+                <a href="fiches.html">
+                    Fiches
+                </a>
+
+                <a href="contact.html">
+                    Contact
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
+
+    <script>
+
+        const form = document.getElementById("reservationForm");
+        const successMessage = document.getElementById("successMessage");
+
+
+        form.addEventListener("submit", function(event) {
+
+            /* le formulaire ne possède pas
+             * de service externe.
+             *
+             * Cette partie empêche simplement la page de
+             * se recharger et affiche une confirmation.
+             */
+
+            if (form.getAttribute("action") === "#") {
+
+                event.preventDefault();
+
+                successMessage.style.display = "block";
+
+                successMessage.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center"
+                });
+
+                form.reset();
+
+            }
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
