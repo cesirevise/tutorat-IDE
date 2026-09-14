@@ -66,52 +66,33 @@
         /* =========================
            HEADER
         ========================= */
-/* =========================
-   HEADER
-========================= */
 
-.site-header {
+.header {
     width: 100%;
-    height: 68px;
-    padding: 10px 5%;
+    padding: 22px 35px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    background: rgba(248, 248, 246, 0.96);
-    backdrop-filter: blur(10px);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    border-bottom: 1px solid rgba(119, 165, 170, 0.15);
+    position: relative;
+    z-index: 10;
 }
 
-.header-logo {
+.logo-cesir {
     text-decoration: none;
-    display: flex;
-    align-items: center;
+    line-height: 1;
 }
 
-.header-logo img {
-    width: 115px;
-    height: auto;
-    display: block;
+.logo-noir,
+.logo-bleu {
+    font-size: 27px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
 }
 
-.desktop-nav {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.desktop-nav a {
-    text-decoration: none;
+.logo-noir {
     color: #222;
-    font-size: 14px;
-    font-weight: 600;
-    transition: 0.2s ease;
 }
 
-.desktop-nav a:hover {
+.logo-bleu {
     color: #77A5AA;
 }
 
