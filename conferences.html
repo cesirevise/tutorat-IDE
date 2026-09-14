@@ -66,100 +66,92 @@
         /* =========================
            HEADER
         ========================= */.site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247,247,245,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(32,32,32,.08);
-    }
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,247,245,.94);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(32,32,32,.08);
+}
 
-    .header-inner {
-      width: min(1180px, calc(100% - 34px));
-      min-height: 76px;
-      margin: auto;
+.header-inner {
+  width: min(1180px, calc(100% - 34px));
+  min-height: 76px;
+  margin: auto;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+}
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
 
-      text-decoration: none;
-      font-weight: 800;
-    }
+  text-decoration: none;
+  font-weight: 800;
+}
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
+.brand img {
+  width: 52px;
+  height: 52px;
+  object-fit: contain;
+  border-radius: 50%;
+}
 
 .brand-text {
-    color: #222;
+  line-height: .9;
+  font-size: 1.35rem;
+  letter-spacing: -.03em;
 }
 
 .brand-text span {
-    display: block;
-    margin-top: 4px;
-    color: #222;
-    font-size: .6rem;
-    letter-spacing: .1em;
-    text-transform: uppercase;
+  display: block;
+  margin-top: 5px;
+
+  color: var(--teal-dark);
+  font-size: .68rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
 }
-    .nav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .nav a {
-    text-decoration: none;
-    padding: 10px 14px;
-    border-radius: 999px;
+  text-decoration: none;
+  padding: 10px 14px;
+  border-radius: 999px;
 
-    font-weight: 700;
-    font-size: .92rem;
+  font-weight: 700;
+  font-size: .92rem;
 
-    color: #222; /* NOIR par défaut */
-
-    transition: .2s ease;
+  transition: .2s ease;
 }
 
-/* ONGLET ACTIF */
-.nav a.active {
-    color: #77A5AA;
-}
-
-/* SURVOL */
 .nav a:hover,
 .nav a:focus-visible {
-    background: #77A5AA;
-    color: white;
-    transform: translateY(-1px);
-}
-    
-    .brand.active .brand-text  {
-        color: #77A5AA;
+  background: var(--teal);
+  color: white;
+  transform: translateY(-1px);
 }
 
-    .menu-button {
-      display: none;
+.menu-button {
+  display: none;
 
-      border: 0;
-      background: transparent;
+  border: 0;
+  background: transparent;
 
-      font: inherit;
-      font-size: 1.7rem;
+  font: inherit;
+  font-size: 1.7rem;
 
-      cursor: pointer;
-    }
+  cursor: pointer;
+}
         /* =========================
            INTRO
         ========================= */
@@ -413,82 +405,82 @@
     <!-- HEADER -->
 <header class="site-header">
 
-    <div class="header-inner">
+  <div class="header-inner">
 
-      <a
-        class="brand"
-        href="#accueil"
-        aria-label="Retour à l'accueil CESIREVISE"
+    <a
+      class="brand"
+      href="#accueil"
+      aria-label="Retour à l'accueil CESIREVISE"
+    >
+
+      <img
+        src="logo-cesirevise.png"
+        alt="Logo CESIREVISE"
       >
 
-        <img
-          src="logo-cesirevise.png"
-          alt="Logo CESIREVISE"
-        >
+      <div class="brand-text">
+        CESIREVISE
 
-        <div class="brand-text">
-          CESIREVISE
+        <span>
+          Tutorat IDE
+        </span>
+      </div>
 
-          <span>
-            Tutorat IDE
-          </span>
-        </div>
+    </a>
 
+    <button
+      class="menu-button"
+      type="button"
+      aria-label="Ouvrir le menu"
+      aria-expanded="false"
+      aria-controls="main-nav"
+    >
+      ☰
+    </button>
+
+    <nav
+      class="nav"
+      id="main-nav"
+      aria-label="Navigation principale"
+    >
+
+      <a href="#accueil">
+        Accueil
       </a>
 
-      <button
-        class="menu-button"
-        type="button"
-        aria-label="Ouvrir le menu"
-        aria-expanded="false"
-        aria-controls="main-nav"
-      >
-        ☰
-      </button>
+      <a href="news.html">
+        Actualités
+      </a>
 
-      <nav
-        class="nav"
-        id="main-nav"
-        aria-label="Navigation principale"
-      >
+      <a href="fiches.html">
+        Fiches
+      </a>
 
-        <a href="#accueil"> 
-          Accueil
-        </a>
+      <a href="kit.html">
+        Kit de stage
+      </a>
 
-        <a href="news.html">
-          Actualités
-        </a>
-        
-        <a href="fiches.html"> 
-          Fiches
-        </a>
+      <a href="conferences.html">
+        Conférences
+      </a>
 
-       <a href ="kit.html"> 
-          Kit de stage 
-       </a>
-      
-        <a href="conferences.html"> <class="active">
-          Conférences
-        </a>
+      <a href="forum.html">
+        Forum
+      </a>
 
-        <a href="forum.html"> 
-          Forum
-        </a>
+      <a href="#rejoindre">
+        Nous rejoindre
+      </a>
 
-        <a href="#rejoindre"> 
-          Nous rejoindre
-        </a>
+      <a href="contacts.html">
+        Contact
+      </a>
 
-        <a href="contacts.html">
-          Contact
-        </a>
+    </nav>
 
-      </nav>
+  </div>
 
-    </div>
-
-  </header>
+</header>
 
     <!-- BOUTON MOBILE -->
     <button
