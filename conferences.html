@@ -66,58 +66,51 @@
         /* =========================
            HEADER
         ========================= */
-        /* =========================
-   HEADER
-========================= */
+<!-- HEADER -->
+<header class="site-header">
 
-.site-header {
-    width: 100%;
-    padding: 18px 7%;
+    <a href="index.html" class="header-logo">
+        <img src="logo-cesirevise.png" alt="CESIRÉVISE">
+    </a>
 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    <!-- MENU ORDINATEUR -->
+    <nav class="desktop-nav">
 
-    background: rgba(248, 248, 246, 0.96);
-    backdrop-filter: blur(10px);
+        <a href="index.html">Accueil</a>
+        <a href="fiches.html">Fiches</a>
+        <a href="news.html">Actualités</a>
+        <a href="conferences.html">Conférences</a>
+        <a href="kit.html">Kit de stage</a>
+        <a href="forum.html">Forum</a>
+        <a href="index.html#rejoindre">Nous rejoindre</a>
+        <a href="contacts.html">Contact</a>
 
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    </nav>
 
-    border-bottom: 1px solid rgba(119, 165, 170, 0.15);
-}
+    <!-- BOUTON MOBILE -->
+    <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Ouvrir le menu"
+    >
+        ☰
+    </button>
 
-.header-logo {
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-}
+    <!-- MENU MOBILE -->
+    <nav class="mobile-nav">
 
-.header-logo img {
-    width: 145px;
-    height: auto;
-    display: block;
-}
+        <a href="index.html">Accueil</a>
+        <a href="fiches.html">Fiches</a>
+        <a href="news.html">Actualités</a>
+        <a href="conferences.html">Conférences</a>
+        <a href="kit.html">Kit de stage</a>
+        <a href="forum.html">Forum</a>
+        <a href="index.html#rejoindre">Nous rejoindre</a>
+        <a href="contacts.html">Contact</a>
 
-.desktop-nav {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
+    </nav>
 
-.desktop-nav a {
-    text-decoration: none;
-    color: #222;
-    font-size: 15px;
-    font-weight: 600;
-    transition: 0.2s ease;
-}
-
-.desktop-nav a:hover {
-    color: #77A5AA;
-}
-
+</header>
 /* =========================
    MENU MOBILE
 ========================= */
@@ -379,16 +372,7 @@
            MOBILE
         ========================= */
         @media (max-width: 750px) {
-            header {
-                padding: 20px 5%;
-            }
-            .logo {
-                font-size: 23px;
-            }
-            .back {
-                font-size: 14px;
-                padding: 8px 14px;
-            }
+            
             /* INTRO */
             .intro {
                 width: 90%;
