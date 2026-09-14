@@ -65,80 +65,81 @@
         }
         /* =========================
            HEADER
-        ========================= */.site-header {
-  position: sticky;
-  top: 0;
-  z-index: 100;
-  background: rgba(247,247,245,.94);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(32,32,32,.08);
+        ========================= */
+        .site-header {
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          background: rgba(247,247,245,.94);    
+          backdrop-filter: blur(12px);
+          border-bottom: 1px solid rgba(32,32,32,.08);
 }
 
-.header-inner {
-  width: min(1180px, calc(100% - 34px));
-  min-height: 76px;
-  margin: auto;
+        .header-inner {
+          width: min(1180px, calc(100% - 34px));
+          min-height: 76px;
+          margin: auto;
 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          gap: 24px;
 }
 
-.brand {
-  display: flex;
-  align-items: center;
-  gap: 12px;
+        .brand {
+          display: flex;
+          align-items: center;
+          gap: 12px;
 
-  text-decoration: none;
-  font-weight: 800;
+          text-decoration: none;
+          font-weight: 800;
 }
 
-.brand img {
-  width: 52px;
-  height: 52px;
-  object-fit: contain;
-  border-radius: 50%;
+        .brand img {
+          width: 52px;
+          height: 52px;
+          object-fit: contain;
+          border-radius: 50%;
 }
 
-.brand-text {
-  line-height: .9;
-  font-size: 1.35rem;
-  letter-spacing: -.03em;
+        .brand-text {
+          line-height: .9;
+          font-size: 1.35rem;
+          letter-spacing: -.03em;
 }
 
-.brand-text span {
-  display: block;
-  margin-top: 5px;
+        .brand-text span {
+          display: block;
+          margin-top: 5px;
 
-  color: var(--teal-dark);
-  font-size: .68rem;
-  letter-spacing: .12em;
-  text-transform: uppercase;
+          color: var(--teal-dark);
+          font-size: .68rem;
+          letter-spacing: .12em;
+          text-transform: uppercase;
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 8px;
+        .nav {
+          display: flex;    
+          align-items: center;
+          gap: 8px;
 }
 
-.nav a {
-  text-decoration: none;
-  padding: 10px 14px;
-  border-radius: 999px;
+        .nav a {
+          text-decoration: none;
+          padding: 10px 14px;
+          border-radius: 999px;
 
-  font-weight: 700;
-  font-size: .92rem;
+          font-weight: 700;    
+          font-size: .92rem;
 
-  transition: .2s ease;
+          transition: .2s ease;
 }
 
-.nav a:hover,
-.nav a:focus-visible {
-  background: var(--teal);
-  color: white;
-  transform: translateY(-1px);
+        .nav a:hover,
+        .nav a:focus-visible {
+          background: var(--teal);
+          color: white;    
+          transform: translateY(-1px);
 }
 
 .menu-button {
