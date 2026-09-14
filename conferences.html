@@ -114,28 +114,36 @@
     text-transform: uppercase;
 }
     .nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
 
-    .nav a {
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 999px;
+.nav a {
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
 
-      font-weight: 700;
-      font-size: .92rem;
+    font-weight: 700;
+    font-size: .92rem;
 
-      transition: .2s ease;
-    }
+    color: #222; /* NOIR par défaut */
 
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: var(--teal);
-      color: white;
-      transform: translateY(-1px);
-    }
+    transition: .2s ease;
+}
+
+/* ONGLET ACTIF */
+.nav a.active {
+    color: #77A5AA;
+}
+
+/* SURVOL */
+.nav a:hover,
+.nav a:focus-visible {
+    background: #77A5AA;
+    color: white;
+    transform: translateY(-1px);
+}
     
     .brand.active .brand-text  {
         color: #77A5AA;
@@ -444,35 +452,35 @@
         aria-label="Navigation principale"
       >
 
-        <a href="#accueil"> <class="brand active">
+        <a href="#accueil"> 
           Accueil
         </a>
 
-        <a href="news.html"> <class="brand active">
+        <a href="news.html">
           Actualités
         </a>
         
-        <a href="fiches.html"> <class="brand active">
+        <a href="fiches.html"> 
           Fiches
         </a>
 
-       <a href ="kit.html"> <class="brand active">
+       <a href ="kit.html"> 
           Kit de stage 
        </a>
       
-        <a href="conferences.html"> <class="brand active">
+        <a href="conferences.html"> <class="active">
           Conférences
         </a>
 
-        <a href="forum.html"> <class="brand active">
+        <a href="forum.html"> 
           Forum
         </a>
 
-        <a href="#rejoindre"> <class="brand active">
+        <a href="#rejoindre"> 
           Nous rejoindre
         </a>
 
-        <a href="contacts.html"> <class="brand active">
+        <a href="contacts.html">
           Contact
         </a>
 
