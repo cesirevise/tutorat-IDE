@@ -44,70 +44,105 @@
     /* =========================
        HEADER
     ========================= */
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247, 247, 245, .94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(32, 32, 32, .06);
-    }
-    .header-inner {
-      width: min(1120px, calc(100% - 36px));
-      margin: auto;
-      min-height: 82px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 30px;
-    }
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-weight: 800;
-      font-size: 1.25rem;
-    }
-    .brand img {
-      width: 48px;
-      height: 48px;
-      object-fit: contain;
-    }
-    .brand-text {
-      line-height: .9;
-    }
-    .brand-text span {
-      display: block;
-      margin-top: 5px;
-      font-size: .72rem;
-      font-weight: 500;
-      opacity: .65;
-    }
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 25px;
-    }
-    .nav a {
-      text-decoration: none;
-      font-weight: 600;
-      font-size: .95rem;
-      transition: color .2s ease;
-    }
-    .nav a:hover {
-      color: var(--teal-dark);
-    }
-    .nav .active {
-      color: var(--teal-dark);
-    }
-    .menu-button {
-      display: none;
-      border: 0;
-      background: transparent;
-      font-size: 1.7rem;
-      cursor: pointer;
-    }
+    /* =========================
+           HEADER — IDENTIQUE INDEX
+        ========================= */
+
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247,247,245,.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(32,32,32,.08);
+        }
+
+        .header-inner {
+            width: min(1180px, calc(100% - 34px));
+            min-height: 76px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            text-decoration: none;
+            font-weight: 800;
+            color: inherit;
+        }
+
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .brand-text {
+            line-height: .9;
+            font-size: 1.35rem;
+            letter-spacing: -.03em;
+        }
+
+        .brand-text span {
+            display: block;
+            margin-top: 5px;
+
+            color: var(--teal-dark);
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
+
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .nav a {
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 999px;
+
+            font-weight: 700;
+            font-size: .92rem;
+            color: inherit;
+
+            transition: .2s ease;
+        }
+
+        .nav a:hover,
+        .nav a:focus-visible {
+            background: var(--teal);
+            color: white;
+            transform: translateY(-1px);
+        }
+
+        .nav a.active {
+          color: #77A5AA;
+        }
+
+        .menu-button {
+            display: none;
+
+            border: 0;
+            background: transparent;
+
+            font: inherit;
+            font-size: 1.7rem;
+
+            cursor: pointer;
+        }
+
+
     /* =========================
        DECORATIONS
     ========================= */
