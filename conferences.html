@@ -4,22 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Conférences — CESIREVISE</title>
+
     <!-- Polices -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
+
         /* =========================
            BASE
         ========================= */
+
+        :root {
+            --teal: #77A5AA;
+            --teal-dark: #527F84;
+            --ink: #202020;
+            --paper: #F7F7F5;
+            --white: #FFFFFF;
+            --shadow: 0 14px 35px rgba(32, 32, 32, .10);
+        }
+
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
+
         html {
             scroll-behavior: smooth;
         }
+
         body {
             font-family: 'League Spartan', sans-serif;
             background: #F8F8F6;
@@ -27,14 +42,18 @@
             min-height: 100vh;
             overflow-x: hidden;
         }
+
+
         /* =========================
            FORMES DÉCORATIVES
         ========================= */
+
         .shape {
             position: fixed;
             z-index: -1;
             pointer-events: none;
         }
+
         .shape-one {
             width: 240px;
             height: 240px;
@@ -44,6 +63,7 @@
             top: -80px;
             right: -70px;
         }
+
         .shape-two {
             width: 180px;
             height: 180px;
@@ -54,6 +74,7 @@
             left: -80px;
             transform: rotate(25deg);
         }
+
         .shape-three {
             width: 100px;
             height: 100px;
@@ -63,105 +84,114 @@
             top: 42%;
             right: -40px;
         }
+
+
         /* =========================
-           HEADER
+           HEADER — IDENTIQUE INDEX
         ========================= */
+
         .site-header {
-          position: sticky;
-          top: 0;
-          z-index: 100;
-          background: rgba(247,247,245,.94);    
-          backdrop-filter: blur(12px);
-          border-bottom: 1px solid rgba(32,32,32,.08);
-}
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247,247,245,.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(32,32,32,.08);
+        }
 
         .header-inner {
-          width: min(1180px, calc(100% - 34px));
-          min-height: 76px;
-          margin: auto;
+            width: min(1180px, calc(100% - 34px));
+            min-height: 76px;
+            margin: auto;
 
-          display: flex;
-          align-items: center;
-          justify-content: space-between;
-          gap: 24px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
 
         .brand {
-          display: flex;
-          align-items: center;
-          gap: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
 
-          text-decoration: none;
-          font-weight: 800;
-}
+            text-decoration: none;
+            font-weight: 800;
+            color: inherit;
+        }
 
         .brand img {
-          width: 52px;
-          height: 52px;
-          object-fit: contain;
-          border-radius: 50%;
-}
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
         .brand-text {
-          line-height: .9;
-          font-size: 1.35rem;
-          letter-spacing: -.03em;
-}
+            line-height: .9;
+            font-size: 1.35rem;
+            letter-spacing: -.03em;
+        }
 
         .brand-text span {
-          display: block;
-          margin-top: 5px;
+            display: block;
+            margin-top: 5px;
 
-          color: var(--teal-dark);
-          font-size: .68rem;
-          letter-spacing: .12em;
-          text-transform: uppercase;
-}
+            color: var(--teal-dark);
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
 
         .nav {
-          display: flex;    
-          align-items: center;
-          gap: 8px;
-}
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
         .nav a {
-          text-decoration: none;
-          padding: 10px 14px;
-          border-radius: 999px;
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 999px;
 
-          font-weight: 700;    
-          font-size: .92rem;
+            font-weight: 700;
+            font-size: .92rem;
+            color: inherit;
 
-          transition: .2s ease;
-}
+            transition: .2s ease;
+        }
 
         .nav a:hover,
         .nav a:focus-visible {
-          background: var(--teal);
-          color: white;    
-          transform: translateY(-1px);
-}
+            background: var(--teal);
+            color: white;
+            transform: translateY(-1px);
+        }
 
-.menu-button {
-  display: none;
+        .menu-button {
+            display: none;
 
-  border: 0;
-  background: transparent;
+            border: 0;
+            background: transparent;
 
-  font: inherit;
-  font-size: 1.7rem;
+            font: inherit;
+            font-size: 1.7rem;
 
-  cursor: pointer;
-}
+            cursor: pointer;
+        }
+
+
         /* =========================
            INTRO
         ========================= */
+
         .intro {
             width: 86%;
             max-width: 1050px;
             margin: 55px auto 45px;
             text-align: center;
         }
+
         .tag {
             display: inline-block;
             background: #77A5AA;
@@ -173,6 +203,7 @@
             margin-bottom: 18px;
             letter-spacing: 0.5px;
         }
+
         h1 {
             font-size: clamp(42px, 7vw, 76px);
             line-height: 0.95;
@@ -180,6 +211,7 @@
             letter-spacing: -2px;
             margin-bottom: 20px;
         }
+
         .intro p {
             max-width: 650px;
             margin: auto;
@@ -187,57 +219,78 @@
             line-height: 1.5;
             color: #555;
         }
+
+
         /* =========================
            ANNÉES
         ========================= */
+
         .years {
             width: 86%;
             max-width: 1050px;
             margin: 0 auto 80px;
+
             display: grid;
             grid-template-columns: repeat(3, 1fr);
             gap: 25px;
         }
+
+
         /* =========================
            CARTES
         ========================= */
+
         .year-card {
             position: relative;
             min-height: 260px;
             padding: 35px 30px;
+
             display: flex;
             flex-direction: column;
             justify-content: space-between;
+
             text-decoration: none;
             color: #222;
+
             border-radius: 35px;
             overflow: hidden;
+
             transition:
                 transform 0.3s ease,
                 box-shadow 0.3s ease;
         }
+
         .year-card:hover {
             transform: translateY(-8px) rotate(-1deg);
             box-shadow: 0 18px 35px rgba(0,0,0,0.12);
         }
+
         .year-card:active {
             transform: scale(0.98);
         }
+
+
         /* =========================
            COULEURS
         ========================= */
+
         .l1 {
             background: #77A5AA;
         }
+
         .l2 {
             background: #D585A9;
         }
+
         .l3 {
             background: #FFD230;
         }
+
+
         /* =========================
            TITRE L1 / L2 / L3
         ========================= */
+
         .year-title {
             font-size: 72px;
             line-height: 0.85;
@@ -245,375 +298,523 @@
             letter-spacing: -2px;
             color: white;
         }
+
         .l3 .year-title {
             color: #222;
         }
+
+
         /* =========================
            DESCRIPTION
         ========================= */
+
         .year-description {
             font-size: 16px;
             font-weight: 500;
             line-height: 1.2;
+
             color: rgba(255,255,255,0.9);
+
             margin-top: 0;
             padding-right: 50px;
         }
+
         .l3 .year-description {
             color: rgba(0,0,0,0.7);
         }
+
+
         /* =========================
            FLÈCHE
         ========================= */
+
         .arrow {
             position: absolute;
             right: 25px;
             bottom: 22px;
+
             width: 45px;
             height: 45px;
+
             border-radius: 50%;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             background: rgba(255,255,255,0.25);
+
             font-size: 24px;
             font-weight: 700;
+
             transition: 0.25s ease;
         }
+
         .year-card:hover .arrow {
             transform: translateX(5px);
             background: rgba(255,255,255,0.4);
         }
+
         .l3 .arrow {
             background: rgba(0,0,0,0.10);
         }
+
+
         /* =========================
            PETITE INFO
         ========================= */
+
         .info {
             width: 86%;
             max-width: 850px;
             margin: 0 auto 70px;
+
             background: white;
             border: 2px solid #E8E8E4;
             border-radius: 28px;
+
             padding: 25px 30px;
+
             display: flex;
             align-items: center;
             gap: 18px;
         }
+
         .info-icon {
             min-width: 48px;
             height: 48px;
+
             border-radius: 50%;
             background: #77A5AA;
+
             display: flex;
             align-items: center;
             justify-content: center;
+
             color: white;
             font-size: 23px;
             font-weight: 700;
         }
+
         .info p {
             font-size: 16px;
             line-height: 1.45;
             color: #555;
         }
+
+
         /* =========================
            FOOTER
         ========================= */
+
         footer {
             text-align: center;
             padding: 30px 20px 40px;
             color: #777;
             font-size: 14px;
         }
+
+
         /* =========================
            MOBILE
         ========================= */
-        @media (max-width: 750px) {
-            
+
+        @media (max-width: 760px) {
+
+            /* HEADER */
+
+            .header-inner {
+                min-height: 68px;
+            }
+
+            .brand-text {
+                font-size: 1.1rem;
+            }
+
+            .brand img {
+                width: 44px;
+                height: 44px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+
+                position: absolute;
+                top: 68px;
+                left: 15px;
+                right: 15px;
+
+                padding: 12px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                background: var(--white);
+                border: 2px solid var(--ink);
+                border-radius: 22px;
+
+                box-shadow: var(--shadow);
+            }
+
+            .nav.open {
+                display: flex;
+            }
+
+            .nav a {
+                text-align: center;
+            }
+
+
             /* INTRO */
+
             .intro {
                 width: 90%;
                 margin-top: 40px;
                 margin-bottom: 35px;
             }
+
             h1 {
                 font-size: 52px;
                 letter-spacing: -1.5px;
             }
+
             .intro p {
                 font-size: 17px;
             }
+
+
             /* CARTES */
+
             .years {
                 width: 90%;
                 grid-template-columns: 1fr;
                 gap: 18px;
                 margin-bottom: 50px;
             }
+
             .year-card {
                 min-height: 190px;
                 padding: 28px 25px;
                 border-radius: 28px;
             }
+
+
             /* L1 / L2 / L3 */
+
             .year-title {
                 font-size: 58px;
                 line-height: 0.85;
             }
+
+
             /* DESCRIPTION */
+
             .year-description {
                 font-size: 15px;
                 padding-right: 45px;
             }
+
+
             /* FLÈCHE */
+
             .arrow {
                 width: 40px;
                 height: 40px;
                 right: 20px;
                 bottom: 18px;
             }
+
+
             /* INFO */
+
             .info {
                 width: 90%;
                 padding: 20px;
                 border-radius: 22px;
                 align-items: flex-start;
             }
+
             .info-icon {
                 min-width: 42px;
                 height: 42px;
                 font-size: 19px;
             }
+
             .info p {
                 font-size: 15px;
             }
+
+
             /* FOOTER */
+
             footer {
                 padding-bottom: 30px;
             }
         }
+
     </style>
 </head>
+
 <body>
+
     <!-- Formes décoratives -->
+
     <div class="shape shape-one"></div>
     <div class="shape shape-two"></div>
     <div class="shape shape-three"></div>
-    
-    <!-- HEADER -->
-<header class="site-header">
 
-  <div class="header-inner">
 
-    <a
-      class="brand"
-      href="#accueil"
-      aria-label="Retour à l'accueil CESIREVISE"
-    >
+    <!-- =========================
+         HEADER
+         IDENTIQUE À INDEX
+    ========================= -->
 
-      <img
-        src="logo-cesirevise.png"
-        alt="Logo CESIREVISE"
-      >
+    <header class="site-header">
 
-      <div class="brand-text">
-        CESIREVISE
+        <div class="header-inner">
 
-        <span>
-          Tutorat IDE
-        </span>
-      </div>
+            <a
+                class="brand"
+                href="index.html"
+                aria-label="Retour à l'accueil CESIREVISE"
+            >
+                <img
+                    src="logo-cesirevise.png"
+                    alt="Logo CESIREVISE"
+                >
 
-    </a>
+                <div class="brand-text">
+                    CESIREVISE
+                    <span>Tutorat IDE</span>
+                </div>
+            </a>
 
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Ouvrir le menu"
-      aria-expanded="false"
-      aria-controls="main-nav"
-    >
-      ☰
-    </button>
 
-    <nav
-      class="nav"
-      id="main-nav"
-      aria-label="Navigation principale"
-    >
+            <button
+                class="menu-button"
+                type="button"
+                aria-label="Ouvrir le menu"
+                aria-expanded="false"
+                aria-controls="main-nav"
+            >
+                ☰
+            </button>
 
-      <a href="#accueil">
-        Accueil
-      </a>
 
-      <a href="news.html">
-        Actualités
-      </a>
+            <nav
+                class="nav"
+                id="main-nav"
+                aria-label="Navigation principale"
+            >
 
-      <a href="fiches.html">
-        Fiches
-      </a>
+                <a href="index.html">
+                    Accueil
+                </a>
 
-      <a href="kit.html">
-        Kit de stage
-      </a>
+                <a href="fiches.html">
+                    Fiches
+                </a>
 
-      <a href="conferences.html">
-        Conférences
-      </a>
+                <a href="conferences.html">
+                    Conférences
+                </a>
 
-      <a href="forum.html">
-        Forum
-      </a>
+                <a href="forum.html">
+                    Forum
+                </a>
 
-      <a href="#rejoindre">
-        Nous rejoindre
-      </a>
+                <a href="index.html#rejoindre">
+                    Nous rejoindre
+                </a>
 
-      <a href="contacts.html">
-        Contact
-      </a>
+                <a href="contacts.html">
+                    Contact
+                </a>
 
-    </nav>
+            </nav>
 
-  </div>
+        </div>
 
-</header>
+    </header>
 
-    <!-- BOUTON MOBILE -->
-    <button
-        class="menu-toggle"
-        type="button"
-        aria-label="Ouvrir le menu"
-    >
-        ☰
-    </button>
-    
-    <!-- CONTENU -->
+
+    <!-- =========================
+         CONTENU
+    ========================= -->
+
     <main>
+
         <!-- INTRO -->
+
         <section class="intro">
+
             <span class="tag">
                 CONFÉRENCES
             </span>
+
             <h1>
                 ENTRAÎNE TOI !
             </h1>
+
             <p>
                 Retrouvez les conférences du tutorat CESIR,
                 classées par année d'études pour vous permettre
                 de retrouver rapidement les contenus dont vous avez besoin.
             </p>
+
         </section>
+
+
         <!-- ANNÉES -->
+
         <section class="years">
+
             <!-- L1 -->
+
             <a href="conf-L1.html" class="year-card l1">
+
                 <div class="year-title">
                     L1
                 </div>
+
                 <div class="year-description">
                     Conférences de première année
                 </div>
+
                 <div class="arrow">
                     →
                 </div>
+
             </a>
+
+
             <!-- L2 -->
+
             <a href="conf-L2.html" class="year-card l2">
+
                 <div class="year-title">
                     L2
                 </div>
+
                 <div class="year-description">
                     Conférences de deuxième année
                 </div>
+
                 <div class="arrow">
                     →
                 </div>
+
             </a>
+
+
             <!-- L3 -->
+
             <a href="conf-L3.html" class="year-card l3">
+
                 <div class="year-title">
                     L3
                 </div>
+
                 <div class="year-description">
                     Conférences de troisième année
                 </div>
+
                 <div class="arrow">
                     →
                 </div>
+
             </a>
+
         </section>
+
+
         <!-- INFO -->
+
         <section class="info">
+
             <div class="info-icon">
                 i
             </div>
+
             <p>
                 Les conférences sont organisées par année d'études.
                 Une seconde organisation par matière sera également
                 disponible prochainement.
             </p>
+
         </section>
+
     </main>
+
+
     <!-- FOOTER -->
+
     <footer>
         © CESIREVISE — Tutorat CESIR
     </footer>
-<script>
-
-const menuToggle = document.querySelector('.menu-toggle');
-const mobileNav = document.querySelector('.mobile-nav');
-
-menuToggle.addEventListener('click', () => {
-
-    mobileNav.classList.toggle('active');
-
-    if (mobileNav.classList.contains('active')) {
-
-        menuToggle.textContent = '✕';
-        menuToggle.setAttribute(
-            'aria-label',
-            'Fermer le menu'
-        );
-
-    } else {
-
-        menuToggle.textContent = '☰';
-        menuToggle.setAttribute(
-            'aria-label',
-            'Ouvrir le menu'
-        );
-
-    }
-
-});
 
 
-/* Fermer le menu après avoir choisi une page */
+    <!-- =========================
+         MENU MOBILE
+    ========================= -->
 
-document.querySelectorAll('.mobile-nav a').forEach(link => {
+    <script>
 
-    link.addEventListener('click', () => {
+        const menuButton = document.querySelector('.menu-button');
+        const nav = document.querySelector('.nav');
 
-        mobileNav.classList.remove('active');
+        menuButton.addEventListener('click', () => {
 
-        menuToggle.textContent = '☰';
+            const open = nav.classList.toggle('open');
 
-        menuToggle.setAttribute(
-            'aria-label',
-            'Ouvrir le menu'
-        );
+            menuButton.setAttribute(
+                'aria-expanded',
+                String(open)
+            );
 
-    });
+            menuButton.setAttribute(
+                'aria-label',
+                open
+                    ? 'Fermer le menu'
+                    : 'Ouvrir le menu'
+            );
 
-});
+            menuButton.textContent = open
+                ? '✕'
+                : '☰';
 
-</script>
+        });
 
+
+        /* Fermer le menu après avoir choisi une page */
+
+        nav.querySelectorAll('a').forEach(link => {
+
+            link.addEventListener('click', () => {
+
+                nav.classList.remove('open');
+
+                menuButton.textContent = '☰';
+
+                menuButton.setAttribute(
+                    'aria-expanded',
+                    'false'
+                );
+
+                menuButton.setAttribute(
+                    'aria-label',
+                    'Ouvrir le menu'
+                );
+
+            });
+
+        });
+
+    </script>
 
 </body>
 </html>
