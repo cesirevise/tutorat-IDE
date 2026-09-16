@@ -17,12 +17,18 @@
         :root {
             --bleu: #77A5AA;
             --teal : #77A5AA;
-            --teal-dark : #527F84;
             --ink : #202020;
             --bleu-clair: #EAF3F3;
             --bleu-pale: #F5FAFA;
             --noir: #222;
             --gris: #777;
+            --teal: #77A5AA;
+            --teal-dark: #527F84;
+            --ink: #202020;
+            --paper: #F7F7F5;
+            --white: #FFFFFF;
+            --shadow: 0 14px 35px rgba(32, 32, 32, .10);
+    }
         }
 
         body {
@@ -92,7 +98,6 @@
       width: min(1180px, calc(100% - 34px));
       min-height: 76px;
       margin: auto;
-
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -103,7 +108,6 @@
       display: flex;
       align-items: center;
       gap: 12px;
-
       text-decoration: none;
       font-weight: 800;
     }
@@ -124,7 +128,7 @@
     .brand-text span {
       display: block;
       margin-top: 5px;
-
+      font-family: League Spartan; 
       color: var(--teal-dark);
       font-size: .68rem;
       letter-spacing: .12em;
@@ -141,7 +145,8 @@
       text-decoration: none;
       padding: 10px 14px;
       border-radius: 999px;
-
+      color: #222;
+      font-family: League Spartan; 
       font-weight: 700;
       font-size: .92rem;
 
