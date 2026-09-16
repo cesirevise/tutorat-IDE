@@ -6,6 +6,10 @@
 
     <title>Contact - CESI Révise</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+ 
     <style>
 
         * {
@@ -39,141 +43,150 @@
             overflow-x: hidden;
         }
 
-/*======== HEADER ========*/ 
-        
-.header {
-    width: 100%;
-    padding: 22px 35px;
+/* =========================================
+   HEADER — IDENTIQUE À L'INDEX
+========================================= */
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(247,247,245,.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(32,32,32,.08);
+}
+
+.header-inner {
+    width: min(1180px, calc(100% - 34px));
+    min-height: 76px;
+    margin: auto;
     display: flex;
     align-items: center;
-    position: relative;
-    z-index: 10;
+    justify-content: space-between;
+    gap: 24px;
 }
 
-.logo-cesir {
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
     text-decoration: none;
-    line-height: 1;
-}
-
-.logo-noir,
-.logo-bleu {
-    font-size: 27px;
     font-weight: 800;
-    letter-spacing: -1.5px;
+    font-family: "League Spartan", Arial, sans-serif;
+    color: var(--ink);
 }
 
-.logo-noir {
+.brand img {
+    width: 52px;
+    height: 52px;
+    object-fit: contain;
+    border-radius: 50%;
+}
+
+.brand-text {
+    line-height: .9;
+    font-size: 1.35rem;
+    letter-spacing: -.03em;
+    font-family: "League Spartan", Arial, sans-serif;
+}
+
+.brand-text span {
+    display: block;
+    margin-top: 5px;
+    color: var(--teal-dark);
+    font-size: .68rem;
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    font-family: "League Spartan", Arial, sans-serif;
+}
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav a,
+.nav a:visited {
+    text-decoration: none;
+    padding: 10px 14px;
+    border-radius: 999px;
+    font-family: "League Spartan", Arial, sans-serif;
+    font-weight: 700;
+    font-size: .92rem;
     color: #222;
+    transition: .2s ease;
 }
 
-.logo-bleu {
+.nav a.active,
+.nav a.active:visited {
     color: #77A5AA;
 }
 
-/* MOBILE */
-
-@media (max-width: 600px) {
-
-    .header {
-        padding: 18px 20px;
-    }
-
-    .logo-noir,
-    .logo-bleu {
-        font-size: 23px;
-    }
-
+.nav a:hover,
+.nav a:focus-visible {
+    background: var(--teal);
+    color: #fff;
+    transform: translateY(-1px);
 }
-    
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247,247,245,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(32,32,32,.08);
-    }
+
+.menu-button {
+    display: none;
+    border: 0;
+    background: transparent;
+    font: inherit;
+    font-family: "League Spartan", Arial, sans-serif;
+    font-size: 1.7rem;
+    cursor: pointer;
+}
+
+
+/* =========================================
+   HEADER MOBILE — IDENTIQUE À L'INDEX
+========================================= */
+
+@media (max-width: 760px) {
 
     .header-inner {
-      width: min(1180px, calc(100% - 34px));
-      min-height: 76px;
-      margin: auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
-
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      font-weight: 800;
-    }
-
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 50%;
+        min-height: 68px;
     }
 
     .brand-text {
-      line-height: .9;
-      font-size: 1.35rem;
-      letter-spacing: -.03em;
+        font-size: 1.1rem;
     }
 
-    .brand-text span {
-      display: block;
-      margin-top: 5px;
-      font-family: League Spartan; 
-      color: var(--teal-dark);
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav a {
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: #222;
-      font-family: League Spartan; 
-      font-weight: 700;
-      font-size: .92rem;
-
-      transition: .2s ease;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: var(--teal);
-      color: white;
-      transform: translateY(-1px);
-    }
-    .nav a.active {
-      color: #77A5AA;
+    .brand img {
+        width: 44px;
+        height: 44px;
     }
 
     .menu-button {
-      display: none;
-
-      border: 0;
-      background: transparent;
-
-      font: inherit;
-      font-size: 1.7rem;
-
-      cursor: pointer;
+        display: block;
     }
+
+    .nav {
+        display: none;
+        position: absolute;
+        top: 68px;
+        left: 15px;
+        right: 15px;
+        padding: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        background: var(--white);
+        border: 2px solid var(--ink);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+    }
+
+    .nav.open {
+        display: flex;
+    }
+
+    .nav a {
+        text-align: center;
+    }
+}
 
         /* =========================================
            DÉCORATIONS
