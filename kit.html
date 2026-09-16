@@ -663,48 +663,22 @@
         /* =========================================================
            FOOTER
         ========================================================== */
-        footer {
-            background: #203133;
-            color: white;
-            padding: 45px 25px;
-        }
-        .footer-container {
-            max-width: 1150px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 25px;
-        }
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-        .footer-brand img {
-            width: 45px;
-            height: 45px;
-            object-fit: contain;
-        }
-        .footer-brand strong {
-            font-family: "League Spartan", sans-serif;
-            font-size: 20px;
-        }
-        .footer-text {
-            color: rgba(255, 255, 255, 0.65);
-            font-size: 14px;
-        }
-        .footer-links {
-            display: flex;
-            gap: 20px;
-            font-family: "League Spartan", sans-serif;
-            font-weight: 600;
-        }
-        .footer-links a:hover {
-            color: var(--yellow);
-        }
+            footer {
+      padding: 35px 20px 50px;
+
+      text-align: center;
+
+      font-family: "Baloo 2", Arial, sans-serif;
+
+      color: #555;
+    }
+
+    footer strong {
+      color: var(--teal-dark);
+    }
+
         /* =========================================================
-           RESPONSIVE — IDENTIQUE AU HEADER INDEX
+           RESPONSIVE — IDENTIQUE AU HEADER 
         ========================================================== */
         @media (max-width: 900px) {
             .hero-container {
@@ -1305,33 +1279,7 @@
          FOOTER
     ========================================================== -->
     <footer>
-        <div class="footer-container">
-            <div class="footer-brand">
-                <img
-                    src="logo-cesirevise.png"
-                    alt="Logo CESIRÉVISE"
-                >
-                <div>
-                    <strong>
-                        CESIRÉVISE
-                    </strong>
-                    <div class="footer-text">
-                        Réviser autrement en IFSI
-                    </div>
-                </div>
-            </div>
-            <div class="footer-links">
-                <a href="index.html">
-                    Accueil
-                </a>
-                <a href="fiches.html">
-                    Fiches
-                </a>
-                <a href="contact.html">
-                    Contact
-                </a>
-            </div>
-        </div>
+        <strong>CESIREVISE</strong> - Tutorat IDE - Rennes 
     </footer>
     <!-- =========================================================
          JAVASCRIPT
