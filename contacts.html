@@ -132,6 +132,7 @@
     display: none;
     border: 0;
     background: transparent;
+    color: var(--teal);
     font: inherit;
     font-family: "League Spartan", Arial, sans-serif;
     font-size: 1.7rem;
@@ -1068,5 +1069,34 @@
             
         </div>
     </section>
+<script>
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+
+    menuButton.addEventListener("click", () => {
+        const open = nav.classList.toggle("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(open)
+        );
+
+        menuButton.textContent = open ? "×" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("open");
+
+            menuButton.setAttribute(
+                "aria-expanded",
+                "false"
+            );
+
+            menuButton.textContent = "☰";
+        });
+    });
+</script>
+    
 </body>
 </html>
