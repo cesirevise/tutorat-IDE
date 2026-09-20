@@ -219,42 +219,44 @@
         /* =========================================================
            HERO PRODUCT CARD
         ========================================================== */
-        .hero-card {
-            position: relative;
-            background: white;
-            border-radius: 35px;
-            padding: 28px;
-            box-shadow: var(--shadow);
-            transform: rotate(2deg);
-        }
-        .hero-card-inner {
-            background: var(--primary-light);
-            border-radius: 25px;
-            min-height: 390px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 35px;
-            text-align: center;
-        }
-        .kit-icon {
-            width: 105px;
-            height: 105px;
-            background: white;
-            border-radius: 28px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 20px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
-            overflow: hidden;
-        }
-        .kit-icon img {
-            width: 100%;
-            height: 100%;
-            object-fit: contain;
-        }
+    .hero-card {
+    position: relative;
+    background: white;
+    border-radius: 35px;
+    padding: 12px;
+    box-shadow: var(--shadow);
+    transform: rotate(2deg);
+    overflow: hidden;
+}
+
+.hero-card-inner {
+    background: white;
+    border-radius: 25px;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+}
+
+.kit-icon {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    overflow: hidden;
+    border-radius: 25px;
+}
+
+.kit-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+}
         .hero-card h2 {
             font-family: "League Spartan", sans-serif;
             font-size: 34px;
@@ -887,24 +889,19 @@
                 </p>
             </div>
             <div class="hero-card">
-                <div class="badge">
-                    CESIRÉVISE
-                </div>
-                <div class="hero-card-inner">
-                    <div class="kit-icon">
-                        <img
-                            src="kit.png"
-                            alt="Photo du kit de stage CESIRÉVISE"
-                        >
-                    </div>
-                    <h2>
-                        Kit de stage
-                    </h2>
-                    <p>
-                        Pratique · Utile · Pensé pour l'IFSI
-                    </p>
-                </div>
-            </div>
+    <div class="badge">
+        CESIRÉVISE
+    </div>
+
+    <div class="hero-card-inner">
+        <div class="kit-icon">
+            <img
+                src="kit.png"
+                alt="Photo du kit de stage CESIRÉVISE"
+            >
+        </div>
+    </div>
+</div>
         </div>
     </header>
     <!-- =========================================================
