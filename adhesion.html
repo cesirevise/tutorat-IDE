@@ -31,141 +31,103 @@
         /* =====================================================
        HEADER
        ===================================================== */
+   /* =========================
+           HEADER
+        ========================= */
 
-.header {
-    width: 100%;
-    padding: 22px 35px;
-    display: flex;
-    align-items: center;
-    position: relative;
-    z-index: 10;
-}
+        .site-header {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            background: rgba(247,247,245,.94);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(32,32,32,.08);
+        }
 
-.logo-cesir {
-    text-decoration: none;
-    line-height: 1;
-}
+        .header-inner {
+            width: min(1180px, calc(100% - 34px));
+            min-height: 76px;
+            margin: auto;
 
-.logo-noir,
-.logo-bleu {
-    font-size: 27px;
-    font-weight: 800;
-    letter-spacing: -1.5px;
-}
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 24px;
+        }
 
-.logo-noir {
-    color: #222;
-}
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
 
-.logo-bleu {
-    color: #77A5AA;
-}
+            text-decoration: none;
+            font-weight: 800;
+            color: inherit;
+        }
 
-/* MOBILE */
+        .brand img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            border-radius: 50%;
+        }
 
-@media (max-width: 1050px) {
+        .brand-text {
+            line-height: .9;
+            font-size: 1.35rem;
+            letter-spacing: -.03em;
+        }
 
-    .header {
-        padding: 18px 20px;
-    }
+        .brand-text span {
+            display: block;
+            margin-top: 5px;
 
-    .logo-noir,
-    .logo-bleu {
-        font-size: 23px;
-    }
+            color: var(--teal-dark);
+            font-size: .68rem;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+        }
 
-}
-    
-    .site-header {
-      position: sticky;
-      top: 0;
-      z-index: 100;
-      background: rgba(247,247,245,.94);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(32,32,32,.08);
-    }
+        .nav {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
 
-    .header-inner {
-      width: min(1180px, calc(100% - 34px));
-      min-height: 76px;
-      margin: auto;
+        .nav a {
+            text-decoration: none;
+            padding: 10px 14px;
+            border-radius: 999px;
 
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 24px;
-    }
+            font-weight: 700;
+            font-size: .92rem;
+            color: inherit;
 
-    .brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
+            transition: .2s ease;
+        }
 
-      text-decoration: none;
-      font-weight: 800;
-    }
+        .nav a:hover,
+        .nav a:focus-visible {
+            background: var(--teal);
+            color: white;
+            transform: translateY(-1px);
+        }
 
-    .brand img {
-      width: 52px;
-      height: 52px;
-      object-fit: contain;
-      border-radius: 50%;
-    }
+        .nav a.active {
+          color: #77A5AA;
+        }
 
-    .brand-text {
-      line-height: .9;
-      font-size: 1.35rem;
-      letter-spacing: -.03em;
-    }
+        .menu-button {
+            display: none;
+            color: var(--teal);
+            border: 0;
+            background: transparent;
 
-    .brand-text span {
-      display: block;
-      margin-top: 5px;
+            font: inherit;
+            font-size: 1.7rem;
 
-      color: var(--teal-dark);
-      font-size: .68rem;
-      letter-spacing: .12em;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-
-    .nav a {
-      text-decoration: none;
-      padding: 10px 14px;
-      border-radius: 999px;
-      color: var(--noir);
-      font-weight: 700;
-      font-size: .92rem;
-
-      transition: .2s ease;
-    }
-
-    .nav a:hover,
-    .nav a:focus-visible {
-      background: var(--teal);
-      color: white;
-      transform: translateY(-1px);
-    }
-    .nav a.active {
-      color: #77A5AA;
-    }
-
-    .menu-button {
-      display: none;
-
-      border: 0;
-      background: transparent;
-      color: var(--teal);
-      font: inherit;
-      font-size: 1.7rem;
-
-      cursor: pointer;
-    }
+            cursor: pointer;
+        }
 
         /* =========================
            HERO
