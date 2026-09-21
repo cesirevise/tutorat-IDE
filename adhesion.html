@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nous rejoindre — CESIRÉVISE</title>
+    <!-- Polices -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bleu: #77A5AA;
+            --bleu-fonce: #527F84;
+            --noir: #202020;
+            --blanc: #F7F7F5;
+        }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            background: var(--blanc);
+            color: var(--noir);
+            font-family: 'League Spartan', sans-serif;
+            overflow-x: hidden;
+        }
+        /* =========================
+           NAVBAR
+        ========================= */
+        nav {
+            width: 100%;
+            padding: 22px 6%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: var(--blanc);
+        }
+        .logo {
+            width: 145px;
+        }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 27px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--noir);
+            font-size: 17px;
+            font-weight: 600;
+            transition: 0.2s ease;
+        }
+        .nav-links a:hover {
+            color: var(--bleu-fonce);
+        }
+        .nav-links .active {
+            color: var(--bleu-fonce);
+        }
+        /* =========================
+           HERO
+        ========================= */
+        .hero {
+            min-height: 470px;
+            padding: 65px 8% 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero-content {
+            max-width: 850px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+        .mini-badge {
+            display: inline-block;
+            background: var(--bleu);
+            color: white;
+            padding: 8px 18px;
+            border-radius: 30px;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 700;
+            font-size: 17px;
+            transform: rotate(-2deg);
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: clamp(55px, 9vw, 100px);
+            line-height: 0.9;
+            font-weight: 800;
+            color: var(--noir);
+            margin-bottom: 25px;
+        }
+        h1 span {
+            color: var(--bleu-fonce);
+        }
+        .hero-text {
+            font-size: 21px;
+            line-height: 1.5;
+            max-width: 680px;
+            margin: auto;
+        }
+        /* éléments décoratifs */
+        .shape {
+            position: absolute;
+            font-family: 'Baloo 2', sans-serif;
+            font-weight: 800;
+            z-index: 1;
+            user-select: none;
+        }
+        .shape-one {
+            left: 8%;
+            top: 28%;
+            font-size: 65px;
+            color: var(--bleu);
+            transform: rotate(-12deg);
+        }
+        .shape-two {
+            right: 9%;
+            top: 18%;
+            font-size: 75px;
+            color: var(--bleu-fonce);
+            transform: rotate(12deg);
+        }
+        .shape-three {
+            right: 16%;
+            bottom: 10%;
+            font-size: 45px;
+            color: var(--bleu);
+            transform: rotate(-8deg);
+        }
+        .shape-four {
+            left: 16%;
+            bottom: 12%;
+            font-size: 40px;
+            color: var(--bleu-fonce);
+            transform: rotate(10deg);
+        }
+        /* =========================
+           SECTION
+        ========================= */
+        .join-section {
+            padding: 20px 7% 90px;
+        }
+        .join-card {
+            max-width: 950px;
+            margin: auto;
+            background: white;
+            border: 3px solid var(--noir);
+            border-radius: 30px;
+            padding: 50px;
+            box-shadow: 9px 9px 0 var(--bleu);
+            position: relative;
+        }
+        .join-card h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 42px;
+            line-height: 1;
+            margin-bottom: 18px;
+        }
+        .join-card > p {
+            font-size: 19px;
+            line-height: 1.5;
+            max-width: 700px;
+        }
+        /* =========================
+           PETITES CARTES
+        ========================= */
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 18px;
+            margin: 35px 0;
+        }
+        .benefit {
+            background: var(--blanc);
+            border-radius: 20px;
+            padding: 22px;
+            transition: 0.2s ease;
+        }
+        .benefit:hover {
+            transform: translateY(-5px) rotate(-1deg);
+        }
+        .benefit-icon {
+            font-size: 32px;
+            margin-bottom: 8px;
+        }
+        .benefit h3 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 23px;
+            margin-bottom: 5px;
+        }
+        .benefit p {
+            font-size: 16px;
+            line-height: 1.35;
+        }
+        /* =========================
+           BOUTON
+        ========================= */
+        .button-container {
+            text-align: center;
+            margin-top: 38px;
+        }
+        .join-button {
+            display: inline-block;
+            text-decoration: none;
+            background: var(--bleu-fonce);
+            color: white;
+            padding: 17px 34px;
+            border-radius: 50px;
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 23px;
+            font-weight: 700;
+            box-shadow: 0 6px 0 var(--noir);
+            transition: 0.15s ease;
+        }
+        .join-button:hover {
+            transform: translateY(3px);
+            box-shadow: 0 3px 0 var(--noir);
+            background: var(--bleu);
+        }
+        .small-text {
+            margin-top: 17px;
+            font-size: 14px;
+            opacity: 0.65;
+        }
+        /* =========================
+           BAS DE PAGE
+        ========================= */
+        .bottom-message {
+            text-align: center;
+            padding: 0 20px 80px;
+        }
+        .bottom-message h2 {
+            font-family: 'Baloo 2', sans-serif;
+            font-size: 38px;
+            margin-bottom: 8px;
+        }
+        .bottom-message p {
+            font-size: 18px;
+        }
+        /* =========================
+           MOBILE
+        ========================= */
+        @media (max-width: 800px) {
+            nav {
+                padding: 18px 5%;
+            }
+            .logo {
+                width: 120px;
+            }
+            .nav-links {
+                gap: 12px;
+            }
+            .nav-links a {
+                font-size: 14px;
+            }
+            .hero {
+                padding: 55px 7% 65px;
+                min-height: 420px;
+            }
+            h1 {
+                font-size: 65px;
+            }
+            .hero-text {
+                font-size: 18px;
+            }
+            .shape-one {
+                left: 2%;
+                font-size: 40px;
+            }
+            .shape-two {
+                right: 2%;
+                font-size: 45px;
+            }
+            .shape-three,
+            .shape-four {
+                display: none;
+            }
+            .join-section {
+                padding: 10px 5% 70px;
+            }
+            .join-card {
+                padding: 30px 22px;
+                border-radius: 25px;
+                box-shadow: 6px 6px 0 var(--bleu);
+            }
+            .join-card h2 {
+                font-size: 35px;
+            }
+            .join-card > p {
+                font-size: 17px;
+            }
+            .benefits {
+                grid-template-columns: 1fr;
+                gap: 12px;
+            }
+            .benefit {
+                padding: 18px;
+            }
+            .bottom-message h2 {
+                font-size: 32px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
+    <nav>
+        <a href="index.html">
+            <img src="logo-cesirevise.png" alt="CESIRÉVISE" class="logo">
+        </a>
+        <div class="nav-links">
+            <a href="index.html">Accueil</a>
+            <a href="fiches.html">Fiches</a>
+            <a href="actualites.html">Actualités</a>
+            <a href="kit.html">Kit de stage</a>
+            <a href="conferences.html">Conférences</a>
+            <a href="forum.html">Forum</a>
+            <a href="adhesion.html" class="active">Nous rejoindre</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+    <!-- =========================
+         HERO
+    ========================= -->
+    <section class="hero">
+        <div class="shape shape-one">✦</div>
+        <div class="shape shape-two">+</div>
+        <div class="shape shape-three">✦</div>
+        <div class="shape shape-four">♡</div>
+        <div class="hero-content">
+            <div class="mini-badge">
+                Rejoins la team !
+            </div>
+            <h1>
+                On t’attend<br>
+                <span>au CESIR !</span>
+            </h1>
+            <p class="hero-text">
+                Envie de faire partie d'une équipe, participer à nos assemblées générales,
+              et faire vivre une asso ? 
+                <br><br>
+                Alors viens adhérer au CESIR !
+            </p>
+        </div>
+    </section>
+    <!-- =========================
+         CARTE PRINCIPALE
+    ========================= -->
+    <section class="join-section">
+        <div class="join-card">
+            <h2>Pourquoi nous rejoindre ? 👀</h2>
+            <p>
+                Le CESIR, c’est avant tout une équipe d’étudiants
+                qui s’entraident pour rendre les études en IFSI un peu
+                plus simples, plus accessibles… et surtout plus fun !
+            </p>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon"></div>
+                    <h3>Partager</h3>
+                    <p>
+                        Tes conseils, ta voix, ta bonne humeur à tous les étudiant
+                      et membre de l'équipe.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon"></div>
+                    <h3>S’entraider</h3>
+                    <p>
+                        Parce qu’on apprend aussi énormément
+                        en échangeant avec les autres.
+                    </p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon"></div>
+                    <h3>Participer</h3>
+                    <p>
+                        Ton vote compte pour nous lors de nos assemblées générales,
+                      pour les prises de décisions pour l'avenir du CESIR.
+                    </p>
+                </div>
+              <div class="benefit">
+                    <div class="benefit-icon"></div>
+                    <h3>En échange ?</h3>
+                    <p>
+                        Des tarifs préferentiels dans certains bars partenaires à Rennes, 
+                      sur nos sweat de promo, ou lors des évènements !
+                    </p>
+                </div>
+            </div>
+            <div class="button-container">
+                <a
+                    href="https://l.facebook.com/l.php?u=https%3A%2F%2Fwww.helloasso.com%2Fassociations%2Fcomite-des-etudiants-en-soins-infirmiers-de-rennes%2Fadhesions%2Fadhesion-cesir%3Ffbclid%3DIwcGRvZgNleHRuA2FlbQIxMQBzcnRjBmFwcF9pZA80Mzc2MjYzMTY5NzM3ODgAAR5fTID8vABNRxguSmRK3HpDAxT_MIqJ2JCUO7KTK7syedolZbiLrmkzC-fnpQ_aem__QCG9Y3QDcAsbIdb-u_y7w&h=AUA7Sh5Cf-0Feej8c1ExL2DGAk-I3dztOrgOOYu8GevfRCFT6gu_yaZ-PdlJtwQtdI6rxVmxs_A4Eue4N42M8AlAZfl2nYFv2m7VlSZk59rdZGVWfqsMkAZs9JzzZLAMCc81Yu6UebernFg&s=1"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="join-button"
+                >
+                    Je rejoins le CESIR
+                </a>
+                <p class="small-text">
+                    En 20 secondes, c'est plié ! 
+                </p>
+            </div>
+        </div>
+    </section>
+    <!-- =========================
+         MESSAGE FINAL
+    ========================= -->
+    <section class="bottom-message">
+        <h2>Une question avant de nous rejoindre ? </h2>
+        <p>
+            N’hésite pas à nous contacter, on sera ravis de te répondre !
+        </p>
+    </section>
+</body>
+</html>
