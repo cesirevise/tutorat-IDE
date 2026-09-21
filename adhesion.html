@@ -168,66 +168,77 @@
         /* =====================================================
            POINTS DES COINS
         ===================================================== */
-        .points {
-            position: absolute;
-            width: 180px;
-            height: 180px;
-            pointer-events: none;
-            z-index: 2;
-        }
-        /* Position des grappes */
-        .points-haut-gauche {
-            top: 0;
-            left: 0;
-        }
-        .points-haut-droite {
-            top: 0;
-            right: 0;
-        }
-        .points-bas-gauche {
-            bottom: 0;
-            left: 0;
-        }
-        .points-bas-droite {
-            bottom: 0;
-            right: 0;
-        }
-        /* Chaque point */
-        .points span {
-            position: absolute;
-            width: 5px;
-            height: 5px;
-            background: var(--bleu);
-            border-radius: 50%;
-            opacity: 0.45;
-        }
+.points {
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Haut gauche */
+.points-haut-gauche {
+    top: 0;
+    left: 0;
+}
+
+/* Haut droit */
+.points-haut-droite {
+    top: 0;
+    right: 0;
+}
+
+/* Bas gauche */
+.points-bas-gauche {
+    bottom: 0;
+    left: 0;
+}
+
+/* Bas droit */
+.points-bas-droite {
+    bottom: 0;
+    right: 0;
+}
+
+/* Chaque point */
+.points span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--bleu);
+    border-radius: 50%;
+    opacity: 0.4;
+}
         /* =====================================================
            VAGUES DES COINS
         ===================================================== */
-        .corner-lines {
-            position: absolute;
-            width: 260px;
-            height: 260px;
-            overflow: visible;
-            pointer-events: none;
-            z-index: 3;
-        }
-        .corner-lines path {
-            fill: none;
-            stroke: var(--bleu);
-            stroke-width: 6;
-            stroke-linecap: round;
-        }
-        /* Vagues coin haut droit */
-        .top-right {
-            top: 0;
-            right: 0;
-        }
-        /* Vagues coin bas gauche */
-        .bottom-left {
-            bottom: 0;
-            left: 0;
-        }
+
+.corner-lines {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.corner-lines path {
+    fill: none;
+    stroke: var(--bleu);
+    stroke-width: 6;
+    stroke-linecap: round;
+}
+
+/* Haut droit */
+.top-right {
+    top: -20px;
+    right: -20px;
+}
+
+/* Bas gauche */
+.bottom-left {
+    bottom: -20px;
+    left: -20px;
+}
         /* =====================================================
            CARTE PRINCIPALE
         ===================================================== */
@@ -680,23 +691,26 @@
     <!-- =====================================================
          JAVASCRIPT — POINTS
     ===================================================== -->
-    <script>
-        const coins = document.querySelectorAll('.points');
-        coins.forEach((coin) => {
-            for (let i = 0; i < 30; i++) {
-                const point = document.createElement('span');
-                /*
-                 * Les points restent volontairement
-                 * dans une petite zone du coin.
-                 */
-                point.style.left =
-                    (Math.random() * 48) + '%';
-                point.style.top =
-                    (Math.random() * 48) + '%';
-                coin.appendChild(point);
-            }
-        });
-    </script>
+<script>
+    const coins = document.querySelectorAll('.points');
+
+    coins.forEach((coin) => {
+
+        for (let i = 0; i < 30; i++) {
+
+            const point = document.createElement('span');
+
+            point.style.left =
+                Math.random() * 100 + '%';
+
+            point.style.top =
+                Math.random() * 100 + '%';
+
+            coin.appendChild(point);
+        }
+
+    });
+</script>
     <!-- =====================================================
          JAVASCRIPT — MENU MOBILE
     ===================================================== -->
