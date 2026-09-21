@@ -214,7 +214,7 @@
         }
 
         /* =====================================================
-   DÉCORATIONS CESIRÉVISE
+   DÉCORATIONS 
 ===================================================== */
 
 .decoration {
@@ -228,70 +228,41 @@
    GRAPPES DE POINTS
 ========================= */
 
-.dots {
+..points {
     position: absolute;
-
-    width: 175px;
-    height: 175px;
-
-    background-image: radial-gradient(
-        circle,
-        var(--bleu) 0 4px,
-        transparent 4.5px
-    );
-
-    background-size: 22px 22px;
-
-    opacity: 0.85;
-
-    z-index: 0;
+    width: 250px;
+    height: 250px;
+    pointer-events: none;
 }
 
-
-/* haut gauche */
-
-.dots-top-left {
+.points-haut-gauche {
     top: 0;
     left: 0;
-
-    mask-image: linear-gradient(
-        135deg,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
-
-    -webkit-mask-image: linear-gradient(
-        135deg,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
 }
 
-
-/* bas droit */
-
-.dots-bottom-right {
+.points-haut-droite {
+    top: 0;
     right: 0;
-    bottom: 0;
-
-    mask-image: linear-gradient(
-        315deg,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
-
-    -webkit-mask-image: linear-gradient(
-        315deg,
-        black 0%,
-        black 65%,
-        transparent 100%
-    );
 }
 
+.points-bas-gauche {
+    bottom: 0;
+    left: 0;
+}
 
+.points-bas-droite {
+    bottom: 0;
+    right: 0;
+}
+
+.points span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: #77A5AA;
+    border-radius: 50%;
+    opacity: 0.45;
+}
 /* =========================
    COURBES
 ========================= */
@@ -716,5 +687,24 @@
             N’hésite pas à nous contacter, on sera ravis de te répondre !
         </p>
     </section>
+    <div class="points points-haut-gauche"></div>
+<div class="points points-haut-droite"></div>
+<div class="points points-bas-gauche"></div>
+<div class="points points-bas-droite"></div>
+
+<script>
+const coins = document.querySelectorAll('.points');
+
+coins.forEach(coin => {
+    for (let i = 0; i < 30; i++) {
+        const point = document.createElement('span');
+
+        point.style.left = Math.random() * 100 + '%';
+        point.style.top = Math.random() * 100 + '%';
+
+        coin.appendChild(point);
+    }
+});
+</script>
 </body>
 </html>
