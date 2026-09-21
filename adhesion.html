@@ -31,10 +31,6 @@
         /* =====================================================
        HEADER
        ===================================================== */
-   /* =========================
-           HEADER
-        ========================= */
-
         .site-header {
             position: sticky;
             top: 0;
@@ -129,6 +125,59 @@
             cursor: pointer;
         }
 
+        
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 1050px) {
+
+            /* HEADER */
+
+            .header-inner {
+                min-height: 68px;
+            }
+
+            .brand-text {
+                font-size: 1.1rem;
+            }
+
+            .brand img {
+                width: 44px;
+                height: 44px;
+            }
+
+            .menu-button {
+                display: block;
+            }
+
+            .nav {
+                display: none;
+
+                position: absolute;
+                top: 68px;
+                left: 15px;
+                right: 15px;
+
+                padding: 12px;
+
+                flex-direction: column;
+                align-items: stretch;
+
+                background: var(--white);
+                border: 2px solid var(--ink);
+                border-radius: 22px;
+
+                box-shadow: var(--shadow);
+            }
+
+            .nav.open {
+                display: flex;
+            }
+
+            .nav a {
+                text-align: center;
+           }
         /* =========================
            HERO
         ========================= */
