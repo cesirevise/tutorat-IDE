@@ -226,71 +226,13 @@
             max-width: 680px;
             margin: auto;
         }
-
-        /* =====================================================
-   DÉCORATIONS 
-===================================================== */
-
-.decoration {
-    position: absolute;
-    pointer-events: none;
-    z-index: 0;
-}
-
-
-/* =========================
-   GRAPPES DE POINTS
-========================= */
-
-.points {
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    pointer-events: none;
-}
-
-.points-haut-gauche {
-    top: 0;
-    left: 0;
-}
-
-.points-haut-droite {
-    top: 0;
-    right: 0;
-}
-
-.points-bas-gauche {
-    bottom: 0;
-    left: 0;
-}
-
-.points-bas-droite {
-    bottom: 0;
-    right: 0;
-}
-
-.points span {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: #77A5AA;
-    border-radius: 50%;
-    opacity: 0.45;
-}
-/* =========================
-   COURBES
-========================= */
-
-/* =========================
-   COURBES VAGUES
-========================= */
-
 .corner-lines {
     position: absolute;
-    width: 280px;
-    height: 180px;
+    width: 260px;
+    height: 260px;
     overflow: visible;
     z-index: 1;
+    pointer-events: none;
 }
 
 .corner-lines path {
@@ -300,17 +242,14 @@
     stroke-linecap: round;
 }
 
-/* Vagues en haut à droite */
 .top-right {
     top: 0;
     right: 0;
 }
 
-/* Vagues en bas à gauche */
 .bottom-left {
     bottom: 0;
     left: 0;
-    transform: rotate(180deg);
 }
         /* =========================
            SECTION
@@ -583,40 +522,37 @@
 
     <!-- DÉCORATIONS  -->
 
-<!-- Vagues haut droit -->
+<!-- Vagues dans le coin haut droit -->
 <svg class="corner-lines top-right"
-     viewBox="0 0 280 180"
+     viewBox="0 0 260 260"
      aria-hidden="true">
-    <path d="M280 35
-             C245 5 210 5 180 35
-             C150 65 120 65 90 35
-             C60 5 30 5 0 35"/>
-    <path d="M280 75
-             C245 45 210 45 180 75
-             C150 105 120 105 90 75
-             C60 45 30 45 0 75"/>
-    <path d="M280 115
-             C245 85 210 85 180 115
-             C150 145 120 145 90 115
-             C60 85 30 85 0 115"/>
+
+    <path d="M260 0
+             C260 90 170 170 80 170"/>
+
+    <path d="M260 35
+             C260 105 195 205 80 205"/>
+
+    <path d="M260 70
+             C260 125 215 240 80 240"/>
+
 </svg>
 
-<!-- Vagues bas gauche -->
+
+<!-- Vagues dans le coin bas gauche -->
 <svg class="corner-lines bottom-left"
-     viewBox="0 0 280 180"
+     viewBox="0 0 260 260"
      aria-hidden="true">
-    <path d="M280 35
-             C245 5 210 5 180 35
-             C150 65 120 65 90 35
-             C60 5 30 5 0 35"/>
-    <path d="M280 75
-             C245 45 210 45 180 75
-             C150 105 120 105 90 75
-             C60 45 30 45 0 75"/>
-    <path d="M280 115
-             C245 85 210 85 180 115
-             C150 145 120 145 90 115
-             C60 85 30 85 0 115"/>
+
+    <path d="M0 260
+             C0 170 90 90 180 90"/>
+
+    <path d="M0 225
+             C0 155 65 55 180 55"/>
+
+    <path d="M0 190
+             C0 135 45 20 180 20"/>
+
 </svg>
     <!-- =========================
          CARTE PRINCIPALE
