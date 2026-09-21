@@ -178,6 +178,7 @@
             .nav a {
                 text-align: center;
            }
+      }
         /* =========================
            HERO
         ========================= */
@@ -241,7 +242,7 @@
    GRAPPES DE POINTS
 ========================= */
 
-..points {
+.points {
     position: absolute;
     width: 180px;
     height: 180px;
@@ -280,43 +281,36 @@
    COURBES
 ========================= */
 
+/* =========================
+   COURBES VAGUES
+========================= */
+
 .corner-lines {
     position: absolute;
-
-    width: 260px;
-    height: 210px;
-
+    width: 280px;
+    height: 180px;
     overflow: visible;
-
-    z-index: 0;
+    z-index: 1;
 }
 
 .corner-lines path {
     fill: none;
-
     stroke: var(--bleu);
-
-    stroke-width: 7;
-
+    stroke-width: 6;
     stroke-linecap: round;
 }
 
-
-/* Courbes en haut à droite */
-
+/* Vagues en haut à droite */
 .top-right {
     top: 0;
     right: 0;
 }
 
-
-/* Courbes en bas à gauche */
-
+/* Vagues en bas à gauche */
 .bottom-left {
     bottom: 0;
     left: 0;
-
-    transform: scaleY(-1);
+    transform: rotate(180deg);
 }
         /* =========================
            SECTION
@@ -541,7 +535,7 @@
                     Fiches
                 </a>
 
-                 <a href="conferences.html" class="active">
+                 <a href="conferences.html">
                      Conférences
                 </a>
 
@@ -553,7 +547,7 @@
                     Forum
                 </a>
 
-                <a href="adhesion.html">
+                <a href="adhesion.html" class=active>
                     Nous rejoindre
                 </a>
 
@@ -587,45 +581,43 @@
         </div>
     </section>
 
-    <!-- DÉCORATIONS CESIRÉVISE -->
+    <!-- DÉCORATIONS  -->
 
-<!-- Points haut gauche -->
-<div class="dots dots-top-left"></div>
-
-<!-- Courbes haut droit -->
-<svg class="corner-lines top-right" viewBox="0 0 260 210" aria-hidden="true">
-    <path d="M260 20
-             C220 20 190 35 190 75
-             C190 115 225 120 260 120"/>
-
-    <path d="M260 50
-             C235 50 215 62 215 85
-             C215 108 235 115 260 115"/>
-
-    <path d="M260 80
-             C248 80 240 88 240 100
-             C240 112 250 118 260 118"/>
+<!-- Vagues haut droit -->
+<svg class="corner-lines top-right"
+     viewBox="0 0 280 180"
+     aria-hidden="true">
+    <path d="M280 35
+             C245 5 210 5 180 35
+             C150 65 120 65 90 35
+             C60 5 30 5 0 35"/>
+    <path d="M280 75
+             C245 45 210 45 180 75
+             C150 105 120 105 90 75
+             C60 45 30 45 0 75"/>
+    <path d="M280 115
+             C245 85 210 85 180 115
+             C150 145 120 145 90 115
+             C60 85 30 85 0 115"/>
 </svg>
 
-
-<!-- Courbes bas gauche -->
-<svg class="corner-lines bottom-left" viewBox="0 0 260 210" aria-hidden="true">
-    <path d="M0 190
-             C40 190 70 175 70 135
-             C70 95 35 90 0 90"/>
-
-    <path d="M0 160
-             C25 160 45 148 45 125
-             C45 102 25 95 0 95"/>
-
-    <path d="M0 130
-             C12 130 20 122 20 110
-             C20 98 10 92 0 92"/>
+<!-- Vagues bas gauche -->
+<svg class="corner-lines bottom-left"
+     viewBox="0 0 280 180"
+     aria-hidden="true">
+    <path d="M280 35
+             C245 5 210 5 180 35
+             C150 65 120 65 90 35
+             C60 5 30 5 0 35"/>
+    <path d="M280 75
+             C245 45 210 45 180 75
+             C150 105 120 105 90 75
+             C60 45 30 45 0 75"/>
+    <path d="M280 115
+             C245 85 210 85 180 115
+             C150 145 120 145 90 115
+             C60 85 30 85 0 115"/>
 </svg>
-
-
-<!-- Points bas droit -->
-<div class="dots dots-bottom-right"></div>
     <!-- =========================
          CARTE PRINCIPALE
     ========================= -->
@@ -644,14 +636,6 @@
                     <p>
                         Tes conseils, ta voix, ta bonne humeur à tous les étudiant
                       et membre de l'équipe.
-                    </p>
-                </div>
-                <div class="benefit">
-                    <div class="benefit-icon"></div>
-                    <h3>S’entraider</h3>
-                    <p>
-                        Parce qu’on apprend aussi énormément
-                        en échangeant avec les autres.
                     </p>
                 </div>
                 <div class="benefit">
@@ -707,11 +691,24 @@ coins.forEach(coin => {
     for (let i = 0; i < 30; i++) {
         const point = document.createElement('span');
 
-        point.style.left = Math.random() * 100 + '%';
-        point.style.top = Math.random() * 100 + '%';
+        point.style.left = Math.random() * 50 + '%';
+        point.style.top = Math.random() * 50 + '%';
 
         coin.appendChild(point);
     }
+});
+</script>
+<script>
+const menuButton = document.querySelector('.menu-button');
+const nav = document.querySelector('.nav');
+
+menuButton.addEventListener('click', () => {
+    nav.classList.toggle('open');
+
+    const isOpen = nav.classList.contains('open');
+
+    menuButton.setAttribute('aria-expanded', isOpen);
+    menuButton.textContent = isOpen ? '✕' : '☰';
 });
 </script>
 </body>
