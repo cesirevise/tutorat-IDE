@@ -439,29 +439,68 @@
         }
         }
        /* =====================================================
-           FOOTER
-        ===================================================== */
+           /* =====================================================
+   FOOTER
+===================================================== */
 
-    .footer {
-        position: relative;
-        overflow: hidden;
-        padding: 35px 20px 50px;
-        text-align: center;
-        font-family: "Baloo 2", Arial, sans-serif;
-        color: #555;
-    }
-    .footer strong {
-      color: var(--teal-dark);
-    }
+footer {
+    position: relative;
+    min-height: 150px;
+    padding: 45px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-family: "Baloo 2", Arial, sans-serif;
+    font-size: 17px;
+    color: #555;
+    overflow: hidden;
+}
 
-    .footer-waves-bottom-right {
-        position: absolute;
-        right: -5px;
-        bottom: -5px;
-        width: 160px;
-        height: auto;
-        pointer-events: none;
-    }
+footer strong {
+    color: var(--bleu-fonce);
+    font-weight: 800;
+}
+
+/* ===========POINTS À GAUCHE DU FOOTER================ */
+
+.footer-points {
+    position: absolute;
+    width: 150px;
+    height: 130px;
+    left: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer-points span {
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background: var(--bleu);
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+/* =======VAGUES À DROITE DU FOOTER============ */
+
+.footer-waves {
+    position: absolute;
+    width: 260px;
+    height: 260px;
+    right: -45px;
+    bottom: -20px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.footer-waves path {
+    fill: none;
+    stroke: var(--bleu);
+    stroke-width: 6;
+    stroke-linecap: round;
+}
     </style>
 </head>
 <body>
@@ -691,34 +730,55 @@
             on sera ravis de te répondre !
         </p>
     </section>
-    <!--=========FOOTER =======-->
-   <footer>
-     <strong> CESIREVISE </strong> - Tutorat IDE - Rennes 
-        <svg class="footer-waves-bottom-right"
-     viewBox="0 0 180 100"
-     xmlns="http://www.w3.org/2000/svg"
-     aria-hidden="true">
-    <path d="M0 75 C35 45, 55 95, 90 65 S145 35, 180 55"
-          fill="none"
-          stroke="#77A5AA"
-          stroke-width="4"
-          stroke-linecap="round"/>
+  <!-- =====================================================
+     FOOTER
+===================================================== -->
 
-    <path d="M20 95 C55 65, 75 105, 110 75 S155 55, 180 70"
-          fill="none"
-          stroke="#527F84"
-          stroke-width="3"
-          stroke-linecap="round"/>
-        </svg>
-      </div>
-   </footer>
+<footer>
+    <!-- POINTS À GAUCHE -->
+    <div
+        class="footer-points"
+        aria-hidden="true"
+    ></div>
+
+    <!-- TEXTE CENTRAL -->
+    <div class="footer-content">
+        <strong>CESIREVISE</strong>
+        - Tutorat IDE - Rennes
+    </div>
+
+    <!-- VAGUES À DROITE -->
+    <svg
+        class="footer-waves"
+        viewBox="0 0 260 260"
+        aria-hidden="true"
+    >
+        <path
+            d="M260 0
+               C190 0 135 45 135 105
+               C135 150 165 180 215 180"
+        />
+        <path
+            d="M260 35
+               C210 35 170 65 170 110
+               C170 140 190 160 225 160"
+        />
+        <path
+            d="M260 70
+               C230 70 210 88 210 115
+               C210 135 222 145 240 145"
+        />
+    </svg>
+</footer>
     <!-- =====================================================
          JAVASCRIPT — POINTS
     ===================================================== -->
 <script>
-    const coins = document.querySelectorAll('.points');
+    const zonesDePoints = document.querySelectorAll(
+        '.points, .footer-points'
+    );
 
-    coins.forEach((coin) => {
+    zonesDePoints.forEach((zone) => {
 
         for (let i = 0; i < 30; i++) {
 
@@ -730,7 +790,7 @@
             point.style.top =
                 Math.random() * 100 + '%';
 
-            coin.appendChild(point);
+            zone.appendChild(point);
         }
 
     });
