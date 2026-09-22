@@ -4,749 +4,744 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nous rejoindre — CESIRÉVISE</title>
-    <!-- Polices -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        /* =====================================================
-           VARIABLES
-        ===================================================== */
-        :root {
-            --bleu: #77A5AA;
-            --bleu-fonce: #527F84;
-            --noir: #202020;
-            --blanc: #F7F7F5;
-        }
-        /* =====================================================
-           RESET
-        ===================================================== */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        body {
-            background: var(--blanc);
-            color: var(--noir);
-            font-family: 'League Spartan', sans-serif;
-            overflow-x: hidden;
-        }
-        /* =====================================================
-           HEADER
-        ===================================================== */
-        .site-header {
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            background: rgba(247, 247, 245, 0.94);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(32, 32, 32, 0.08);
-        }
+<!-- Polices -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=League+Spartan:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+    /* =====================================================
+       VARIABLES
+    ===================================================== */
+    :root {
+        --bleu: #77A5AA;
+        --bleu-fonce: #527F84;
+        --noir: #202020;
+        --blanc: #F7F7F5;
+    }
+    /* =====================================================
+       RESET
+    ===================================================== */
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+    body {
+        background: var(--blanc);
+        color: var(--noir);
+        font-family: 'League Spartan', sans-serif;
+        overflow-x: hidden;
+    }
+    /* =====================================================
+       HEADER
+    ===================================================== */
+    .site-header {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(247, 247, 245, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid rgba(32, 32, 32, 0.08);
+    }
+    .header-inner {
+        width: min(1180px, calc(100% - 34px));
+        min-height: 76px;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+    /* LOGO */
+    .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        text-decoration: none;
+        font-weight: 800;
+        color: inherit;
+    }
+    .brand img {
+        width: 52px;
+        height: 52px;
+        object-fit: contain;
+        border-radius: 50%;
+    }
+    .brand-text {
+        line-height: 0.9;
+        font-size: 1.35rem;
+        letter-spacing: -0.03em;
+    }
+    .brand-text span {
+        display: block;
+        margin-top: 5px;
+        color: var(--bleu-fonce);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+    }
+    /* NAVIGATION */
+    .nav {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    .nav a {
+        text-decoration: none;
+        padding: 10px 14px;
+        border-radius: 999px;
+        font-weight: 700;
+        font-size: 0.92rem;
+        color: var(--noir);
+        transition: 0.2s ease;
+    }
+    .nav a:hover,
+    .nav a:focus-visible {
+        background: var(--bleu);
+        color: white;
+        transform: translateY(-1px);
+    }
+    .nav a.active {
+        color: var(--bleu);
+    }
+    /* BOUTON MENU */
+    .menu-button {
+        display: none;
+        border: 0;
+        background: transparent;
+        color: var(--bleu);
+        font-family: inherit;
+        font-size: 1.7rem;
+        cursor: pointer;
+    }
+    /* =====================================================
+       HERO
+    ===================================================== */
+    .hero {
+        position: relative;
+        min-height: 470px;
+        padding: 65px 8% 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+    }
+    .hero-content {
+        position: relative;
+        z-index: 5;
+        max-width: 850px;
+        text-align: center;
+    }
+    /* PETIT BADGE */
+    .mini-badge {
+        display: inline-block;
+        margin-bottom: 20px;
+        padding: 8px 18px;
+        background: var(--bleu);
+        color: white;
+        border-radius: 30px;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 17px;
+        font-weight: 700;
+        transform: rotate(-2deg);
+    }
+    /* TITRE */
+    h1 {
+        margin-bottom: 25px;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: clamp(55px, 9vw, 100px);
+        line-height: 0.9;
+        font-weight: 800;
+        color: var(--noir);
+    }
+    h1 span {
+        color: var(--bleu-fonce);
+    }
+    /* TEXTE */
+    .hero-text {
+        max-width: 680px;
+        margin: auto;
+        font-size: 21px;
+        line-height: 1.5;
+    }
+    /* =====================================================
+       POINTS DES COINS DU HERO
+    ===================================================== */
+    .points {
+        position: absolute;
+        width: 150px;
+        height: 130px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .points-haut-gauche {
+        top: 0;
+        left: 0;
+    }
+    .points-haut-droite {
+        top: 0;
+        right: 0;
+    }
+    .points-bas-gauche {
+        bottom: 0;
+        left: 0;
+    }
+    .points-bas-droite {
+        bottom: 0;
+        right: 0;
+    }
+    .points span {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: var(--bleu);
+        border-radius: 50%;
+        opacity: 0.4;
+    }
+    /* =====================================================
+       VAGUES DU HERO
+    ===================================================== */
+    .corner-lines {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .corner-lines path {
+        fill: none;
+        stroke: var(--bleu);
+        stroke-width: 6;
+        stroke-linecap: round;
+    }
+    /* Vague haut droit */
+    .top-right {
+        top: -20px;
+        right: -45px;
+    }
+    /* Vague bas gauche */
+    .bottom-left {
+        bottom: -20px;
+        left: -55px;
+    }
+    /* =====================================================
+       CARTE PRINCIPALE
+    ===================================================== */
+    .join-section {
+        padding: 20px 7% 90px;
+    }
+    .join-card {
+        position: relative;
+        max-width: 950px;
+        margin: auto;
+        padding: 50px;
+        background: white;
+        border: 3px solid var(--noir);
+        border-radius: 30px;
+        box-shadow: 9px 9px 0 var(--bleu);
+    }
+    .join-card h2 {
+        margin-bottom: 18px;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 42px;
+        line-height: 1;
+    }
+    .join-card > p {
+        max-width: 700px;
+        font-size: 19px;
+        line-height: 1.5;
+    }
+    /* =====================================================
+       CARTES
+    ===================================================== */
+    .benefits {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin: 35px 0;
+    }
+    .benefit {
+        padding: 22px;
+        background: var(--blanc);
+        border-radius: 20px;
+        transition: 0.2s ease;
+    }
+    .benefit:hover {
+        transform: translateY(-5px) rotate(-1deg);
+    }
+    .benefit-icon {
+        margin-bottom: 8px;
+        font-size: 32px;
+    }
+    .benefit h3 {
+        margin-bottom: 5px;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 23px;
+    }
+    .benefit p {
+        font-size: 16px;
+        line-height: 1.35;
+    }
+    /* =====================================================
+       BOUTON
+    ===================================================== */
+    .button-container {
+        margin-top: 38px;
+        text-align: center;
+    }
+    .join-button {
+        display: inline-block;
+        padding: 17px 34px;
+        background: var(--bleu-fonce);
+        color: white;
+        border-radius: 50px;
+        text-decoration: none;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 23px;
+        font-weight: 700;
+        box-shadow: 0 6px 0 var(--noir);
+        transition: 0.15s ease;
+    }
+    .join-button:hover {
+        background: var(--bleu);
+        transform: translateY(3px);
+        box-shadow: 0 3px 0 var(--noir);
+    }
+    .small-text {
+        margin-top: 17px;
+        font-size: 14px;
+        opacity: 0.65;
+    }
+    /* =====================================================
+       MESSAGE FINAL
+    ===================================================== */
+    .bottom-message {
+        padding: 0 20px 80px;
+        text-align: center;
+    }
+    .bottom-message h2 {
+        margin-bottom: 8px;
+        font-family: 'Baloo 2', sans-serif;
+        font-size: 38px;
+    }
+    .bottom-message p {
+        font-size: 18px;
+    }
+    /* =====================================================
+       FOOTER
+    ===================================================== */
+    .footer {
+        position: relative;
+        min-height: 150px;
+        padding: 45px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-family: "Baloo 2", Arial, sans-serif;
+        font-size: 17px;
+        color: #555;
+        overflow: hidden;
+    }
+    .footer-content {
+        position: relative;
+        z-index: 5;
+        text-align: center;
+    }
+    .footer strong {
+        color: var(--bleu-fonce);
+        font-weight: 800;
+    }
+    /* =====================================================
+       POINTS — BAS GAUCHE DU FOOTER
+    ===================================================== */
+    .footer-points {
+        position: absolute;
+        width: 150px;
+        height: 100px;
+        left: 0;
+        bottom: 0;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .footer-points span {
+        position: absolute;
+        width: 5px;
+        height: 5px;
+        background: var(--bleu);
+        border-radius: 50%;
+        opacity: 0.4;
+    }
+    /* =====================================================
+       VAGUES — BAS DROIT DU FOOTER
+       Même forme que dans le HERO
+    ===================================================== */
+    .footer-waves {
+        position: absolute;
+        width: 260px;
+        height: 260px;
+        right: -45px;
+        bottom: -20px;
+        pointer-events: none;
+        z-index: 1;
+    }
+    .footer-waves path {
+        fill: none;
+        stroke: var(--bleu);
+        stroke-width: 6;
+        stroke-linecap: round;
+    }
+    /* =====================================================
+       TABLET / MOBILE
+    ===================================================== */
+    @media (max-width: 1050px) {
         .header-inner {
-            width: min(1180px, calc(100% - 34px));
-            min-height: 76px;
-            margin: auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 24px;
-        }
-        /* LOGO */
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            text-decoration: none;
-            font-weight: 800;
-            color: inherit;
-        }
-        .brand img {
-            width: 52px;
-            height: 52px;
-            object-fit: contain;
-            border-radius: 50%;
+            min-height: 68px;
         }
         .brand-text {
-            line-height: 0.9;
-            font-size: 1.35rem;
-            letter-spacing: -0.03em;
+            font-size: 1.1rem;
         }
-        .brand-text span {
+        .brand img {
+            width: 44px;
+            height: 44px;
+        }
+        .menu-button {
             display: block;
-            margin-top: 5px;
-            color: var(--bleu-fonce);
-            font-size: 0.68rem;
-            letter-spacing: 0.12em;
-            text-transform: uppercase;
         }
-        /* NAVIGATION */
         .nav {
+            display: none;
+            position: absolute;
+            top: 68px;
+            left: 15px;
+            right: 15px;
+            padding: 12px;
+            flex-direction: column;
+            align-items: stretch;
+            gap: 4px;
+            background: var(--blanc);
+            border: 2px solid var(--noir);
+            border-radius: 22px;
+            box-shadow: 6px 6px 0 var(--bleu);
+        }
+        .nav.open {
             display: flex;
-            align-items: center;
-            gap: 8px;
         }
         .nav a {
-            text-decoration: none;
-            padding: 10px 14px;
-            border-radius: 999px;
-            font-weight: 700;
-            font-size: 0.92rem;
-            color: var(--noir);
-            transition: 0.2s ease;
+            width: 100%;
+            text-align: center;
         }
-        .nav a:hover,
-        .nav a:focus-visible {
-            background: var(--bleu);
-            color: white;
-            transform: translateY(-1px);
-        }
-        /* PAGE ACTIVE */
-        .nav a.active {
-            color: var(--bleu);
-        }
-        /* BOUTON MENU */
-        .menu-button {
-            display: none;
-            border: 0;
-            background: transparent;
-            color: var(--bleu);
-            font-family: inherit;
-            font-size: 1.7rem;
-            cursor: pointer;
-        }
-        /* =====================================================
-           HERO
-        ===================================================== */
+    }
+    /* =====================================================
+       MOBILE
+    ===================================================== */
+    @media (max-width: 800px) {
         .hero {
-            position: relative;
-            min-height: 470px;
-            padding: 65px 8% 80px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
+            min-height: 420px;
+            padding: 55px 7% 65px;
         }
-        .hero-content {
-            position: relative;
-            z-index: 5;
-            max-width: 850px;
-            text-align: center;
-        }
-        /* PETIT BADGE */
-        .mini-badge {
-            display: inline-block;
-            margin-bottom: 20px;
-            padding: 8px 18px;
-            background: var(--bleu);
-            color: white;
-            border-radius: 30px;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: 17px;
-            font-weight: 700;
-            transform: rotate(-2deg);
-        }
-        /* TITRE */
         h1 {
-            margin-bottom: 25px;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: clamp(55px, 9vw, 100px);
-            line-height: 0.9;
-            font-weight: 800;
-            color: var(--noir);
+            font-size: 65px;
         }
-        h1 span {
-            color: var(--bleu-fonce);
-        }
-        /* TEXTE */
         .hero-text {
-            max-width: 680px;
-            margin: auto;
-            font-size: 21px;
-            line-height: 1.5;
-        }
-        /* =====================================================
-           POINTS DES COINS
-        ===================================================== */
-.points {
-    position: absolute;
-    width: 150px;
-    height: 130px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-/* Haut gauche */
-.points-haut-gauche {
-    top: 0;
-    left: 0;
-}
-
-/* Haut droit */
-.points-haut-droite {
-    top: 0;
-    right: 0;
-}
-
-/* Bas gauche */
-.points-bas-gauche {
-    bottom: 0;
-    left: 0;
-}
-
-/* Bas droit */
-.points-bas-droite {
-    bottom: 0;
-    right: 0;
-}
-
-/* Chaque point */
-.points span {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: var(--bleu);
-    border-radius: 50%;
-    opacity: 0.4;
-}
-        /* =====================================================
-           VAGUES DES COINS
-        ===================================================== */
-
-.corner-lines {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.corner-lines path {
-    fill: none;
-    stroke: var(--bleu);
-    stroke-width: 6;
-    stroke-linecap: round;
-}
-
-/* Haut droit */
-.top-right {
-    top: -20px;
-    right: -45px;
-}
-
-/* Bas gauche */
-.bottom-left {
-    bottom: -20px;
-    left: -55px;
-}
-        /* =====================================================
-           CARTE PRINCIPALE
-        ===================================================== */
-        .join-section {
-            padding: 20px 7% 90px;
-        }
-        .join-card {
-            position: relative;
-            max-width: 950px;
-            margin: auto;
-            padding: 50px;
-            background: white;
-            border: 3px solid var(--noir);
-            border-radius: 30px;
-            box-shadow: 9px 9px 0 var(--bleu);
-        }
-        .join-card h2 {
-            margin-bottom: 18px;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: 42px;
-            line-height: 1;
-        }
-        .join-card > p {
-            max-width: 700px;
-            font-size: 19px;
-            line-height: 1.5;
-        }
-        /* =====================================================
-           CARTES
-        ===================================================== */
-        .benefits {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 18px;
-            margin: 35px 0;
-        }
-        .benefit {
-            padding: 22px;
-            background: var(--blanc);
-            border-radius: 20px;
-            transition: 0.2s ease;
-        }
-        .benefit:hover {
-            transform: translateY(-5px) rotate(-1deg);
-        }
-        .benefit-icon {
-            margin-bottom: 8px;
-            font-size: 32px;
-        }
-        .benefit h3 {
-            margin-bottom: 5px;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: 23px;
-        }
-        .benefit p {
-            font-size: 16px;
-            line-height: 1.35;
-        }
-        /* =====================================================
-           BOUTON
-        ===================================================== */
-        .button-container {
-            margin-top: 38px;
-            text-align: center;
-        }
-        .join-button {
-            display: inline-block;
-            padding: 17px 34px;
-            background: var(--bleu-fonce);
-            color: white;
-            border-radius: 50px;
-            text-decoration: none;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: 23px;
-            font-weight: 700;
-            box-shadow: 0 6px 0 var(--noir);
-            transition: 0.15s ease;
-        }
-        .join-button:hover {
-            background: var(--bleu);
-            transform: translateY(3px);
-            box-shadow: 0 3px 0 var(--noir);
-        }
-        .small-text {
-            margin-top: 17px;
-            font-size: 14px;
-            opacity: 0.65;
-        }
-        /* =====================================================
-           MESSAGE FINAL
-        ===================================================== */
-        .bottom-message {
-            padding: 0 20px 80px;
-            text-align: center;
-        }
-        .bottom-message h2 {
-            margin-bottom: 8px;
-            font-family: 'Baloo 2', sans-serif;
-            font-size: 38px;
-        }
-        .bottom-message p {
             font-size: 18px;
         }
-        /* =====================================================
-           TABLET / MOBILE
-        ===================================================== */
-        @media (max-width: 1050px) {
-            .header-inner {
-                min-height: 68px;
-            }
-            .brand-text {
-                font-size: 1.1rem;
-            }
-            .brand img {
-                width: 44px;
-                height: 44px;
-            }
-            /* BOUTON ☰ */
-            .menu-button {
-                display: block;
-            }
-            /* MENU */
-            .nav {
-                display: none;
-                position: absolute;
-                top: 68px;
-                left: 15px;
-                right: 15px;
-                padding: 12px;
-                flex-direction: column;
-                align-items: stretch;
-                gap: 4px;
-                background: var(--blanc);
-                border: 2px solid var(--noir);
-                border-radius: 22px;
-                box-shadow: 6px 6px 0 var(--bleu);
-            }
-            .nav.open {
-                display: flex;
-            }
-            .nav a {
-                width: 100%;
-                text-align: center;
-            }
+        .corner-lines {
+            width: 190px;
+            height: 190px;
         }
-        /* =====================================================
-           MOBILE
-        ===================================================== */
-        @media (max-width: 800px) {
-            .hero {
-                min-height: 420px;
-                padding: 55px 7% 65px;
-            }
-            h1 {
-                font-size: 65px;
-            }
-            .hero-text {
-                font-size: 18px;
-            }
-            /* Décorations légèrement plus petites */
-            .corner-lines {
-                width: 190px;
-                height: 190px;
-            }
-            .points {
-                width: 140px;
-                height: 140px;
-            }
-            .points span {
-                width: 4px;
-                height: 4px;
-            }
-            /* CARTE */
-            .join-section {
-                padding: 10px 5% 70px;
-            }
-            .join-card {
-                padding: 30px 22px;
-                border-radius: 25px;
-                box-shadow: 6px 6px 0 var(--bleu);
-            }
-            .join-card h2 {
-                font-size: 35px;
-            }
-            .join-card > p {
-                font-size: 17px;
-            }
-            /* CARTES EN COLONNE */
-            .benefits {
-                grid-template-columns: 1fr;
-                gap: 12px;
-            }
-            .benefit {
-                padding: 18px;
-            }
-            .bottom-message h2 {
-                font-size: 32px;
+        .points {
+            width: 140px;
+            height: 140px;
         }
+        .points span {
+            width: 4px;
+            height: 4px;
         }
-       /* =====================================================
-                       FOOTER
-      ===================================================== */
-
-.footer {
-    position: relative;
-    min-height: 150px;
-    padding: 45px 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    font-family: "Baloo 2", Arial, sans-serif;
-    font-size: 17px;
-    color: #555;
-    overflow: hidden;
-}
-
-.footer strong {
-    color: var(--bleu-fonce);
-    font-weight: 800;
-}
-
-/* ===========POINTS À GAUCHE DU FOOTER================ */
-
-.footer-points {
-    position: absolute;
-    width: 150px;
-    height: 130px;
-    left: 0;
-    bottom: 0;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.footer-points span {
-    position: absolute;
-    width: 5px;
-    height: 5px;
-    background: var(--bleu);
-    border-radius: 50%;
-    opacity: 0.4;
-}
-
-/* =======VAGUES À DROITE DU FOOTER============ */
-
-.footer-waves {
-    position: absolute;
-    width: 260px;
-    height: 260px;
-    right: -45px;
-    bottom: -20px;
-    pointer-events: none;
-    z-index: 1;
-}
-
-.footer-waves path {
-    fill: none;
-    stroke: var(--bleu);
-    stroke-width: 6;
-    stroke-linecap: round;
-}
-    </style>
+        .join-section {
+            padding: 10px 5% 70px;
+        }
+        .join-card {
+            padding: 30px 22px;
+            border-radius: 25px;
+            box-shadow: 6px 6px 0 var(--bleu);
+        }
+        .join-card h2 {
+            font-size: 35px;
+        }
+        .join-card > p {
+            font-size: 17px;
+        }
+        .benefits {
+            grid-template-columns: 1fr;
+            gap: 12px;
+        }
+        .benefit {
+            padding: 18px;
+        }
+        .bottom-message h2 {
+            font-size: 32px;
+        }
+        .footer {
+            min-height: 140px;
+            padding: 40px 20px;
+        }
+        .footer-points {
+            width: 110px;
+            height: 80px;
+        }
+        .footer-points span {
+            width: 4px;
+            height: 4px;
+        }
+        .footer-waves {
+            width: 190px;
+            height: 190px;
+            right: -35px;
+            bottom: -55px;
+        }
+    }
+</style>
 </head>
 <body>
-    <!-- =====================================================
-         HEADER
-    ===================================================== -->
-    <header class="site-header">
-        <div class="header-inner">
-            <a
-                class="brand"
-                href="index.html"
-                aria-label="Retour à l'accueil CESIREVISE"
+<!-- =====================================================
+     HEADER
+===================================================== -->
+<header class="site-header">
+    <div class="header-inner">
+        <a
+            class="brand"
+            href="index.html"
+            aria-label="Retour à l'accueil CESIREVISE"
+        >
+            <img
+                src="logo-cesirevise.png"
+                alt="Logo CESIREVISE"
             >
-                <img
-                    src="logo-cesirevise.png"
-                    alt="Logo CESIREVISE"
-                >
-                <div class="brand-text">
-                    CESIREVISE
-                    <span>Tutorat IDE</span>
-                </div>
+            <div class="brand-text">
+                CESIREVISE
+                <span>Tutorat IDE</span>
+            </div>
+        </a>
+        <!-- BOUTON MENU MOBILE -->
+        <button
+            class="menu-button"
+            type="button"
+            aria-label="Ouvrir le menu"
+            aria-expanded="false"
+            aria-controls="main-nav"
+        >
+            ☰
+        </button>
+        <!-- NAVIGATION -->
+        <nav
+            class="nav"
+            id="main-nav"
+            aria-label="Navigation principale"
+        >
+            <a href="index.html">
+                Accueil
             </a>
-            <!-- BOUTON MENU MOBILE -->
-            <button
-                class="menu-button"
-                type="button"
-                aria-label="Ouvrir le menu"
-                aria-expanded="false"
-                aria-controls="main-nav"
+            <a href="news.html">
+                Actualités
+            </a>
+            <a href="fiches.html">
+                Fiches
+            </a>
+            <a href="conferences.html">
+                Conférences
+            </a>
+            <a href="kit.html">
+                Kit de stage
+            </a>
+            <a href="forum.html">
+                Forum
+            </a>
+            <a
+                href="adhesion.html"
+                class="active"
             >
-                ☰
-            </button>
-            <!-- NAVIGATION -->
-            <nav
-                class="nav"
-                id="main-nav"
-                aria-label="Navigation principale"
-            >
-                <a href="index.html">
-                    Accueil
-                </a>
-                <a href="news.html">
-                    Actualités
-                </a>
-                <a href="fiches.html">
-                    Fiches
-                </a>
-                <a href="conferences.html">
-                    Conférences
-                </a>
-                <a href="kit.html">
-                    Kit de stage
-                </a>
-                <a href="forum.html">
-                    Forum
-                </a>
-                <a
-                    href="adhesion.html"
-                    class="active"
-                >
-                    Nous rejoindre
-                </a>
-                <a href="contacts.html">
-                    Contact
-                </a>
-            </nav>
+                Nous rejoindre
+            </a>
+            <a href="contacts.html">
+                Contact
+            </a>
+        </nav>
+    </div>
+</header>
+<!-- =====================================================
+     HERO
+===================================================== -->
+<section class="hero">
+    <!-- POINTS COIN HAUT GAUCHE -->
+    <div
+        class="points points-haut-gauche"
+        aria-hidden="true"
+    ></div>
+    <!-- POINTS COIN HAUT DROIT -->
+    <div
+        class="points points-haut-droite"
+        aria-hidden="true"
+    ></div>
+    <!-- POINTS COIN BAS GAUCHE -->
+    <div
+        class="points points-bas-gauche"
+        aria-hidden="true"
+    ></div>
+    <!-- POINTS COIN BAS DROIT -->
+    <div
+        class="points points-bas-droite"
+        aria-hidden="true"
+    ></div>
+    <!-- VAGUES HAUT DROIT -->
+    <svg
+        class="corner-lines top-right"
+        viewBox="0 0 260 260"
+        aria-hidden="true"
+    >
+        <path
+            d="M260 0
+               C190 0 135 45 135 105
+               C135 150 165 180 215 180"
+        />
+        <path
+            d="M260 35
+               C210 35 170 65 170 110
+               C170 140 190 160 225 160"
+        />
+        <path
+            d="M260 70
+               C230 70 210 88 210 115
+               C210 135 222 145 240 145"
+        />
+    </svg>
+    <!-- VAGUES BAS GAUCHE -->
+    <svg
+        class="corner-lines bottom-left"
+        viewBox="0 0 260 260"
+        aria-hidden="true"
+    >
+        <path
+            d="M0 260
+               C70 260 125 215 125 155
+               C125 110 95 80 45 80"
+        />
+        <path
+            d="M0 225
+               C50 225 90 195 90 150
+               C90 120 70 100 35 100"
+        />
+        <path
+            d="M0 190
+               C30 190 55 170 55 145
+               C55 125 43 115 22 115"
+        />
+    </svg>
+    <!-- CONTENU HERO -->
+    <div class="hero-content">
+        <div class="mini-badge">
+            Rejoins la team !
         </div>
-    </header>
-    <!-- =====================================================
-         HERO
-    ===================================================== -->
-    <section class="hero">
-        <!-- ======POINTS COIN HAUT GAUCHE=========== -->
-        <div
-            class="points points-haut-gauche"
-            aria-hidden="true"
-        ></div>
-        <!-- ======= POINTS COIN HAUT DROIT============== -->
-        <div
-            class="points points-haut-droite"
-            aria-hidden="true"
-        ></div>
-        <!-- ======= POINTS COIN BAS GAUCHE============== -->
-        <div
-            class="points points-bas-gauche"
-            aria-hidden="true"
-        ></div>
-        <!-- ========POINTS COIN BAS DROIT=========== -->
-        <div
-            class="points points-bas-droite"
-            aria-hidden="true"
-        ></div>
-        <!-- ======== VAGUES HAUT DROIT============ -->
-        <svg
-            class="corner-lines top-right"
-            viewBox="0 0 260 260"
-            aria-hidden="true"
-        >
-            <path
-                d="M260 0
-                   C190 0 135 45 135 105
-                   C135 150 165 180 215 180"
-            />
-            <path
-                d="M260 35
-                   C210 35 170 65 170 110
-                   C170 140 190 160 225 160"
-            />
-            <path
-                d="M260 70
-                   C230 70 210 88 210 115
-                   C210 135 222 145 240 145"
-            />
-        </svg>
-        <!-- ======VAGUES BAS GAUCHE=============== -->
-        <svg
-            class="corner-lines bottom-left"
-            viewBox="0 0 260 260"
-            aria-hidden="true"
-        >
-            <path
-                d="M0 260
-                   C70 260 125 215 125 155
-                   C125 110 95 80 45 80"
-            />
-            <path
-                d="M0 225
-                   C50 225 90 195 90 150
-                   C90 120 70 100 35 100"
-            />
-            <path
-                d="M0 190
-                   C30 190 55 170 55 145
-                   C55 125 43 115 22 115"
-            />
-        </svg>
-        <!-- =========================
-             CONTENU HERO
-        ========================== -->
-        <div class="hero-content">
-            <div class="mini-badge">
-                Rejoins la team !
+        <h1>
+            On t’attend<br>
+            <span>au CESIR !</span>
+        </h1>
+        <p class="hero-text">
+            Envie de faire partie d'une équipe,
+            participer à nos assemblées générales,
+            et faire vivre une asso ?
+            <br><br>
+            Alors viens adhérer au CESIR !
+        </p>
+    </div>
+</section>
+<!-- =====================================================
+     CARTE PRINCIPALE
+===================================================== -->
+<section class="join-section">
+    <div class="join-card">
+        <h2>
+            Pourquoi nous rejoindre ? 👀
+        </h2>
+        <p>
+            Le CESIR, c’est avant tout une équipe d’étudiants
+            qui s’entraident pour rendre les études en IFSI un peu
+            plus simples, plus accessibles… et surtout plus fun !
+        </p>
+        <!-- CARTES -->
+        <div class="benefits">
+            <div class="benefit">
+                <h3>
+                    Partager
+                </h3>
+                <p>
+                    Tes conseils, ta voix, ta bonne humeur
+                    à tous les étudiants et membres de l'équipe.
+                </p>
             </div>
-            <h1>
-                On t’attend<br>
-                <span>au CESIR !</span>
-            </h1>
-            <p class="hero-text">
-                Envie de faire partie d'une équipe,
-                participer à nos assemblées générales,
-                et faire vivre une asso ?
-                <br><br>
-                Alors viens adhérer au CESIR !
-            </p>
-        </div>
-    </section>
-    <!-- =====================================================
-         CARTE PRINCIPALE
-    ===================================================== -->
-    <section class="join-section">
-        <div class="join-card">
-            <h2>
-                Pourquoi nous rejoindre ? 👀
-            </h2>
-            <p>
-                Le CESIR, c’est avant tout une équipe d’étudiants
-                qui s’entraident pour rendre les études en IFSI un peu
-                plus simples, plus accessibles… et surtout plus fun !
-            </p>
-            <!-- CARTES -->
-            <div class="benefits">
-                <div class="benefit">
-                    <h3>
-                        Partager
-                    </h3>
-                    <p>
-                        Tes conseils, ta voix, ta bonne humeur
-                        à tous les étudiants et membres de l'équipe.
-                    </p>
-                </div>
-                <div class="benefit">
-                    <h3>
-                        Participer
-                    </h3>
-                    <p>
-                        Ton vote compte pour nous lors de nos
-                        assemblées générales et pour les décisions
-                        concernant l'avenir du CESIR.
-                    </p>
-                </div>
-                <div class="benefit">
-                    <h3>
-                        En échange ?
-                    </h3>
-                    <p>
-                        Des tarifs préférentiels dans certains bars
-                        partenaires à Rennes, sur nos sweats de promo
-                        ou lors des événements !
-                    </p>
-                </div>
+            <div class="benefit">
+                <h3>
+                    Participer
+                </h3>
+                <p>
+                    Ton vote compte pour nous lors de nos
+                    assemblées générales et pour les décisions
+                    concernant l'avenir du CESIR.
+                </p>
             </div>
-            <!-- BOUTON -->
-            <div class="button-container">
-                <a
-                    href="https://www.helloasso.com/associations/comite-des-etudiants-en-soins-infirmiers-de-rennes/adhesions/adhesion-cesir"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="join-button"
-                >
-                    Je rejoins le CESIR
-                </a>
-                <p class="small-text">
-                    En 20 secondes, c'est plié !
+            <div class="benefit">
+                <h3>
+                    En échange ?
+                </h3>
+                <p>
+                    Des tarifs préférentiels dans certains bars
+                    partenaires à Rennes, sur nos sweats de promo
+                    ou lors des événements !
                 </p>
             </div>
         </div>
-    </section>
-    <!-- =====================================================
-         MESSAGE FINAL
-    ===================================================== -->
-    <section class="bottom-message">
-        <h2>
-            Une question avant de nous rejoindre ?
-        </h2>
-        <p>
-            N’hésite pas à nous contacter,
-            on sera ravis de te répondre !
-        </p>
-    </section>
-  <!-- =====================================================
+        <!-- BOUTON -->
+        <div class="button-container">
+            <a
+                href="https://www.helloasso.com/associations/comite-des-etudiants-en-soins-infirmiers-de-rennes/adhesions/adhesion-cesir"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="join-button"
+            >
+                Je rejoins le CESIR
+            </a>
+            <p class="small-text">
+                En 20 secondes, c'est plié !
+            </p>
+        </div>
+    </div>
+</section>
+<!-- =====================================================
+     MESSAGE FINAL
+===================================================== -->
+<section class="bottom-message">
+    <h2>
+        Une question avant de nous rejoindre ?
+    </h2>
+    <p>
+        N’hésite pas à nous contacter,
+        on sera ravis de te répondre !
+    </p>
+</section>
+<!-- =====================================================
      FOOTER
 ===================================================== -->
-
-<footer>
-    <!-- POINTS À GAUCHE -->
+<footer class="footer">
+    <!-- POINTS BAS GAUCHE -->
     <div
         class="footer-points"
         aria-hidden="true"
     ></div>
-
     <!-- TEXTE CENTRAL -->
     <div class="footer-content">
         <strong>CESIREVISE</strong>
         - Tutorat IDE - Rennes
     </div>
-
-    <!-- VAGUES À DROITE -->
+    <!-- VAGUES BAS DROITE -->
     <svg
         class="footer-waves"
         viewBox="0 0 260 260"
@@ -769,55 +764,48 @@
         />
     </svg>
 </footer>
-    <!-- =====================================================
-         JAVASCRIPT — POINTS
-    ===================================================== -->
+<!-- =====================================================
+     JAVASCRIPT — POINTS
+===================================================== -->
 <script>
     const zonesDePoints = document.querySelectorAll(
         '.points, .footer-points'
     );
-
     zonesDePoints.forEach((zone) => {
-
         for (let i = 0; i < 30; i++) {
-
             const point = document.createElement('span');
-
             point.style.left =
                 Math.random() * 100 + '%';
-
             point.style.top =
                 Math.random() * 100 + '%';
-
             zone.appendChild(point);
         }
-
     });
 </script>
-    <!-- =====================================================
-         JAVASCRIPT — MENU MOBILE
-    ===================================================== -->
-    <script>
-        const menuButton =
-            document.querySelector('.menu-button');
-        const nav =
-            document.querySelector('.nav');
-        menuButton.addEventListener('click', () => {
-            const isOpen =
-                nav.classList.toggle('open');
-            menuButton.setAttribute(
-                'aria-expanded',
-                isOpen
-            );
-            menuButton.setAttribute(
-                'aria-label',
-                isOpen
-                    ? 'Fermer le menu'
-                    : 'Ouvrir le menu'
-            );
-            menuButton.textContent =
-                isOpen ? '✕' : '☰';
-        });
-    </script>
+<!-- =====================================================
+     JAVASCRIPT — MENU MOBILE
+===================================================== -->
+<script>
+    const menuButton =
+        document.querySelector('.menu-button');
+    const nav =
+        document.querySelector('.nav');
+    menuButton.addEventListener('click', () => {
+        const isOpen =
+            nav.classList.toggle('open');
+        menuButton.setAttribute(
+            'aria-expanded',
+            isOpen
+        );
+        menuButton.setAttribute(
+            'aria-label',
+            isOpen
+                ? 'Fermer le menu'
+                : 'Ouvrir le menu'
+        );
+        menuButton.textContent =
+            isOpen ? '✕' : '☰';
+    });
+</script>
 </body>
 </html>
