@@ -1285,40 +1285,164 @@
     <!-- =========================================================
          JAVASCRIPT
     ========================================================== -->
+<iframe
+    name="googleFormFrame"
+    style="display:none;"
+></iframe>
     <script>
-        const menuButton = document.querySelector(".menu-button");
-        const nav = document.querySelector(".nav");
-        menuButton.addEventListener("click", () => {
-            const open = nav.classList.toggle("open");
+    /* =========================================================
+       MENU MOBILE
+    ========================================================== */
+
+    const menuButton = document.querySelector(".menu-button");
+    const nav = document.querySelector(".nav");
+
+    menuButton.addEventListener("click", () => {
+        const open = nav.classList.toggle("open");
+
+        menuButton.setAttribute(
+            "aria-expanded",
+            String(open)
+        );
+
+        menuButton.textContent = open ? "×" : "☰";
+    });
+
+    nav.querySelectorAll("a").forEach(link => {
+        link.addEventListener("click", () => {
+            nav.classList.remove("open");
+
             menuButton.setAttribute(
                 "aria-expanded",
-                String(open)
+                "false"
             );
-            menuButton.textContent = open ? "×" : "☰";
+
+            menuButton.textContent = "☰";
         });
-        nav.querySelectorAll("a").forEach(link => {
-            link.addEventListener("click", () => {
-                nav.classList.remove("open");
-                menuButton.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-                menuButton.textContent = "☰";
-            });
+    });
+
+
+    /* =========================================================
+       FORMULAIRE → GOOGLE FORMS → GOOGLE SHEETS
+    ========================================================== */
+
+    const form = document.getElementById("reservationForm");
+    const successMessage =
+        document.getElementById("successMessage");
+
+    form.addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+        /* Formulaire invisible envoyé à Google Forms */
+        const googleForm = document.createElement("form");
+
+        googleForm.method = "POST";
+
+        googleForm.action =
+            "https://docs.google.com/forms/d/e/1FAIpQLSeMQ3rSnJG6dU35YTVY6RoZSTzxi3A4UU9YIwXv2l-DVUmNYQ/formResponse";
+
+        googleForm.target = "googleFormFrame";
+
+        googleForm.style.display = "none";
+
+
+        /* Fonction pour créer les champs */
+        function addField(name, value) {
+
+            const input = document.createElement("input");
+
+            input.type = "hidden";
+            input.name = name;
+            input.value = value || "";
+
+            googleForm.appendChild(input);
+        }
+
+
+        /* =====================================================
+           RÉCUPÉRATION DES INFORMATIONS
+        ===================================================== */
+
+        addField(
+            "entry.1156198653",
+            document.getElementById("prenom").value
+        );
+
+        addField(
+            "entry.585249718",
+            document.getElementById("nom").value
+        );
+
+        addField(
+            "entry.283561785",
+            document.getElementById("annee").value
+        );
+
+        addField(
+            "entry.2136154762",
+            document.getElementById("email").value
+        );
+
+        addField(
+            "entry.62525003",
+            document.getElementById("telephone").value
+        );
+
+        addField(
+            "entry.1772269427",
+            document.getElementById("quantite").value
+        );
+
+        addField(
+            "entry.842479804",
+            document.getElementById("message").value
+        );
+
+        addField(
+            "entry.333425528",
+            document.getElementById("consentement").checked
+                ? "J’accepte que les informations renseignées soient utilisées uniquement pour traiter ma demande de réservation."
+                : ""
+        );
+
+
+        /* =====================================================
+           ENVOI
+        ===================================================== */
+
+        document.body.appendChild(googleForm);
+
+        googleForm.submit();
+
+
+        /* =====================================================
+           MESSAGE DE CONFIRMATION
+        ===================================================== */
+
+        successMessage.style.display = "block";
+
+        successMessage.textContent =
+            "Ta demande de réservation a bien été envoyée ! 💙";
+
+
+        successMessage.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
         });
-        const form = document.getElementById("reservationForm");
-        const successMessage = document.getElementById("successMessage");
-        form.addEventListener("submit", function(event) {
-            if (form.getAttribute("action") === "#") {
-                event.preventDefault();
-                successMessage.style.display = "block";
-                successMessage.scrollIntoView({
-                    behavior: "smooth",
-                    block: "center"
-                });
-                form.reset();
-            }
-        });
-    </script>
+
+
+        /* Réinitialisation du formulaire */
+        form.reset();
+
+
+        /* Suppression du formulaire invisible */
+        setTimeout(() => {
+            googleForm.remove();
+        }, 2000);
+
+    });
+</script>
+
 </body>
 </html>
