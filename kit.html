@@ -1166,13 +1166,13 @@
                                 <option value="">
                                     Sélectionner
                                 </option>
-                                <option value="1A">
+                                <option value="L1">
                                     1re année
                                 </option>
-                                <option value="2A">
+                                <option value="L2">
                                     2e année
                                 </option>
-                                <option value="3A">
+                                <option value="L3">
                                     3e année
                                 </option>
                                 <option value="autre">
@@ -1223,9 +1223,6 @@
                                 </option>
                                 <option value="4">
                                     4 kits
-                                </option>
-                                <option value="5">
-                                    5 kits
                                 </option>
                             </select>
                         </div>
@@ -1322,126 +1319,106 @@
     });
 
 
-    /* =========================================================
-       FORMULAIRE → GOOGLE FORMS → GOOGLE SHEETS
-    ========================================================== */
+/* =========================================================
+   FORMULAIRE → GOOGLE FORMS → GOOGLE SHEETS
+========================================================= */
 
-    const form = document.getElementById("reservationForm");
-    const successMessage =
-        document.getElementById("successMessage");
+const form = document.getElementById("reservationForm");
+const successMessage = document.getElementById("successMessage");
 
-    form.addEventListener("submit", function(event) {
+form.addEventListener("submit", function(event) {
 
-        event.preventDefault();
+    event.preventDefault();
 
-        /* Formulaire invisible envoyé à Google Forms */
-        const googleForm = document.createElement("form");
+    const googleForm = document.createElement("form");
 
-        googleForm.method = "POST";
+    googleForm.method = "POST";
 
-        googleForm.action =
-            "https://docs.google.com/forms/d/e/1FAIpQLSeMQ3rSnJG6dU35YTVY6RoZSTzxi3A4UU9YIwXv2l-DVUmNYQ/formResponse";
+    googleForm.action =
+        "https://docs.google.com/forms/d/e/1FAIpQLSeMQ3rSnJG6dU35YTVY6RoZSTzxi3A4UU9YIwXv2l-DVUmNYQ/formResponse";
 
-        googleForm.target = "googleFormFrame";
+    googleForm.target = "googleFormFrame";
 
-        googleForm.style.display = "none";
+    googleForm.style.display = "none";
 
 
-        /* Fonction pour créer les champs */
-        function addField(name, value) {
+    function addField(name, value) {
 
-            const input = document.createElement("input");
+        const input = document.createElement("input");
 
-            input.type = "hidden";
-            input.name = name;
-            input.value = value || "";
+        input.type = "hidden";
+        input.name = name;
+        input.value = value || "";
 
-            googleForm.appendChild(input);
-        }
-
-
-        /* =====================================================
-           RÉCUPÉRATION DES INFORMATIONS
-        ===================================================== */
-
-        addField(
-            "entry.1156198653",
-            document.getElementById("prenom").value
-        );
-
-        addField(
-            "entry.585249718",
-            document.getElementById("nom").value
-        );
-
-        addField(
-            "entry.283561785",
-            document.getElementById("annee").value
-        );
-
-        addField(
-            "entry.2136154762",
-            document.getElementById("email").value
-        );
-
-        addField(
-            "entry.62525003",
-            document.getElementById("telephone").value
-        );
-
-        addField(
-            "entry.1772269427",
-            document.getElementById("quantite").value
-        );
-
-        addField(
-            "entry.842479804",
-            document.getElementById("message").value
-        );
-
-        addField(
-            "entry.333425528",
-            document.getElementById("consentement").checked
-                ? "J’accepte que les informations renseignées soient utilisées uniquement pour traiter ma demande de réservation."
-                : ""
-        );
+        googleForm.appendChild(input);
+    }
 
 
-        /* =====================================================
-           ENVOI
-        ===================================================== */
+    addField(
+        "entry.1156198653",
+        document.getElementById("prenom").value
+    );
 
-        document.body.appendChild(googleForm);
+    addField(
+        "entry.585249718",
+        document.getElementById("nom").value
+    );
 
-        googleForm.submit();
+    addField(
+        "entry.283561785",
+        document.getElementById("annee").value
+    );
+
+    addField(
+        "entry.2136154762",
+        document.getElementById("email").value
+    );
+
+    addField(
+        "entry.62525003",
+        document.getElementById("telephone").value
+    );
+
+    addField(
+        "entry.1772269427",
+        document.getElementById("quantite").value
+    );
+
+    addField(
+        "entry.842479804",
+        document.getElementById("message").value
+    );
+
+    addField(
+        "entry.333425528",
+        document.getElementById("consentement").checked
+            ? "J’accepte que les informations renseignées soient utilisées uniquement pour traiter ma demande de réservation."
+            : ""
+    );
 
 
-        /* =====================================================
-           MESSAGE DE CONFIRMATION
-        ===================================================== */
+    document.body.appendChild(googleForm);
 
-        successMessage.style.display = "block";
-
-        successMessage.textContent =
-            "Ta demande de réservation a bien été envoyée ! 💙";
+    googleForm.submit();
 
 
-        successMessage.scrollIntoView({
-            behavior: "smooth",
-            block: "center"
-        });
+    successMessage.style.display = "block";
 
+    successMessage.textContent =
+        "Ta demande de réservation a bien été envoyée !";
 
-        /* Réinitialisation du formulaire */
-        form.reset();
-
-
-        /* Suppression du formulaire invisible */
-        setTimeout(() => {
-            googleForm.remove();
-        }, 2000);
-
+    successMessage.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
     });
+
+    form.reset();
+
+    setTimeout(() => {
+        googleForm.remove();
+    }, 5000);
+
+});
 </script>
 
 </body>
