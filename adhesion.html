@@ -237,7 +237,7 @@
 /* Bas gauche */
 .bottom-left {
     bottom: -20px;
-    left: -45px;
+    left: -55px;
 }
         /* =====================================================
            CARTE PRINCIPALE
@@ -437,7 +437,31 @@
             .bottom-message h2 {
                 font-size: 32px;
             }
+            .footer {
+                position: relative;
+                overflow: hidden;
+            }
+
+            .vague-footer {
+                position: absolute;
+                bottom: 0;
+                right: 0;
         }
+        }
+        /*---- FOOTER ------*/
+        .footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-waves-bottom-right {
+    position: absolute;
+    right: -5px;
+    bottom: -5px;
+    width: 160px;
+    height: auto;
+    pointer-events: none;
+}
     </style>
 </head>
 <body>
@@ -510,37 +534,27 @@
          HERO
     ===================================================== -->
     <section class="hero">
-        <!-- =========================
-             POINTS COIN HAUT GAUCHE
-        ========================== -->
+        <!-- ======POINTS COIN HAUT GAUCHE=========== -->
         <div
             class="points points-haut-gauche"
             aria-hidden="true"
         ></div>
-        <!-- =========================
-             POINTS COIN HAUT DROIT
-        ========================== -->
+        <!-- ======= POINTS COIN HAUT DROIT============== -->
         <div
             class="points points-haut-droite"
             aria-hidden="true"
         ></div>
-        <!-- =========================
-             POINTS COIN BAS GAUCHE
-        ========================== -->
+        <!-- ======= POINTS COIN BAS GAUCHE============== -->
         <div
             class="points points-bas-gauche"
             aria-hidden="true"
         ></div>
-        <!-- =========================
-             POINTS COIN BAS DROIT
-        ========================== -->
+        <!-- ========POINTS COIN BAS DROIT=========== -->
         <div
             class="points points-bas-droite"
             aria-hidden="true"
         ></div>
-        <!-- =========================
-             VAGUES HAUT DROIT
-        ========================== -->
+        <!-- ======== VAGUES HAUT DROIT============ -->
         <svg
             class="corner-lines top-right"
             viewBox="0 0 260 260"
@@ -562,9 +576,7 @@
                    C210 135 222 145 240 145"
             />
         </svg>
-        <!-- =========================
-             VAGUES BAS GAUCHE
-        ========================== -->
+        <!-- ======VAGUES BAS GAUCHE=============== -->
         <svg
             class="corner-lines bottom-left"
             viewBox="0 0 260 260"
@@ -622,9 +634,6 @@
             <!-- CARTES -->
             <div class="benefits">
                 <div class="benefit">
-                    <div class="benefit-icon">
-                        🤝
-                    </div>
                     <h3>
                         Partager
                     </h3>
@@ -634,9 +643,6 @@
                     </p>
                 </div>
                 <div class="benefit">
-                    <div class="benefit-icon">
-                        🗳️
-                    </div>
                     <h3>
                         Participer
                     </h3>
@@ -647,9 +653,6 @@
                     </p>
                 </div>
                 <div class="benefit">
-                    <div class="benefit-icon">
-                        🎁
-                    </div>
                     <h3>
                         En échange ?
                     </h3>
@@ -688,6 +691,26 @@
             on sera ravis de te répondre !
         </p>
     </section>
+    <!--=========FOOTER =======-->
+  
+<div class="vague-footer">
+    <svg class="footer-waves-bottom-right"
+     viewBox="0 0 180 100"
+     xmlns="http://www.w3.org/2000/svg"
+     aria-hidden="true">
+    <path d="M0 75 C35 45, 55 95, 90 65 S145 35, 180 55"
+          fill="none"
+          stroke="#77A5AA"
+          stroke-width="4"
+          stroke-linecap="round"/>
+
+    <path d="M20 95 C55 65, 75 105, 110 75 S155 55, 180 70"
+          fill="none"
+          stroke="#527F84"
+          stroke-width="3"
+          stroke-linecap="round"/>
+</svg>
+</div>
     <!-- =====================================================
          JAVASCRIPT — POINTS
     ===================================================== -->
